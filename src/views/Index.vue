@@ -42,14 +42,30 @@
         <p>Naast deze activiteiten verzorgt Salve Mundi ook een introductie van FHICT van top tot teen.</p>
       </div>
     </section>
+    <section class="events">
+      <div class="container">
+        <div>
+          <h2>Evenementen</h2>
+          <p>Salve Mundi verzorgt voor zowel de uitgaande als niet uitgaande studenten evenementen. Voor de uitgaande studenten moet je hierbij denken aan feestjes in onze stamkroeg Villa Fiesta. En voor de wat minder uitgaande studenten kan je denken aan game-, poker-, en bordspelavonden. Voor iedereen wat wils!</p>
+          <p>Bekijk hier dan ook de opkomende evenementen:</p>
+          <p>Ben je benieuwd naar hoe zulke evenementen er uit zien? Bekijk dan onze facebookpagina.</p>
+        </div>
+        <div>
+          <EventItem />
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import EventItem from "@/components/layout/events/EventItem.vue";
 
 @Component({
-  components: {}
+  components: {
+    EventItem
+  }
 })
 export default class Index extends Vue {}
 </script>
@@ -59,8 +75,8 @@ export default class Index extends Vue {}
   height: 100%;
 
   section.main {
-    width: 100%;
-    height: 100%;
+    height: 100vh;
+
     background: linear-gradient(
         rgba(102, 50, 101, 0.8),
         rgba(102, 50, 101, 0.8)
@@ -72,6 +88,8 @@ export default class Index extends Vue {}
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding-top: 0;
 
     .center {
       text-align: center;
@@ -124,8 +142,9 @@ export default class Index extends Vue {}
     }
   }
 
-  section.about {
+  section {
     padding-top: 100px;
+
     .container {
       flex-direction: column;
     }
