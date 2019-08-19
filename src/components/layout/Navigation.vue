@@ -82,6 +82,7 @@ export default class Navigation extends Vue {}
   text-align: center;
 
   color: #ffffff;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
 }
 
 .container {
