@@ -9,6 +9,18 @@ body {
   height: 100%;
 }
 
-div {
-  display: block;
+body {
+  font-family: Poppins, sans-serif;
+}
+
+h2 {
+  font-family: "Portico Rounded", sans-serif;
+  font-size: 24px;
+  color: #663265;
+}
+
+.container {
+  width: 1200px;
+  display: flex;
+  margin: 0 auto;
 }

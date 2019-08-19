@@ -32,8 +32,12 @@ export default class Navigation extends Vue {}
   position: absolute;
   left: 0;
   right: 0;
-  display: flex;
   padding: 15px 150px;
+  display: flex;
+
+  .container {
+    display: flex;
+  }
 
   &__brand {
     img {
@@ -56,7 +60,6 @@ export default class Navigation extends Vue {}
     display: flex;
 
     li {
-      font-family: Poppins;
       font-weight: bold;
       font-size: 14px;
 
@@ -70,12 +73,12 @@ export default class Navigation extends Vue {}
 // TODO: TEMP, FIX WHEN DEFAULTS ARE MADE
 
 .button {
+  width: 100px;
   display: block;
   background: #663265;
   border-radius: 2px;
-  padding: 12px;
+  padding: 6px;
 
-  font-family: Poppins;
   font-weight: bold;
   font-size: 12px;
 
@@ -83,11 +86,5 @@ export default class Navigation extends Vue {}
 
   color: #ffffff;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
-}
-
-.container {
-  width: 1200px;
-  display: flex;
-  margin: 0 auto;
 }
 </style>
