@@ -2,8 +2,8 @@
   <div class="event-item">
     <div class="event-item__date-container">
       <h4>
-        <span>11</span>
-        <span>JUN</span>
+        <span>{{event.date}}</span>
+        <span>{{event.day}}</span>
       </h4>
     </div>
     <div class="event-item__text-container"></div>
@@ -15,7 +15,12 @@ import { Component, Vue } from "vue-property-decorator";
 @Component({
   components: {}
 })
-export default class EventItem extends Vue {}
+export default class EventItem extends Vue {
+  event: object = {
+    day: "JUN",
+    date: 11
+  };
+}
 </script>
 <style lang="scss">
 .event-item {
