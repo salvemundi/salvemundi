@@ -13,7 +13,12 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
-  components: {}
+  components: {
+
+  },
+  props: [
+      ""
+  ]
 })
 export default class EventItem extends Vue {
   event: object = {

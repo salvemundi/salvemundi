@@ -52,6 +52,8 @@
         </div>
         <div>
           <EventItem />
+          <EventItem />
+          <EventItem />
         </div>
       </div>
     </section>
