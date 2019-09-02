@@ -6,7 +6,7 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <a class="click-to-action">Meld je nu aan!</a>
+        <a class="button click-to-action">Meld je nu aan!</a>
       </div>
     </section>
     <section class="about">
@@ -75,6 +75,14 @@
           <CommitteeIcon name="Kas" icon />
           <CommitteeIcon name="ICT" icon />
         </div>
+      </div>
+    </section>
+    <section class="merchandise">
+      <div class="container">
+        <h2>Merchandise</h2>
+        <p>Naast dat onze mediacomissie de media verzorgt voor onze social media. Hebben ze ook nog een toffe merchandise ontworpen! Dit is de kans om op evenementen van Salve Mundi, feestjes of festivals te shinen met je mooie t-shirt, hoodie of vest.</p>
+        <p>Wil jij nou ook zo gelikt over straat kunnen? Bestel je merchandise dan hier!</p>
+        <a class="button">Merchandise</a>
       </div>
     </section>
   </div>
@@ -147,21 +155,6 @@ export default class Index extends Vue {}
         margin-top: 50px;
         margin-left: auto;
         margin-right: auto;
-
-        background: #663265;
-        border-radius: 2px;
-
-        padding: 7px 26px;
-
-        display: block;
-
-        font-weight: bold;
-        font-size: 18px;
-
-        color: #ffffff;
-
-        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
-        cursor: pointer;
       }
     }
   }
@@ -187,5 +180,6 @@ export default class Index extends Vue {}
       display: inline-block;
     }
   }
+
 }
 </style>
