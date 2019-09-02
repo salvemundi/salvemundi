@@ -57,16 +57,38 @@
         </div>
       </div>
     </section>
+    <section class="committees">
+      <div class="container">
+        <h2>Commissies</h2>
+        <p>Salve Mundi heeft verschillende commissies die ieder verantwoordelijk zijn voor het functioneren van de vereniging. Elke commissie heeft zijn eigen taken en verantwoordelijkheden, en samen zorgen zij ervoor dat Salve Mundi kan zijn zoals het is!</p>
+
+        <div class="committee-icons">
+          <CommitteeIcon name="Bestuur" icon />
+          <CommitteeIcon name="Feest" icon />
+          <CommitteeIcon name="Media" icon />
+          <CommitteeIcon name="Kamp" icon />
+          <CommitteeIcon name="Studie" icon />
+          <CommitteeIcon name="Ledenzaken" icon />
+          <CommitteeIcon name="Activiteiten" icon />
+          <CommitteeIcon name="Extern" icon />
+          <CommitteeIcon name="Alpha Centauri" icon />
+          <CommitteeIcon name="Kas" icon />
+          <CommitteeIcon name="ICT" icon />
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import EventItem from "@/components/layout/events/EventItem.vue";
+import CommitteeIcon from "@/components/layout/committees/CommitteeIcon.vue";
 
 @Component({
   components: {
-    EventItem
+    EventItem,
+    CommitteeIcon
   }
 })
 export default class Index extends Vue {}
@@ -157,6 +179,12 @@ export default class Index extends Vue {}
 
     ul {
       padding-left: 16px;
+    }
+  }
+
+  section.committees {
+    .committee-icon {
+      display: inline-block;
     }
   }
 }
