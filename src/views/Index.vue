@@ -103,8 +103,6 @@ export default class Index extends Vue {}
 </script>
 <style lang="scss">
 .index {
-  width: 100%;
-  height: 100%;
 
   section.main {
     height: 100vh;
