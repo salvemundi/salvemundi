@@ -15,13 +15,13 @@
       </div>
       <div class="footer__social">
         <div>
-          <img src="@/assets/images/logo.png" alt="facebook" />
+          <a href="https://www.instagram.com/sv.salvemundi/" target="_blank"><img src="@/assets/images/instagram.svg" alt="instagram" /></a>
         </div>
         <div>
-          <img src="@/assets/images/logo.png" alt="instagram" />
+          <a href="https://nl-nl.facebook.com/sv.salvemundi/" target="_blank"><img src="@/assets/images/facebook.svg" alt="facebook" /></a>
         </div>
         <div>
-          <a>Privacy</a>
+          <a href="/privacy">Privacy</a>
         </div>
       </div>
     </div>
@@ -39,12 +39,15 @@ export default class Footer extends Vue {}
   background: #663265;
   padding: 22px 0;
   color: white;
+  width: 100vw;
 
   hr {
     margin: 3px 0;
   }
 
   &__information {
+    margin-left: 2%;
+
     div {
       display: flex;
       justify-content: space-between;
@@ -56,7 +59,7 @@ export default class Footer extends Vue {}
     justify-content: space-between;
     margin-left: auto;
 
-    padding: 27px;
+    padding: 27px 2%;
 
     div {
       margin: 0 9px;
@@ -65,6 +68,11 @@ export default class Footer extends Vue {}
         width: 20px;
         height: 20px;
       }
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
     }
   }
 }
