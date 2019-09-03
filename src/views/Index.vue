@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="index">
     <section class="main">
       <div class="center">
         <h2 class="lead">Wij zijn</h2>
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <a class="click-to-action">Meld je nu aan!</a>
+        <a class="button click-to-action">Meld je nu aan!</a>
       </div>
     </section>
     <section class="about">
@@ -42,93 +42,144 @@
         <p>Naast deze activiteiten verzorgt Salve Mundi ook een introductie van FHICT van top tot teen.</p>
       </div>
     </section>
+    <section class="events">
+      <div class="container">
+        <div>
+          <h2>Evenementen</h2>
+          <p>Salve Mundi verzorgt voor zowel de uitgaande als niet uitgaande studenten evenementen. Voor de uitgaande studenten moet je hierbij denken aan feestjes in onze stamkroeg Villa Fiesta. En voor de wat minder uitgaande studenten kan je denken aan game-, poker-, en bordspelavonden. Voor iedereen wat wils!</p>
+          <p>Bekijk hier dan ook de opkomende evenementen:</p>
+          <p>Ben je benieuwd naar hoe zulke evenementen er uit zien? Bekijk dan onze facebookpagina.</p>
+        </div>
+        <div>
+          <EventItem />
+          <EventItem />
+          <EventItem />
+        </div>
+      </div>
+    </section>
+    <section class="committees">
+      <div class="container">
+        <h2>Commissies</h2>
+        <p>Salve Mundi heeft verschillende commissies die ieder verantwoordelijk zijn voor het functioneren van de vereniging. Elke commissie heeft zijn eigen taken en verantwoordelijkheden, en samen zorgen zij ervoor dat Salve Mundi kan zijn zoals het is!</p>
+
+        <div class="committee-icons">
+          <CommitteeIcon name="Bestuur" icon />
+          <CommitteeIcon name="Feest" icon />
+          <CommitteeIcon name="Media" icon />
+          <CommitteeIcon name="Kamp" icon />
+          <CommitteeIcon name="Studie" icon />
+          <CommitteeIcon name="Ledenzaken" icon />
+          <CommitteeIcon name="Activiteiten" icon />
+          <CommitteeIcon name="Extern" icon />
+          <CommitteeIcon name="Alpha Centauri" icon />
+          <CommitteeIcon name="Kas" icon />
+          <CommitteeIcon name="ICT" icon />
+        </div>
+      </div>
+    </section>
+    <section class="merchandise">
+      <div class="container">
+        <h2>Merchandise</h2>
+        <p>Naast dat onze mediacomissie de media verzorgt voor onze social media. Hebben ze ook nog een toffe merchandise ontworpen! Dit is de kans om op evenementen van Salve Mundi, feestjes of festivals te shinen met je mooie t-shirt, hoodie of vest.</p>
+        <p>Wil jij nou ook zo gelikt over straat kunnen? Bestel je merchandise dan hier!</p>
+        <a class="button">Merchandise</a>
+      </div>
+    </section>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import EventItem from "@/components/layout/events/EventItem.vue";
+import CommitteeIcon from "@/components/layout/committees/CommitteeIcon.vue";
 
 @Component({
-  components: {}
+  components: {
+    EventItem,
+    CommitteeIcon
+  }
 })
 export default class Index extends Vue {}
 </script>
 <style lang="scss">
-section.main {
+.index {
   width: 100%;
-  height: 100vh;
-  background: linear-gradient(rgba(102, 50, 101, 0.8), rgba(102, 50, 101, 0.8)),
-    url("../assets/images/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  section.main {
+    height: 100vh;
 
-  .center {
-    text-align: center;
-    font-family: Poppins, sans-serif;
+    background: linear-gradient(
+        rgba(102, 50, 101, 0.8),
+        rgba(102, 50, 101, 0.8)
+      ),
+      url("../assets/images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    .lead {
-      font-size: 28px;
-      color: #ffffff;
-      font-weight: 400;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .title {
-      font-family: "Portico Rounded", sans-serif;
-      font-size: 66px;
-      line-height: 77px;
-      color: #ffffff;
-      margin-top: 40px;
-      margin-bottom: 10px;
-      font-weight: 400;
-    }
+    padding-top: 0;
 
-    .notice {
-      font-size: 18px;
-      color: #ffffff;
-      font-weight: 400;
-    }
+    .center {
+      text-align: center;
+      font-family: Poppins, sans-serif;
 
-    .click-to-action {
-      width: 160px;
+      .lead {
+        font-size: 28px;
+        color: #ffffff;
+        font-weight: 400;
+      }
 
-      margin-top: 50px;
-      margin-left: auto;
-      margin-right: auto;
+      .title {
+        font-family: "Portico Rounded", sans-serif;
+        font-size: 66px;
+        line-height: 77px;
+        color: #ffffff;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        font-weight: 400;
+      }
 
-      background: #663265;
-      border-radius: 2px;
+      .notice {
+        font-size: 18px;
+        color: #ffffff;
+        font-weight: 400;
+      }
 
-      padding: 7px 26px;
+      .click-to-action {
+        width: 160px;
 
-      display: block;
-
-      font-weight: bold;
-      font-size: 18px;
-
-      color: #ffffff;
-
-      box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
-      cursor: pointer;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
-}
 
-section.about {
-  padding-top: 100px;
-  .container {
-    flex-direction: column;
+  section {
+    padding-top: 100px;
+
+    .container {
+      flex-direction: column;
+    }
+
+    p {
+      margin: 15px 0;
+    }
+
+    ul {
+      padding-left: 16px;
+    }
   }
 
-  p {
-    margin: 15px 0;
+  section.committees {
+    .committee-icon {
+      display: inline-block;
+    }
   }
 
-  ul {
-    padding-left: 16px;
-  }
 }
 </style>

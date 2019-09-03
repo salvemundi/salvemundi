@@ -2,17 +2,14 @@
   <div id="app">
     <Navigation />
     <router-view />
-    <Footer />
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Navigation from "./components/layout/Navigation.vue";
-import Footer from "./components/layout/Footer.vue";
-
 @Component({
   components: {
-    Navigation, Footer
+    Navigation
   }
 })
 export default class Home extends Vue {}

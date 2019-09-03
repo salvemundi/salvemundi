@@ -5,7 +5,7 @@
         <img src="@/assets/images/logo.png" alt="logo" />
       </div>
       <div class="nav__click-to-action">
-        <a class="button">Meld je aan!</a>
+        <a class="button--small">Meld je aan!</a>
       </div>
       <div class="nav__right">
         <ul>
@@ -72,7 +72,7 @@ export default class Navigation extends Vue {}
 
 // TODO: TEMP, FIX WHEN DEFAULTS ARE MADE
 
-.button {
+.button--small {
   width: 100px;
   display: block;
   background: #663265;
