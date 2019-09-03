@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="index">
     <section class="main">
       <div class="center">
         <h2 class="lead">Wij zijn</h2>
@@ -102,13 +102,9 @@ import CommitteeIcon from "@/components/layout/committees/CommitteeIcon.vue";
 export default class Index extends Vue {}
 </script>
 <style lang="scss">
-section.main {
+.index {
   width: 100%;
-  height: 100vh;
-  background: linear-gradient(rgba(102, 50, 101, 0.8), rgba(102, 50, 101, 0.8)),
-    url("../assets/images/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 100%;
 
   section.main {
     height: 100vh;
@@ -121,9 +117,9 @@ section.main {
     background-size: cover;
     background-repeat: no-repeat;
 
-  .center {
-    text-align: center;
-    font-family: Poppins, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     padding-top: 0;
 
@@ -131,28 +127,30 @@ section.main {
       text-align: center;
       font-family: Poppins, sans-serif;
 
-    .title {
-      font-family: "Portico Rounded", sans-serif;
-      font-size: 66px;
-      line-height: 77px;
-      color: #ffffff;
-      margin-top: 40px;
-      margin-bottom: 10px;
-      font-weight: 400;
-    }
+      .lead {
+        font-size: 28px;
+        color: #ffffff;
+        font-weight: 400;
+      }
 
-    .notice {
-      font-size: 18px;
-      color: #ffffff;
-      font-weight: 400;
-    }
+      .title {
+        font-family: "Portico Rounded", sans-serif;
+        font-size: 66px;
+        line-height: 77px;
+        color: #ffffff;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        font-weight: 400;
+      }
 
-    .click-to-action {
-      width: 160px;
+      .notice {
+        font-size: 18px;
+        color: #ffffff;
+        font-weight: 400;
+      }
 
-      margin-top: 50px;
-      margin-left: auto;
-      margin-right: auto;
+      .click-to-action {
+        width: 160px;
 
         margin-top: 50px;
         margin-left: auto;
@@ -160,7 +158,6 @@ section.main {
       }
     }
   }
-}
 
   section {
     padding-top: 100px;
@@ -169,12 +166,13 @@ section.main {
       flex-direction: column;
     }
 
-  p {
-    margin: 15px 0;
-  }
+    p {
+      margin: 15px 0;
+    }
 
-  ul {
-    padding-left: 16px;
+    ul {
+      padding-left: 16px;
+    }
   }
 
   section.committees {
