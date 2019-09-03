@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div>
     <section class="main">
       <div class="center">
         <h2 class="lead">Wij zijn</h2>
@@ -102,9 +102,13 @@ import CommitteeIcon from "@/components/layout/committees/CommitteeIcon.vue";
 export default class Index extends Vue {}
 </script>
 <style lang="scss">
-.index {
+section.main {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(102, 50, 101, 0.8), rgba(102, 50, 101, 0.8)),
+    url("../assets/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 
   section.main {
     height: 100vh;
@@ -117,9 +121,9 @@ export default class Index extends Vue {}
     background-size: cover;
     background-repeat: no-repeat;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .center {
+    text-align: center;
+    font-family: Poppins, sans-serif;
 
     padding-top: 0;
 
@@ -127,30 +131,28 @@ export default class Index extends Vue {}
       text-align: center;
       font-family: Poppins, sans-serif;
 
-      .lead {
-        font-size: 28px;
-        color: #ffffff;
-        font-weight: 400;
-      }
+    .title {
+      font-family: "Portico Rounded", sans-serif;
+      font-size: 66px;
+      line-height: 77px;
+      color: #ffffff;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
 
-      .title {
-        font-family: "Portico Rounded", sans-serif;
-        font-size: 66px;
-        line-height: 77px;
-        color: #ffffff;
-        margin-top: 40px;
-        margin-bottom: 10px;
-        font-weight: 400;
-      }
+    .notice {
+      font-size: 18px;
+      color: #ffffff;
+      font-weight: 400;
+    }
 
-      .notice {
-        font-size: 18px;
-        color: #ffffff;
-        font-weight: 400;
-      }
+    .click-to-action {
+      width: 160px;
 
-      .click-to-action {
-        width: 160px;
+      margin-top: 50px;
+      margin-left: auto;
+      margin-right: auto;
 
         margin-top: 50px;
         margin-left: auto;
@@ -158,6 +160,7 @@ export default class Index extends Vue {}
       }
     }
   }
+}
 
   section {
     padding-top: 100px;
@@ -166,13 +169,12 @@ export default class Index extends Vue {}
       flex-direction: column;
     }
 
-    p {
-      margin: 15px 0;
-    }
+  p {
+    margin: 15px 0;
+  }
 
-    ul {
-      padding-left: 16px;
-    }
+  ul {
+    padding-left: 16px;
   }
 
   section.committees {
