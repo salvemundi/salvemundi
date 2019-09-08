@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Index from './views/Index.vue';
 import Privacy from './views/Privacy.vue';
 import NotFound from './views/errorHandling/NotFound.vue';
+import PreLogon from './views/PreLogon.vue';
 
 Vue.use(Router);
 
@@ -18,6 +19,10 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Index,
+    },
+    {
+      path: '/preLogon',
+      component: PreLogon,
     },
     {
       path: '/privacy',
