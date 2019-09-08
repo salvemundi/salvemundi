@@ -14,8 +14,8 @@
                 <div class="text">Ben je nog geen lid van Salve Mundi?<br>Klik dan op de knop hier beneden om je te registreren!</div>
                 <img src="@/assets/images/register.svg"/>
                 <div>
-                    <SaMuButton text="Registreren via FHICT" to="register" className="FHICT"></SaMuButton>
-                    <SaMuButton text="Registreren" to="register"></SaMuButton>
+                    <SaMuButton text="Registreren via FHICT" to="/register" className="FHICT"></SaMuButton>
+                    <SaMuButton text="Registreren" to="/register"></SaMuButton>
                 </div>
             </div>
         </div>
