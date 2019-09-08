@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Navigation />
+    <Navigation v-if="$route.path !== '/notFound'" />
     <router-view />
-    <Footer />
+    <Footer v-if="$route.path !== '/notFound'" />
   </div>
 </template>
 <script lang="ts">

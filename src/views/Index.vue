@@ -6,7 +6,7 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <a class="button click-to-action">Meld je nu aan!</a>
+        <SaMuButton text="Meld je nu aan!" to="privacy" size="large" className="click-to-action"></SaMuButton>
       </div>
     </section>
     <section class="about">
@@ -92,11 +92,13 @@
 import { Component, Vue } from "vue-property-decorator";
 import EventItem from "@/components/layout/events/EventItem.vue";
 import CommitteeIcon from "@/components/layout/committees/CommitteeIcon.vue";
+import SaMuButton from '@/components/basic/SaMuButton.vue';
 
 @Component({
   components: {
     EventItem,
-    CommitteeIcon
+    CommitteeIcon,
+    SaMuButton
   }
 })
 export default class Index extends Vue {}
@@ -148,8 +150,6 @@ export default class Index extends Vue {}
       }
 
       .click-to-action {
-        width: 160px;
-
         margin-top: 50px;
         margin-left: auto;
         margin-right: auto;
