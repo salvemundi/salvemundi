@@ -1,8 +1,8 @@
 <template>
     <router-link v-if="to" :to="to">
-        <button :class="['SaMuButton', size === '' ? 'default' : size, className]">{{text}}</button>
+        <button :class="['SaMuButton', size === '' || !size ? 'default' : size, className]">{{text}}</button>
     </router-link>
-    <button v-else :class="['SaMuButton', size === '' ? 'default' : size, className]">{{text}}</button>
+    <button v-else :class="['SaMuButton', size === '' || !size ? 'default' : size, className]">{{text}}</button>
 </template>
 <script>
 import { Component, Vue } from 'vue-property-decorator';

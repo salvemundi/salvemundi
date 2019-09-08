@@ -14,5 +14,7 @@ export default class SaMuHeader extends Vue {}
     color: #663265;
     font-family: Poppins, sans-serif;
     font-weight: 700;
+    width: 100%;
+    text-align: center;
 }
 </style>
