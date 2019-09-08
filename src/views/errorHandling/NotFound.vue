@@ -2,7 +2,7 @@
   <div class="main">
       <div class="center">
         <div class="brand">
-            <img src="@/assets/images/logo.png" alt="logo" />
+            <img src="@/assets/images/logoWit.png" alt="logo" />
         </div>
         <div class="title">
             Niet gevonden
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class NotFound extends Vue {}

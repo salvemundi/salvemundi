@@ -5,10 +5,10 @@
     <button v-else :class="['SaMuButton', size === '' ? 'default' : size, className]">{{text}}</button>
 </template>
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-    props: ['text', 'to', 'size', 'className']
+    props: ['text', 'to', 'size', 'className'],
 })
 export default class SaMuButton extends Vue {}
 </script>

@@ -89,17 +89,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import EventItem from "@/components/layout/events/EventItem.vue";
-import CommitteeIcon from "@/components/layout/committees/CommitteeIcon.vue";
+import { Component, Vue } from 'vue-property-decorator';
+import EventItem from '@/components/layout/events/EventItem.vue';
+import CommitteeIcon from '@/components/layout/committees/CommitteeIcon.vue';
 import SaMuButton from '@/components/basic/SaMuButton.vue';
 
 @Component({
   components: {
     EventItem,
     CommitteeIcon,
-    SaMuButton
-  }
+    SaMuButton,
+  },
 })
 export default class Index extends Vue {}
 </script>
