@@ -6,7 +6,6 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <!-- <a class="button click-to-action">Meld je nu aan!</a> -->
         <SaMuButton text="Meld je nu aan!" to="privacy" size="large" className="click-to-action"></SaMuButton>
       </div>
     </section>
