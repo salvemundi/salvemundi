@@ -4,9 +4,7 @@
       <div class="nav__brand">
         <img src="@/assets/images/logo.png" alt="logo" />
       </div>
-      <div class="nav__click-to-action">
-        <a class="button--small">Meld je aan!</a>
-      </div>
+      <SaMuButton text="Meld je nu aan!" to="privacy" size="small" className="nav__click-to-action"></SaMuButton>
       <div class="nav__right">
         <ul>
           <li>Over ons</li>
@@ -23,8 +21,13 @@
 
 <script>
 import { Component, Vue } from "vue-property-decorator";
+import SaMuButton from '../basic/SaMuButton.vue';
 
-@Component
+@Component({
+  components: {
+    SaMuButton
+  }
+})
 export default class Navigation extends Vue {}
 </script>
 <style lang="scss">
@@ -32,7 +35,7 @@ export default class Navigation extends Vue {}
   position: absolute;
   left: 0;
   right: 0;
-  padding: 15px 150px;
+  padding: 15px 5%;
   display: flex;
 
   .container {
@@ -47,7 +50,6 @@ export default class Navigation extends Vue {}
 
   &__click-to-action {
     margin-left: 40px;
-    padding: 10px;
   }
 
   &__right {
@@ -68,23 +70,5 @@ export default class Navigation extends Vue {}
       padding: 12px 8px;
     }
   }
-}
-
-// TODO: TEMP, FIX WHEN DEFAULTS ARE MADE
-
-.button--small {
-  width: 100px;
-  display: block;
-  background: #663265;
-  border-radius: 2px;
-  padding: 6px;
-
-  font-weight: bold;
-  font-size: 12px;
-
-  text-align: center;
-
-  color: #ffffff;
-  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
 }
 </style>
