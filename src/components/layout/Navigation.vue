@@ -2,8 +2,10 @@
   <nav class="nav">
     <div class="container">
       <div class="nav__brand">
-        <img v-if="$route.path === '/'" src="@/assets/images/logoWit.png" alt="logo" />
-        <img v-if="$route.path !== '/'" src="@/assets/images/logoPaars.png" alt="logo" />
+        <router-link to="/">
+          <img v-if="$route.path === '/'" src="@/assets/images/logoWit.png" alt="logo" />
+          <img v-if="$route.path !== '/'" src="@/assets/images/logoPaars.png" alt="logo" />
+        </router-link>
       </div>
       <SaMuButton text="Meld je nu aan!" to="preLogon" size="small" className="nav__click-to-action"></SaMuButton>
       <div class="nav__right">
@@ -33,7 +35,7 @@ export default class Navigation extends Vue {}
 </script>
 <style lang="scss">
 .nav {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   padding: 15px 5%;

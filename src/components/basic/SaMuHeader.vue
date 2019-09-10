@@ -16,5 +16,6 @@ export default class SaMuHeader extends Vue {}
     font-weight: 700;
     width: 100%;
     text-align: center;
+    text-transform: uppercase;
 }
 </style>

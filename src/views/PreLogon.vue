@@ -9,7 +9,7 @@
                     <SaMuButton text="Inloggen" to="login"></SaMuButton>
                 </div>
             </div>
-            <div class="register">
+            <div class="registerform">
                 <SaMuHeader text="Registreren"></SaMuHeader>
                 <div class="text">Ben je nog geen lid van Salve Mundi?<br>Klik dan op de knop hier beneden om je te registreren!</div>
                 <img src="@/assets/images/register.svg"/>
@@ -59,7 +59,7 @@ export default class PreLogon extends Vue {}
             border-right: 1px solid #E2E2E2;
         }
 
-        & .register {
+        & .registerform {
             width: 49%;
             float: left;
             text-align: center;
