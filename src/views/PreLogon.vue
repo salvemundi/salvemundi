@@ -1,23 +1,25 @@
 <template>
     <div class="preLogon">
         <div class="center">
-            <div class="login">
-                <SaMuHeader text="Inloggen"></SaMuHeader>
-                <div class="text">Ben je al lid van Salve Mundi?<br>Klik dan op de knop hier beneden om in te loggen!</div>
-                <img src="@/assets/images/login.svg"/>
-                <div>
-                    <SaMuButton text="Inloggen" to="login"></SaMuButton>
+            <SaMuGrid minWidth="400px">
+                <div class="login">
+                    <SaMuHeader text="Inloggen"></SaMuHeader>
+                    <div class="text">Ben je al lid van Salve Mundi?<br>Klik dan op de knop hier beneden om in te loggen!</div>
+                    <img src="@/assets/images/login.svg"/>
+                    <div>
+                        <SaMuButton to="login">Inloggen</SaMuButton>
+                    </div>
                 </div>
-            </div>
-            <div class="registerform">
-                <SaMuHeader text="Registreren"></SaMuHeader>
-                <div class="text">Ben je nog geen lid van Salve Mundi?<br>Klik dan op de knop hier beneden om je te registreren!</div>
-                <img src="@/assets/images/register.svg"/>
-                <div>
-                    <SaMuButton text="Registreren via FHICT" to="/register" className="FHICT"></SaMuButton>
-                    <SaMuButton text="Registreren" to="/register"></SaMuButton>
+                <div class="registerform">
+                    <SaMuHeader text="Registreren"></SaMuHeader>
+                    <div class="text">Ben je nog geen lid van Salve Mundi?<br>Klik dan op de knop hier beneden om je te registreren!</div>
+                    <img src="@/assets/images/register.svg"/>
+                    <div>
+                        <SaMuButton to="/register" className="FHICT">Registreren via FHICT</SaMuButton>
+                        <SaMuButton to="/register">Registreren als <br>Vriend van de vereniging</SaMuButton>
+                    </div>
                 </div>
-            </div>
+            </SaMuGrid>
         </div>
     </div>
 </template>
@@ -26,11 +28,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuHeader from '@/components/basic/SaMuHeader.vue';
+import SaMuGrid from '@/components/basic/SaMuGrid.vue';
 
 @Component({
   components: {
     SaMuButton,
     SaMuHeader,
+    SaMuGrid,
   },
 })
 export default class PreLogon extends Vue {}
@@ -53,15 +57,10 @@ export default class PreLogon extends Vue {}
         }
 
         & .login {
-            width: 49%;
-            float: left;
             text-align: center;
-            border-right: 1px solid #E2E2E2;
         }
 
         & .registerform {
-            width: 49%;
-            float: left;
             text-align: center;
 
             & .FHICT {

@@ -7,7 +7,7 @@
           <img v-if="$route.path !== '/'" src="@/assets/images/logoPaars.png" alt="logo" />
         </router-link>
       </div>
-      <SaMuButton text="Meld je nu aan!" to="preLogon" size="small" className="nav__click-to-action"></SaMuButton>
+      <SaMuButton to="preLogon" size="small" className="nav__click-to-action">Meld je nu aan!</SaMuButton>
       <div class="nav__right">
         <ul :class="$route.path !== '/' ? 'purple' : ''">
           <li>Over ons</li>

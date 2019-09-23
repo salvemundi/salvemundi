@@ -6,7 +6,7 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <SaMuButton text="Meld je nu aan!" to="preLogon" size="large" className="click-to-action"></SaMuButton>
+        <SaMuButton to="preLogon" size="large" className="click-to-action">Meld je nu aan!</SaMuButton>
       </div>
     </section>
     <section class="about">
