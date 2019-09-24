@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <div class="container">
+    <b-container>
       <div class="nav__brand">
         <img src="@/assets/images/logo.png" alt="logo" />
       </div>
@@ -17,7 +17,7 @@
           <li>Mijn account</li>
         </ul>
       </div>
-    </div>
+    </b-container>
   </nav>
 </template>
 
@@ -34,10 +34,6 @@ export default class Navigation extends Vue {}
   right: 0;
   padding: 15px 150px;
   display: flex;
-
-  .container {
-    display: flex;
-  }
 
   &__brand {
     img {
