@@ -5,6 +5,10 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
+
+import { LayoutPlugin } from 'bootstrap-vue';
+Vue.use(LayoutPlugin)
+
 new Vue({
   router,
   store,
