@@ -2,6 +2,7 @@
   "compilerOptions": {
     "declaration": true,
     "target": "es5",
+    "experimentalDecorators": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "dist",

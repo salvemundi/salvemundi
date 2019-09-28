@@ -5,8 +5,8 @@
             <div class="register-form general-information">
                 <SaMuBadge text="1" title="Algemene info" />
                 <div class="register-form__body">
-                    <SaMuInput placeholder="Voornaam" type="text"/>
-                    <SaMuInput placeholder="Achternaam" type="text"/>
+                    <SaMuInput placeholder="Voornaam" type="text" :value="firstName"/>
+                    <SaMuInput placeholder="Achternaam" type="text" :value="lastName"/>
                     <SaMuInput placeholder="Geboortedatum (dd-mm-jjjj)" type="text"/>
                     <SaMuInput placeholder="Straat en huisnummer" type="text"/>
                     <SaMuInput placeholder="Woonplaats" type="text"/>
@@ -16,10 +16,10 @@
             <div class="register-form digital-information">
                 <SaMuBadge text="2" title="Digitale gegevens" />
                 <div class="register-form__body">
-                    <SaMuInput placeholder="PCN" type="number"/>
+                    <SaMuInput placeholder="PCN" type="number" :value="pcn"/>
                     <SaMuInput placeholder="Telefoon nummer" type="text"/>
-                    <SaMuInput placeholder="E-mailadres" type="text"/>
-                    <SaMuInput placeholder="Bevestig je e-mailadres" type="text"/>
+                    <SaMuInput placeholder="E-mailadres" type="text" :value="email"/>
+                    <SaMuInput placeholder="Bevestig je e-mailadres" type="text" :value="email"/>
                     <SaMuButton size="small" type="submit">Versturen!</SaMuButton>
                 </div>
             </div>
@@ -44,11 +44,17 @@ import SaMuGrid from '@/components/basic/SaMuGrid.vue';
     },
 })
 export default class Register extends Vue {
+
+    public firstName: string = '';
+    public lastName: string = '';
+    public email: string = '';
+    public pcn: string = '';
+
     constructor() {
         super();
 
         if (this.$route.query.code) {
-
+            
         }
     }
 }
