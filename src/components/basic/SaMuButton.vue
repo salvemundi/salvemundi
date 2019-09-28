@@ -1,14 +1,14 @@
 <template>
-    <router-link v-if="to" :to="to">
-        <button :class="['SaMuButton', size === '' || !size ? 'default' : size, className]"><slot></slot></button>
-    </router-link>
-    <button v-else :class="['SaMuButton', size === '' || !size ? 'default' : size, className]"><slot></slot></button>
+    <a v-if="to" :href="to">
+        <button :class="['SaMuButton', size === '' || !size ? 'default' : size, className]" :type="type"><slot></slot></button>
+    </a>
+    <button v-else :class="['SaMuButton', size === '' || !size ? 'default' : size, className]" :type="type"><slot></slot></button>
 </template>
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-    props: ['to', 'size', 'className'],
+    props: ['to', 'size', 'className', 'type', 'base'],
 })
 export default class SaMuButton extends Vue {}
 </script>

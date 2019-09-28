@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-      <form>
+      <form action="https://api.salvemundi.nl/register" method="post">
         <SaMuGrid minWidth="300px" style="gap: 40px; 50px;">
             <div class="register-form general-information">
                 <SaMuBadge text="1" title="Algemene info" />
@@ -20,7 +20,7 @@
                     <SaMuInput placeholder="Telefoon nummer" type="text"/>
                     <SaMuInput placeholder="E-mailadres" type="text"/>
                     <SaMuInput placeholder="Bevestig je e-mailadres" type="text"/>
-                    <SaMuButton size="small">Versturen!</SaMuButton>
+                    <SaMuButton size="small" type="submit">Versturen!</SaMuButton>
                 </div>
             </div>
         </SaMuGrid>
@@ -43,7 +43,15 @@ import SaMuGrid from '@/components/basic/SaMuGrid.vue';
         SaMuGrid,
     },
 })
-export default class Register extends Vue {}
+export default class Register extends Vue {
+    constructor() {
+        super();
+
+        if (this.$route.query.code) {
+
+        }
+    }
+}
 </script>
 <style lang="scss">
 .register {

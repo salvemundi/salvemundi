@@ -17,6 +17,10 @@ export default new Router({
       component: NotFound,
     },
     {
+      path: '/callback',
+      redirect: '/register',
+    },
+    {
       path: '/',
       name: 'index',
       component: Index,

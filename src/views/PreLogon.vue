@@ -15,7 +15,7 @@
                     <div class="text">Ben je nog geen lid van Salve Mundi?<br>Klik dan op de knop hier beneden om je te registreren!</div>
                     <img src="@/assets/images/register.svg"/>
                     <div>
-                        <SaMuButton to="/register" className="FHICT">Registreren via FHICT</SaMuButton>
+                        <SaMuButton to="https://identity.fhict.nl/connect/authorize?client_id=i407624-salvemundi2&scope=fhict_personal&response_type=code&redirect_uri=https://salvemundi.nl/callback" className="FHICT">Registreren via FHICT</SaMuButton>
                         <SaMuButton to="/register">Registreren als <br>Vriend van de vereniging</SaMuButton>
                     </div>
                 </div>
