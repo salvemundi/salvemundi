@@ -34,6 +34,10 @@ import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuBadge from '@/components/basic/SaMuBadge.vue';
 import SaMuGrid from '@/components/basic/SaMuGrid.vue';
+import { Container } from 'inversify';
+import { ApiServiceBinder } from '../openapi/ApiServiceBinder';
+import { AuthorizationService } from '../openapi/api/authorization.service';
+import { MeDTO } from '../openapi/model/meDTO';
 
 @Component({
     components: {
@@ -54,7 +58,16 @@ export default class Register extends Vue {
         super();
 
         if (this.$route.query.code) {
-            
+            const myContainer = new Container();
+            ApiServiceBinder.with(myContainer);
+
+            const authorizationService = myContainer.get<AuthorizationService>(AuthorizationService);
+            authorizationService.authorizationMeGet(this.$route.query.code as string).subscribe((res: MeDTO) => {
+                this.firstName = res.firstName;
+                this.lastName = res.lastName;
+                this.email = res.email;
+                this.pcn = res.pcn;
+            });
         }
     }
 }

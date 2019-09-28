@@ -1,4 +1,4 @@
-import { Observable } from "rxjs/Observable";
+import { Observable, from } from "rxjs";
 import HttpResponse from "./HttpResponse";
 import { Headers } from "./Headers";
 

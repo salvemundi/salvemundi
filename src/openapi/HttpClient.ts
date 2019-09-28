@@ -1,6 +1,6 @@
 import IHttpClient from "./IHttpClient";
 
-import { Observable } from "rxjs/Observable";
+import { Observable, from } from "rxjs";
 
 import "whatwg-fetch";
 import HttpResponse from "./HttpResponse";
@@ -66,7 +66,7 @@ class HttpClient implements IHttpClient {
             });
         });
 
-            return Observable.fromPromise(promise);
+            return from(promise);
     }
 }
 

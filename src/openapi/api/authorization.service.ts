@@ -11,7 +11,7 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 
 import { map } from "rxjs/operators";
 import IHttpClient from "../IHttpClient";
