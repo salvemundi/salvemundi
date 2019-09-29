@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-      <form action="https://api.salvemundi.nl/register" method="post">
+      <form :action="url + '/register'" method="post">
         <SaMuGrid minWidth="300px" style="gap: 40px; 50px;">
             <div class="register-form general-information">
                 <SaMuBadge text="1" title="Algemene info" />
@@ -38,6 +38,7 @@ import { Container } from 'inversify';
 import { ApiServiceBinder } from '../openapi/ApiServiceBinder';
 import { AuthorizationService } from '../openapi/api/authorization.service';
 import { MeDTO } from '../openapi/model/meDTO';
+import openApiContainer from '../openApiContainer';
 
 @Component({
     components: {
@@ -49,6 +50,7 @@ import { MeDTO } from '../openapi/model/meDTO';
 })
 export default class Register extends Vue {
 
+    public url: string = process.env.API_URL;
     public firstName: string = '';
     public lastName: string = '';
     public email: string = '';
@@ -58,10 +60,7 @@ export default class Register extends Vue {
         super();
 
         if (this.$route.query.code) {
-            const myContainer = new Container();
-            ApiServiceBinder.with(myContainer);
-
-            const authorizationService = myContainer.get<AuthorizationService>(AuthorizationService);
+            const authorizationService = openApiContainer.get<AuthorizationService>(AuthorizationService);
             authorizationService.authorizationMeGet(this.$route.query.code as string).subscribe((res: MeDTO) => {
                 this.firstName = res.firstName;
                 this.lastName = res.lastName;
