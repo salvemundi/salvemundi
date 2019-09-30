@@ -1,14 +1,15 @@
 <template>
   <nav class="nav">
-    <div class="container">
+    <b-container>
       <div class="nav__brand">
-        <img src="@/assets/images/logo.png" alt="logo" />
+        <router-link to="/">
+          <img v-if="$route.path === '/'" src="@/assets/images/logoWit.png" alt="logo" />
+          <img v-if="$route.path !== '/'" src="@/assets/images/logoPaars.png" alt="logo" />
+        </router-link>
       </div>
-      <div class="nav__click-to-action">
-        <a class="button--small">Meld je aan!</a>
-      </div>
+      <SaMuButton to="preLogon" size="small" className="nav__click-to-action">Meld je nu aan!</SaMuButton>
       <div class="nav__right">
-        <ul>
+        <ul :class="$route.path !== '/' ? 'purple' : ''">
           <li>Over ons</li>
           <li>Evenementen</li>
           <li>Commissies</li>
@@ -17,27 +18,29 @@
           <li>Mijn account</li>
         </ul>
       </div>
-    </div>
+    </b-container>
   </nav>
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
+import SaMuButton from '@/components/basic/SaMuButton.vue';
 
-@Component
+@Component({
+  components: {
+    SaMuButton,
+  },
+})
 export default class Navigation extends Vue {}
 </script>
 <style lang="scss">
 .nav {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
-  padding: 15px 150px;
+  padding: 15px 5%;
   display: flex;
-
-  .container {
-    display: flex;
-  }
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &__brand {
     img {
@@ -47,7 +50,6 @@ export default class Navigation extends Vue {}
 
   &__click-to-action {
     margin-left: 40px;
-    padding: 10px;
   }
 
   &__right {
@@ -59,32 +61,17 @@ export default class Navigation extends Vue {}
     list-style-type: none;
     display: flex;
 
+    &.purple li {
+      color: black;
+      font-weight: normal;
+    }
+
     li {
       font-weight: bold;
       font-size: 14px;
-
       color: white;
-
       padding: 12px 8px;
     }
   }
-}
-
-// TODO: TEMP, FIX WHEN DEFAULTS ARE MADE
-
-.button--small {
-  width: 100px;
-  display: block;
-  background: #663265;
-  border-radius: 2px;
-  padding: 6px;
-
-  font-weight: bold;
-  font-size: 12px;
-
-  text-align: center;
-
-  color: #ffffff;
-  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
 }
 </style>

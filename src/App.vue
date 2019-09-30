@@ -1,24 +1,27 @@
 <template>
   <div id="app">
-    <Navigation />
+    <Navigation v-if="$route.path !== '/notFound'" />
     <router-view />
-    <Footer />
+    <Footer v-if="$route.path !== '/notFound'" />
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import Navigation from "./components/layout/Navigation.vue";
-import Footer from "./components/layout/Footer.vue";
+import { Component, Vue } from 'vue-property-decorator';
+import Navigation from '@/components/layout/Navigation.vue';
+import Footer from '@/components/layout/Footer.vue';
 @Component({
   components: {
-    Navigation, Footer
-  }
+    Navigation,
+    Footer,
+  },
 })
 export default class Home extends Vue {}
 </script>
 <style lang="scss">
-@import "@/assets/styles/global.scss";
 @import "@/assets/styles/fonts.scss";
+@import "@/assets/styles/global.scss";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-vue/src/index.scss";
 
 #app {
   width: 100%;

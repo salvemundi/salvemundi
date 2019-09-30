@@ -10,20 +10,13 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 
-@Component({
-  components: {
-
-  },
-  props: [
-      ""
-  ]
-})
+@Component
 export default class EventItem extends Vue {
-  event: object = {
-    day: "JUN",
-    date: 11
+  private event: object = {
+    day: 'JUN',
+    date: 11,
   };
 }
 </script>
