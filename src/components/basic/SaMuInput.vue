@@ -1,12 +1,12 @@
 <template>
-  <input class="SaMuInput" :placeholder="placeholder" :type="!type || type === '' ? 'text' : type" :value="value"/>
+  <input class="SaMuInput" :placeholder="placeholder" :type="!type || type === '' ? 'text' : type" v-bind:value="value" v-on:input="$emit('input', $event.target.value)" :name="name"/>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-    props: [ 'placeholder', 'type', 'value' ],
+    props: [ 'placeholder', 'type', 'value', 'name' ],
 })
 export default class SaMuInput extends Vue {}
 </script>
