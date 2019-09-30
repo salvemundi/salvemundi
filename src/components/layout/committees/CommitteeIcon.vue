@@ -7,11 +7,11 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
   components: {},
-  props: ["name", "icon"]
+  props: ['name', 'icon'],
 })
 export default class CommitteeIcon extends Vue {}
 </script>

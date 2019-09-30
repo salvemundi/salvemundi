@@ -1,14 +1,14 @@
 <template>
-    <router-link v-if="to" :to="to">
-        <button :class="['SaMuButton', size === '' ? 'default' : size, className]">{{text}}</button>
-    </router-link>
-    <button v-else :class="['SaMuButton', size === '' ? 'default' : size, className]">{{text}}</button>
+    <a v-if="to" :href="to">
+        <button :class="['SaMuButton', size === '' || !size ? 'default' : size, className]" :type="type"><slot></slot></button>
+    </a>
+    <button v-else :class="['SaMuButton', size === '' || !size ? 'default' : size, className]" :type="type"><slot></slot></button>
 </template>
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-    props: ['text', 'to', 'size', 'className']
+    props: ['to', 'size', 'className', 'type'],
 })
 export default class SaMuButton extends Vue {}
 </script>
@@ -18,6 +18,7 @@ export default class SaMuButton extends Vue {}
     background-color: #663265;
     color: #fff;
     border: none;
+    font-size: 14px;
     font-family: Poppins, sans-serif;
     font-weight: 700;
     box-shadow: 2px 2px 6px 0px #000;
@@ -29,7 +30,7 @@ export default class SaMuButton extends Vue {}
     }
 
     &.small {
-        padding: 1em;
+        padding: 0.5em 1em;
     }
 
     &.large {
