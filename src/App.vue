@@ -12,7 +12,7 @@ import Footer from '@/components/layout/Footer.vue';
 @Component({
   components: {
     Navigation,
-    Footer
+    Footer,
   },
 })
 export default class Home extends Vue {}

@@ -9,7 +9,7 @@ import { LayoutPlugin } from 'bootstrap-vue';
 Vue.config.productionTip = false;
 
 Vue.use(Toasted);
-Vue.use(LayoutPlugin)
+Vue.use(LayoutPlugin);
 
 new Vue({
   router,
