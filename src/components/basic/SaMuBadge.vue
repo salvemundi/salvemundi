@@ -21,7 +21,6 @@ export default class CommitteeIcon extends Vue {}
 <style lang="scss">
 .SaMuBadge {
   margin-right: 10px;
-  height: 30px;
   
   &__holder {
     float: left;
