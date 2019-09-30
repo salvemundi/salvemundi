@@ -1,25 +1,27 @@
 <template>
   <div class="register">
-      <form :action="url + '/register'" method="post">
+      <form v-on:submit="handleSubmit">
         <SaMuGrid minWidth="300px" style="gap: 40px; 50px;">
             <div class="register-form general-information">
                 <SaMuBadge text="1" title="Algemene info" />
                 <div class="register-form__body">
-                    <SaMuInput placeholder="Voornaam" type="text" :value="firstName"/>
-                    <SaMuInput placeholder="Achternaam" type="text" :value="lastName"/>
-                    <SaMuInput placeholder="Geboortedatum (dd-mm-jjjj)" type="text"/>
-                    <SaMuInput placeholder="Straat en huisnummer" type="text"/>
-                    <SaMuInput placeholder="Woonplaats" type="text"/>
-                    <SaMuInput placeholder="Postcode" type="text"/>
+                    <SaMuInput placeholder="Voornaam" type="text" name="firstName" v-model="dto.firstName"/>
+                    <SaMuInput placeholder="Achternaam" type="text" name="lastName" v-model="dto.lastName"/>
+                    <SaMuInput placeholder="Geboortedatum (jjjj-mm-dd)" type="text" name="birthday" v-model="dto.birthday"/>
+                    <SaMuInput placeholder="Straat en huisnummer" type="text" name="address" v-model="dto.address"/>
+                    <SaMuInput placeholder="Woonplaats" type="text" name="city" v-model="dto.city"/>
+                    <SaMuInput placeholder="Postcode" type="text" name="postalcode" v-model="dto.postalcode"/>
+                    <SaMuInput placeholder="Land" type="text" name="country" v-model="dto.country"/>
                 </div>
             </div>
             <div class="register-form digital-information">
                 <SaMuBadge text="2" title="Digitale gegevens" />
                 <div class="register-form__body">
-                    <SaMuInput placeholder="PCN" type="number" :value="pcn"/>
-                    <SaMuInput placeholder="Telefoon nummer" type="text"/>
-                    <SaMuInput placeholder="E-mailadres" type="text" :value="email"/>
-                    <SaMuInput placeholder="Bevestig je e-mailadres" type="text" :value="email"/>
+                    <SaMuInput placeholder="PCN" type="text" name="iPCN" v-model="dto.pcn"/>
+                    <SaMuInput placeholder="Telefoon nummer" type="text" name="phoneNumber" v-model="dto.phoneNumber"/>
+                    <SaMuInput placeholder="E-mailadres" type="text" name="email" v-model="dto.email"/>
+                    <SaMuInput placeholder="Wachtwoord" type="password" v-model="dto.password"/>
+                    <SaMuInput placeholder="Bevestig je wachtwoord" type="password" v-model="password2"/>
                     <SaMuButton size="small" type="submit">Versturen!</SaMuButton>
                 </div>
             </div>
@@ -39,6 +41,9 @@ import { ApiServiceBinder } from '../openapi/ApiServiceBinder';
 import { AuthorizationService } from '../openapi/api/authorization.service';
 import { MeDTO } from '../openapi/model/meDTO';
 import openApiContainer from '../openApiContainer';
+import { RegisterDTO } from '../openapi/model/registerDTO';
+import { User } from '../openapi/model/user';
+
 
 @Component({
     components: {
@@ -47,26 +52,58 @@ import openApiContainer from '../openApiContainer';
         SaMuBadge,
         SaMuGrid,
     },
+
 })
 export default class Register extends Vue {
 
-    public url: string = process.env.API_URL;
-    public firstName: string = '';
-    public lastName: string = '';
-    public email: string = '';
-    public pcn: string = '';
+    private url = process.env.VUE_APP_API_URL;
+    private password2 = '';
+    private dto: RegisterDTO = {
+        firstName: '',
+        lastName: '',
+        birthday: '',
+        address: '',
+        city: '',
+        postalcode: '',
+        country: '',
+        email: '',
+        phoneNumber: '',
+        pcn: '',
+        password: '',
+    };
+
+    private authorizationService: AuthorizationService = openApiContainer.get<AuthorizationService>('AuthorizationService');
 
     constructor() {
         super();
+        const code = new URLSearchParams(window.location.search.substring(1)).get('code');
 
-        if (this.$route.query.code) {
-            const authorizationService = openApiContainer.get<AuthorizationService>(AuthorizationService);
-            authorizationService.authorizationMeGet(this.$route.query.code as string).subscribe((res: MeDTO) => {
-                this.firstName = res.firstName;
-                this.lastName = res.lastName;
-                this.email = res.email;
-                this.pcn = res.pcn;
+        if (code) {
+            this.authorizationService.authorizationMeGet(code)
+            .subscribe((res: MeDTO) => {
+                this.dto.firstName = res.firstName;
+                this.dto.lastName = res.lastName;
+                this.dto.email = res.email;
+                this.dto.pcn = res.pcn;
             });
+        }
+
+
+    }
+
+    private handleSubmit(submitEvent: Event) {
+        submitEvent.preventDefault();
+
+        if (this.password2 === this.dto.password) {
+            this.authorizationService.authorizationRegisterPost(this.dto).subscribe(() => {
+                // TODO add redirect to profile page
+
+            }, (err) => {
+                Vue.toasted.show('Niet alles is correct ingevuld...', {duration: 5000, type: 'error'});
+            });
+        
+        } else {
+            Vue.toasted.show('Wachtwoorden zijn niet aan elkaar gelijk...', {duration: 5000, type: 'error'});
         }
     }
 }

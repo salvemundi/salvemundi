@@ -1,22 +1,36 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "target": "es5",
-    "experimentalDecorators": true,
-    "module": "commonjs",
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
     "moduleResolution": "node",
-    "outDir": "dist",
-    "rootDir": ".",
-    "lib": [
-      "es6",
-      "dom"
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env"
     ],
-    "typeRoots": [
-      "node_modules/@types"
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
     ]
   },
-  "exclude": [
-    "dist",
-    "node_modules"
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
   ]
 }

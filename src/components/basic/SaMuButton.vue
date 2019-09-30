@@ -8,7 +8,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-    props: ['to', 'size', 'className', 'type', 'base'],
+    props: ['to', 'size', 'className', 'type'],
 })
 export default class SaMuButton extends Vue {}
 </script>
