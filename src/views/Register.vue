@@ -7,13 +7,13 @@
                     <div class="register-form general-information">
                         <SaMuBadge text="1" title="Algemene info" />
                         <div class="register-form__body">
-                            <SaMuInput placeholder="Voornaam" type="text" name="firstName" v-model="dto.firstName"/>
-                            <SaMuInput placeholder="Achternaam" type="text" name="lastName" v-model="dto.lastName"/>
-                            <SaMuInput placeholder="Geboortedatum (jjjj-mm-dd)" type="text" name="birthday" v-model="dto.birthday"/>
-                            <SaMuInput placeholder="Straat en huisnummer" type="text" name="address" v-model="dto.address"/>
-                            <SaMuInput placeholder="Woonplaats" type="text" name="city" v-model="dto.city"/>
-                            <SaMuInput placeholder="Postcode" type="text" name="postalcode" v-model="dto.postalcode"/>
-                            <SaMuInput placeholder="Land" type="text" name="country" v-model="dto.country"/>
+                            <SaMuInput :placeholder="$t('form.first_name')" type="text" name="firstName" v-model="dto.firstName"/>
+                            <SaMuInput :placeholder="$t('form.last_name')" type="text" name="lastName" v-model="dto.lastName"/>
+                            <SaMuInput :placeholder="$t('form.birthday')" type="text" name="birthday" v-model="dto.birthday"/>
+                            <SaMuInput :placeholder="$t('form.address')" type="text" name="address" v-model="dto.address"/>
+                            <SaMuInput :placeholder="$t('form.city')" type="text" name="city" v-model="dto.city"/>
+                            <SaMuInput :placeholder="$t('form.postalcode')" type="text" name="postalcode" v-model="dto.postalcode"/>
+                            <SaMuInput :placeholder="$t('form.country')" type="text" name="country" v-model="dto.country"/>
                         </div>
                     </div>
                 </b-col>
@@ -21,12 +21,12 @@
                     <div class="register-form digital-information">
                         <SaMuBadge text="2" title="Digitale gegevens" />
                         <div class="register-form__body">
-                            <SaMuInput placeholder="PCN" type="text" name="iPCN" v-model="dto.pcn"/>
-                            <SaMuInput placeholder="Telefoon nummer" type="text" name="phoneNumber" v-model="dto.phoneNumber"/>
-                            <SaMuInput placeholder="E-mailadres" type="text" name="email" v-model="dto.email"/>
-                            <SaMuInput placeholder="Wachtwoord" type="password" v-model="dto.password"/>
-                            <SaMuInput placeholder="Bevestig je wachtwoord" type="password" v-model="password2"/>
-                            <SaMuButton size="small" type="submit">Versturen!</SaMuButton>
+                            <SaMuInput :placeholder="$t('form.ipcn')" type="text" name="iPCN" v-model="dto.pcn"/>
+                            <SaMuInput :placeholder="$t('form.phone_number')" type="text" name="phoneNumber" v-model="dto.phoneNumber"/>
+                            <SaMuInput :placeholder="$t('form.email')" type="text" name="email" v-model="dto.email"/>
+                            <SaMuInput :placeholder="$t('form.password')" type="password" v-model="dto.password"/>
+                            <SaMuInput :placeholder="$t('form.repeat_password')" type="password" v-model="password2"/>
+                            <SaMuButton size="small" type="submit">{{$t('form.send')}}</SaMuButton>
                         </div>
                     </div>
                 </b-col>
@@ -41,7 +41,6 @@ import { Component, Vue } from 'vue-property-decorator';
 import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuBadge from '@/components/basic/SaMuBadge.vue';
-import SaMuGrid from '@/components/basic/SaMuGrid.vue';
 import { Container } from 'inversify';
 import { ApiServiceBinder } from '../openapi/ApiServiceBinder';
 import { AuthorizationService } from '../openapi/api/authorization.service';
@@ -56,7 +55,6 @@ import { User } from '../openapi/model/user';
         SaMuButton,
         SaMuInput,
         SaMuBadge,
-        SaMuGrid,
     },
 
 })
@@ -104,11 +102,11 @@ export default class Register extends Vue {
             this.authorizationService.authorizationRegisterPost(this.dto).subscribe(() => {
                 // TODO add redirect to profile page
             }, (err) => {
-                Vue.toasted.show('Niet alles is correct ingevuld...', {duration: 5000, type: 'error'});
+                Vue.toasted.show(this.$t('error.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
             });
 
         } else {
-            Vue.toasted.show('Wachtwoorden zijn niet aan elkaar gelijk...', {duration: 5000, type: 'error'});
+            Vue.toasted.show(this.$t('error.password_not_match').toString(), {duration: 5000, type: 'error'});
         }
     }
 }
@@ -147,3 +145,50 @@ export default class Register extends Vue {
     }
 }
 </style>
+
+<i18n>
+{
+    "nl": {
+        "form": {
+            "first_name": "Voornaam",
+            "last_name": "Achternaam",
+            "birthday": "Geboortedatum (jjjj-mm-dd)",
+            "address": "Straat en huisnummer",
+            "city": "Woonplaats",
+            "postalcode": "Postcode",
+            "country": "Land",
+            "ipcn": "iPCN",
+            "phone_number": "Telefoon nummer",
+            "email": "Email adres",
+            "password": "Wachtwoord",
+            "repeat_password": "Bevestig je wachtwoord",
+            "send": "Verstuur!"
+        },
+        "error": {
+            "password_not_match": "Wachtwoorden zijn niet aan elkaar gelijk...",
+            "form_not_filled_in_correctly": "Niet alles is correct ingevuld..."
+        }
+    },
+    "en": {
+        "form": {
+            "first_name": "First name",
+            "last_name": "Last name",
+            "birthday": "Birthday (yyyy-mm-dd)",
+            "address": "Address",
+            "city": "City",
+            "postalcode": "Postalcode",
+            "country": "Country",
+            "ipcn": "iPCN",
+            "phone_number": "Phonenumber",
+            "email": "Email address",
+            "password": "Password",
+            "repeat_password": "Repeat your password",
+            "send": "Send!"
+        },
+        "error": {
+            "password_not_match": "Passwords do not match...",
+            "form_not_filled_in_correctly": "Form is not filled in correctly..."
+        }
+    }
+}
+</i18n>
