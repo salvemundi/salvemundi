@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <div class="container">
+    <b-container>
       <div class="nav__brand">
         <router-link to="/">
           <img v-if="$route.path === '/'" src="@/assets/images/logoWit.png" alt="logo" />
@@ -18,7 +18,7 @@
           <li>Mijn account</li>
         </ul>
       </div>
-    </div>
+    </b-container>
   </nav>
 </template>
 
@@ -41,10 +41,6 @@ export default class Navigation extends Vue {}
   padding: 15px 5%;
   display: flex;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  .container {
-    display: flex;
-  }
 
   &__brand {
     img {
