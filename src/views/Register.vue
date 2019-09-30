@@ -22,7 +22,7 @@
                         <SaMuBadge text="2" title="Digitale gegevens" />
                         <div class="register-form__body">
                             <SaMuInput :placeholder="$t('form.ipcn')" type="text" v-model="dto.pcn"/>
-                            <SaMuInput :placeholder="$t('form.phone_number')" type="text" v-model="dto.phoneNumber"/>
+                            <SaMuInput :placeholder="$t('form.phonenumber')" type="text" v-model="dto.phoneNumber"/>
                             <SaMuInput :placeholder="$t('form.email')" type="text" v-model="dto.email"/>
                             <SaMuInput :placeholder="$t('form.password')" type="password" v-model="dto.password"/>
                             <SaMuInput :placeholder="$t('form.repeat_password')" type="password" v-model="password2"/>
@@ -158,7 +158,7 @@ export default class Register extends Vue {
             "postalcode": "Postcode",
             "country": "Land",
             "ipcn": "iPCN",
-            "phone_number": "Telefoon nummer",
+            "phonenumber": "Telefoonnummer",
             "email": "Email adres",
             "password": "Wachtwoord",
             "repeat_password": "Bevestig je wachtwoord",
@@ -179,7 +179,7 @@ export default class Register extends Vue {
             "postalcode": "Postalcode",
             "country": "Country",
             "ipcn": "iPCN",
-            "phone_number": "Phonenumber",
+            "phonenumber": "Phonenumber",
             "email": "Email address",
             "password": "Password",
             "repeat_password": "Repeat your password",
