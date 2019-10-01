@@ -13,7 +13,7 @@ Vue.config.productionTip = false;
 Vue.use(Toasted);
 Vue.use(LayoutPlugin);
 Vue.use(VueI18n);
-Vue.use(VueCookies)
+Vue.use(VueCookies);
 
 const i18n = new VueI18n({
   locale: 'nl',

@@ -40,16 +40,16 @@ export default class Login extends Vue {
     private authorizationService: AuthorizationService = openApiContainer.get<AuthorizationService>('AuthorizationService');
     private dto: LoginDTO = {
         email: '',
-        password: ''
+        password: '',
     };
 
-    handleSubmit(e: Event) {
+    public handleSubmit(e: Event) {
         this.authorizationService.authorizationLoginPost(this.dto).subscribe(() => {
             // TODO redirect to profile page
         }, (err) => {
             if (err.status === 401) {
                 Vue.toasted.show(this.$t('error.login_failed').toString(), {duration: 5000, type: 'error'});
-            
+
             } else {
                 Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
             }
