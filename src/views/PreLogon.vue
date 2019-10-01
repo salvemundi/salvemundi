@@ -1,4 +1,4 @@
-<template>
+<template scoped>
     <div class="preLogon">
         <div class="center">
             <b-container>
@@ -19,7 +19,7 @@
                             <div class="text">Ben je nog geen lid van Salve Mundi?<br>Klik dan op de knop hier beneden om je te registreren!</div>
                             <img src="@/assets/images/register.svg"/>
                             <div>
-                                <SaMuButton to="https://identity.fhict.nl/connect/authorize?client_id=i407624-salvemundi2&scope=fhict_personal&response_type=code&redirect_uri=https://salvemundi.nl/callback" className="FHICT">Als lid</SaMuButton>
+                                <SaMuButton to="https://identity.fhict.nl/connect/authorize?client_id=i407624-salvemundi2&scope=fhict_personal&response_type=code&redirect_uri=https://salvemundi.nl/callback" class="FHICT">Als lid</SaMuButton>
                                 <SaMuButton to="/register">Als Vriend van de vereniging</SaMuButton>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" scoped>
 import { Component, Vue } from 'vue-property-decorator';
 import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuHeader from '@/components/basic/SaMuHeader.vue';
@@ -43,7 +43,7 @@ import SaMuHeader from '@/components/basic/SaMuHeader.vue';
 })
 export default class PreLogon extends Vue {}
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .preLogon {
     height: calc(100vh - 177px);
 

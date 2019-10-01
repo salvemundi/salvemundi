@@ -1,4 +1,4 @@
-<template>
+<template scoped>
   <div class="register">
       <form v-on:submit="handleSubmit">
         <b-container>
@@ -36,13 +36,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" scoped>
 import { Component, Vue } from 'vue-property-decorator';
 import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuBadge from '@/components/basic/SaMuBadge.vue';
-import { Container } from 'inversify';
-import { ApiServiceBinder } from '../openapi/ApiServiceBinder';
 import { AuthorizationService } from '../openapi/api/authorization.service';
 import { MeDTO } from '../openapi/model/meDTO';
 import openApiContainer from '../openApiContainer';
@@ -60,7 +58,6 @@ import { User } from '../openapi/model/user';
 })
 export default class Register extends Vue {
 
-    private url = process.env.VUE_APP_API_URL;
     private password2 = '';
     private dto: RegisterDTO = {
         firstName: '',
@@ -111,7 +108,7 @@ export default class Register extends Vue {
     }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .register {
     height: calc(100vh - 177px);
 
@@ -146,49 +143,4 @@ export default class Register extends Vue {
 }
 </style>
 
-<i18n>
-{
-    "nl": {
-        "form": {
-            "first_name": "Voornaam",
-            "last_name": "Achternaam",
-            "birthday": "Geboortedatum (jjjj-mm-dd)",
-            "address": "Straat en huisnummer",
-            "city": "Woonplaats",
-            "postalcode": "Postcode",
-            "country": "Land",
-            "ipcn": "iPCN",
-            "phonenumber": "Telefoonnummer",
-            "email": "Email adres",
-            "password": "Wachtwoord",
-            "repeat_password": "Bevestig je wachtwoord",
-            "send": "Verstuur!"
-        },
-        "error": {
-            "password_not_match": "Wachtwoorden zijn niet aan elkaar gelijk...",
-            "form_not_filled_in_correctly": "Niet alles is correct ingevuld..."
-        }
-    },
-    "en": {
-        "form": {
-            "first_name": "First name",
-            "last_name": "Last name",
-            "birthday": "Birthday (yyyy-mm-dd)",
-            "address": "Address",
-            "city": "City",
-            "postalcode": "Postalcode",
-            "country": "Country",
-            "ipcn": "iPCN",
-            "phonenumber": "Phonenumber",
-            "email": "Email address",
-            "password": "Password",
-            "repeat_password": "Repeat your password",
-            "send": "Send!"
-        },
-        "error": {
-            "password_not_match": "Passwords do not match...",
-            "form_not_filled_in_correctly": "Form is not filled in correctly..."
-        }
-    }
-}
-</i18n>
+<i18n src="../lang/Register.json"></i18n>

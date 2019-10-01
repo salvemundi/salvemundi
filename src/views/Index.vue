@@ -1,4 +1,4 @@
-<template>
+<template scoped>
   <div class="index">
     <section class="main">
       <div class="center">
@@ -6,7 +6,7 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <SaMuButton to="preLogon" size="large" className="click-to-action">Meld je nu aan!</SaMuButton>
+        <SaMuButton to="preLogon" size="large" class="click-to-action">Meld je nu aan!</SaMuButton>
       </div>
     </section>
     <section class="about">
@@ -88,7 +88,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" scoped>
 import { Component, Vue } from 'vue-property-decorator';
 import EventItem from '@/components/layout/events/EventItem.vue';
 import CommitteeIcon from '@/components/layout/committees/CommitteeIcon.vue';
@@ -103,7 +103,7 @@ import SaMuButton from '@/components/basic/SaMuButton.vue';
 })
 export default class Index extends Vue {}
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .index {
 
   section.main {

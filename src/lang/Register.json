@@ -1,0 +1,44 @@
+{
+    "nl": {
+        "form": {
+            "first_name": "Voornaam",
+            "last_name": "Achternaam",
+            "birthday": "Geboortedatum (jjjj-mm-dd)",
+            "address": "Straat en huisnummer",
+            "city": "Woonplaats",
+            "postalcode": "Postcode",
+            "country": "Land",
+            "ipcn": "iPCN",
+            "phonenumber": "Telefoonnummer",
+            "email": "Email adres",
+            "password": "Wachtwoord",
+            "repeat_password": "Bevestig je wachtwoord",
+            "send": "Verstuur!"
+        },
+        "error": {
+            "password_not_match": "Wachtwoorden zijn niet aan elkaar gelijk...",
+            "form_not_filled_in_correctly": "Niet alles is correct ingevuld..."
+        }
+    },
+    "en": {
+        "form": {
+            "first_name": "First name",
+            "last_name": "Last name",
+            "birthday": "Birthday (yyyy-mm-dd)",
+            "address": "Address",
+            "city": "City",
+            "postalcode": "Postalcode",
+            "country": "Country",
+            "ipcn": "iPCN",
+            "phonenumber": "Phonenumber",
+            "email": "Email address",
+            "password": "Password",
+            "repeat_password": "Repeat your password",
+            "send": "Send!"
+        },
+        "error": {
+            "password_not_match": "Passwords do not match...",
+            "form_not_filled_in_correctly": "Form is not filled in correctly..."
+        }
+    }
+}
