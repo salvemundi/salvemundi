@@ -5,6 +5,7 @@ import Privacy from './views/Privacy.vue';
 import NotFound from './views/errorHandling/NotFound.vue';
 import PreLogon from './views/PreLogon.vue';
 import Register from '@/views/Register.vue';
+import Login from '@/views/Login.vue';
 
 Vue.use(Router);
 
@@ -32,6 +33,10 @@ export default new Router({
     {
       path: '/register',
       component: Register,
+    },
+    {
+      path: '/login',
+      component: Login,
     },
     {
       path: '/privacy',
