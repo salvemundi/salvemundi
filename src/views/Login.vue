@@ -44,7 +44,6 @@ export default class Login extends Vue {
     };
 
     handleSubmit(e: Event) {
-        console.log(this.dto);
         this.authorizationService.authorizationLoginPost(this.dto).subscribe(() => {
             // TODO redirect to profile page
         }, (err) => {
