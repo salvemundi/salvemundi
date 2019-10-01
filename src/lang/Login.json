@@ -1,6 +1,7 @@
 {
     "nl": {
         "form": {
+            "title": "Inloggen",
             "email": "Email adres",
             "password": "Wachtwoord",
             "login": "Login"
@@ -12,6 +13,7 @@
     },
     "en": {
         "form": {
+            "title": "Login",
             "email": "Email address",
             "password": "Password",
             "login": "Login"

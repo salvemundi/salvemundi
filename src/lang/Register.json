@@ -1,6 +1,8 @@
 {
     "nl": {
         "form": {
+            "general_info": "Algemene info",
+            "digital_data": "Digitale gegevens",
             "first_name": "Voornaam",
             "last_name": "Achternaam",
             "birthday": "Geboortedatum (jjjj-mm-dd)",
@@ -22,6 +24,8 @@
     },
     "en": {
         "form": {
+            "general_info": "General info",
+            "digital_data": "Digital data",
             "first_name": "First name",
             "last_name": "Last name",
             "birthday": "Birthday (yyyy-mm-dd)",

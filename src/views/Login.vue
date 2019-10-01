@@ -2,9 +2,9 @@
   <div class="login">
       <form v-on:submit="handleSubmit">
         <b-row class="justify-content-md-center">
-            <b-col sm="6">
+            <b-col sm="4">
                 <div class="login-form">
-                    <SaMuBadge text="1" title="Login" />
+                    <SaMuBadge text="1">{{$t('form.title')}}</SaMuBadge>
                     <div class="login-form__body">
                         <SaMuInput :placeholder="$t('form.email')" type="text" autocomplete="username" v-model="dto.email"/>
                         <SaMuInput :placeholder="$t('form.password')" type="password" autocomplete="current-password" v-model="dto.password"/>
@@ -46,7 +46,7 @@ export default class Login extends Vue {
     handleSubmit(e: Event) {
         console.log(this.dto);
         this.authorizationService.authorizationLoginPost(this.dto).subscribe(() => {
-            console.log('succes!')
+            // TODO redirect to profile page
         }, (err) => {
             if (err.status === 401) {
                 Vue.toasted.show(this.$t('error.login_failed').toString(), {duration: 5000, type: 'error'});

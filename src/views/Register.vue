@@ -5,7 +5,7 @@
             <b-row>
                 <b-col sm="6">
                     <div class="register-form general-information">
-                        <SaMuBadge text="1" title="Algemene info" />
+                        <SaMuBadge text="1">{{$t('form.general_info')}}</SaMuBadge>
                         <div class="register-form__body">
                             <SaMuInput :placeholder="$t('form.first_name')" type="text" v-model="dto.firstName"/>
                             <SaMuInput :placeholder="$t('form.last_name')" type="text" v-model="dto.lastName"/>
@@ -19,7 +19,7 @@
                 </b-col>
                 <b-col sm="6">
                     <div class="register-form digital-information">
-                        <SaMuBadge text="2" title="Digitale gegevens" />
+                        <SaMuBadge text="2">{{$t('form.digital_data')}}</SaMuBadge>
                         <div class="register-form__body">
                             <SaMuInput :placeholder="$t('form.ipcn')" type="text" v-model="dto.pcn"/>
                             <SaMuInput :placeholder="$t('form.phonenumber')" type="text" v-model="dto.phoneNumber"/>
