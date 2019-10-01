@@ -3,7 +3,7 @@
     <div class="SaMuBadge__holder">
       <span>{{text}}</span>
     </div>
-    <SaMuHeader class="SaMuBadge__name" :text="title"/>
+    <SaMuHeader class="SaMuBadge__name"><slot></slot></SaMuHeader>
   </div>
 </template>
 <script lang="ts">
@@ -14,7 +14,7 @@ import SaMuHeader from '@/components/basic/SaMuHeader.vue';
   components: {
       SaMuHeader,
   },
-  props: ['title', 'text'],
+  props: ['text'],
 })
 export default class CommitteeIcon extends Vue {}
 </script>
