@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Index from './views/Index.vue';
-import Privacy from './views/Privacy.vue';
-import NotFound from './views/errorHandling/NotFound.vue';
-import PreLogon from './views/PreLogon.vue';
-import Register from '@/views/Register.vue';
-import Login from '@/views/Login.vue';
+import Index from '@/views/index.vue';
+import Privacy from '@/views/privacy.vue';
+import NotFound from '@/views/errorHandling/notFound.vue';
+import PreLogon from '@/views/preLogon.vue';
+import Register from '@/views/register.vue';
+import Login from '@/views/login.vue';
 
 Vue.use(Router);
 
