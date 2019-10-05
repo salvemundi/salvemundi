@@ -53,7 +53,7 @@ export default new Router({
         component: Login,
       },
     ]),
-    ...withPrefix('/administration', [
+    ...withPrefix('/dashboard', [
       {
         path: '/member',
         component: MemberOverview,

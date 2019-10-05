@@ -16,9 +16,7 @@ import SaMuButton from '@/components/basic/SaMuButton.vue';
 export default class MemberOverview extends Vue {}
 </script>
 <style lang="scss" scoped>
-.member-overview {
-    height: calc(100vh - 177px);
-}
+
 </style>
 
 <i18n src="@/lang/administration/member/overview.json"></i18n>

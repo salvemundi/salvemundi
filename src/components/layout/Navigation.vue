@@ -22,7 +22,7 @@
               <li>Korting</li>
               <li v-if="isLoggedIn()">Dashboard</li>
             </ul>
-            <ul v-if="$route.path.split('/')[1] === 'administration'" class="samu-nav__navigation__items">
+            <ul v-if="$route.path.split('/')[1] === 'dashboard'" class="samu-nav__navigation__items">
               <li>Profiel</li>
             </ul>
           </b-col>
@@ -111,8 +111,6 @@ export default class Navigation extends Vue {
   }
 
   &__navigation {
-    height: 75px;
-
     &__hamburger {
       display: block;
       position: absolute;

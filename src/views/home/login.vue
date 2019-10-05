@@ -1,8 +1,8 @@
 <template scoped>
   <div class="login">
       <form v-on:submit="handleSubmit">
-        <b-row class="justify-content-md-center">
-            <b-col sm="4">
+        <b-row>
+            <b-col>
                 <div class="login-form">
                     <SaMuBadge text="1">{{$t('form.title')}}</SaMuBadge>
                     <div class="login-form__body">
@@ -69,6 +69,8 @@ export default class Login extends Vue {
     }
 
     &-form {
+        padding: 0px 20px 0px 50px;
+
         &__body {
             margin-top: 18px;
             width: 100%;
