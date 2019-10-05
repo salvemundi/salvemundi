@@ -20,28 +20,15 @@ h2 {
 }
 
 .container {
-  width: 100vw;
+  width: 100%;
   display: flex;
   margin: 0 auto;
 }
 
-a.button {
-  width: 160px;
+.row {
+  width: 100%;
+}
 
-  background: #663265;
-  border-radius: 2px;
-  
-  display: block;
-
-  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-
-  font-family: Poppins;
-  
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 27px;
-  
-  color: #ffffff;
-  padding: 7px 24px;
+#view .row > div {
+  margin-top: 30px;
 }

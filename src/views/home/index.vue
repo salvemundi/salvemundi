@@ -7,7 +7,7 @@
             <img src="@/assets/images/logoWit.png" alt="logo" />
           </router-link>
         </div>
-        <SaMuButton to="preLogon" size="small" class="nav__click-to-action">Meld je nu aan!</SaMuButton>
+        <SaMuButton to="home/preLogon" size="small" class="nav__click-to-action">Meld je nu aan!</SaMuButton>
         <div class="nav__right">
           <ul :class="$route.path !== '/' ? 'purple' : ''">
             <li>Over ons</li>
@@ -27,7 +27,7 @@
           <h1 class="title">SALVE MUNDI</h1>
           <h3 class="notice">Studenten voor studenten</h3>
 
-          <SaMuButton to="preLogon" size="large" class="click-to-action">Meld je nu aan!</SaMuButton>
+          <SaMuButton to="home/preLogon" size="large" class="click-to-action">Meld je nu aan!</SaMuButton>
         </div>
       </section>
       <section class="about">

@@ -9,53 +9,16 @@ import Login from '@/views/home/login.vue';
 import MemberOverview from '@/views/administration/member/overview.vue';
 
 Vue.use(Router);
+const withPrefix = (prefix: any, routes: any) =>
+    routes.map( (route: any) => {
+        route.path = prefix + route.path;
+        return route;
+    });
 
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '/home',
-      component: Index,
-      children: [
-        {
-          path: '',
-          component: Index,
-        },
-        {
-          path: 'preLogon',
-          component: PreLogon,
-        },
-        {
-          path: 'register',
-          component: Register,
-        },
-        {
-          path: 'login',
-          component: Login,
-        },
-      ],
-    },
-    {
-      path: '/administration',
-      component: MemberOverview,
-      children: [
-        {
-          path: 'member',
-          component: MemberOverview,
-        },
-      ],
-    },
-    {
-      path: '/error',
-      component: NotFound,
-      children: [
-        {
-          path: '404',
-          component: NotFound,
-        },
-      ],
-    },
     {
       path: '/',
       redirect: '/home',
@@ -72,5 +35,35 @@ export default new Router({
       path: '*',
       redirect: '/error/404',
     },
+    ...withPrefix('/home', [
+      {
+        path: '/',
+        component: Index,
+      },
+      {
+        path: '/preLogon',
+        component: PreLogon,
+      },
+      {
+        path: '/register',
+        component: Register,
+      },
+      {
+        path: '/login',
+        component: Login,
+      },
+    ]),
+    ...withPrefix('/administration', [
+      {
+        path: '/member',
+        component: MemberOverview,
+      },
+    ]),
+    ...withPrefix('/error', [
+      {
+        path: '/404',
+        component: NotFound,
+      },
+    ]),
   ],
 });

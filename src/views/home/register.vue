@@ -1,7 +1,7 @@
 <template scoped>
   <div class="register">
       <form v-on:submit="handleSubmit">
-        <b-container>
+        <b-container fluid>
             <b-row>
                 <b-col sm="6">
                     <div class="register-form general-information">
@@ -110,8 +110,6 @@ export default class Register extends Vue {
 </script>
 <style lang="scss" scoped>
 .register {
-    height: calc(100vh - 177px);
-
     form {
         width: 100%;
         position: absolute;

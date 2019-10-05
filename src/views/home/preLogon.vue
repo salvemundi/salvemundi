@@ -1,15 +1,15 @@
 <template scoped>
     <div class="preLogon">
         <div class="center">
-            <b-container>
-                <b-row style="width: 100%;">
+            <b-container fluid>
+                <b-row>
                     <b-col sm="6">
                         <div class="login">
                             <SaMuHeader>{{$t('login.title')}}</SaMuHeader>
                             <div class="text" v-html="$t('login.description')"></div>
                             <img src="@/assets/images/login.svg"/>
                             <div>
-                                <SaMuButton to="login">{{$t('login.action')}}</SaMuButton>
+                                <SaMuButton to="/home/login">{{$t('login.action')}}</SaMuButton>
                             </div>
                         </div>
                     </b-col>
@@ -20,7 +20,7 @@
                             <img src="@/assets/images/register.svg"/>
                             <div>
                                 <SaMuButton to="https://identity.fhict.nl/connect/authorize?client_id=i407624-salvemundi2&scope=fhict_personal&response_type=code&redirect_uri=https://salvemundi.nl/callback" class="FHICT">{{$t('register.action_as_member')}}</SaMuButton>
-                                <SaMuButton to="/register">{{$t('register.action_as_friend')}}</SaMuButton>
+                                <SaMuButton to="/home/register">{{$t('register.action_as_friend')}}</SaMuButton>
                             </div>
                         </div>
                     </b-col>
@@ -45,14 +45,15 @@ export default class PreLogon extends Vue {}
 </script>
 <style lang="scss" scoped>
 .preLogon {
-    height: calc(100vh - 177px);
-
     & .center {
         width: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
+
+        @media screen and (min-width: 576px) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
 
         & .text {
             text-align: center;

@@ -60,8 +60,6 @@ export default class Login extends Vue {
 </script>
 <style lang="scss" scoped>
 .login {
-    height: calc(100vh - 177px);
-
     form {
         width: 100%;
         position: absolute;

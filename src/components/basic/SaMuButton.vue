@@ -26,7 +26,6 @@ export default class SaMuButton extends Vue {}
     font-weight: 700;
     box-shadow: 2px 2px 6px 0px #000;
     cursor: pointer;
-    transform: translateY(20%);
 
     &.default {
         padding: 1em 1.5em;
