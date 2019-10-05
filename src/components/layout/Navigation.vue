@@ -3,13 +3,12 @@
     <b-container>
       <div class="nav__brand">
         <router-link to="/">
-          <img v-if="$route.path === '/'" src="@/assets/images/logoWit.png" alt="logo" />
-          <img v-if="$route.path !== '/'" src="@/assets/images/logoPaars.png" alt="logo" />
+          <img src="@/assets/images/logoPaars.png" alt="logo" />
         </router-link>
       </div>
       <SaMuButton to="preLogon" size="small" class="nav__click-to-action">Meld je nu aan!</SaMuButton>
       <div class="nav__right">
-        <ul :class="$route.path !== '/' ? 'purple' : ''">
+        <ul class="purple">
           <li>Over ons</li>
           <li>Evenementen</li>
           <li>Commissies</li>

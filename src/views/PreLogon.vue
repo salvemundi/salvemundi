@@ -69,6 +69,7 @@ export default class PreLogon extends Vue {}
 
             & .FHICT {
                 margin-right: 10px;
+                margin-bottom: 10px;
             }
         }
 
@@ -81,4 +82,4 @@ export default class PreLogon extends Vue {}
 }
 </style>
 
-<i18n src="../lang/PreLogon.json"></i18n>
+<i18n src="@/lang/PreLogon.json"></i18n>

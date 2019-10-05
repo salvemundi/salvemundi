@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navigation v-if="$route.path !== '/notFound'" />
+    <Navigation v-if="$route.path !== '/notFound' && $route.path !== '/'" />
     <router-view />
     <Footer v-if="$route.path !== '/notFound'" />
   </div>

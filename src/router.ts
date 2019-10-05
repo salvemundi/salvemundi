@@ -6,6 +6,7 @@ import NotFound from '@/views/errorHandling/notFound.vue';
 import PreLogon from '@/views/preLogon.vue';
 import Register from '@/views/register.vue';
 import Login from '@/views/login.vue';
+import MemberOverview from '@/views/administration/member/overview.vue';
 
 Vue.use(Router);
 
@@ -14,17 +15,16 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/',
+      component: Index,
+    },
+    {
       path: '/notFound',
       component: NotFound,
     },
     {
       path: '/callback',
       redirect: '/register',
-    },
-    {
-      path: '/',
-      name: 'index',
-      component: Index,
     },
     {
       path: '/preLogon',
@@ -40,8 +40,16 @@ export default new Router({
     },
     {
       path: '/privacy',
-      name: 'Privacy',
       component: Privacy,
+    },
+    {
+      path: '/administration',
+      children: [
+        {
+          path: 'member',
+          component: MemberOverview,
+        },
+      ],
     },
     {
       path: '*',

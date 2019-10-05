@@ -81,4 +81,4 @@ export default class Login extends Vue {
 }
 </style>
 
-<i18n src="../lang/Login.json"></i18n>
+<i18n src="@/lang/Login.json"></i18n>

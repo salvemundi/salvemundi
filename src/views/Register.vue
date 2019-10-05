@@ -143,4 +143,4 @@ export default class Register extends Vue {
 }
 </style>
 
-<i18n src="../lang/Register.json"></i18n>
+<i18n src="@/lang/Register.json"></i18n>
