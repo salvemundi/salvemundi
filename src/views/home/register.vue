@@ -41,11 +41,11 @@ import { Component, Vue } from 'vue-property-decorator';
 import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuBadge from '@/components/basic/SaMuBadge.vue';
-import { AuthorizationService } from '../openapi/api/authorization.service';
-import { MeDTO } from '../openapi/model/meDTO';
-import openApiContainer from '../openApiContainer';
-import { RegisterDTO } from '../openapi/model/registerDTO';
-import { User } from '../openapi/model/user';
+import { AuthorizationService } from '@/openapi/api/authorization.service';
+import { MeDTO } from '@/openapi/model/meDTO';
+import openApiContainer from '@/openApiContainer';
+import { RegisterDTO } from '@/openapi/model/registerDTO';
+import { User } from '@/openapi/model/user';
 
 
 @Component({

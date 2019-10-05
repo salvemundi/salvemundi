@@ -4,8 +4,7 @@
       <b-container>
         <div class="nav__brand">
           <router-link to="/">
-            <img v-if="$route.path === '/'" src="@/assets/images/logoWit.png" alt="logo" />
-            <img v-if="$route.path !== '/'" src="@/assets/images/logoPaars.png" alt="logo" />
+            <img src="@/assets/images/logoWit.png" alt="logo" />
           </router-link>
         </div>
         <SaMuButton to="preLogon" size="small" class="nav__click-to-action">Meld je nu aan!</SaMuButton>
@@ -127,6 +126,46 @@ import SaMuButton from '@/components/basic/SaMuButton.vue';
 export default class Index extends Vue {}
 </script>
 <style lang="scss" scoped>
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding: 15px 5%;
+  display: flex;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  &__brand {
+    img {
+      width: 100px;
+    }
+  }
+
+  &__click-to-action {
+    margin-left: 40px;
+  }
+
+  &__right {
+    margin-left: auto;
+    padding: 2px;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+
+    &.purple li {
+      color: black;
+      font-weight: normal;
+    }
+
+    li {
+      font-weight: bold;
+      font-size: 14px;
+      color: white;
+      padding: 12px 8px;
+    }
+  }
+}
 .index {
 
   section.main {
@@ -136,7 +175,7 @@ export default class Index extends Vue {}
         rgba(102, 50, 101, 0.8),
         rgba(102, 50, 101, 0.8)
       ),
-      url("../assets/images/background.jpg");
+      url("../../assets/images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 

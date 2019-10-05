@@ -22,9 +22,9 @@ import { Component, Vue } from 'vue-property-decorator';
 import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuBadge from '@/components/basic/SaMuBadge.vue';
-import openApiContainer from '../openApiContainer';
-import { AuthorizationService } from '../openapi/api/authorization.service';
-import { LoginDTO } from '../openapi/model/loginDTO';
+import openApiContainer from '@/openApiContainer';
+import { AuthorizationService } from '@/openapi/api/authorization.service';
+import { LoginDTO } from '@/openapi/model/loginDTO';
 
 
 @Component({

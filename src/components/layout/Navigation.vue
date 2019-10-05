@@ -1,27 +1,29 @@
-<template>
-  <nav class="nav">
+<template scoped>
+  <nav class="samu-nav">
     <b-container>
-      <div class="nav__brand">
+      <b-col sm="2" class="samu-nav__brand">
         <router-link to="/">
           <img src="@/assets/images/logoPaars.png" alt="logo" />
         </router-link>
-      </div>
-      <SaMuButton to="preLogon" size="small" class="nav__click-to-action">Meld je nu aan!</SaMuButton>
-      <div class="nav__right">
+      </b-col>
+      <b-col sm="2" v-if="!isLoggedIn()">
+        <SaMuButton to="preLogon" size="small" class="samu-nav__click-to-action">Meld je nu aan!</SaMuButton>
+      </b-col>
+      <b-col class="samu-nav__right">
         <ul class="purple">
           <li>Over ons</li>
           <li>Evenementen</li>
           <li>Commissies</li>
           <li>Merchandise</li>
           <li>Korting</li>
-          <li>Mijn account</li>
+          <li v-if="isLoggedIn()">Mijn account</li>
         </ul>
-      </div>
+      </b-col>
     </b-container>
   </nav>
 </template>
 
-<script>
+<script lang="ts" scoped>
 import { Component, Vue } from 'vue-property-decorator';
 import SaMuButton from '@/components/basic/SaMuButton.vue';
 
@@ -30,20 +32,34 @@ import SaMuButton from '@/components/basic/SaMuButton.vue';
     SaMuButton,
   },
 })
-export default class Navigation extends Vue {}
+export default class Navigation extends Vue {
+
+  private isLoggedIn() {
+    const list: any = {};
+    document.cookie.split(';').forEach((cookie) => {
+      const parts = cookie.split('=');
+      const key = parts.shift();
+
+      if (key !== undefined) {
+        list[key.trim()] = decodeURI(parts.join('='));
+      }
+    });
+
+    return !!list.auth;
+  }
+}
 </script>
-<style lang="scss">
-.nav {
+<style lang="scss" scoped>
+.samu-nav {
   position: fixed;
-  left: 0;
-  right: 0;
-  padding: 15px 5%;
-  display: flex;
+  width: 100vw;
+  padding: 15px 0px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: white;
 
   &__brand {
     img {
-      width: 100px;
+      width: 100%;
     }
   }
 
@@ -52,8 +68,7 @@ export default class Navigation extends Vue {}
   }
 
   &__right {
-    margin-left: auto;
-    padding: 2px;
+    text-align: right
   }
 
   ul {

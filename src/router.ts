@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Index from '@/views/index.vue';
+import Index from '@/views/home/index.vue';
 import Privacy from '@/views/privacy.vue';
-import NotFound from '@/views/errorHandling/notFound.vue';
-import PreLogon from '@/views/preLogon.vue';
-import Register from '@/views/register.vue';
-import Login from '@/views/login.vue';
+import NotFound from '@/views/error/notFound.vue';
+import PreLogon from '@/views/home/preLogon.vue';
+import Register from '@/views/home/register.vue';
+import Login from '@/views/home/login.vue';
 import MemberOverview from '@/views/administration/member/overview.vue';
 
 Vue.use(Router);
@@ -15,35 +15,30 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/home',
       component: Index,
-    },
-    {
-      path: '/notFound',
-      component: NotFound,
-    },
-    {
-      path: '/callback',
-      redirect: '/register',
-    },
-    {
-      path: '/preLogon',
-      component: PreLogon,
-    },
-    {
-      path: '/register',
-      component: Register,
-    },
-    {
-      path: '/login',
-      component: Login,
-    },
-    {
-      path: '/privacy',
-      component: Privacy,
+      children: [
+        {
+          path: '',
+          component: Index,
+        },
+        {
+          path: 'preLogon',
+          component: PreLogon,
+        },
+        {
+          path: 'register',
+          component: Register,
+        },
+        {
+          path: 'login',
+          component: Login,
+        },
+      ],
     },
     {
       path: '/administration',
+      component: MemberOverview,
       children: [
         {
           path: 'member',
@@ -52,8 +47,30 @@ export default new Router({
       ],
     },
     {
+      path: '/error',
+      component: NotFound,
+      children: [
+        {
+          path: '404',
+          component: NotFound,
+        },
+      ],
+    },
+    {
+      path: '/',
+      redirect: '/home',
+    },
+    {
+      path: '/callback',
+      redirect: '/register',
+    },
+    {
+      path: '/privacy',
+      component: Privacy,
+    },
+    {
       path: '*',
-      redirect: '/notFound',
+      redirect: '/error/404',
     },
   ],
 });
