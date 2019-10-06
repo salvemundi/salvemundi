@@ -1,6 +1,6 @@
 <template scoped>
     <div class="member-overview">
-        <b-container fluid>
+        <b-container>
           <b-row>
             <b-col>
               <SaMuHeader style="text-align: left;">Ledenadministratie</SaMuHeader>
