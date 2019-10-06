@@ -4,14 +4,14 @@ import App from '@/app.vue';
 import router from './router';
 import store from './store';
 import Toasted from 'vue-toasted';
-import { LayoutPlugin } from 'bootstrap-vue';
+import BootstrapVue from 'bootstrap-vue';
 import VueI18n from 'vue-i18n';
 import VueCookies from 'vue-cookies';
 
 Vue.config.productionTip = false;
 
 Vue.use(Toasted);
-Vue.use(LayoutPlugin);
+Vue.use(BootstrapVue);
 Vue.use(VueI18n);
 Vue.use(VueCookies);
 

@@ -6,7 +6,7 @@ import NotFound from '@/views/error/notFound.vue';
 import PreLogon from '@/views/home/preLogon.vue';
 import Register from '@/views/home/register.vue';
 import Login from '@/views/home/login.vue';
-import MemberOverview from '@/views/administration/member/overview.vue';
+import MemberOverview from '@/views/dashboard/member/overview.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
