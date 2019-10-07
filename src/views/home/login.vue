@@ -23,6 +23,7 @@ import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuBadge from '@/components/basic/SaMuBadge.vue';
 import openApiContainer from '@/openApiContainer';
+import isLoggedIn from '@/lib/authentication';
 import { AuthorizationService } from '@/openapi/api/authorization.service';
 import { LoginDTO } from '@/openapi/model/loginDTO';
 
@@ -45,7 +46,7 @@ export default class Login extends Vue {
 
     constructor() {
         super();
-        if (this.isLoggedIn()) {
+        if (isLoggedIn()) {
             this.successfullLogin();
         }
     }
@@ -63,20 +64,6 @@ export default class Login extends Vue {
             }
         });
         e.preventDefault();
-    }
-
-    private isLoggedIn() {
-        const list: any = {};
-        document.cookie.split(';').forEach((cookie) => {
-        const parts = cookie.split('=');
-        const key = parts.shift();
-
-        if (key !== undefined) {
-            list[key.trim()] = decodeURI(parts.join('='));
-        }
-        });
-
-        return !!list.auth;
     }
 
     private successfullLogin() {

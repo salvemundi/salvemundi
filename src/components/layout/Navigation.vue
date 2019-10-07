@@ -23,6 +23,7 @@
               <li v-if="isLoggedIn()">Dashboard</li>
             </ul>
             <ul v-if="$route.path.split('/')[1] === 'dashboard'" class="samu-nav__navigation__items">
+              <li><SaMuLink to="/dashboard/member">Ledenadministratie</SaMuLink></li>
               <li>Profiel</li>
             </ul>
           </b-col>
@@ -35,26 +36,19 @@
 <script lang="ts" scoped>
 import { Component, Vue } from 'vue-property-decorator';
 import SaMuButton from '@/components/basic/SaMuButton.vue';
+import SaMuLink from '@/components/basic/SaMuLink.vue';
+import isLoggedIn from '@/lib/authentication';
 
 @Component({
   components: {
     SaMuButton,
+    SaMuLink,
   },
 })
 export default class Navigation extends Vue {
 
   private isLoggedIn() {
-    const list: any = {};
-    document.cookie.split(';').forEach((cookie) => {
-      const parts = cookie.split('=');
-      const key = parts.shift();
-
-      if (key !== undefined) {
-        list[key.trim()] = decodeURI(parts.join('='));
-      }
-    });
-
-    return !!list.auth;
+    return isLoggedIn();
   }
 
   private toggleHamburger() {
@@ -64,7 +58,7 @@ export default class Navigation extends Vue {
     const nav: any = document.getElementsByClassName(navClassName)[0];
     if (menu.className === menuClassName) {
       menu.className += ' active';
-      nav.className += ' large';
+      nav.className += ' large__' + this.$route.path.split('/')[1];
 
     } else {
       menu.className = menuClassName;
@@ -93,8 +87,12 @@ export default class Navigation extends Vue {
   background: white;
   z-index: 9999;
 
-  &.large {
+  &.large__home {
     height: 330px;
+  }
+
+  &.large__dashboard {
+    height: 250px;
   }
 
   .row > div:first-child {
