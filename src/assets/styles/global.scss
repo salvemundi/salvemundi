@@ -13,7 +13,7 @@ body {
   font-family: Poppins, sans-serif;
 }
 
-a, div, td, th, p, h1, h2, h3, button {
+a, b, body, div, td, th, p, h1, h2, h3, button {
   font-size: 14px;
   font-family: Poppins, sans-serif;
   font-weight: normal;
@@ -30,8 +30,10 @@ h2 {
   margin: 0 auto;
 }
 
-.row {
+.container .row {
   width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 #view .row > div {
