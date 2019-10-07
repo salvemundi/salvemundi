@@ -68,6 +68,12 @@ class HttpClient implements IHttpClient {
 
         } else if (httpResponse.status === 403) {
             window.location.href = '/error/403';
+
+        } else if (httpResponse.status === 404) {
+            window.location.href = '/error/404';
+
+        } else if (httpResponse.status >= 400) {
+            throw httpResponse;
         }
 
         return httpResponse;

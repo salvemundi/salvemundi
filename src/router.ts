@@ -8,6 +8,7 @@ import PreLogon from '@/views/home/preLogon.vue';
 import Register from '@/views/home/register.vue';
 import Login from '@/views/home/login.vue';
 import MemberOverview from '@/views/dashboard/member/overview.vue';
+import MemberDetails from '@/views/dashboard/member/details.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
@@ -55,10 +56,16 @@ export default new Router({
       },
     ]),
     ...withPrefix('/dashboard', [
-      {
-        path: '/member',
-        component: MemberOverview,
-      },
+      ...withPrefix('/member', [
+        {
+          path: '/',
+          component: MemberOverview,
+        },
+        {
+          path: '/:id',
+          component: MemberDetails,
+        },
+      ]),
     ]),
     ...withPrefix('/error', [
       {
