@@ -1,9 +1,9 @@
 <template scoped>
     <div class="member-details">
         <div class="member-details-avatar">
-            <img src="@/assets/images/background.jpg"/>
+            <SaMuAvatar :image="require('@/assets/images/background.jpg')" alt="avatar"/>
         </div>
-        <b-container class="member-details-information">
+        <b-container class="member-details-information" fluid>
             <b-row>
                 <b-col sm="6">
                     <SaMuHeader>Algemene info</SaMuHeader>
@@ -21,6 +21,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuHeader from '@/components/basic/SaMuHeader.vue';
 import SaMuLink from '@/components/basic/SaMuLink.vue';
+import SaMuAvatar from '@/components/basic/SaMuAvatar.vue';
 import { UserService } from '../../../openapi/api/user.service';
 import openApiContainer from '@/openApiContainer';
 import moment from 'moment';
@@ -30,6 +31,7 @@ import moment from 'moment';
     SaMuButton,
     SaMuHeader,
     SaMuLink,
+    SaMuAvatar,
   },
 })
 export default class MemberDetails extends Vue {
@@ -43,13 +45,6 @@ export default class MemberDetails extends Vue {
         padding-top: 30px;
         width: 100vw;
         text-align: center;
-
-        img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
     }
 
     &-information {
