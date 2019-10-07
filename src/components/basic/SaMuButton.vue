@@ -21,8 +21,6 @@ export default class SaMuButton extends Vue {}
     background-color: #663265;
     color: #fff;
     border: none;
-    font-size: 14px;
-    font-family: Poppins, sans-serif;
     font-weight: 700;
     box-shadow: 2px 2px 6px 0px #000;
     cursor: pointer;

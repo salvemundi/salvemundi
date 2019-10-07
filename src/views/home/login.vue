@@ -43,9 +43,17 @@ export default class Login extends Vue {
         password: '',
     };
 
+    constructor() {
+        super();
+        if (this.isLoggedIn()) {
+            this.successfullLogin();
+        }
+    }
+
     public handleSubmit(e: Event) {
         this.authorizationService.authorizationLoginPost(this.dto).subscribe(() => {
-            // TODO redirect to profile page
+            this.successfullLogin();
+
         }, (err) => {
             if (err.status === 401) {
                 Vue.toasted.show(this.$t('error.login_failed').toString(), {duration: 5000, type: 'error'});
@@ -55,6 +63,25 @@ export default class Login extends Vue {
             }
         });
         e.preventDefault();
+    }
+
+    private isLoggedIn() {
+        const list: any = {};
+        document.cookie.split(';').forEach((cookie) => {
+        const parts = cookie.split('=');
+        const key = parts.shift();
+
+        if (key !== undefined) {
+            list[key.trim()] = decodeURI(parts.join('='));
+        }
+        });
+
+        return !!list.auth;
+    }
+
+    private successfullLogin() {
+        const url: string = (new URLSearchParams(window.location.search.substring(1)).get('redirect')) || '/home';
+        window.location.href = url;
     }
 }
 </script>

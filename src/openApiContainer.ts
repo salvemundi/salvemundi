@@ -21,73 +21,56 @@ class APIConfiguration implements IAPIConfiguration {
 @injectable()
 class HttpClient implements IHttpClient {
     public get(url: string, headers?: Headers): Observable<HttpResponse> {
-        const promise = axios.get(url, {withCredentials: true}).then((response: AxiosResponse) => {
-            const httpResponse = new HttpResponse(response.data, response.status, response.headers);
-
-            if (response.status >= 400) {
-                throw httpResponse;
-            }
-
-            return httpResponse;
-        });
+        const promise = axios.get(url, {withCredentials: true})
+            .then((response: AxiosResponse) => this.processResponse(response))
+            .catch((err) => this.processResponse(err.response));
 
         return from(promise);
     }
 
     public post(url: string, body?: {} | FormData, headers?: Headers): Observable<HttpResponse> {
-        const promise = axios.post(url, body, {withCredentials: true}).then((response: AxiosResponse) => {
-            const httpResponse = new HttpResponse(response.data, response.status, response.headers);
-
-            if (response.status >= 400) {
-                throw httpResponse;
-            }
-
-            return httpResponse;
-        });
+        const promise = axios.post(url, body, {withCredentials: true})
+            .then((response: AxiosResponse) => this.processResponse(response))
+            .catch((err) => this.processResponse(err.response));
 
         return from(promise);
     }
 
     public put(url: string, body?: {}, headers?: Headers): Observable<HttpResponse> {
-        const promise = axios.put(url, body, {withCredentials: true}).then((response: AxiosResponse) => {
-            const httpResponse = new HttpResponse(response.data, response.status, response.headers);
-
-            if (response.status >= 400) {
-                throw httpResponse;
-            }
-
-            return httpResponse;
-        });
+        const promise = axios.put(url, body, {withCredentials: true})
+            .then((response: AxiosResponse) => this.processResponse(response))
+            .catch((err) => this.processResponse(err.response));
 
         return from(promise);
     }
 
     public patch(url: string, body?: {}, headers?: Headers): Observable<HttpResponse> {
-        const promise = axios.patch(url, body, {withCredentials: true}).then((response: AxiosResponse) => {
-            const httpResponse = new HttpResponse(response.data, response.status, response.headers);
-
-            if (response.status >= 400) {
-                throw httpResponse;
-            }
-
-            return httpResponse;
-        });
+        const promise = axios.patch(url, body, {withCredentials: true})
+            .then((response: AxiosResponse) => this.processResponse(response))
+            .catch((err) => this.processResponse(err.response));
 
         return from(promise);
     }
 
     public delete(url: string, headers?: Headers): Observable<HttpResponse> {
-        const promise = axios.delete(url, {withCredentials: true}).then((response: AxiosResponse) => {
-            const httpResponse = new HttpResponse(response.data, response.status, response.headers);
-
-            if (response.status >= 400) {
-                throw httpResponse;
-            }
-
-            return httpResponse;
-        });
+        const promise = axios.delete(url, {withCredentials: true})
+            .then((response: AxiosResponse) => this.processResponse(response))
+            .catch((err) => this.processResponse(err.response));
 
         return from(promise);
+    }
+
+    private processResponse(response: any) {
+        const httpResponse = new HttpResponse(response.data, response.status, response.headers);
+
+        if (httpResponse.status === 401) {
+            window.location.href = '/home/login?redirect=' + window.location.href;
+
+        } else if (httpResponse.status === 403) {
+            window.location.href = '/error/403';
+        }
+
+        return httpResponse;
     }
 }
 

@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Index from '@/views/home/index.vue';
 import Privacy from '@/views/privacy.vue';
 import NotFound from '@/views/error/notFound.vue';
+import Forbidden from '@/views/error/forbidden.vue';
 import PreLogon from '@/views/home/preLogon.vue';
 import Register from '@/views/home/register.vue';
 import Login from '@/views/home/login.vue';
@@ -63,6 +64,10 @@ export default new Router({
       {
         path: '/404',
         component: NotFound,
+      },
+      {
+        path: '/403',
+        component: Forbidden,
       },
     ]),
   ],

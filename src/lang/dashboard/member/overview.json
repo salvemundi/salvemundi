@@ -1,0 +1,22 @@
+{
+    "nl": {
+        "title": "Ledenadministratie",
+        "table": {
+            "formatDate": "D-MM-YYYY",
+            "pcn": "Pcn",
+            "name": "Naam",
+            "memberTill": "Lid tot",
+            "details": "Details"
+        }
+    },
+    "en": {
+        "title": "Member administration",
+        "table": {
+            "formatDate": "D-MM-YYYY",
+            "pcn": "Pcn",
+            "name": "Name",
+            "memberTill": "Member till",
+            "details": "Details"
+        }
+    }
+}
