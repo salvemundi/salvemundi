@@ -23,7 +23,6 @@ import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuBadge from '@/components/basic/SaMuBadge.vue';
 import openApiContainer from '@/openApiContainer';
-import isLoggedIn from '@/lib/authentication';
 import { AuthorizationService } from '@/openapi/api/authorization.service';
 import { LoginDTO } from '@/openapi/model/loginDTO';
 
@@ -43,13 +42,6 @@ export default class Login extends Vue {
         email: '',
         password: '',
     };
-
-    constructor() {
-        super();
-        if (isLoggedIn()) {
-            this.successfullLogin();
-        }
-    }
 
     public handleSubmit(e: Event) {
         this.authorizationService.authorizationLoginPost(this.dto).subscribe(() => {
