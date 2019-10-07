@@ -1,22 +1,42 @@
 {
     "nl": {
-        "title": "Ledenadministratie",
-        "table": {
-            "formatDate": "D-MM-YYYY",
+        "format_date": "D-MM-YYYY",
+        "general_information": {
+            "title": "Algemene informatie",
+            "first_name": "Voornaam",
+            "last_name": "Achternaam",
+            "birthday": "Geboortedatum",
+            "registered_since": "Geregistreerd sinds",
+            "address": "Adres",
+            "city": "Woonplaats",
+            "postalcode": "Postcode",
+            "country": "Land"
+        },
+        "digital_information": {
+            "title": "Digitale gegevens",
             "pcn": "Pcn",
-            "name": "Naam",
-            "memberTill": "Lid tot",
-            "details": "Details"
+            "phonenumber": "Telefoon nummer",
+            "email": "Email"
         }
     },
     "en": {
-        "title": "Member administration",
-        "table": {
-            "formatDate": "D-MM-YYYY",
+        "format_date": "D-MM-YYYY",
+        "general_information": {
+            "title": "General information",
+            "first_name": "First name",
+            "last_name": "Last name",
+            "birthday": "Birthday",
+            "registered_since": "Registered since",
+            "address": "Address",
+            "city": "City",
+            "postalcode": "Postalcode",
+            "country": "Country"
+        },
+        "digital_information": {
+            "title": "Digitale data",
             "pcn": "Pcn",
-            "name": "Name",
-            "memberTill": "Member till",
-            "details": "Details"
+            "phonenumber": "Phonenumber",
+            "email": "Email"
         }
     }
 }

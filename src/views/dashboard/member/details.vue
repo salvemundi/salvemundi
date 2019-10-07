@@ -7,52 +7,59 @@
         <b-container class="member-details-information">
             <b-row>
                 <b-col md="6">
-                    <SaMuHeader>Algemene info</SaMuHeader>
+                    <SaMuHeader>{{$t('general_information.title')}}</SaMuHeader>
                     <table>
                         <tr>
-                            <td><b>Voornaam</b></td>
-                            <td><b>Adres</b></td>
+                            <td><b>{{$t('general_information.first_name')}}</b></td>
+                            <td><b>{{$t('general_information.last_name')}}</b></td>
                         </tr>
                         <tr>
                             <td><SaMuInput type="text" v-model="user.firstName" :disabled="!editMode"/></td>
-                            <td><SaMuInput type="text" v-model="user.address" :disabled="!editMode"/></td>
-                        </tr>
-                        <tr>
-                            <td><b>Achternaam</b></td>
-                            <td><b>Woonplaats</b></td>
-                        </tr>
-                        <tr>
                             <td><SaMuInput type="text" v-model="user.lastName" :disabled="!editMode"/></td>
-                            <td><SaMuInput type="text" v-model="user.city" :disabled="!editMode"/></td>
                         </tr>
                         <tr>
-                            <td><b>Geboortedatum</b></td>
-                            <td><b>Postcode</b></td>
+                            <td><b>{{$t('general_information.birthday')}}</b></td>
+                            <td><b>{{$t('general_information.registered_since')}}</b></td>
+                            
                         </tr>
                         <tr>
                             <td><SaMuInput type="text" v-model="user.birthday" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="text" v-model="user.registeredSince" :disabled="!editMode"/></td>
+                        </tr>
+                        <tr>
+                            <td><b>{{$t('general_information.address')}}</b></td>
+                            <td><b>{{$t('general_information.city')}}</b></td>
+                        </tr>
+                        <tr>
+                            <td><SaMuInput type="text" v-model="user.address" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="text" v-model="user.city" :disabled="!editMode"/></td>
+                        </tr>
+                        <tr>
+                            <td><b>{{$t('general_information.postalcode')}}</b></td>
+                            <td><b>{{$t('general_information.country')}}</b></td>
+                        </tr>
+                        <tr>
                             <td><SaMuInput type="text" v-model="user.postalcode" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="text" v-model="user.country" :disabled="!editMode"/></td>
                         </tr>
                     </table>
                 </b-col>
                 <b-col md="6">
-                    <SaMuHeader>Digitale gegevens</SaMuHeader>
+                    <SaMuHeader>{{$t('digital_information.title')}}</SaMuHeader>
                     <table>
                         <tr>
-                            <td><b>Pcn</b></td>
-                            <td><b>Email</b></td>
+                            <td><b>{{$t('digital_information.pcn')}}</b></td>
+                            <td><b>{{$t('digital_information.email')}}</b></td>
                         </tr>
                         <tr>
                             <td><SaMuInput type="text" v-model="user.pcn" :disabled="!editMode"/></td>
                             <td><SaMuInput type="text" v-model="user.email" :disabled="!editMode"/></td>
                         </tr>
                         <tr>
-                            <td><b>Telefoonnummer</b></td>
-                            <td><b>Geregistreerd sinds</b></td>
+                            <td><b>{{$t('digital_information.phonenumber')}}</b></td>
                         </tr>
                         <tr>
                             <td><SaMuInput type="text" v-model="user.phoneNumber" :disabled="!editMode"/></td>
-                            <td><SaMuInput type="text" v-model="user.registeredSince" :disabled="!editMode"/></td>
                         </tr>
                     </table>
                 </b-col>
@@ -101,12 +108,13 @@ export default class MemberDetails extends Vue {
 
     private userService: UserService = openApiContainer.get<UserService>('UserService');
 
-    mounted() {
+    private mounted() {
         this.userService.userIdGet(+this.$route.params.id).subscribe((res: User) => {
-            res.registeredSince = moment(res.registeredSince).format('D-MM-YYYY');
-            res.birthday = moment(res.birthday).format('D-MM-YYYY');
+            res.registeredSince = moment(res.registeredSince).format(this.$t('format_date').toString());
+            res.birthday = moment(res.birthday).format(this.$t('format_date').toString());
+
             this.user = res;
-        })
+        });
     }
 
     private toggle() {
