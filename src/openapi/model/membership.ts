@@ -11,10 +11,8 @@
  */
 
 
-export interface SummaryUserDto { 
+export interface Membership { 
     id: number;
-    pcn: string;
-    firstName: string;
-    lastName: string;
-    memberTill: string;
+    startDate: string;
+    endDate: string;
 }

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { Member } from './member';
 import { Scope } from './scope';
 
 
@@ -25,5 +26,6 @@ export interface User {
     email: string;
     registeredSince: string;
     pcn: string;
+    member: Member;
     scopes: Array<Scope>;
 }

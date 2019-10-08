@@ -2,7 +2,7 @@
     <div class="member-details">
         <div class="member-details-avatar">
             <SaMuAvatar :image="require('@/assets/images/background.jpg')" alt="avatar"/>
-            <SaMuButton size='small' :click="toggle">Bewerken</SaMuButton>
+            <SaMuButton size='small' :click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</SaMuButton>
         </div>
         <b-container class="member-details-information">
             <b-row>
@@ -23,8 +23,8 @@
                             
                         </tr>
                         <tr>
-                            <td><SaMuInput type="text" v-model="user.birthday" :disabled="!editMode"/></td>
-                            <td><SaMuInput type="text" v-model="user.registeredSince" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="date" v-model="user.birthday" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="date" v-model="user.registeredSince" disabled/></td>
                         </tr>
                         <tr>
                             <td><b>{{$t('general_information.address')}}</b></td>
@@ -53,13 +53,13 @@
                         </tr>
                         <tr>
                             <td><SaMuInput type="text" v-model="user.pcn" :disabled="!editMode"/></td>
-                            <td><SaMuInput type="text" v-model="user.email" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="email" v-model="user.email" :disabled="!editMode"/></td>
                         </tr>
                         <tr>
                             <td><b>{{$t('digital_information.phonenumber')}}</b></td>
                         </tr>
                         <tr>
-                            <td><SaMuInput type="text" v-model="user.phoneNumber" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="tel" v-model="user.phoneNumber" :disabled="!editMode"/></td>
                         </tr>
                     </table>
                 </b-col>
@@ -78,6 +78,7 @@ import { UserService } from '../../../openapi/api/user.service';
 import openApiContainer from '@/openApiContainer';
 import moment from 'moment';
 import { User } from '../../../openapi/model/user';
+import { UpdateUserDto } from '../../../openapi/model/updateUserDto';
 
 @Component({
   components: {
@@ -103,6 +104,10 @@ export default class MemberDetails extends Vue {
         registeredSince: '',
         pcn: '',
         scopes: [],
+        member: {
+            id: 0,
+            memberships: [],
+        },
     };
     private editMode = false;
 
@@ -110,8 +115,8 @@ export default class MemberDetails extends Vue {
 
     private mounted() {
         this.userService.userIdGet(+this.$route.params.id).subscribe((res: User) => {
-            res.registeredSince = moment(res.registeredSince).format(this.$t('format_date').toString());
-            res.birthday = moment(res.birthday).format(this.$t('format_date').toString());
+            res.registeredSince = moment(res.registeredSince).format('YYYY-MM-D');
+            res.birthday = moment(res.birthday).format('YYYY-MM-D');
 
             this.user = res;
         });
@@ -119,6 +124,19 @@ export default class MemberDetails extends Vue {
 
     private toggle() {
         this.editMode = !this.editMode;
+
+        if (!this.editMode) {
+            // Making a hardcopy of the object to prevent updating date values
+            const userUpdate: UpdateUserDto = JSON.parse(JSON.stringify(this.user)) as UpdateUserDto;
+            userUpdate.birthday = moment(userUpdate.birthday, 'YYYY-MM-D').toDate().toString();
+
+            this.userService.userPut(userUpdate).subscribe(
+            (res: User) => {
+                Vue.toasted.show(this.$t('action.success').toString(), {duration: 5000, type: 'success'});
+            }, (err: any) => {
+                Vue.toasted.show(this.$t('action.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
+            });
+        }
     }
 
 }

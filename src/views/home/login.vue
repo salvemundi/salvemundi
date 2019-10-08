@@ -55,6 +55,7 @@ export default class Login extends Vue {
                 Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
             }
         });
+
         e.preventDefault();
     }
 

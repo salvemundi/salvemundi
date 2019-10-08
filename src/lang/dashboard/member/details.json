@@ -1,6 +1,5 @@
 {
     "nl": {
-        "format_date": "D-MM-YYYY",
         "general_information": {
             "title": "Algemene informatie",
             "first_name": "Voornaam",
@@ -17,10 +16,13 @@
             "pcn": "Pcn",
             "phonenumber": "Telefoon nummer",
             "email": "Email"
+        },
+        "action": {
+            "success": "Opgeslagen!",
+            "form_not_filled_in_correctly": "Niet alles is correct ingevuld..."
         }
     },
     "en": {
-        "format_date": "D-MM-YYYY",
         "general_information": {
             "title": "General information",
             "first_name": "First name",
@@ -37,6 +39,10 @@
             "pcn": "Pcn",
             "phonenumber": "Phonenumber",
             "email": "Email"
+        },
+        "action": {
+            "success": "Saved!",
+            "form_not_filled_in_correctly": "Form is not filled in correctly..."
         }
     }
 }

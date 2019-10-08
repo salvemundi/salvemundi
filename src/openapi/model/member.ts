@@ -9,12 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { Membership } from './membership';
 
 
-export interface SummaryUserDto { 
+export interface Member { 
     id: number;
-    pcn: string;
-    firstName: string;
-    lastName: string;
-    memberTill: string;
+    memberships: Array<Membership>;
 }

@@ -1,8 +1,8 @@
 <template>
     <a v-if="to" :href="to" class="SaMuLink">
-        <button :class="['SaMuButton', size === '' || !size ? 'default' : size]" :type="type" v-on:click="click || function(){}"><slot></slot></button>
+        <button :class="['SaMuButton', size === '' || !size ? 'default' : size]" :type="type" v-on="!click ? null : {click}"><slot></slot></button>
     </a>
-    <button v-else :class="['SaMuButton', size === '' || !size ? 'default' : size]" :type="type" v-on:click="click || function(){}"><slot></slot></button>
+    <button v-else :class="['SaMuButton', size === '' || !size ? 'default' : size]" :type="type" v-on="!click ? null : {click}"><slot></slot></button>
 </template>
 <script>
 import { Component, Vue } from 'vue-property-decorator';

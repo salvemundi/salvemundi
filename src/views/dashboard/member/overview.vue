@@ -4,13 +4,14 @@
           <b-row>
             <b-col>
               <SaMuHeader style="text-align: left;">{{$t('title')}}</SaMuHeader>
-              <b-table sticky-header striped :items="getData" :fields="fields">
+              <b-table sticky-header="100%" striped :items="getData" :fields="fields">
                 <template v-slot:cell(link)="row">
                   <SaMuLink :to="'member/' + row.item.id.toString()">{{$t('table.details')}}</SaMuLink>
                 </template>
 
                 <template v-slot:head(pcn)="data">{{$t('table.pcn')}}</template>
-                <template v-slot:head(name)="data">{{$t('table.name')}}</template>
+                <template v-slot:head(firstName)="data">{{$t('table.first_name')}}</template>
+                <template v-slot:head(lastName)="data">{{$t('table.first_name')}}</template>
                 <template v-slot:head(memberTill)="data">{{$t('table.memberTill')}}</template>
                 <template v-slot:head(link)="data"></template>
               </b-table>
@@ -42,22 +43,13 @@ export default class MemberOverview extends Vue {
 
   private items: SummaryUserDto[] = [];
   private fields = [
-    {
-      key: 'pcn',
-      sortable: true,
-    },
-    {
-      key: 'name',
-      sortable: true,
-    },
-    {
-      key: 'memberTill',
-      sortable: true,
-    },
-    {
-      key: 'link',
-    },
+    { key: 'pcn', sortable: true },
+    { key: 'firstName', sortable: true },
+    { key: 'lastName', sortable: true },
+    { key: 'memberTill', sortable: true },
+    { key: 'link' },
   ];
+
   private getData(ctx: any, callback: any) {
     if (this.items.length === 0) {
       this.userService.userGet(1000, 0).subscribe((res: any[]) => {
