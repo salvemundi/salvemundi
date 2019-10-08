@@ -63,7 +63,9 @@ class HttpClient implements IHttpClient {
     private processResponse(response: any) {
         const httpResponse = new HttpResponse(response.data, response.status, response.headers);
 
-        if (httpResponse.status === 401) {
+        const locationArray = window.location.href.split('?')[0].split('/');
+        const location = locationArray[3] + '/' + locationArray[4];
+        if (httpResponse.status === 401 && location !== 'home/login') {
             window.location.href = '/home/login?redirect=' + window.location.href;
 
         } else if (httpResponse.status === 403) {
