@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Index from '@/views/home/index.vue';
-import Privacy from '@/views/privacy.vue';
-import NotFound from '@/views/error/notFound.vue';
-import Forbidden from '@/views/error/forbidden.vue';
-import PreLogon from '@/views/home/preLogon.vue';
-import Register from '@/views/home/register.vue';
-import Login from '@/views/home/login.vue';
-import MemberOverview from '@/views/dashboard/member/overview.vue';
-import MemberDetails from '@/views/dashboard/member/details.vue';
+import Index from './views/home/index.vue';
+import Privacy from './views/privacy.vue';
+import NotFound from './views/error/notFound.vue';
+import Forbidden from './views/error/forbidden.vue';
+import PreLogon from './views/home/preLogon.vue';
+import Register from './views/home/register.vue';
+import Login from './views/home/login.vue';
+import MemberOverview from './views/dashboard/member/overview.vue';
+import MemberDetails from './views/dashboard/member/details.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
