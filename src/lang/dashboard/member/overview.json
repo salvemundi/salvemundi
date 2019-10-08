@@ -7,7 +7,8 @@
             "first_name": "Voornaam",
             "last_name": "Achternaam",
             "memberTill": "Lid tot",
-            "details": "Details"
+            "details": "Details",
+            "not_paid": "(Nog) niet betaald"
         }
     },
     "en": {
@@ -18,7 +19,8 @@
             "first_name": "First name",
             "last_name": "Last name",
             "memberTill": "Member till",
-            "details": "Details"
+            "details": "Details",
+            "not_paid": "Not paid (yet)"
         }
     }
 }

@@ -58,7 +58,12 @@ export default class MemberOverview extends Vue {
             user._rowVariant = 'danger';
           }
 
-          user.memberTill = moment(user.memberTill).format(this.$t('table.formatDate').toString());
+          if (new Date(user.memberTill).getTime() === new Date(0).getTime()) {
+            user.memberTill = this.$t('table.not_paid').toString();
+
+          } else {
+            user.memberTill = moment(user.memberTill).format(this.$t('table.formatDate').toString());
+          }
         });
 
         this.items = res;
