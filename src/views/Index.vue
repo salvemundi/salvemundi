@@ -6,7 +6,7 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <SaMuButton to="preLogon" size="large" class="click-to-action">Meld je nu aan!</SaMuButton>
+        <b-button variant="samu" class="click-to-action" size="lg">Meld je nu aan!</b-button>
       </div>
     </section>
     <section class="about">
@@ -89,23 +89,20 @@
 </template>
 
 <script lang="ts" scoped>
-import { Component, Vue } from 'vue-property-decorator';
-import EventItem from '@/components/layout/events/EventItem.vue';
-import CommitteeIcon from '@/components/layout/committees/CommitteeIcon.vue';
-import SaMuButton from '@/components/basic/SaMuButton.vue';
+import { Component, Vue } from "vue-property-decorator";
+import EventItem from "@/components/layout/events/EventItem.vue";
+import CommitteeIcon from "@/components/layout/committees/CommitteeIcon.vue";
 
 @Component({
   components: {
     EventItem,
-    CommitteeIcon,
-    SaMuButton,
-  },
+    CommitteeIcon
+  }
 })
 export default class Index extends Vue {}
 </script>
 <style lang="scss" scoped>
 .index {
-
   section.main {
     height: 100vh;
 
@@ -178,6 +175,5 @@ export default class Index extends Vue {}
       display: inline-block;
     }
   }
-
 }
 </style>

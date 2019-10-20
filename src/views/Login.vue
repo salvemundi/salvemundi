@@ -8,7 +8,7 @@
                     <div class="login-form__body">
                         <SaMuInput :placeholder="$t('form.email')" type="text" autocomplete="username" v-model="dto.email"/>
                         <SaMuInput :placeholder="$t('form.password')" type="password" autocomplete="current-password" v-model="dto.password"/>
-                        <SaMuButton type="submit" size="small">{{$t('form.login')}}</SaMuButton>
+                        <!-- <SaMuButton type="submit" size="small">{{$t('form.login')}}</SaMuButton> -->
                     </div>
                 </div>
             </b-col>
@@ -19,7 +19,6 @@
 
 <script lang="ts" scoped>
 import { Component, Vue } from 'vue-property-decorator';
-import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuBadge from '@/components/basic/SaMuBadge.vue';
 import openApiContainer from '../openApiContainer';
@@ -29,7 +28,6 @@ import { LoginDTO } from '../openapi/model/loginDTO';
 
 @Component({
     components: {
-        SaMuButton,
         SaMuInput,
         SaMuBadge,
     },

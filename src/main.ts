@@ -4,7 +4,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import Toasted from 'vue-toasted';
-import { LayoutPlugin } from 'bootstrap-vue';
+import { LayoutPlugin, NavbarPlugin, ButtonPlugin } from 'bootstrap-vue';
+
 import VueI18n from 'vue-i18n';
 import VueCookies from 'vue-cookies';
 
@@ -12,6 +13,8 @@ Vue.config.productionTip = false;
 
 Vue.use(Toasted);
 Vue.use(LayoutPlugin);
+Vue.use(ButtonPlugin);
+Vue.use(NavbarPlugin);
 Vue.use(VueI18n);
 Vue.use(VueCookies);
 

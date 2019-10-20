@@ -20,6 +20,7 @@ export default class Home extends Vue {}
 <style lang="scss">
 @import "@/assets/styles/fonts.scss";
 @import "@/assets/styles/global.scss";
+@import "@/assets/styles/buttons.scss";
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/bootstrap-vue/src/index.scss";
 
