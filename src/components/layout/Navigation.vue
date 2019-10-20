@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="lg">
+  <b-navbar toggleable="lg" v-bind:class="{'stripped': strippedDown}">
     <b-container>
       <b-navbar-brand href="#">
         <img width="100" v-if="$route.path === '/'" src="@/assets/images/logoWit.png" alt="logo" />
@@ -27,13 +27,29 @@
   </b-navbar>
 </template>
 
-<script>
+<script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-@Component({
-  components: {}
-})
-export default class Navigation extends Vue {}
+export default Vue.extend({
+  data() {
+    return {
+      strippedDown: false
+    };
+  },
+  methods: {
+    handleScroll() {
+      if (window.scrollY + 100 > window.innerHeight) {
+        this.strippedDown = true;
+      } else {
+        this.strippedDown = false;
+      }
+    }
+  },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+    this.handleScroll();
+  }
+});
 </script>
 <style lang="scss">
 nav.navbar {
@@ -42,7 +58,7 @@ nav.navbar {
   right: 0;
   padding: 15px 5%;
   display: flex;
-  // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 10;
 
   .click-to-action {
     margin-left: 3.5rem;
@@ -60,6 +76,12 @@ nav.navbar {
     a.nav-link {
       color: #ffffff;
     }
+  }
+
+  &.stripped {
+    background: rgb(102, 50, 101);
+    transition: all 0.5s ease;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 }
 </style>
