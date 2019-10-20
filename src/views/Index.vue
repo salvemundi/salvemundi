@@ -84,18 +84,42 @@
               <h2>Commissies</h2>
               <p>Salve Mundi heeft verschillende commissies die ieder verantwoordelijk zijn voor het functioneren van de vereniging. Elke commissie heeft zijn eigen taken en verantwoordelijkheden, en samen zorgen zij ervoor dat Salve Mundi kan zijn zoals het is!</p>
 
+              <div class="committee-icons mb-3">
+                <a>
+                  <CircleIcon name="Bestuur" icon="images/committees/icons/bestuur.png" />
+                </a>
+                <a>
+                  <CircleIcon name="Feest" icon="images/committees/icons/feest.png" />
+                </a>
+                <a>
+                  <CircleIcon name="Media" icon="images/committees/icons/media.png" />
+                </a>
+                <a>
+                  <CircleIcon name="Kamp" icon="images/committees/icons/kamp.png" />
+                </a>
+                <a>
+                  <CircleIcon name="Studie" icon="images/committees/icons/studie.png" />
+                </a>
+                <a>
+                  <CircleIcon name="Ledenzaken" icon="images/committees/icons/ledenzaken.png" />
+                </a>
+              </div>
               <div class="committee-icons">
-                <CommitteeIcon name="Bestuur" icon />
-                <CommitteeIcon name="Feest" icon />
-                <CommitteeIcon name="Media" icon />
-                <CommitteeIcon name="Kamp" icon />
-                <CommitteeIcon name="Studie" icon />
-                <CommitteeIcon name="Ledenzaken" icon />
-                <CommitteeIcon name="Activiteiten" icon />
-                <CommitteeIcon name="Extern" icon />
-                <CommitteeIcon name="Alpha Centauri" icon />
-                <CommitteeIcon name="Kas" icon />
-                <CommitteeIcon name="ICT" icon />
+                <a>
+                  <CircleIcon name="Activiteiten" icon="images/committees/icons/activiteiten.png" />
+                </a>
+                <a>
+                  <CircleIcon name="Extern" icon="images/committees/icons/extern.png" />
+                </a>
+                <a>
+                  <CircleIcon name="Kas" icon="images/committees/icons/kas.png" />
+                </a>
+                <a>
+                  <CircleIcon name="ICT" icon="images/committees/icons/ict.png" />
+                </a>
+                <a>
+                  <CircleIcon name="Alpha Centauri" icon="images/committees/icons/alpha.png" />
+                </a>
               </div>
             </div>
           </b-col>
@@ -113,7 +137,7 @@
             <b-button variant="samu">Merchandise</b-button>
           </b-col>
           <b-col cols="7">
-            <img width="600" src="@/assets/images/index/about-us/image.png"/>
+            <img width="600" src="@/assets/images/index/about-us/image.png" />
           </b-col>
         </b-row>
       </div>
@@ -136,12 +160,12 @@
 <script lang="ts" scoped>
 import { Component, Vue } from "vue-property-decorator";
 import EventItem from "@/components/layout/events/EventItem.vue";
-import CommitteeIcon from "@/components/layout/committees/CommitteeIcon.vue";
+import CircleIcon from "@/components/basic/CircleIcon.vue";
 
 @Component({
   components: {
     EventItem,
-    CommitteeIcon
+    CircleIcon
   }
 })
 export default class Index extends Vue {}
@@ -212,12 +236,6 @@ export default class Index extends Vue {}
 
     ul {
       padding-left: 16px;
-    }
-  }
-
-  section.committees {
-    .committee-icon {
-      display: inline-block;
     }
   }
 
