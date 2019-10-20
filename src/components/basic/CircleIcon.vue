@@ -25,6 +25,7 @@ export default class CirlceIcon extends Vue {}
     width: 78px;
     height: 78px;
     margin: 0 auto;
+    margin-bottom: 5px;
 
     background: #663265;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);

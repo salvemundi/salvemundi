@@ -1,41 +1,47 @@
 <template>
   <footer class="footer">
-    <div class="container">
-      <div class="footer__information">
-        <span>Copyright 2019 s.v. Salve Mundi. Alle rechten voorbehouden</span>
-        <hr />
-        <div>
-          <span>Rachelsmolen 1</span>
-          <span>info@salvemundi.nl</span>
+    <b-container>
+      <b-row>
+        <div class="footer__information">
+          <span>Copyright 2019 s.v. Salve Mundi. Alle rechten voorbehouden</span>
+          <hr />
+          <div>
+            <span>Rachelsmolen 1</span>
+            <span>info@salvemundi.nl</span>
+          </div>
+          <div>
+            <span>5612 MA Eindhoven</span>
+            <span>KvK nr. 70280606</span>
+          </div>
         </div>
-        <div>
-          <span>5612 MA Eindhoven</span>
-          <span>KvK nr. 70280606</span>
+        <div class="footer__social">
+          <div>
+            <a href="https://www.instagram.com/sv.salvemundi/" target="_blank">
+              <img src="@/assets/images/instagram.svg" alt="instagram" />
+            </a>
+          </div>
+          <div>
+            <a href="https://nl-nl.facebook.com/sv.salvemundi/" target="_blank">
+              <img src="@/assets/images/facebook.svg" alt="facebook" />
+            </a>
+          </div>
+          <div>
+            <a href="/privacy">Privacy</a>
+          </div>
         </div>
-      </div>
-      <div class="footer__social">
-        <div>
-          <a href="https://www.instagram.com/sv.salvemundi/" target="_blank"><img src="@/assets/images/instagram.svg" alt="instagram" /></a>
-        </div>
-        <div>
-          <a href="https://nl-nl.facebook.com/sv.salvemundi/" target="_blank"><img src="@/assets/images/facebook.svg" alt="facebook" /></a>
-        </div>
-        <div>
-          <a href="/privacy">Privacy</a>
-        </div>
-      </div>
-    </div>
+      </b-row>
+    </b-container>
   </footer>
 </template>
 <script>
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class Footer extends Vue {}
 </script>
 <style lang="scss">
 .footer {
-  margin-top: 50px;
+  margin-top: 100px;
   background: #663265;
   padding: 22px 0;
   color: white;
@@ -71,8 +77,8 @@ export default class Footer extends Vue {}
     }
 
     a {
-        color: white;
-        text-decoration: none;
+      color: white;
+      text-decoration: none;
     }
   }
 }
