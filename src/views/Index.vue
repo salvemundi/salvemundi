@@ -43,7 +43,7 @@
 
             <p>Naast deze activiteiten verzorgt Salve Mundi ook een introductie van FHICT van top tot teen.</p>
           </b-col>
-          <b-col cols="6">
+          <b-col cols="6" class="my-auto">
             <div class="image-container">
               <img width="400" src="@/assets/images/index/about-us/image.png" />
               <img width="400" src="@/assets/images/index/about-us/image.png" />
@@ -130,14 +130,14 @@
     <section class="merchandise">
       <div class="container">
         <b-row>
-          <b-col cols="5">
+          <b-col cols="5" class="my-auto">
             <h2>Merchandise</h2>
             <p>Naast dat onze mediacomissie de media verzorgt voor onze social media. Hebben ze ook nog een toffe merchandise ontworpen! Dit is de kans om op evenementen van Salve Mundi, feestjes of festivals te shinen met je mooie t-shirt, hoodie of vest.</p>
             <p>Wil jij nou ook zo gelikt over straat kunnen? Bestel je merchandise dan hier!</p>
             <b-button variant="samu">Merchandise</b-button>
           </b-col>
           <b-col cols="7">
-            <img width="600" src="@/assets/images/index/about-us/image.png" />
+            <img height="440" src="@/assets/images/index/about-us/image.png" />
           </b-col>
         </b-row>
       </div>
@@ -248,6 +248,7 @@ export default class Index extends Vue {}
   }
 
   .image-container {
+    height: 440px;
     position: relative;
     margin-top: 7rem;
     img {
