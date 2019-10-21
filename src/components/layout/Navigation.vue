@@ -1,19 +1,28 @@
 <template>
-  <b-navbar
-    toggleable="lg"
-    v-bind:class="{'stripped': strippedDown, 'purple': $route.path !== '/'}"
-  >
+  <b-navbar toggleable="lg" v-bind:class="{expanded, 'purple': $route.path !== '/'}">
     <b-container>
       <b-navbar-brand>
-        <img width="100" v-if="$route.path === '/' || !strippedDown" src="@/assets/images/logoWit.png" alt="logo" />
-        <img width="100" v-if="$route.path !== '/' && strippedDown" src="@/assets/images/logoPaars.png" alt="logo" />
+        <router-link to="/">
+          <img
+            width="100"
+            v-if="$route.path === '/' || !strippedDown"
+            src="@/assets/images/logoWit.png"
+            alt="logo"
+          />
+          <img
+            width="100"
+            v-if="$route.path !== '/' && strippedDown"
+            src="@/assets/images/logoPaars.png"
+            alt="logo"
+          />
+        </router-link>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-button variant="samu">Meld je aan!</b-button>
+          <b-button class="ml-4" variant="samu">Meld je aan!</b-button>
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">
@@ -35,15 +44,15 @@ import { Component, Vue } from "vue-property-decorator";
 export default Vue.extend({
   data() {
     return {
-      strippedDown: false
+      expanded: false
     };
   },
   methods: {
     handleScroll() {
       if (window.scrollY + 100 > window.innerHeight) {
-        this.strippedDown = true;
+        this.expanded = true;
       } else {
-        this.strippedDown = false;
+        this.expanded = false;
       }
     }
   },
@@ -62,13 +71,6 @@ nav.navbar {
   display: flex;
   z-index: 10;
 
-  .click-to-action {
-    margin-left: 3.5rem;
-    button {
-      font-weight: bold;
-    }
-  }
-
   .nav-item {
     font-family: Poppins;
     font-weight: bold;
@@ -80,7 +82,7 @@ nav.navbar {
     }
   }
 
-  &.stripped {
+  &.expanded {
     background: rgb(102, 50, 101);
     transition: all 0.5s ease;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
