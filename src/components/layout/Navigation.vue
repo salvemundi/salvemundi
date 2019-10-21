@@ -5,13 +5,13 @@
         <router-link to="/">
           <img
             width="100"
-            v-if="$route.path === '/' || !strippedDown"
+            v-if="$route.path === '/' || !expanded"
             src="@/assets/images/logoWit.png"
             alt="logo"
           />
           <img
             width="100"
-            v-if="$route.path !== '/' && strippedDown"
+            v-if="$route.path !== '/' && expanded"
             src="@/assets/images/logoPaars.png"
             alt="logo"
           />
@@ -66,8 +66,9 @@ export default Vue.extend({
 nav.navbar {
   position: fixed;
   left: 0;
+  top: 0;
   right: 0;
-  padding: 15px 5%;
+  padding: 15px 5px;
   display: flex;
   z-index: 10;
 
