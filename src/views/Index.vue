@@ -6,7 +6,7 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <b-button variant="samu" class="click-to-action" size="lg">Meld je nu aan!</b-button>
+        <b-button variant="samu" class="mt-5" size="lg">Meld je nu aan!</b-button>
       </div>
     </section>
     <section class="about">
@@ -170,13 +170,13 @@ import { Component, Vue } from "vue-property-decorator";
 import EventItem from "@/components/layout/events/EventItem.vue";
 import CircleIcon from "@/components/basic/CircleIcon.vue";
 
-@Component({
-  components: {
-    EventItem,
-    CircleIcon
-  }
-})
-export default class Index extends Vue {}
+export default Vue.extend({
+  components: { EventItem, CircleIcon },
+  data() {
+    return {};
+  },
+  methods: {}
+});
 </script>
 <style lang="scss">
 .index {
@@ -204,7 +204,7 @@ export default class Index extends Vue {}
       .lead {
         font-size: 28px;
         color: #ffffff;
-        font-weight: 400;
+        font-weight: 1090400;
       }
 
       .title {
@@ -221,12 +221,6 @@ export default class Index extends Vue {}
         font-size: 18px;
         color: #ffffff;
         font-weight: 400;
-      }
-
-      .click-to-action {
-        margin-top: 50px;
-        margin-left: auto;
-        margin-right: auto;
       }
     }
   }

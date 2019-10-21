@@ -1,9 +1,12 @@
 <template>
-  <b-navbar toggleable="lg" v-bind:class="{'stripped': strippedDown}">
+  <b-navbar
+    toggleable="lg"
+    v-bind:class="{'stripped': strippedDown, 'purple': $route.path !== '/'}"
+  >
     <b-container>
-      <b-navbar-brand href="#">
-        <img width="100" v-if="$route.path === '/'" src="@/assets/images/logoWit.png" alt="logo" />
-        <img width="100" v-if="$route.path !== '/'" src="@/assets/images/logoPaars.png" alt="logo" />
+      <b-navbar-brand>
+        <img width="100" v-if="$route.path === '/' || !strippedDown" src="@/assets/images/logoWit.png" alt="logo" />
+        <img width="100" v-if="$route.path !== '/' && strippedDown" src="@/assets/images/logoPaars.png" alt="logo" />
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -13,14 +16,13 @@
           <b-button variant="samu">Meld je aan!</b-button>
         </b-navbar-nav>
 
-        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item href="#">Over ons</b-nav-item>
           <b-nav-item href="#">Evenementen</b-nav-item>
           <b-nav-item href="#">Commissies</b-nav-item>
           <b-nav-item href="#">Merchandise</b-nav-item>
           <b-nav-item href="#">Korting</b-nav-item>
-          <b-nav-item href="#">Mijn account</b-nav-item>
+          <b-nav-item to="login">Mijn account</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-container>
@@ -82,6 +84,14 @@ nav.navbar {
     background: rgb(102, 50, 101);
     transition: all 0.5s ease;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &.purple {
+    background: rgba(102, 50, 101, 1);
+
+    a.nav-link {
+      color: white;
+    }
   }
 }
 </style>
