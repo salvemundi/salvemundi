@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Index from './views/Index.vue';
 import Privacy from './views/Privacy.vue';
-import NotFound from './views/errorHandling/NotFound.vue';
+import NotFound from './views/errors/NotFound.vue';
 import PreLogon from './views/PreLogon.vue';
 import Register from '@/views/Register.vue';
 import Login from '@/views/Login.vue';
@@ -14,7 +14,7 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/notFound',
+      path: '/404',
       component: NotFound,
     },
     {
@@ -45,7 +45,7 @@ export default new Router({
     },
     {
       path: '*',
-      redirect: '/notFound',
+      redirect: '/404',
     },
   ],
 });
