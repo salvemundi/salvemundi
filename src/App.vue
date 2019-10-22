@@ -23,8 +23,4 @@ export default class Home extends Vue {}
 @import "@/assets/styles/buttons.scss";
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/bootstrap-vue/src/index.scss";
-
-.view {
-  margin-top: 200px;
-}
 </style>
