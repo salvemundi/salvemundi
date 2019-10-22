@@ -71,7 +71,8 @@ nav.navbar {
   padding: 15px 5px;
   display: flex;
   z-index: 10;
-  
+  height: 100px;
+
   .nav-item {
     font-family: Poppins;
     font-weight: bold;
