@@ -63,7 +63,6 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-
 nav.navbar {
   position: sticky;
   left: 0;
@@ -72,7 +71,7 @@ nav.navbar {
   padding: 15px 5px;
   display: flex;
   z-index: 10;
-
+  
   .nav-item {
     font-family: Poppins;
     font-weight: bold;

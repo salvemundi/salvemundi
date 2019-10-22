@@ -24,4 +24,7 @@ export default class Home extends Vue {}
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/bootstrap-vue/src/index.scss";
 
+.view {
+  margin-top: 100px;
+}
 </style>

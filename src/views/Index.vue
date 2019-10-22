@@ -180,7 +180,7 @@ export default Vue.extend({
 </script>
 <style lang="scss">
 .index {
-  margin: 0;
+  margin-top: -100px;
   section.main {
     height: 100vh;
     background: linear-gradient(

@@ -2,8 +2,8 @@
   <div class="login">
     <b-container>
       <b-row class="justify-content-md-center">
-        <form v-on:submit="handleSubmit">
-          <b-col sm="4">
+        <div class="my-auto">
+          <form v-on:submit="handleSubmit">
             <div class="login-form">
               <SaMuBadge text="1">{{$t('form.title')}}</SaMuBadge>
               <div class="login-form__body">
@@ -23,8 +23,8 @@
                 <b-button variant="samu" size="sm">{{$t('form.login')}}</b-button>
               </div>
             </div>
-          </b-col>
-        </form>
+          </form>
+        </div>
       </b-row>
     </b-container>
   </div>
