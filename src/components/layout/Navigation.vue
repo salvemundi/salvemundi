@@ -62,13 +62,10 @@ export default Vue.extend({
   }
 });
 </script>
-<style lang="scss" scoped>
-.view {
-  margin-top: 200px;
-}
+<style lang="scss">
 
 nav.navbar {
-  position: fixed;
+  position: sticky;
   left: 0;
   top: 0;
   right: 0;

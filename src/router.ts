@@ -14,10 +14,6 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/404',
-      component: NotFound,
-    },
-    {
       path: '/callback',
       redirect: '/register',
     },
@@ -45,6 +41,10 @@ export default new Router({
     },
     {
       path: '*',
+      redirect: '/404',
+    },
+    {
+      path: '/404',
       component: NotFound,
     },
   ],
