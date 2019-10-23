@@ -20,7 +20,7 @@
                   v-model="dto.password"
                 />
 
-                <b-button variant="samu" size="sm">{{$t('form.login')}}</b-button>
+                <b-button variant="samu" type="submit" size="sm">{{$t('form.login')}}</b-button>
               </div>
             </div>
           </form>
@@ -54,6 +54,7 @@ export default class Login extends Vue {
   };
 
   public handleSubmit(e: Event) {
+    console.log(e)
     this.authorizationService.authorizationLoginPost(this.dto).subscribe(
       () => {
         // TODO redirect to profile page
