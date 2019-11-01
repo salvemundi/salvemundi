@@ -6,6 +6,7 @@ import NotFound from './views/errors/NotFound.vue';
 import PreLogon from './views/PreLogon.vue';
 import Register from '@/views/Register.vue';
 import Login from '@/views/Login.vue';
+import Merchandise from '@/views/merchandise.vue'
 
 Vue.use(Router);
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/privacy',
       name: 'Privacy',
       component: Privacy,
+    },
+    {
+      path: '/merchandise',
+      name: 'Merchandise',
+      component: Merchandise
     },
     {
       path: '*',

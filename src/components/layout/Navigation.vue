@@ -1,20 +1,9 @@
 <template>
-  <b-navbar toggleable="lg" v-bind:class="{expanded, 'purple': $route.path !== '/'}">
+  <b-navbar toggleable="lg">
     <b-container>
       <b-navbar-brand>
         <router-link to="/">
-          <img
-            width="100"
-            v-if="$route.path === '/' || !expanded"
-            src="@/assets/images/logoWit.png"
-            alt="logo"
-          />
-          <img
-            width="100"
-            v-if="$route.path !== '/' && expanded"
-            src="@/assets/images/logoPaars.png"
-            alt="logo"
-          />
+          <img width="100" src="@/assets/images/logoPaars.png" alt="logo" />
         </router-link>
       </b-navbar-brand>
 
@@ -72,6 +61,7 @@ nav.navbar {
   display: flex;
   z-index: 10;
   height: 100px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   .nav-item {
     font-family: Poppins;
@@ -80,21 +70,19 @@ nav.navbar {
     align-items: center;
 
     a.nav-link {
-      color: #ffffff;
-    }
-  }
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 400;
 
-  &.expanded {
-    background: rgb(102, 50, 101);
-    transition: all 0.5s ease;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
+      color: #000000;
 
-  &.purple {
-    background: rgba(102, 50, 101, 1);
-
-    a.nav-link {
-      color: white;
+      &:focus,
+      &:active,
+      &:hover {
+        text-decoration-line: underline;
+        font-weight: bold;
+        color: #663265;
+      }
     }
   }
 }
