@@ -16,9 +16,9 @@
 
         <b-navbar-nav class="ml-auto">
           <b-nav-item href="#">Over ons</b-nav-item>
-          <b-nav-item href="#">Evenementen</b-nav-item>
-          <b-nav-item href="#">Commissies</b-nav-item>
-          <b-nav-item href="#">Merchandise</b-nav-item>
+          <b-nav-item href="">Evenementen</b-nav-item>
+          <b-nav-item to="committees">Commissies</b-nav-item>
+          <b-nav-item to="merchandise">Merchandise</b-nav-item>
           <b-nav-item href="#">Korting</b-nav-item>
           <b-nav-item to="login">Mijn account</b-nav-item>
         </b-navbar-nav>
@@ -61,7 +61,7 @@ nav.navbar {
   display: flex;
   z-index: 10;
   height: 100px;
-  background: #FFF;
+  background: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   .nav-item {
