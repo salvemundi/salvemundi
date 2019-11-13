@@ -9,7 +9,7 @@
       <span class="select-size">Selecteer een maat:</span>
       <size-selector class="my-3" :available-sizes="['M', 'S']" />
 
-      <b-btn class="mt-4" size="small" variant="samu">Bestel</b-btn>
+      <b-btn class="mt-4" size="small" variant="samu" @click="buy">Bestel</b-btn>
     </b-col>
     <b-col cols="1"></b-col>
     <b-col cols="3">
@@ -29,6 +29,11 @@ export default Vue.extend({
   components: {
     MerchItem,
     SizeSelector
+  },
+  methods: {
+    buy() {
+      this.$router.push({name: "ShoppingCart"});
+    }
   },
   data() {
     return {

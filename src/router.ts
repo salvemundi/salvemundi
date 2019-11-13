@@ -11,6 +11,7 @@ import MerchandiseItem from '@/views/merchandise/item.vue'
 import Committees from '@/views/committees/index.vue';
 import Committee from '@/views/committees/committee.vue';
 import CommitteeMember from '@/views/committees/member.vue';
+import ShoppingCart from '@/views/shoppingcart/index.vue';
 
 Vue.use(Router);
 
@@ -53,6 +54,11 @@ export default new Router({
       path: '/merchandise/:merchandiseItem',
       name: "MerchandiseItem",
       component: MerchandiseItem
+    },
+    {
+      path: '/cart',
+      name: "ShoppingCart",
+      component: ShoppingCart
     },
     {
       path: '/committees',
