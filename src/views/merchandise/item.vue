@@ -6,7 +6,10 @@
       <span>&euro;24,99</span>
       <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies. Vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla id nibh ultricies.</p>
 
-      <b-btn size="small" variant="samu">Bestel</b-btn>
+      <span class="select-size">Selecteer een maat:</span>
+      <size-selector class="my-3" :available-sizes="['M', 'S']" />
+
+      <b-btn class="mt-4" size="small" variant="samu">Bestel</b-btn>
     </b-col>
     <b-col cols="1"></b-col>
     <b-col cols="3">
@@ -19,13 +22,25 @@
 </template>
 <script lang="ts">
 import MerchItem from "@/components/layout/merchandise/MerchItem.vue";
+import SizeSelector from "@/components/layout/merchandise/SizeSelector.vue";
 
 import Vue from "vue";
 export default Vue.extend({
   components: {
-    MerchItem
+    MerchItem,
+    SizeSelector
+  },
+  data() {
+    return {
+      size: null
+    };
   }
 });
 </script>
 <style lang="scss">
+.select-size {
+  display: block;
+  margin-top: 30px;
+  font-weight: bold;
+}
 </style>
