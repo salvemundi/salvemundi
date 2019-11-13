@@ -61,6 +61,7 @@ nav.navbar {
   display: flex;
   z-index: 10;
   height: 100px;
+  background: #FFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   .nav-item {

@@ -6,7 +6,11 @@ import NotFound from './views/errors/NotFound.vue';
 import PreLogon from './views/PreLogon.vue';
 import Register from '@/views/Register.vue';
 import Login from '@/views/Login.vue';
-import Merchandise from '@/views/merchandise.vue'
+import Merchandise from '@/views/merchandise/index.vue'
+import MerchandiseItem from '@/views/merchandise/item.vue'
+import Committees from '@/views/committees/index.vue';
+import Committee from '@/views/committees/committee.vue';
+import CommitteeMember from '@/views/committees/member.vue';
 
 Vue.use(Router);
 
@@ -44,6 +48,26 @@ export default new Router({
       path: '/merchandise',
       name: 'Merchandise',
       component: Merchandise
+    },
+    {
+      path: '/merchandise/:merchandiseItem',
+      name: "MerchandiseItem",
+      component: MerchandiseItem
+    },
+    {
+      path: '/committees',
+      name: 'Committees',
+      component: Committees
+    },
+    {
+      path: '/committees/:committee',
+      name: 'Committee',
+      component: Committee
+    },
+    {
+      path: '/committees/:committee/:member',
+      name: 'CommitteeMember',
+      component: CommitteeMember
     },
     {
       path: '*',

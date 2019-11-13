@@ -4,7 +4,9 @@
     <b-container>
       <b-row>
         <b-col col="4">
-          <merch-item name="Vest Salve Mundi" price="14,99" image />
+          <router-link :to="{ name: 'MerchandiseItem', params: {merchandiseItem: 123 }}">
+            <merch-item name="Vest Salve Mundi" price="14,99" image />
+          </router-link>
         </b-col>
       </b-row>
     </b-container>
