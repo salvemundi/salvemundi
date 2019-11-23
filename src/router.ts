@@ -55,36 +55,36 @@ export default new Router({
         path: '/login',
         component: Login,
       },
-      {
-        path: '/merchandise',
-        name: 'Merchandise',
-        component: Merchandise,
-      },
-      {
-        path: '/merchandise/:merchandiseItem',
-        name: 'MerchandiseItem',
-        component: MerchandiseItem,
-      },
+      ...withPrefix('/merchandise', [
+        {
+          path: '/',
+          component: Merchandise,
+        },
+        {
+          path: '/:merchandiseItem',
+          component: MerchandiseItem,
+        },
+      ]),
+      ...withPrefix('/committees', [
+        {
+          path: '/',
+          component: Committees,
+        },
+        {
+          path: '/:committee',
+          component: Committee,
+        },
+        {
+          path: '/:committee/:member',
+          component: CommitteeMember,
+        },
+      ]),
       {
         path: '/cart',
         name: 'ShoppingCart',
         component: ShoppingCart,
       },
-      {
-        path: '/committees',
-        name: 'Committees',
-        component: Committees,
-      },
-      {
-        path: '/committees/:committee',
-        name: 'Committee',
-        component: Committee,
-      },
-      {
-        path: '/committees/:committee/:member',
-        name: 'CommitteeMember',
-        component: CommitteeMember,
-      },
+      
     ]),
     ...withPrefix('/dashboard', [
       ...withPrefix('/member', [
