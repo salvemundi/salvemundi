@@ -7,14 +7,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import Navigation from "@/components/layout/Navigation.vue";
-import Footer from "@/components/layout/Footer.vue";
+import { Component, Vue } from 'vue-property-decorator';
+import Navigation from '@/components/layout/Navigation.vue';
+import Footer from '@/components/layout/Footer.vue';
 @Component({
   components: {
     Navigation,
-    Footer
-  }
+    Footer,
+  },
 })
 export default class Home extends Vue {}
 </script>

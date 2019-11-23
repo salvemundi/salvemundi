@@ -9,7 +9,7 @@
                             <div class="text" v-html="$t('login.description')"></div>
                             <img src="@/assets/images/login.svg"/>
                             <div>
-                                <SaMuButton to="/home/login">{{$t('login.action')}}</SaMuButton>
+                                <b-button variant="samu" to="/home/login">{{$t('login.action')}}</b-button>
                             </div>
                         </div>
                     </b-col>
@@ -19,8 +19,8 @@
                             <div class="text" v-html="$t('register.description')"></div>
                             <img src="@/assets/images/register.svg"/>
                             <div>
-                                <SaMuButton to="https://identity.fhict.nl/connect/authorize?client_id=i407624-salvemundi2&scope=fhict_personal&response_type=code&redirect_uri=https://salvemundi.nl/callback" class="FHICT">{{$t('register.action_as_member')}}</SaMuButton>
-                                <SaMuButton to="/home/register">{{$t('register.action_as_friend')}}</SaMuButton>
+                                <b-button variant="samu" to="https://identity.fhict.nl/connect/authorize?client_id=i407624-salvemundi2&scope=fhict_personal&response_type=code&redirect_uri=https://salvemundi.nl/callback" class="FHICT">{{$t('register.action_as_member')}}</b-button>
+                                <b-button variant="samu" to="/home/register">{{$t('register.action_as_friend')}}</b-button>
                             </div>
                         </div>
                     </b-col>

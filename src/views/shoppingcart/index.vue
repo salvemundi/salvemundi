@@ -35,11 +35,11 @@
 </template>
 
 <script>
-import CartItem from "@/components/layout/shoppingcart/CartItem.vue";
+import CartItem from '@/components/layout/shoppingcart/CartItem.vue';
 export default {
   components: {
-    CartItem
-  }
+    CartItem,
+  },
 };
 </script>
 

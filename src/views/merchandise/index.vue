@@ -13,13 +13,13 @@
   </div>
 </template>
 <script lang="ts">
-import MerchItem from "@/components/layout/merchandise/MerchItem.vue";
-import Vue from "vue";
+import MerchItem from '@/components/layout/merchandise/MerchItem.vue';
+import Vue from 'vue';
 
 export default Vue.extend({
   components: {
-    MerchItem
-  }
+    MerchItem,
+  },
 });
 </script>
 <style lang="scss" scoped>

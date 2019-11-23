@@ -28,12 +28,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 
 export default Vue.extend({
   data() {
     return {
-      expanded: false
+      expanded: false,
     };
   },
   methods: {
@@ -43,12 +43,12 @@ export default Vue.extend({
       } else {
         this.expanded = false;
       }
-    }
+    },
   },
   created() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
     this.handleScroll();
-  }
+  },
 });
 </script>
 <style lang="scss">

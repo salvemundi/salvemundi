@@ -11,7 +11,7 @@ import Vuex from 'vuex';
 
 Vue.config.productionTip = false;
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 Vue.use(Toasted);
 Vue.use(BootstrapVue);
 Vue.use(VueI18n);

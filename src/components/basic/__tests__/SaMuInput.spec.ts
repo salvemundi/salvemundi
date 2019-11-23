@@ -1,9 +1,9 @@
 import 'jest';
 import { shallowMount } from '@vue/test-utils';
-import SaMuInput from '../SaMuInput.vue'
+import SaMuInput from '../SaMuInput.vue';
 
 describe('Salve Mundi Input', () => {
-  it("Correctly renders", () => {
+  it('Correctly renders', () => {
     const value = 'value';
     const name = 'name';
     const autocomplete = 'off';
@@ -11,13 +11,13 @@ describe('Salve Mundi Input', () => {
     const placeholder = 'secret password';
 
     const wrapper = shallowMount(SaMuInput, {
-      propsData: { 
+      propsData: {
         placeholder,
         type,
         value,
         name,
-        autocomplete
-      }
+        autocomplete,
+      },
     });
 
     // Test value prop
@@ -25,22 +25,22 @@ describe('Salve Mundi Input', () => {
 
     // Test name prop
     expect(wrapper.props('name')).toMatch(name);
-    expect(wrapper.html()).toContain('name="' + name + '"')
+    expect(wrapper.html()).toContain('name="' + name + '"');
 
     // Test autocomplete prop
     expect(wrapper.props('autocomplete')).toMatch(autocomplete);
-    expect(wrapper.html()).toContain('autocomplete="' + autocomplete + '"')
+    expect(wrapper.html()).toContain('autocomplete="' + autocomplete + '"');
 
     // Test type prop
     expect(wrapper.props('type')).toMatch(type);
-    expect(wrapper.html()).toContain('type="' + type + '"')
+    expect(wrapper.html()).toContain('type="' + type + '"');
 
     // Test placeholder prop
     expect(wrapper.props('placeholder')).toMatch(placeholder);
-    expect(wrapper.html()).toContain('placeholder="' + placeholder + '"')
+    expect(wrapper.html()).toContain('placeholder="' + placeholder + '"');
 
     // Test classes
-    expect(wrapper.html()).toContain('class="SaMuInput"')
+    expect(wrapper.html()).toContain('class="SaMuInput"');
   });
 
   it('Correctly renders without type defined', () => {
@@ -50,11 +50,11 @@ describe('Salve Mundi Input', () => {
     const placeholder = 'some text';
 
     const wrapper = shallowMount(SaMuInput, {
-      propsData: { 
+      propsData: {
         placeholder,
         value,
-        name
-      }
+        name,
+      },
     });
 
     // Test value prop
@@ -62,17 +62,17 @@ describe('Salve Mundi Input', () => {
 
     // Test name prop
     expect(wrapper.props('name')).toMatch(name);
-    expect(wrapper.html()).toContain('name="' + name + '"')
+    expect(wrapper.html()).toContain('name="' + name + '"');
 
     // Test type prop
     expect(wrapper.props('type')).toBeUndefined();
-    expect(wrapper.html()).toContain('type="' + type + '"')
+    expect(wrapper.html()).toContain('type="' + type + '"');
 
     // Test placeholder prop
     expect(wrapper.props('placeholder')).toMatch(placeholder);
-    expect(wrapper.html()).toContain('placeholder="' + placeholder + '"')
+    expect(wrapper.html()).toContain('placeholder="' + placeholder + '"');
 
     // Test classes
-    expect(wrapper.html()).toContain('class="SaMuInput"')
-  })
+    expect(wrapper.html()).toContain('class="SaMuInput"');
+  });
 });
