@@ -26,6 +26,7 @@ export interface User {
     email: string;
     registeredSince: string;
     pcn: string;
+    activated: boolean;
     member: Member;
     scopes: Array<Scope>;
 }

@@ -11,15 +11,7 @@
  */
 
 
-export interface RegisterDTO { 
-    firstName: string;
-    lastName: string;
-    birthday: string;
-    address: string;
-    city: string;
-    postalcode: string;
-    country: string;
-    email: string;
-    phoneNumber: string;
-    pcn: string;
+export interface ConfirmationDTO { 
+    token: string;
+    password: string;
 }

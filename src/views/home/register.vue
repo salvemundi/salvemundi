@@ -7,13 +7,13 @@
                     <div class="register-form general-information">
                         <SaMuBadge text="1">{{$t('form.general_info')}}</SaMuBadge>
                         <div class="register-form__body">
-                            <SaMuInput :placeholder="$t('form.first_name')" type="text" v-model="dto.firstName"/>
-                            <SaMuInput :placeholder="$t('form.last_name')" type="text" v-model="dto.lastName"/>
-                            <SaMuInput :placeholder="$t('form.birthday')" type="date" v-model="dto.birthday"/>
-                            <SaMuInput :placeholder="$t('form.address')" type="text" v-model="dto.address"/>
-                            <SaMuInput :placeholder="$t('form.city')" type="text" v-model="dto.city"/>
-                            <SaMuInput :placeholder="$t('form.postalcode')" type="text" v-model="dto.postalcode"/>
-                            <SaMuInput :placeholder="$t('form.country')" type="text" v-model="dto.country"/>
+                            <SaMuInput :placeholder="$t('form.first_name')" type="text" v-model="dto.firstName" id="register-form__first_name"/>
+                            <SaMuInput :placeholder="$t('form.last_name')" type="text" v-model="dto.lastName" id="register-form__last_name"/>
+                            <SaMuInput :placeholder="$t('form.birthday')" type="date" v-model="dto.birthday" id="register-form__birthday"/>
+                            <SaMuInput :placeholder="$t('form.address')" type="text" v-model="dto.address" id="register-form__address"/>
+                            <SaMuInput :placeholder="$t('form.city')" type="text" v-model="dto.city" id="register-form__city"/>
+                            <SaMuInput :placeholder="$t('form.postalcode')" type="text" v-model="dto.postalcode" id="register-form__postalcode"/>
+                            <SaMuInput :placeholder="$t('form.country')" type="text" v-model="dto.country" id="register-form__country"/>
                         </div>
                     </div>
                 </b-col>
@@ -21,11 +21,9 @@
                     <div class="register-form digital-information">
                         <SaMuBadge text="2">{{$t('form.digital_data')}}</SaMuBadge>
                         <div class="register-form__body">
-                            <SaMuInput :placeholder="$t('form.ipcn')" type="text" v-model="dto.pcn"/>
-                            <SaMuInput :placeholder="$t('form.phonenumber')" type="text" v-model="dto.phoneNumber"/>
-                            <SaMuInput :placeholder="$t('form.email')" type="email" v-model="dto.email"/>
-                            <SaMuInput :placeholder="$t('form.password')" type="new-password" v-model="dto.password"/>
-                            <SaMuInput :placeholder="$t('form.repeat_password')" type="new-password" v-model="password2"/>
+                            <SaMuInput :placeholder="$t('form.ipcn')" type="text" v-model="dto.pcn" id="register-form__pcn"/>
+                            <SaMuInput :placeholder="$t('form.phonenumber')" type="text" v-model="dto.phoneNumber" id="register-form__phonenumber"/>
+                            <SaMuInput :placeholder="$t('form.email')" type="email" v-model="dto.email" id="register-form__email"/>
                             <SaMuButton size="small" type="submit">{{$t('form.send')}}</SaMuButton>
                         </div>
                     </div>
