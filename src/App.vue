@@ -20,11 +20,22 @@ export default class Home extends Vue {}
 </script>
 
 <style lang="scss">
-@import "@/assets/styles/fonts.scss";
 @import "@/assets/styles/global.scss";
 @import "@/assets/styles/buttons.scss";
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/bootstrap-vue/src/index.scss";
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap");
+
+@font-face {
+  font-family: "Portico Regular";
+  src: url("assets/fonts/Portico\ Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Portico Rounded";
+  src: url("assets/fonts/Portico\ Rounded.otf") format("truetype");
+}
+
 
 .view {
   margin-top: 100px;

@@ -6,7 +6,7 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <b-button variant="samu" class="mt-5" size="lg">Meld je nu aan!</b-button>
+        <b-button variant="samu" class="mt-5" size="lg" href="/home/prelogon">Meld je nu aan!</b-button>
       </div>
     </section>
     <section class="about">

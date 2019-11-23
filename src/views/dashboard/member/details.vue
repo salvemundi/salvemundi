@@ -101,6 +101,7 @@ export default class MemberDetails extends Vue {
         email: '',
         registeredSince: '',
         pcn: '',
+        activated: false,
         scopes: [],
         member: {
             id: 0,

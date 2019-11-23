@@ -24,7 +24,7 @@
                             <SaMuInput :placeholder="$t('form.ipcn')" type="text" v-model="dto.pcn" id="register-form__pcn"/>
                             <SaMuInput :placeholder="$t('form.phonenumber')" type="text" v-model="dto.phoneNumber" id="register-form__phonenumber"/>
                             <SaMuInput :placeholder="$t('form.email')" type="email" v-model="dto.email" id="register-form__email"/>
-                            <SaMuButton size="small" type="submit">{{$t('form.send')}}</SaMuButton>
+                            <b-button variant="samu" size="small" type="submit">{{$t('form.send')}}</b-button>
                         </div>
                     </div>
                 </b-col>
@@ -68,7 +68,6 @@ export default class Register extends Vue {
         email: '',
         phoneNumber: '',
         pcn: '',
-        password: '',
     };
 
     private authorizationService: AuthorizationService = openApiContainer.get<AuthorizationService>('AuthorizationService');
@@ -94,32 +93,27 @@ export default class Register extends Vue {
     private handleSubmit(submitEvent: Event) {
         submitEvent.preventDefault();
 
-        if (this.password2 === this.dto.password) {
-            // Registers user
-            this.authorizationService.authorizationRegisterPost(this.dto).subscribe((res: User) => {
+        // Registers user
+        this.authorizationService.authorizationRegisterPost(this.dto).subscribe((res: User) => {
 
-                // Create payment for the new user
-                this.paymentsService.paymentsMembershipGet(res.id).subscribe((res2: PaymentDTO) => {
+            // Create payment for the new user
+            this.paymentsService.paymentsMembershipGet(res.id).subscribe((res2: PaymentDTO) => {
 
-                    // Redirect to payment page if the payment has not been expired
-                    if (new Date(res2.expiresAt).getTime() >= new Date().getTime()) {
-                        window.location.href = res2.url.href;
+                // Redirect to payment page if the payment has not been expired
+                if (new Date(res2.expiresAt).getTime() >= new Date().getTime()) {
+                    window.location.href = res2.url.href;
 
-                    } else {
-                        Vue.toasted.show(this.$t('error.payment_expired').toString(), {duration: 5000, type: 'error'});
-                    }
-                });
-            }, (err) => {
-                if (err.response.status === 409) {
-                    Vue.toasted.show(this.$t('error.email_already_exists').toString(), {duration: 5000, type: 'error'});
                 } else {
-                    Vue.toasted.show(this.$t('error.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
+                    Vue.toasted.show(this.$t('error.payment_expired').toString(), {duration: 5000, type: 'error'});
                 }
             });
-
-        } else {
-            Vue.toasted.show(this.$t('error.password_not_match').toString(), {duration: 5000, type: 'error'});
-        }
+        }, (err) => {
+            if (err.response.status === 409) {
+                Vue.toasted.show(this.$t('error.email_already_exists').toString(), {duration: 5000, type: 'error'});
+            } else {
+                Vue.toasted.show(this.$t('error.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
+            }
+        });
     }
 }
 </script>
