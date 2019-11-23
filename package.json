@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "./node_modules/jest/bin/jest.js"
+    "test:components": "./node_modules/jest/bin/jest.js"
   },
   "dependencies": {
     "@types/dotenv": "^6.1.1",
