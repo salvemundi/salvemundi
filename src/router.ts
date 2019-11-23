@@ -19,6 +19,7 @@ Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
     routes.map( (route: any) => {
         route.path = prefix + route.path;
+        route.name = prefix + route.path;
         return route;
     });
 
