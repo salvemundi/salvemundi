@@ -21,5 +21,10 @@ export default class SaMuInput extends Vue {}
     font-size: 14px;
     margin-top: 7px;
     margin-bottom: 8px;
+    color: black;
+}
+
+.SaMuInput:disabled {
+  color: #828282;
 }
 </style>

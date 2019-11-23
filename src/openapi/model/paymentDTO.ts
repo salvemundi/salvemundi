@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { Url } from './url';
 
 
-export interface Scope { 
-    id: number;
-    name: string;
-    description: string;
+export interface PaymentDTO { 
+    url: Url;
+    expiresAt: Date;
 }

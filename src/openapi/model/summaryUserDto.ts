@@ -9,23 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Member } from './member';
-import { Scope } from './scope';
 
 
-export interface User { 
+export interface SummaryUserDto { 
     id: number;
+    pcn: string;
     firstName: string;
     lastName: string;
-    birthday: string;
-    address: string;
-    postalcode: string;
-    city: string;
-    country: string;
-    phoneNumber: string;
-    email: string;
-    registeredSince: string;
-    pcn: string;
-    member: Member;
-    scopes: Array<Scope>;
+    memberTill: string;
 }

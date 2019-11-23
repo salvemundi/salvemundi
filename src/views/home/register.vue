@@ -1,7 +1,7 @@
 <template scoped>
   <div class="register">
       <form v-on:submit="handleSubmit">
-        <b-container>
+        <b-container fluid>
             <b-row>
                 <b-col sm="6">
                     <div class="register-form general-information">
@@ -9,7 +9,7 @@
                         <div class="register-form__body">
                             <SaMuInput :placeholder="$t('form.first_name')" type="text" v-model="dto.firstName"/>
                             <SaMuInput :placeholder="$t('form.last_name')" type="text" v-model="dto.lastName"/>
-                            <SaMuInput :placeholder="$t('form.birthday')" type="text" v-model="dto.birthday"/>
+                            <SaMuInput :placeholder="$t('form.birthday')" type="date" v-model="dto.birthday"/>
                             <SaMuInput :placeholder="$t('form.address')" type="text" v-model="dto.address"/>
                             <SaMuInput :placeholder="$t('form.city')" type="text" v-model="dto.city"/>
                             <SaMuInput :placeholder="$t('form.postalcode')" type="text" v-model="dto.postalcode"/>
@@ -23,9 +23,9 @@
                         <div class="register-form__body">
                             <SaMuInput :placeholder="$t('form.ipcn')" type="text" v-model="dto.pcn"/>
                             <SaMuInput :placeholder="$t('form.phonenumber')" type="text" v-model="dto.phoneNumber"/>
-                            <SaMuInput :placeholder="$t('form.email')" type="text" v-model="dto.email"/>
-                            <SaMuInput :placeholder="$t('form.password')" type="password" v-model="dto.password"/>
-                            <SaMuInput :placeholder="$t('form.repeat_password')" type="password" v-model="password2"/>
+                            <SaMuInput :placeholder="$t('form.email')" type="email" v-model="dto.email"/>
+                            <SaMuInput :placeholder="$t('form.password')" type="new-password" v-model="dto.password"/>
+                            <SaMuInput :placeholder="$t('form.repeat_password')" type="new-password" v-model="password2"/>
                             <SaMuButton size="small" type="submit">{{$t('form.send')}}</SaMuButton>
                         </div>
                     </div>
@@ -40,11 +40,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuBadge from '@/components/basic/SaMuBadge.vue';
-import { AuthorizationService } from '../openapi/api/authorization.service';
-import { MeDTO } from '../openapi/model/meDTO';
-import openApiContainer from '../openApiContainer';
-import { RegisterDTO } from '../openapi/model/registerDTO';
-import { User } from '../openapi/model/user';
+import { AuthorizationService } from '@/openapi/api/authorization.service';
+import { PaymentsService } from '@/openapi/api/payments.service';
+import { MeDTO } from '@/openapi/model/meDTO';
+import openApiContainer from '@/openApiContainer';
+import { RegisterDTO } from '@/openapi/model/registerDTO';
+import { User } from '@/openapi/model/user';
+import { PaymentDTO } from '../../openapi/model/paymentDTO';
 
 
 @Component({
@@ -72,6 +74,7 @@ export default class Register extends Vue {
     };
 
     private authorizationService: AuthorizationService = openApiContainer.get<AuthorizationService>('AuthorizationService');
+    private paymentsService: PaymentsService = openApiContainer.get<PaymentsService>('PaymentsService');
 
     constructor() {
         super();
@@ -94,10 +97,26 @@ export default class Register extends Vue {
         submitEvent.preventDefault();
 
         if (this.password2 === this.dto.password) {
-            this.authorizationService.authorizationRegisterPost(this.dto).subscribe(() => {
-                // TODO add redirect to profile page
+            // Registers user
+            this.authorizationService.authorizationRegisterPost(this.dto).subscribe((res: User) => {
+
+                // Create payment for the new user
+                this.paymentsService.paymentsMembershipGet(res.id).subscribe((res2: PaymentDTO) => {
+
+                    // Redirect to payment page if the payment has not been expired
+                    if (new Date(res2.expiresAt).getTime() >= new Date().getTime()) {
+                        window.location.href = res2.url.href;
+
+                    } else {
+                        Vue.toasted.show(this.$t('error.payment_expired').toString(), {duration: 5000, type: 'error'});
+                    }
+                });
             }, (err) => {
-                Vue.toasted.show(this.$t('error.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
+                if (err.response.status === 409) {
+                    Vue.toasted.show(this.$t('error.email_already_exists').toString(), {duration: 5000, type: 'error'});
+                } else {
+                    Vue.toasted.show(this.$t('error.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
+                }
             });
 
         } else {
@@ -108,8 +127,6 @@ export default class Register extends Vue {
 </script>
 <style lang="scss" scoped>
 .register {
-    height: calc(100vh - 177px);
-
     form {
         width: 100%;
         position: absolute;
@@ -141,4 +158,4 @@ export default class Register extends Vue {
 }
 </style>
 
-<i18n src="../lang/Register.json"></i18n>
+<i18n src="@/lang/Register.json"></i18n>

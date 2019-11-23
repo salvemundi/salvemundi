@@ -63,6 +63,8 @@ nav.navbar {
   height: 100px;
   background: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: white;
+  z-index: 9999;
 
   .nav-item {
     font-family: Poppins;
