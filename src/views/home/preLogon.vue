@@ -32,12 +32,10 @@
 
 <script lang="ts" scoped>
 import { Component, Vue } from 'vue-property-decorator';
-import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuHeader from '@/components/basic/SaMuHeader.vue';
 
 @Component({
   components: {
-    SaMuButton,
     SaMuHeader,
   },
 })

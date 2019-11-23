@@ -2,7 +2,7 @@
     <div class="member-details">
         <div class="member-details-avatar">
             <SaMuAvatar :image="require('@/assets/images/background.jpg')" alt="avatar"/>
-            <SaMuButton size='small' :click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</SaMuButton>
+            <b-button variant="samu" size='small' :click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</b-button>
         </div>
         <b-container class="member-details-information">
             <b-row>
@@ -72,7 +72,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuHeader from '@/components/basic/SaMuHeader.vue';
-import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuAvatar from '@/components/basic/SaMuAvatar.vue';
 import { UserService } from '../../../openapi/api/user.service';
 import openApiContainer from '@/openApiContainer';
@@ -84,7 +83,6 @@ import { UpdateUserDto } from '../../../openapi/model/updateUserDto';
   components: {
     SaMuInput,
     SaMuHeader,
-    SaMuButton,
     SaMuAvatar,
   },
 })

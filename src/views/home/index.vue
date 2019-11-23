@@ -86,39 +86,39 @@
 
               <div class="committee-icons mb-3">
                 <a>
-                  <CircleIcon name="Bestuur" icon="images/committees/icons/bestuur.png" />
+                  <CircleIcon name="Bestuur" icon="@/assets/images/committees/icons/bestuur.png" />
                 </a>
                 <a>
-                  <CircleIcon name="Feest" icon="images/committees/icons/feest.png" />
+                  <CircleIcon name="Feest" icon="@/assets/images/committees/icons/feest.png" />
                 </a>
                 <a>
-                  <CircleIcon name="Media" icon="images/committees/icons/media.png" />
+                  <CircleIcon name="Media" icon="@/assets/images/committees/icons/media.png" />
                 </a>
                 <a>
-                  <CircleIcon name="Kamp" icon="images/committees/icons/kamp.png" />
+                  <CircleIcon name="Kamp" icon="@/assets/images/committees/icons/kamp.png" />
                 </a>
                 <a>
-                  <CircleIcon name="Studie" icon="images/committees/icons/studie.png" />
+                  <CircleIcon name="Studie" icon="@/assets/images/committees/icons/studie.png" />
                 </a>
                 <a>
-                  <CircleIcon name="Ledenzaken" icon="images/committees/icons/ledenzaken.png" />
+                  <CircleIcon name="Ledenzaken" icon="@/assets/images/committees/icons/ledenzaken.png" />
                 </a>
               </div>
               <div class="committee-icons">
                 <a>
-                  <CircleIcon name="Activiteiten" icon="images/committees/icons/activiteiten.png" />
+                  <CircleIcon name="Activiteiten" icon="@/assets/images/committees/icons/activiteiten.png" />
                 </a>
                 <a>
-                  <CircleIcon name="Extern" icon="images/committees/icons/extern.png" />
+                  <CircleIcon name="Extern" icon="@/assets/images/committees/icons/extern.png" />
                 </a>
                 <a>
-                  <CircleIcon name="Kas" icon="images/committees/icons/kas.png" />
+                  <CircleIcon name="Kas" icon="@/assets/images/committees/icons/kas.png" />
                 </a>
                 <a>
-                  <CircleIcon name="ICT" icon="images/committees/icons/ict.png" />
+                  <CircleIcon name="ICT" icon="@/assets/images/committees/icons/ict.png" />
                 </a>
                 <a>
-                  <CircleIcon name="Alpha Centauri" icon="images/committees/icons/alpha.png" />
+                  <CircleIcon name="Alpha Centauri" icon="@/assets/images/committees/icons/alpha.png" />
                 </a>
               </div>
             </div>
@@ -151,10 +151,10 @@
               <p>Wat is er voor een student nou mooier dan korting? Bij Salve Mundi hebben wij ook een paar mooie deals voor je klaar staan waar jij als lid van kan profiteren! Zo hebben wij bij onze stamkroeg Villa Fiesta korting op de zogenoemde ‘bierkaart’. Bij het aanschaffen van deze kaart heb je recht op 10 consumpties voor een klein bedrag van € 17,50. Daarnaast heb je ook nog recht op korting bij Cafetaria De Hoek. Denk hierbij aan kortingen op verschillende menu’s en snacks. Beide begeven deze gelegendheden op stratumseind, ideaal om deze deals te combineren tijdens een avondje uitgaan!</p>
               <div class="mt-5">
                 <a>
-                  <CircleIcon name="Villa Fiesta" icon="images/index/korting/villa.png" />
+                  <CircleIcon name="Villa Fiesta" icon="@/assets/images/index/korting/villa.png" />
                 </a>
                 <a>
-                  <CircleIcon name="Restaria De Hoek" icon="images/index/korting/de-hoek.png" />
+                  <CircleIcon name="Restaria De Hoek" icon="@/assets/images/index/korting/de-hoek.png" />
                 </a>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default Vue.extend({
         rgba(102, 50, 101, 0.8),
         rgba(102, 50, 101, 0.8)
       ),
-      url("../assets/images/background.jpg");
+      url("../../assets/images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 

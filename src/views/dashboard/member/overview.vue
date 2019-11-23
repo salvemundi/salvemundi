@@ -23,7 +23,6 @@
 
 <script lang="ts" scoped>
 import { Component, Vue } from 'vue-property-decorator';
-import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuHeader from '@/components/basic/SaMuHeader.vue';
 import SaMuLink from '@/components/basic/SaMuLink.vue';
 import { UserService } from '../../../openapi/api/user.service';
@@ -33,7 +32,6 @@ import moment from 'moment';
 
 @Component({
   components: {
-    SaMuButton,
     SaMuHeader,
     SaMuLink,
   },
