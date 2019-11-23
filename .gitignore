@@ -4,3 +4,4 @@ typings
 dist
 src/.openapi-generator/VERSION
 .env
+.vscode/settings.json
