@@ -84,7 +84,6 @@ export default new Router({
         name: 'ShoppingCart',
         component: ShoppingCart,
       },
-      
     ]),
     ...withPrefix('/dashboard', [
       ...withPrefix('/member', [
