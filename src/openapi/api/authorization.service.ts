@@ -128,8 +128,8 @@ export class AuthorizationService {
      * @param registerDTO 
      
      */
-    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'body', headers?: Headers): Observable<any>;
-    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
+    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'body', headers?: Headers): Observable<User>;
+    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
     public authorizationRegisterPost(registerDTO: RegisterDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (registerDTO === null || registerDTO === undefined){
             throw new Error('Required parameter registerDTO was null or undefined when calling authorizationRegisterPost.');
@@ -138,10 +138,10 @@ export class AuthorizationService {
         headers['Accept'] = 'application/json';
         headers['Content-Type'] = 'application/json';
 
-        const response: Observable<HttpResponse<any>> = this.httpClient.post(`${this.basePath}/authorization/register`, registerDTO , headers);
+        const response: Observable<HttpResponse<User>> = this.httpClient.post(`${this.basePath}/authorization/register`, registerDTO , headers);
         if (observe == 'body') {
                return response.pipe(
-                   map(httpResponse => <any>(httpResponse.response))
+                   map(httpResponse => <User>(httpResponse.response))
                );
         }
         return response;

@@ -45,6 +45,8 @@ import openApiContainer from '@/openApiContainer';
 import { RegisterDTO } from '@/openapi/model/registerDTO';
 import { User } from '@/openapi/model/user';
 import { PaymentDTO } from '../../openapi/model/paymentDTO';
+import HttpResponse from "@/openapi/HttpResponse";
+import { observable } from 'rxjs';
 
 
 @Component({
@@ -94,24 +96,26 @@ export default class Register extends Vue {
         submitEvent.preventDefault();
 
         // Registers user
-        this.authorizationService.authorizationRegisterPost(this.dto).subscribe((res: User) => {
+        this.authorizationService.authorizationRegisterPost(this.dto, 'response').subscribe((res: HttpResponse<User>) => {
 
             // Create payment for the new user
-            this.paymentsService.paymentsMembershipGet(res.id).subscribe((res2: PaymentDTO) => {
+            this.paymentsService.paymentsMembershipGet(res.response.id, 'response').subscribe((res2: HttpResponse<PaymentDTO>) => {
 
                 // Redirect to payment page if the payment has not been expired
-                if (new Date(res2.expiresAt).getTime() >= new Date().getTime()) {
-                    window.location.href = res2.url.href;
+                if (res2.response.expiresAt.getTime() >= new Date().getTime()) {
+                    window.location.href = res2.response.url.href;
 
                 } else {
                     Vue.toasted.show(this.$t('error.payment_expired').toString(), {duration: 5000, type: 'error'});
                 }
             });
         }, (err) => {
-            if (err.response.status === 409) {
+            if (err.status === 409) {
                 Vue.toasted.show(this.$t('error.email_already_exists').toString(), {duration: 5000, type: 'error'});
-            } else {
+            } else if (err.status === 400) {
                 Vue.toasted.show(this.$t('error.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
+            } else {
+                Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
             }
         });
     }

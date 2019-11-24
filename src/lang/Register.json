@@ -17,10 +17,14 @@
             "repeat_password": "Bevestig je wachtwoord",
             "send": "Verstuur!"
         },
+        "check_email": {
+            "title": "Bevestig uw email",
+            "description": "Welkom bij Salve Mundi! Uw bestelling is ontvangen. Om uw bestelling af te ronden, dient u uw email adres te bevestigen. Hierna zal u ook een wachtwoord instellen voor uw Salve Mundi account!"
+        },
         "error": {
-            "password_not_match": "Wachtwoorden zijn niet aan elkaar gelijk...",
             "form_not_filled_in_correctly": "Niet alles is correct ingevuld...",
-            "email_already_exists": "Er bestaat al een gebruiker met dit email adres..."
+            "email_already_exists": "Er bestaat al een gebruiker met dit email adres...",
+            "unknown": "Er is een onbekende error opgetreden..."
         }
     },
     "en": {
@@ -41,10 +45,14 @@
             "repeat_password": "Repeat your password",
             "send": "Send!"
         },
+        "check_email": {
+            "title": "Confirm your email",
+            "description": "Welkom to Salve Mundi! Your order has been recieved. In order to complete your order, you need to confirm your email address. After this, you will set your password for your Salve Mundi account!"
+        },
         "error": {
-            "password_not_match": "Passwords do not match...",
             "form_not_filled_in_correctly": "Form is not filled in correctly...",
-            "email_already_exists": "An user with this email address already exists..."
+            "email_already_exists": "An user with this email address already exists...",
+            "unknown": "An unknown error has occured..."
         }
     }
 }

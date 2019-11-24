@@ -42,6 +42,6 @@ export default class Home extends Vue {}
 }
 
 #view {
-  min-height: calc(100vh - 105px - 120px);
+  min-height: calc(100vh - 100px - 120px);
 }
 </style>

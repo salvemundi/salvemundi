@@ -27,6 +27,6 @@ export interface User {
     registeredSince: string;
     pcn: string;
     activated: boolean;
-    member: Member;
+    member?: Member;
     scopes: Array<Scope>;
 }

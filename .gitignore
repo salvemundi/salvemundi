@@ -2,6 +2,6 @@ wwwroot/*.js
 node_modules
 typings
 dist
-.env
 .vscode/
 src/openapi/.openapi-generator/
+.env

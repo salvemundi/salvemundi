@@ -45,12 +45,46 @@ export class AuthorizationServiceMock extends AuthorizationService {
         return from(promise);
     }
 
-    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'body', headers?: Headers): Observable<any>;
-    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
+    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'body', headers?: Headers): Observable<User>;
+    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
     public authorizationRegisterPost(registerDTO: RegisterDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        const promise = new Promise((resolve) => {
-            resolve('jojo!');
-        })    
+        const promise = new Promise<HttpResponse<User>>((resolve, reject) => {
+            if (registerDTO.firstName === '' ||
+                registerDTO.lastName === '' ||
+                registerDTO.birthday === '' ||
+                registerDTO.email === '' ||
+                registerDTO.address === '' ||
+                registerDTO.postalcode === '' ||
+                registerDTO.city === '' ||
+                registerDTO.country === '' ||
+                registerDTO.phoneNumber === '') {
+                    reject(new HttpResponse({}, 400));
+            }
+
+            if (registerDTO.email === 'admin@salvemundi.nl') {
+                reject(new HttpResponse({}, 409));
+            }
+
+            const user: User = {
+                id: 1,
+                firstName: registerDTO.firstName,
+                lastName: registerDTO.lastName,
+                birthday: registerDTO.birthday,
+                address: registerDTO.address,
+                postalcode: registerDTO.postalcode,
+                city: registerDTO.city,
+                country: registerDTO.country,
+                email: registerDTO.email,
+                phoneNumber: registerDTO.phoneNumber,
+                pcn: registerDTO.pcn,
+                registeredSince: new Date().toDateString(),
+                activated: false,
+                scopes: [],
+                member: undefined
+            };
+            resolve(new HttpResponse(user, 200));
+        });
+
         return from(promise);
     }
 }
