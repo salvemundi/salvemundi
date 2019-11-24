@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "VUE_APP_MODE=test vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:components": "./node_modules/jest/bin/jest.js",
-    "test:e2e": "npm run build && testcafe chrome ./e2e/** --app \"http-server ./dist -s\""
+    "test:e2e": "VUE_APP_MODE=test npm run build && testcafe chrome ./e2e/**/*.test.ts --app \"http-server ./dist --proxy \"http://localhost:8080?\" -c-1 -s\""
   },
   "dependencies": {
     "@types/dotenv": "^6.1.1",
@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.4.1",
-    "@types/jest": "^24.0.23",
     "@types/vue-i18n": "^7.0.0",
     "@vue/cli-plugin-babel": "^3.12.1",
     "@vue/cli-plugin-typescript": "^3.12.1",

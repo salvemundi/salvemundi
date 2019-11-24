@@ -6,6 +6,5 @@ fixture `Register page - e2e tests`
 
 test('is my first test', async (t) => {
     await t
-        .typeText('#first_name', 'jojo!')
-        .expect(Selector('#first_name').value).eql('jojo!');
+        .click('button[type=submit]')
 });

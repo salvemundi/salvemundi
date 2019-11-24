@@ -6,6 +6,7 @@ import { IAPIConfiguration } from './openapi/IAPIConfiguration';
 import { Observable, from } from 'rxjs';
 import HttpResponse from './openapi/HttpResponse';
 import axios, { AxiosResponse } from 'axios';
+import { MockServiceBinder } from '../e2e/mock-services/mock';
 
 @injectable()
 class APIConfiguration implements IAPIConfiguration {
@@ -82,10 +83,14 @@ class HttpClient implements IHttpClient {
     }
 }
 
-const openApiContainer = new Container();
-ApiServiceBinder.with(openApiContainer);
+let openApiContainer = new Container();
+if (process.env.VUE_APP_MODE != 'test') {
+    ApiServiceBinder.with(openApiContainer);
+
+} else {
+    MockServiceBinder.with(openApiContainer);
+}
+
 openApiContainer.bind<IHttpClient>('IApiHttpClient').to(HttpClient).inSingletonScope();
 openApiContainer.bind<IAPIConfiguration>('IAPIConfiguration').to(APIConfiguration).inSingletonScope();
-
-
 export default openApiContainer;
