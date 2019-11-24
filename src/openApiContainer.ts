@@ -83,8 +83,8 @@ class HttpClient implements IHttpClient {
     }
 }
 
-let openApiContainer = new Container();
-if (process.env.VUE_APP_MODE != 'test') {
+const openApiContainer = new Container();
+if (process.env.VUE_APP_MODE !== 'test') {
     ApiServiceBinder.with(openApiContainer);
 
 } else {
