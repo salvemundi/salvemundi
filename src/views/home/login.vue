@@ -1,16 +1,14 @@
 <template scoped>
   <div class="login">
       <form v-on:submit="handleSubmit">
-        <b-row>
-            <b-col>
+        <b-row class="justify-content-md-center">
+            <b-col sm="6">
                 <div class="login-form">
                     <SaMuBadge text="1">{{$t('form.title')}}</SaMuBadge>
                     <div class="login-form__body">
-                        <form v-on:submit="handleSubmit">
-                            <SaMuInput :placeholder="$t('form.email')" type="text" autocomplete="username" v-model="dto.email"/>
-                            <SaMuInput :placeholder="$t('form.password')" type="password" autocomplete="current-password" v-model="dto.password"/>
-                            <b-button variant="samu" type="submit" size="sm">{{$t('form.login')}}</b-button>
-                        </form>
+                        <SaMuInput :placeholder="$t('form.email')" type="text" autocomplete="username" v-model="dto.email"/>
+                        <SaMuInput :placeholder="$t('form.password')" type="password" autocomplete="current-password" v-model="dto.password"/>
+                        <b-button variant="samu" type="submit" size="sm">{{$t('form.login')}}</b-button>
                     </div>
                 </div>
             </b-col>
