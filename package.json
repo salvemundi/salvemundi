@@ -9,7 +9,7 @@
     "test": "npm run test:components && npm run test:e2e",
     "test:components": "./node_modules/jest/bin/jest.js ",
     "test:e2e": "VUE_APP_MODE=test npm run build && npm run test:e2e-quick",
-    "test:e2e-quick": "./node_modules/.bin/testcafe \"chrome:headless\" ./e2e/**/*.test.ts --app \"node_modules/http-server/bin/http-server ./dist --proxy \\\"http://localhost:8080?\\\" -c-1 -s\""
+    "test:e2e-quick": "./node_modules/.bin/testcafe chrome:headless ./e2e/**/*.test.ts --app \"node_modules/http-server/bin/http-server ./dist --proxy \\\"http://localhost:8080?\\\" -c-1 -s\""
   },
   "dependencies": {
     "@types/dotenv": "^6.1.1",
