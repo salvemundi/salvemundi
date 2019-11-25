@@ -1,76 +1,91 @@
 <template>
-  <nav class="nav">
+  <b-navbar toggleable="lg">
     <b-container>
-      <div class="nav__brand">
+      <b-navbar-brand>
         <router-link to="/">
-          <img v-if="$route.path === '/'" src="@/assets/images/logoWit.png" alt="logo" />
-          <img v-if="$route.path !== '/'" src="@/assets/images/logoPaars.png" alt="logo" />
+          <img width="100" src="@/assets/images/logoPaars.png" alt="logo" />
         </router-link>
-      </div>
-      <SaMuButton to="preLogon" size="small" class="nav__click-to-action">Meld je nu aan!</SaMuButton>
-      <div class="nav__right">
-        <ul :class="$route.path !== '/' ? 'purple' : ''">
-          <li>Over ons</li>
-          <li>Evenementen</li>
-          <li>Commissies</li>
-          <li>Merchandise</li>
-          <li>Korting</li>
-          <li>Mijn account</li>
-        </ul>
-      </div>
+      </b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-button class="ml-4" variant="samu">Meld je aan!</b-button>
+        </b-navbar-nav>
+
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item href="#">Over ons</b-nav-item>
+          <b-nav-item href="">Evenementen</b-nav-item>
+          <b-nav-item to="/home/committees">Commissies</b-nav-item>
+          <b-nav-item to="/home/merchandise">Merchandise</b-nav-item>
+          <b-nav-item href="#">Korting</b-nav-item>
+          <b-nav-item to="/home/login">Mijn account</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
     </b-container>
-  </nav>
+  </b-navbar>
 </template>
 
-<script>
+<script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import SaMuButton from '@/components/basic/SaMuButton.vue';
 
-@Component({
-  components: {
-    SaMuButton,
+export default Vue.extend({
+  data() {
+    return {
+      expanded: false,
+    };
   },
-})
-export default class Navigation extends Vue {}
+  methods: {
+    handleScroll() {
+      if (window.scrollY + 100 > window.innerHeight) {
+        this.expanded = true;
+      } else {
+        this.expanded = false;
+      }
+    },
+  },
+  created() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.handleScroll();
+  },
+});
 </script>
 <style lang="scss">
-.nav {
-  position: fixed;
+nav.navbar {
+  position: sticky;
   left: 0;
+  top: 0;
   right: 0;
-  padding: 15px 5%;
+  padding: 15px 5px;
   display: flex;
+  z-index: 10;
+  height: 100px;
+  background: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: white;
+  z-index: 9999;
 
-  &__brand {
-    img {
-      width: 100px;
-    }
-  }
+  .nav-item {
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 14px;
+    align-items: center;
 
-  &__click-to-action {
-    margin-left: 40px;
-  }
-
-  &__right {
-    margin-left: auto;
-    padding: 2px;
-  }
-
-  ul {
-    list-style-type: none;
-    display: flex;
-
-    &.purple li {
-      color: black;
-      font-weight: normal;
-    }
-
-    li {
-      font-weight: bold;
+    a.nav-link {
+      font-family: Poppins;
       font-size: 14px;
-      color: white;
-      padding: 12px 8px;
+      font-weight: 400;
+
+      color: #000000;
+
+      &:focus,
+      &:active,
+      &:hover {
+        text-decoration-line: underline;
+        font-weight: bold;
+        color: #663265;
+      }
     }
   }
 }

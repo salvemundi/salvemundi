@@ -22,5 +22,4 @@ export interface RegisterDTO {
     email: string;
     phoneNumber: string;
     pcn: string;
-    password: string;
 }

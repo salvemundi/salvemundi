@@ -20,6 +20,7 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import { ConfirmationDTO } from "../model/confirmationDTO";
 import { LoginDTO } from "../model/loginDTO";
 import { MeDTO } from "../model/meDTO";
 import { RegisterDTO } from "../model/registerDTO";
@@ -40,8 +41,34 @@ export class AuthorizationService {
     }
 
     /**
+     * confirmation
+     * This call is used to activate an user. It will return an authorization cookie when succesful
+     * @param confirmationDTO 
+     
+     */
+    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe?: 'body', headers?: Headers): Observable<User>;
+    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
+        if (confirmationDTO === null || confirmationDTO === undefined){
+            throw new Error('Required parameter confirmationDTO was null or undefined when calling authorizationConfirmationPost.');
+        }
+
+        headers['Accept'] = 'application/json';
+        headers['Content-Type'] = 'application/json';
+
+        const response: Observable<HttpResponse<User>> = this.httpClient.post(`${this.basePath}/authorization/confirmation`, confirmationDTO , headers);
+        if (observe == 'body') {
+               return response.pipe(
+                   map(httpResponse => <User>(httpResponse.response))
+               );
+        }
+        return response;
+    }
+
+
+    /**
      * login
-     * This call is used to login a user. It will return an authorization cookie when succesful
+     * This call is used to login an user. It will return an authorization cookie when succesful
      * @param loginDTO 
      
      */
@@ -97,7 +124,7 @@ export class AuthorizationService {
 
     /**
      * register
-     * This call is used to register a user. It will return an authorization cookie when succesful
+     * This call is used to register an user
      * @param registerDTO 
      
      */

@@ -16,7 +16,7 @@ import SaMuHeader from '@/components/basic/SaMuHeader.vue';
   },
   props: ['text'],
 })
-export default class CommitteeIcon extends Vue {}
+export default class SaMuBadge extends Vue {}
 </script>
 <style lang="scss">
 .SaMuBadge {
