@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import Vue from 'vue';
-import App from './app.vue';
+import App from 'app.vue';
 import router from './router';
 import store from './store';
 import Toasted from 'vue-toasted';
