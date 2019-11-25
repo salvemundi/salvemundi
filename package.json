@@ -7,13 +7,14 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test": "npm run test:components && npm run test:e2e",
-    "test:components": "./node_modules/jest/bin/jest.js",
+    "test:components": "./node_modules/jest/bin/jest.js ",
     "test:e2e": "VUE_APP_MODE=test npm run build && testcafe chrome ./e2e/**/*.test.ts --app \"http-server ./dist --proxy \"http://localhost:8080?\" -c-1 -s\"",
     "test:e2e-quick": "testcafe chrome ./e2e/**/*.test.ts --app \"http-server ./dist --proxy \"http://localhost:8080?\" -c-1 -s\""
   },
   "dependencies": {
     "@types/dotenv": "^6.1.1",
     "@types/dotenv-webpack": "^1.7.0",
+    "@types/jest": "^24.0.23",
     "@types/node": "^12.12.12",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
@@ -73,6 +74,6 @@
     "snapshotSerializers": [
       "jest-serializer-vue"
     ],
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
+    "testRegex": "(/__tests__/.*|(\\.|/)(spec))\\.(jsx?|tsx?)$"
   }
 }
