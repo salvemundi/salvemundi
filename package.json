@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "test": "npm run test:components && npm run test:e2e",
     "test:components": "./node_modules/jest/bin/jest.js",
     "test:e2e": "VUE_APP_MODE=test npm run build && testcafe chrome ./e2e/**/*.test.ts --app \"http-server ./dist --proxy \"http://localhost:8080?\" -c-1 -s\"",
     "test:e2e-quick": "testcafe chrome ./e2e/**/*.test.ts --app \"http-server ./dist --proxy \"http://localhost:8080?\" -c-1 -s\""
