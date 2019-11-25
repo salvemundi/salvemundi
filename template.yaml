@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: salvemundi.nl
+  name: salvemundi-site
   namespace: salvemundi
 spec:
   selector:
     matchLabels:
-      app: salvemundi.nl
-      tier: backend
+      app: salvemundi-site
+      tier: frontend
   replicas: 1
   template:
     metadata:
-      name: salvemundi.nl
+      name: salvemundi-site
       namespace: salvemundi
       labels:
-        app: salvemundi.nl
-        tier: backend
+        app: salvemundi-site
+        tier: frontend
     spec:
       containers:
-      - name: salvemundi.nl
+      - name: salvemundi-site
         image: svsalvemundi/salvemundi.nl:{{samu_site_version}}
         resources:
           requests:
@@ -40,7 +40,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: salvemundi.nl
-    tier: salvemundiSite
+    app: salvemundi-site
+    tier: frontend
   ports:
     - port: 8080
