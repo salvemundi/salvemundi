@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue build",
     "lint": "vue-cli-service lint",
     "test": "npm run test:components && npm run test:e2e",
     "test:components": "./node_modules/jest/bin/jest.js ",
