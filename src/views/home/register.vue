@@ -45,7 +45,7 @@ import openApiContainer from '@/openApiContainer';
 import { RegisterDTO } from '@/openapi/model/registerDTO';
 import { User } from '@/openapi/model/user';
 import { PaymentDTO } from '../../openapi/model/paymentDTO';
-import HttpResponse from "@/openapi/HttpResponse";
+import HttpResponse from '@/openapi/HttpResponse';
 import { observable } from 'rxjs';
 
 
