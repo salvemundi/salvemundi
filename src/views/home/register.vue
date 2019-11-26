@@ -110,6 +110,8 @@ export default class Register extends Vue {
                 } else {
                     Vue.toasted.show(this.$t('error.payment_expired').toString(), {duration: 5000, type: 'error'});
                 }
+            }, (err) => {
+                Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
             });
         }, (err) => {
             if (err.status === 409) {
