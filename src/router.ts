@@ -15,6 +15,7 @@ import Committee from './views/committees/committee.vue';
 import CommitteeMember from './views/committees/member.vue';
 import ShoppingCart from './views/shoppingcart/index.vue';
 import CheckEmail from './views/home/checkEmail.vue';
+import ConfirmAccount from './views/home/confirmAccount.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
@@ -60,6 +61,10 @@ export default new Router({
       {
         path: '/checkemail',
         component: CheckEmail,
+      },
+      {
+        path: '/confirmation',
+        component: ConfirmAccount,
       },
       ...withPrefix('/merchandise', [
         {

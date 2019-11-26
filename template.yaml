@@ -35,7 +35,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: site-service
+  name: {{beta}}salvemundi-site-service
   namespace: salvemundi
 spec:
   type: NodePort
