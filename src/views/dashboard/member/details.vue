@@ -2,7 +2,7 @@
     <div class="member-details">
         <div class="member-details-avatar">
             <SaMuAvatar :image="require('@/assets/images/background.jpg')" alt="avatar"/>
-            <b-button variant="samu" size='small' :click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</b-button>
+            <!-- <b-button variant="samu" size='small' :click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</b-button> -->
         </div>
         <b-container class="member-details-information">
             <b-row>

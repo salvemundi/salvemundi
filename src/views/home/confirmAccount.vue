@@ -56,6 +56,8 @@ export default class ConfirmAccount extends Vue {
       this.authorizationService.authorizationConfirmationPost(this.dto, 'response')
       .subscribe((res: HttpResponse<User>) => {
         console.log(res);
+      }, (err) => {
+        Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
       });
 
     } else {
