@@ -6,19 +6,19 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: salvemundi-site
+      app: {{beta}}salvemundi-site
       tier: frontend
   replicas: 1
   template:
     metadata:
-      name: salvemundi-site
+      name: {{beta}}salvemundi-site
       namespace: salvemundi
       labels:
-        app: salvemundi-site
+        app: {{beta}}salvemundi-site
         tier: frontend
     spec:
       containers:
-      - name: salvemundi-site
+      - name: {{beta}}salvemundi-site
         image: svsalvemundi/salvemundi.nl:{{samu_site_version}}
         resources:
           requests:
@@ -40,7 +40,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: salvemundi-site
+    app: {{beta}}salvemundi-site
     tier: frontend
   ports:
     - port: 8080
