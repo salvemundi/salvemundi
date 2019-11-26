@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: salvemundi-site
+  name: {{beta}}salvemundi-site
   namespace: salvemundi
 spec:
   selector:
