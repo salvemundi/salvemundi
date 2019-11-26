@@ -9,7 +9,7 @@
               <div class="text" v-html="$t('login.description')"></div>
               <img src="@/assets/images/login.svg" />
               <div>
-                <b-button variant="samu" size="small" to="login">{{$t('login.action')}}</b-button>
+                <b-btn variant="samu" size="sm" to="login">{{$t('login.action')}}</b-btn>
               </div>
             </div>
           </b-col>
@@ -18,12 +18,13 @@
               <SaMuHeader>{{$t('register.title')}}</SaMuHeader>
               <div class="text" v-html="$t('register.description')"></div>
               <img src="@/assets/images/register.svg" />
-              <div>
-                <b-button variant="samu"
-                  to="https://identity.fhict.nl/connect/authorize?client_id=i407624-salvemundi2&scope=fhict_personal&response_type=code&redirect_uri=https://salvemundi.nl/callback"
-                  class="FHICT"
+              <div class="mt-3">
+                <b-button
+                  variant="samu"
+                  class="mr-3"
+                  href="https://identity.fhict.nl/connect/authorize?client_id=i407624-salvemundi2&scope=fhict_personal&response_type=code&redirect_uri=https://salvemundi.nl/callback"
                 >{{$t('register.action_as_member')}}</b-button>
-                <b-button variant="samu" to="/register">{{$t('register.action_as_friend')}}</b-button>
+                <b-button variant="samu" to="register">{{$t('register.action_as_friend')}}</b-button>
               </div>
             </div>
           </b-col>
@@ -33,7 +34,7 @@
   </div>
 </template>
 
-<script lang="ts" scoped>
+<script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import SaMuHeader from "@/components/basic/SaMuHeader.vue";
 
@@ -44,36 +45,32 @@ import SaMuHeader from "@/components/basic/SaMuHeader.vue";
 })
 export default class PreLogon extends Vue {}
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .preLogon {
   height: calc(100vh - 177px);
 
-  & .center {
+  &.center {
     width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 
-    & .text {
+    &.text {
       text-align: center;
       width: 100%;
       font-size: 13px;
     }
 
-    & .login {
+    &.login {
       text-align: center;
     }
 
-    & .registerform {
+    &.registerform {
       text-align: center;
-
-      & .FHICT {
-        margin-right: 10px;
-      }
     }
 
-    & img {
+    &img {
       margin-top: 30px;
       margin-bottom: 20px;
       height: 100px;
