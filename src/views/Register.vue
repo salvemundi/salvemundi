@@ -26,7 +26,7 @@
                             <SaMuInput :placeholder="$t('form.email')" type="text" v-model="dto.email"/>
                             <SaMuInput :placeholder="$t('form.password')" type="password" v-model="dto.password"/>
                             <SaMuInput :placeholder="$t('form.repeat_password')" type="password" v-model="password2"/>
-                            <SaMuButton size="small" type="submit">{{$t('form.send')}}</SaMuButton>
+                            <b-button variant="samu" size="small" type="submit">{{$t('form.send')}}</b-button>
                         </div>
                     </div>
                 </b-col>
