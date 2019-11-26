@@ -11,8 +11,7 @@
  */
 
 
-export interface Scope { 
-    id: number;
-    name: string;
-    description: string;
+export interface ConfirmationDto { 
+    token: string;
+    password: string;
 }

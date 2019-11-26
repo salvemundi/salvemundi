@@ -11,8 +11,10 @@
  */
 
 
-export interface Scope { 
+export interface SummaryUserDto { 
     id: number;
-    name: string;
-    description: string;
+    pcn: string;
+    firstName: string;
+    lastName: string;
+    memberTill: string;
 }

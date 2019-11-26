@@ -11,8 +11,7 @@
  */
 
 
-export interface Scope { 
-    id: number;
-    name: string;
-    description: string;
+export interface Url { 
+    href: string;
+    type: string;
 }

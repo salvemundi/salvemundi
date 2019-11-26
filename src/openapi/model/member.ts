@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { Membership } from './membership';
 
 
-export interface Scope { 
+export interface Member { 
     id: number;
-    name: string;
-    description: string;
+    memberships: Array<Membership>;
 }

@@ -11,8 +11,9 @@
  */
 
 
-export interface Scope { 
-    id: number;
-    name: string;
-    description: string;
+export interface MeDto { 
+    firstName: string;
+    lastName: string;
+    email: string;
+    pcn: string;
 }

@@ -11,8 +11,15 @@
  */
 
 
-export interface Scope { 
-    id: number;
-    name: string;
-    description: string;
+export interface RegisterDto { 
+    firstName: string;
+    lastName: string;
+    birthday: string;
+    address: string;
+    city: string;
+    postalcode: string;
+    country: string;
+    email: string;
+    phoneNumber: string;
+    pcn: string;
 }
