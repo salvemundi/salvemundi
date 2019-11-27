@@ -3,45 +3,39 @@
   padding: 0;
 }
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
-
 body {
   font-family: Poppins, sans-serif;
 }
 
+a, b, body, div, td, th, p, h1, h2, h3, button {
+  font-size: 14px;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+}
+
 h2 {
-  font-family: "Portico Rounded", sans-serif;
   font-size: 24px;
   color: #663265;
 }
 
 .container {
-  width: 100vw;
+  width: 100%;
   display: flex;
   margin: 0 auto;
 }
 
-a.button {
-  width: 160px;
+.container .row {
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
-  background: #663265;
-  border-radius: 2px;
-  
-  display: block;
-
-  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-
+h5 {
   font-family: Poppins;
-  
   font-weight: bold;
-  font-size: 18px;
-  line-height: 27px;
-  
-  color: #ffffff;
-  padding: 7px 24px;
+  font-size: 14px;
+}
+
+#view .row > div {
+  margin-top: 30px;
 }

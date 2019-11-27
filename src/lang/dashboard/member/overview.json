@@ -1,0 +1,26 @@
+{
+    "nl": {
+        "title": "Ledenadministratie",
+        "table": {
+            "formatDate": "D-MM-YYYY",
+            "pcn": "Pcn",
+            "first_name": "Voornaam",
+            "last_name": "Achternaam",
+            "memberTill": "Lid tot",
+            "details": "Details",
+            "not_paid": "(Nog) niet betaald"
+        }
+    },
+    "en": {
+        "title": "Member administration",
+        "table": {
+            "formatDate": "D-MM-YYYY",
+            "pcn": "Pcn",
+            "first_name": "First name",
+            "last_name": "Last name",
+            "memberTill": "Member till",
+            "details": "Details",
+            "not_paid": "Not paid (yet)"
+        }
+    }
+}

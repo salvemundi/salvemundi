@@ -1,0 +1,48 @@
+{
+    "nl": {
+        "general_information": {
+            "title": "Algemene informatie",
+            "first_name": "Voornaam",
+            "last_name": "Achternaam",
+            "birthday": "Geboortedatum",
+            "registered_since": "Geregistreerd sinds",
+            "address": "Adres",
+            "city": "Woonplaats",
+            "postalcode": "Postcode",
+            "country": "Land"
+        },
+        "digital_information": {
+            "title": "Digitale gegevens",
+            "pcn": "Pcn",
+            "phonenumber": "Telefoon nummer",
+            "email": "Email"
+        },
+        "action": {
+            "success": "Opgeslagen!",
+            "form_not_filled_in_correctly": "Niet alles is correct ingevuld..."
+        }
+    },
+    "en": {
+        "general_information": {
+            "title": "General information",
+            "first_name": "First name",
+            "last_name": "Last name",
+            "birthday": "Birthday",
+            "registered_since": "Registered since",
+            "address": "Address",
+            "city": "City",
+            "postalcode": "Postalcode",
+            "country": "Country"
+        },
+        "digital_information": {
+            "title": "Digitale data",
+            "pcn": "Pcn",
+            "phonenumber": "Phonenumber",
+            "email": "Email"
+        },
+        "action": {
+            "success": "Saved!",
+            "form_not_filled_in_correctly": "Form is not filled in correctly..."
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "nl": {
+        "title": "Verboden toegang",
+        "message": "Je hebt geen toestemming om deze pagina te bekijken of deze actie uit te voeren"
+    },
+    "en": {
+        "title": "Forbidden",
+        "message": "You do not have the permissions to view this page or to preform this action"
+    }
+}

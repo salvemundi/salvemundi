@@ -6,7 +6,8 @@
   "linterOptions": {
     "exclude": [
       "node_modules/**",
-      "src/openapi/**"
+      "src/openapi/**",
+      "e2e/mock-services/**"
     ]
   },
   "rules": {
@@ -15,6 +16,7 @@
     "interface-name": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "no-consecutive-blank-lines": false
+    "no-consecutive-blank-lines": false,
+    "max-line-length": [ true,  { "limit": 120, "ignore-pattern": "^import [^,]+ from |^export | implements" } ]
   }
 }

@@ -20,7 +20,7 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { ShortedUserDto } from "../model/shortedUserDto";
+import { SummaryUserDto } from "../model/summaryUserDto";
 import { UpdateUserDto } from "../model/updateUserDto";
 import { User } from "../model/user";
 
@@ -45,8 +45,8 @@ export class UserService {
      * @param skip 
      
      */
-    public userGet(take: number, skip: number, observe?: 'body', headers?: Headers): Observable<Array<ShortedUserDto>>;
-    public userGet(take: number, skip: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ShortedUserDto>>>;
+    public userGet(take: number, skip: number, observe?: 'body', headers?: Headers): Observable<Array<SummaryUserDto>>;
+    public userGet(take: number, skip: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<SummaryUserDto>>>;
     public userGet(take: number, skip: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (take === null || take === undefined){
             throw new Error('Required parameter take was null or undefined when calling userGet.');
@@ -58,10 +58,10 @@ export class UserService {
 
         headers['Accept'] = 'application/json';
 
-        const response: Observable<HttpResponse<Array<ShortedUserDto>>> = this.httpClient.get(`${this.basePath}/user`, headers);
+        const response: Observable<HttpResponse<Array<SummaryUserDto>>> = this.httpClient.get(`${this.basePath}/user`, headers);
         if (observe == 'body') {
                return response.pipe(
-                   map(httpResponse => <Array<ShortedUserDto>>(httpResponse.response))
+                   map(httpResponse => <Array<SummaryUserDto>>(httpResponse.response))
                );
         }
         return response;
@@ -129,6 +129,32 @@ export class UserService {
         headers['Accept'] = 'application/json';
 
         const response: Observable<HttpResponse<User>> = this.httpClient.get(`${this.basePath}/user/me`, headers);
+        if (observe == 'body') {
+               return response.pipe(
+                   map(httpResponse => <User>(httpResponse.response))
+               );
+        }
+        return response;
+    }
+
+
+    /**
+     * me
+     * This call is used to update the current user
+     * @param updateUserDto 
+     
+     */
+    public userMePut(updateUserDto: UpdateUserDto, observe?: 'body', headers?: Headers): Observable<User>;
+    public userMePut(updateUserDto: UpdateUserDto, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public userMePut(updateUserDto: UpdateUserDto, observe: any = 'body', headers: Headers = {}): Observable<any> {
+        if (updateUserDto === null || updateUserDto === undefined){
+            throw new Error('Required parameter updateUserDto was null or undefined when calling userMePut.');
+        }
+
+        headers['Accept'] = 'application/json';
+        headers['Content-Type'] = 'application/json';
+
+        const response: Observable<HttpResponse<User>> = this.httpClient.put(`${this.basePath}/user/me`, updateUserDto , headers);
         if (observe == 'body') {
                return response.pipe(
                    map(httpResponse => <User>(httpResponse.response))

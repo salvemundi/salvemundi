@@ -2,13 +2,13 @@
   <div class="login">
       <form v-on:submit="handleSubmit">
         <b-row class="justify-content-md-center">
-            <b-col sm="4">
+            <b-col sm="6">
                 <div class="login-form">
                     <SaMuBadge text="1">{{$t('form.title')}}</SaMuBadge>
                     <div class="login-form__body">
                         <SaMuInput :placeholder="$t('form.email')" type="text" autocomplete="username" v-model="dto.email"/>
                         <SaMuInput :placeholder="$t('form.password')" type="password" autocomplete="current-password" v-model="dto.password"/>
-                        <SaMuButton type="submit" size="small">{{$t('form.login')}}</SaMuButton>
+                        <b-button variant="samu" type="submit" size="sm">{{$t('form.login')}}</b-button>
                     </div>
                 </div>
             </b-col>
@@ -19,17 +19,15 @@
 
 <script lang="ts" scoped>
 import { Component, Vue } from 'vue-property-decorator';
-import SaMuButton from '@/components/basic/SaMuButton.vue';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuBadge from '@/components/basic/SaMuBadge.vue';
-import openApiContainer from '../openApiContainer';
-import { AuthorizationService } from '../openapi/api/authorization.service';
-import { LoginDTO } from '../openapi/model/loginDTO';
+import openApiContainer from '@/openApiContainer';
+import { AuthorizationService } from '@/openapi/api/authorization.service';
+import { LoginDTO } from '@/openapi/model/loginDTO';
 
 
 @Component({
     components: {
-        SaMuButton,
         SaMuInput,
         SaMuBadge,
     },
@@ -45,7 +43,8 @@ export default class Login extends Vue {
 
     public handleSubmit(e: Event) {
         this.authorizationService.authorizationLoginPost(this.dto).subscribe(() => {
-            // TODO redirect to profile page
+            this.successfullLogin();
+
         }, (err) => {
             if (err.status === 401) {
                 Vue.toasted.show(this.$t('error.login_failed').toString(), {duration: 5000, type: 'error'});
@@ -54,14 +53,18 @@ export default class Login extends Vue {
                 Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
             }
         });
+
         e.preventDefault();
+    }
+
+    private successfullLogin() {
+        const url: string = (new URLSearchParams(window.location.search.substring(1)).get('redirect')) || '/home';
+        window.location.href = url;
     }
 }
 </script>
 <style lang="scss" scoped>
 .login {
-    height: calc(100vh - 177px);
-
     form {
         width: 100%;
         position: absolute;
@@ -71,6 +74,8 @@ export default class Login extends Vue {
     }
 
     &-form {
+        padding: 0px 20px 0px 50px;
+
         &__body {
             margin-top: 18px;
             width: 100%;
@@ -81,4 +86,4 @@ export default class Login extends Vue {
 }
 </style>
 
-<i18n src="../lang/Login.json"></i18n>
+<i18n src="@/lang/Login.json"></i18n>
