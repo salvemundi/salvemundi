@@ -42,7 +42,7 @@ export default class ConfirmAccount extends Vue {
 
     const token = new URLSearchParams(window.location.search.substring(1)).get('token');
     if (token === '' || !token) {
-      window.location.href = '/home';
+      window.location.href = '/home/me';
 
     } else {
       this.dto.token = token;

@@ -1,7 +1,7 @@
 <template scoped>
     <div class="member-details">
         <div class="member-details-avatar">
-            <SaMuAvatar :image="require('@/assets/images/background.jpg')" alt="avatar"/>
+            <SaMuAvatar :image="require('@/assets/images/logoPaars.png')" alt="avatar"/>
             <b-button variant="samu" size='small' class="edit-btn" v-on:click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</b-button>
         </div>
         <b-container class="member-details-information">
