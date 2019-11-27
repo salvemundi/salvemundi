@@ -42,7 +42,7 @@ export default class ConfirmAccount extends Vue {
 
     const token = new URLSearchParams(window.location.search.substring(1)).get('token');
     if (token === '' || !token) {
-      window.location.href = '/home/me';
+      window.location.href = '/home';
 
     } else {
       this.dto.token = token;
@@ -55,7 +55,7 @@ export default class ConfirmAccount extends Vue {
     if (this.dto.password === this.repeatPassword) {
       this.authorizationService.authorizationConfirmationPost(this.dto, 'response')
       .subscribe((res: HttpResponse<User>) => {
-        window.location.href = '/home';
+        window.location.href = '/home/me';
 
       }, (err) => {
         Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
