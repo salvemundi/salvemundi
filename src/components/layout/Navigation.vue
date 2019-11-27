@@ -17,10 +17,10 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item href="#">Over ons</b-nav-item>
           <b-nav-item href="">Evenementen</b-nav-item>
-          <b-nav-item to="committees">Commissies</b-nav-item>
-          <b-nav-item to="merchandise">Merchandise</b-nav-item>
+          <b-nav-item to="/home/committees">Commissies</b-nav-item>
+          <b-nav-item to="/home/merchandise">Merchandise</b-nav-item>
           <b-nav-item href="#">Korting</b-nav-item>
-          <b-nav-item to="login">Mijn account</b-nav-item>
+          <b-nav-item to="/home/login">Mijn account</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-container>
@@ -28,12 +28,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 
 export default Vue.extend({
   data() {
     return {
-      expanded: false
+      expanded: false,
     };
   },
   methods: {
@@ -43,12 +43,12 @@ export default Vue.extend({
       } else {
         this.expanded = false;
       }
-    }
+    },
   },
   created() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
     this.handleScroll();
-  }
+  },
 });
 </script>
 <style lang="scss">
@@ -63,6 +63,8 @@ nav.navbar {
   height: 100px;
   background: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: white;
+  z-index: 9999;
 
   .nav-item {
     font-family: Poppins;

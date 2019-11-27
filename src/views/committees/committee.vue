@@ -20,21 +20,21 @@
 </template>
 
 <script>
-import CommitteeMemberHolder from "@/components/layout/committees/CommitteeMemberHolder.vue";
+import CommitteeMemberHolder from '@/components/layout/committees/CommitteeMemberHolder.vue';
 
 export default {
   components: {
-    CommitteeMemberHolder
+    CommitteeMemberHolder,
   },
   data() {
     return {
       test: {
-        name: "Niek van Gogh",
-        direction: "ICT & Software engineering",
-        avatar: "LLUL"
-      }
+        name: 'Niek van Gogh',
+        direction: 'ICT & Software engineering',
+        avatar: 'LLUL',
+      },
     };
-  }
+  },
 };
 </script>
 <style lang="scss">

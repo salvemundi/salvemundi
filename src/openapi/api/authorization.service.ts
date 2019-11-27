@@ -20,10 +20,10 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { ConfirmationDto } from "../model/confirmationDto";
-import { LoginDto } from "../model/loginDto";
-import { MeDto } from "../model/meDto";
-import { RegisterDto } from "../model/registerDto";
+import { ConfirmationDTO } from "../model/confirmationDTO";
+import { LoginDTO } from "../model/loginDTO";
+import { MeDTO } from "../model/meDTO";
+import { RegisterDTO } from "../model/registerDTO";
 import { User } from "../model/user";
 
 import { COLLECTION_FORMATS }  from "../variables";
@@ -43,20 +43,20 @@ export class AuthorizationService {
     /**
      * confirmation
      * This call is used to activate an user. It will return an authorization cookie when succesful
-     * @param confirmationDto 
+     * @param confirmationDTO 
      
      */
-    public authorizationConfirmationPost(confirmationDto: ConfirmationDto, observe?: 'body', headers?: Headers): Observable<User>;
-    public authorizationConfirmationPost(confirmationDto: ConfirmationDto, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public authorizationConfirmationPost(confirmationDto: ConfirmationDto, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (confirmationDto === null || confirmationDto === undefined){
-            throw new Error('Required parameter confirmationDto was null or undefined when calling authorizationConfirmationPost.');
+    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe?: 'body', headers?: Headers): Observable<User>;
+    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
+        if (confirmationDTO === null || confirmationDTO === undefined){
+            throw new Error('Required parameter confirmationDTO was null or undefined when calling authorizationConfirmationPost.');
         }
 
         headers['Accept'] = 'application/json';
         headers['Content-Type'] = 'application/json';
 
-        const response: Observable<HttpResponse<User>> = this.httpClient.post(`${this.basePath}/authorization/confirmation`, confirmationDto , headers);
+        const response: Observable<HttpResponse<User>> = this.httpClient.post(`${this.basePath}/authorization/confirmation`, confirmationDTO , headers);
         if (observe == 'body') {
                return response.pipe(
                    map(httpResponse => <User>(httpResponse.response))
@@ -69,7 +69,7 @@ export class AuthorizationService {
     /**
      * login
      * This call is used to login an user. It will return an authorization cookie when succesful
-     * @param loginDto 
+     * @param loginDTO 
      
      */
     public authorizationLoginPost(loginDto: LoginDto, observe?: 'body', headers?: Headers): Observable<any>;
@@ -125,7 +125,7 @@ export class AuthorizationService {
     /**
      * register
      * This call is used to register an user
-     * @param registerDto 
+     * @param registerDTO 
      
      */
     public authorizationRegisterPost(registerDto: RegisterDto, observe?: 'body', headers?: Headers): Observable<User>;

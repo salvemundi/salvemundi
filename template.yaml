@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{beta}}salvemundi-site
+  namespace: salvemundi
+spec:
+  selector:
+    matchLabels:
+      app: {{beta}}salvemundi-site
+      tier: frontend
+  replicas: 1
+  template:
+    metadata:
+      name: {{beta}}salvemundi-site
+      namespace: salvemundi
+      labels:
+        app: {{beta}}salvemundi-site
+        tier: frontend
+    spec:
+      containers:
+      - name: {{beta}}salvemundi-site
+        image: svsalvemundi/salvemundi.nl:{{samu_site_version}}
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{beta}}salvemundi-site-service
+  namespace: salvemundi
+spec:
+  type: NodePort
+  selector:
+    app: {{beta}}salvemundi-site
+    tier: frontend
+  ports:
+    - port: 8080

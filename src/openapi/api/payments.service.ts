@@ -20,7 +20,7 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { PaymentDto } from "../model/paymentDto";
+import { PaymentDTO } from "../model/paymentDTO";
 
 import { COLLECTION_FORMATS }  from "../variables";
 
@@ -37,38 +37,13 @@ export class PaymentsService {
     }
 
     /**
-     * event
-     * This call is creates a payment for an event
-     * @param id 
-     
-     */
-    public paymentsEventIdGet(id: number, observe?: 'body', headers?: Headers): Observable<PaymentDto>;
-    public paymentsEventIdGet(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<PaymentDto>>;
-    public paymentsEventIdGet(id: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (id === null || id === undefined){
-            throw new Error('Required parameter id was null or undefined when calling paymentsEventIdGet.');
-        }
-
-        headers['Accept'] = 'application/json';
-
-        const response: Observable<HttpResponse<PaymentDto>> = this.httpClient.get(`${this.basePath}/payments/event/${encodeURIComponent(String(id))}`, headers);
-        if (observe == 'body') {
-               return response.pipe(
-                   map(httpResponse => <PaymentDto>(httpResponse.response))
-               );
-        }
-        return response;
-    }
-
-
-    /**
      * membership
      * This call is creates a payment for a new membership
      * @param id 
      
      */
-    public paymentsMembershipGet(id: number, observe?: 'body', headers?: Headers): Observable<PaymentDto>;
-    public paymentsMembershipGet(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<PaymentDto>>;
+    public paymentsMembershipGet(id: number, observe?: 'body', headers?: Headers): Observable<PaymentDTO>;
+    public paymentsMembershipGet(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<PaymentDTO>>;
     public paymentsMembershipGet(id: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (id === null || id === undefined){
             throw new Error('Required parameter id was null or undefined when calling paymentsMembershipGet.');
@@ -81,10 +56,10 @@ export class PaymentsService {
 
         headers['Accept'] = 'application/json';
 
-        const response: Observable<HttpResponse<PaymentDto>> = this.httpClient.get(`${this.basePath}/payments/membership?${queryParameters.join('&')}`, headers);
+        const response: Observable<HttpResponse<PaymentDTO>> = this.httpClient.get(`${this.basePath}/payments/membership?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
                return response.pipe(
-                   map(httpResponse => <PaymentDto>(httpResponse.response))
+                   map(httpResponse => <PaymentDTO>(httpResponse.response))
                );
         }
         return response;

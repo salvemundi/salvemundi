@@ -6,7 +6,7 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <b-button variant="samu" class="mt-5" size="lg">Meld je nu aan!</b-button>
+        <b-button variant="samu" class="mt-5" size="lg" href="/home/prelogon">Meld je nu aan!</b-button>
       </div>
     </section>
     <section class="about">
@@ -117,9 +117,6 @@
                 <a>
                   <CircleIcon name="ICT" icon="images/committees/icons/ict.png" />
                 </a>
-                <a>
-                  <CircleIcon name="Alpha Centauri" icon="images/committees/icons/alpha.png" />
-                </a>
               </div>
             </div>
           </b-col>
@@ -166,16 +163,16 @@
 </template>
 
 <script lang="ts" scoped>
-import { Component, Vue } from "vue-property-decorator";
-import EventItem from "@/components/layout/events/EventItem.vue";
-import CircleIcon from "@/components/basic/CircleIcon.vue";
+import { Component, Vue } from 'vue-property-decorator';
+import EventItem from '@/components/layout/events/EventItem.vue';
+import CircleIcon from '@/components/basic/CircleIcon.vue';
 
 export default Vue.extend({
   components: { EventItem, CircleIcon },
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
 });
 </script>
 <style lang="scss">
@@ -187,7 +184,7 @@ export default Vue.extend({
         rgba(102, 50, 101, 0.8),
         rgba(102, 50, 101, 0.8)
       ),
-      url("../assets/images/background.jpg");
+      url("../../assets/images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 

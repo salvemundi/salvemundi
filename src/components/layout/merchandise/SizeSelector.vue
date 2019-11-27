@@ -14,17 +14,17 @@
 
 <script>
 export default {
-  props: ["availableSizes"],
+  props: ['availableSizes'],
   data() {
     return {
-      selectedSize: null
+      selectedSize: null,
     };
   },
   methods: {
-    selectSize: function(size) {
+    selectSize(size) {
       this.selectedSize = size;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -7,11 +7,11 @@
 </template>
 <script lang="ts">
 
-import Vue from "vue";
-import Component from "vue-class-component";
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
 export default Vue.extend({
-  props: ["name", "price", "image"]
+  props: ['name', 'price', 'image'],
 });
 </script>
 <style lang="scss">

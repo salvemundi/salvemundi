@@ -21,25 +21,25 @@
   </b-row>
 </template>
 <script lang="ts">
-import MerchItem from "@/components/layout/merchandise/MerchItem.vue";
-import SizeSelector from "@/components/layout/merchandise/SizeSelector.vue";
+import MerchItem from '@/components/layout/merchandise/MerchItem.vue';
+import SizeSelector from '@/components/layout/merchandise/SizeSelector.vue';
 
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
   components: {
     MerchItem,
-    SizeSelector
+    SizeSelector,
   },
   methods: {
     buy() {
-      this.$router.push({name: "ShoppingCart"});
-    }
+      this.$router.push({name: 'ShoppingCart'});
+    },
   },
   data() {
     return {
-      size: null
+      size: null,
     };
-  }
+  },
 });
 </script>
 <style lang="scss">

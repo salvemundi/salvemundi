@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  props: ["member"]
+  props: ['member'],
 };
 </script>
 <style lang="scss" scoped>

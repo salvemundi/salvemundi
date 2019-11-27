@@ -22,10 +22,12 @@
 
 <script>
 export default {
-  props: ["item"],
+  props: ['item'],
   methods: {
-    deleteItem() {}
-  }
+    deleteItem() {
+      return null;
+    },
+  },
 };
 </script>
 
