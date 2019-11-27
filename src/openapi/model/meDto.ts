@@ -11,7 +11,7 @@
  */
 
 
-export interface MeDto { 
+export interface MeDTO { 
     firstName: string;
     lastName: string;
     email: string;

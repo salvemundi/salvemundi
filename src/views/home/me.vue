@@ -2,7 +2,7 @@
     <div class="member-details">
         <div class="member-details-avatar">
             <SaMuAvatar :image="require('@/assets/images/background.jpg')" alt="avatar"/>
-            <!-- <b-button variant="samu" size='small' :click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</b-button> -->
+            <b-button variant="samu" size='small' class="edit-btn" v-on:click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</b-button>
         </div>
         <b-container class="member-details-information">
             <b-row>
@@ -78,7 +78,6 @@ import openApiContainer from '@/openApiContainer';
 import moment from 'moment';
 import { User } from '../../openapi/model/user';
 import { UpdateUserDto } from '../../openapi/model/updateUserDto';
-import isLoggedIn from '../../lib/authentication';
 import HttpResponse from '@/openapi/HttpResponse';
 
 @Component({
@@ -90,7 +89,7 @@ import HttpResponse from '@/openapi/HttpResponse';
 })
 export default class Me extends Vue {
 
-    private user: User = {
+    public user: User = {
         id: 0,
         firstName: '',
         lastName: '',
@@ -114,9 +113,7 @@ export default class Me extends Vue {
     private editMode = false;
     private userService: UserService = openApiContainer.get<UserService>('UserService');
 
-    constructor() {
-        super();
-
+    private mounted() {
         this.userService.userMeGet('response').subscribe((res: HttpResponse<User>) => {
             const me: User = res.response as User;
             me.registeredSince = moment(me.registeredSince).format('YYYY-MM-D');
@@ -134,8 +131,12 @@ export default class Me extends Vue {
             const userUpdate: UpdateUserDto = JSON.parse(JSON.stringify(this.user)) as UpdateUserDto;
             userUpdate.birthday = moment(userUpdate.birthday, 'YYYY-MM-D').toDate().toString();
 
-            this.userService.userPut(userUpdate).subscribe(
-            (res: User) => {
+            this.userService.userMePut(userUpdate, 'response').subscribe(
+            (res: HttpResponse<User>) => {
+                res.response.registeredSince = moment(res.response.registeredSince).format('YYYY-MM-D');
+                res.response.birthday = moment(res.response.birthday).format('YYYY-MM-D');
+
+                this.user = res.response;
                 Vue.toasted.show(this.$t('action.success').toString(), {duration: 5000, type: 'success'});
             }, (err: any) => {
                 Vue.toasted.show(this.$t('action.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
@@ -152,7 +153,7 @@ export default class Me extends Vue {
         width: 100vw;
         text-align: center;
 
-        .SaMuButton {
+        .edit-btn {
             position: absolute;
             top: 135px;
             right: 30px;

@@ -12,7 +12,7 @@
 import { Url } from './url';
 
 
-export interface PaymentDto { 
+export interface PaymentDTO { 
     url: Url;
     expiresAt: Date;
 }

@@ -11,7 +11,7 @@
  */
 
 
-export interface ConfirmationDto { 
+export interface ConfirmationDTO { 
     token: string;
     password: string;
 }

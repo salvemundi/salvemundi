@@ -11,15 +11,15 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-button class="ml-4" variant="samu">Meld je aan!</b-button>
+          <b-button class="ml-4" variant="samu" v-if="!isLoggedInMethod()">Meld je aan!</b-button>
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">
-          <b-nav-item href="#">Over ons</b-nav-item>
-          <b-nav-item href="">Evenementen</b-nav-item>
-          <b-nav-item to="/home/committees">Commissies</b-nav-item>
-          <b-nav-item to="/home/merchandise">Merchandise</b-nav-item>
-          <b-nav-item href="#">Korting</b-nav-item>
+          <b-nav-item>Over ons</b-nav-item>
+          <b-nav-item>Evenementen</b-nav-item>
+          <b-nav-item>Commissies</b-nav-item>
+          <b-nav-item>Merchandise</b-nav-item>
+          <b-nav-item>Korting</b-nav-item>
           <b-nav-item to="/home/me">Mijn account</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -29,6 +29,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import isLoggedIn from '../../lib/authentication';
 
 export default Vue.extend({
   data() {
@@ -43,6 +44,9 @@ export default Vue.extend({
       } else {
         this.expanded = false;
       }
+    },
+    isLoggedInMethod() {
+      return isLoggedIn();
     },
   },
   created() {

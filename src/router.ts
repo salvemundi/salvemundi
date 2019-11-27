@@ -64,7 +64,7 @@ export default new Router({
       {
         path: '/me',
         component: Me,
-      }
+      },
     ]),
     ...withPrefix('/dashboard', [
       ...withPrefix('/member', [
