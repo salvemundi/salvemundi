@@ -19,7 +19,7 @@
                             <div class="text" v-html="$t('register.description')"></div>
                             <img src="@/assets/images/register.svg"/>
                             <div>
-                                <b-button variant="samu" to="https://identity.fhict.nl/connect/authorize?client_id=i407624-salvemundi2&scope=fhict_personal&response_type=code&redirect_uri=https://salvemundi.nl/callback" class="FHICT">{{$t('register.action_as_member')}}</b-button>
+                                <b-button variant="samu" href="https://identity.fhict.nl/connect/authorize?client_id=i407624-salvemundi2&scope=fhict_personal&response_type=code&redirect_uri=https://salvemundi.nl/callback" class="FHICT">{{$t('register.action_as_member')}}</b-button>
                                 <b-button variant="samu" to="/home/register">{{$t('register.action_as_friend')}}</b-button>
                             </div>
                         </div>
