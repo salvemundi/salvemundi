@@ -10,6 +10,7 @@ import MemberOverview from './views/dashboard/member/overview.vue';
 import MemberDetails from './views/dashboard/member/details.vue';
 import CheckEmail from './views/home/checkEmail.vue';
 import ConfirmAccount from './views/home/confirmAccount.vue';
+import Me from './views/home/me.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
@@ -59,6 +60,10 @@ export default new Router({
       {
         path: '/confirmation',
         component: ConfirmAccount,
+      },
+      {
+        path: '/me',
+        component: Me,
       }
     ]),
     ...withPrefix('/dashboard', [

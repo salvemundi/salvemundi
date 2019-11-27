@@ -20,7 +20,7 @@
           <b-nav-item to="/home/committees">Commissies</b-nav-item>
           <b-nav-item to="/home/merchandise">Merchandise</b-nav-item>
           <b-nav-item href="#">Korting</b-nav-item>
-          <b-nav-item to="/home/login">Mijn account</b-nav-item>
+          <b-nav-item to="/home/me">Mijn account</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-container>
