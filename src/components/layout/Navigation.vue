@@ -15,11 +15,9 @@
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">
-          <b-nav-item>Over ons</b-nav-item>
-          <b-nav-item>Evenementen</b-nav-item>
-          <b-nav-item>Commissies</b-nav-item>
-          <b-nav-item>Merchandise</b-nav-item>
-          <b-nav-item>Korting</b-nav-item>
+          <b-nav-item href="/home#about">Over ons</b-nav-item>
+          <b-nav-item href="/home#committees">Commissies</b-nav-item>
+          <b-nav-item href="/home#korting">Korting</b-nav-item>
           <b-nav-item to="/home/me">Mijn account</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -28,13 +26,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import isLoggedIn from '../../lib/authentication';
+import { Component, Vue } from "vue-property-decorator";
+import isLoggedIn from "../../lib/authentication";
 
 export default Vue.extend({
   data() {
     return {
-      expanded: false,
+      expanded: false
     };
   },
   methods: {
@@ -47,12 +45,12 @@ export default Vue.extend({
     },
     isLoggedInMethod() {
       return isLoggedIn();
-    },
+    }
   },
   created() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
     this.handleScroll();
-  },
+  }
 });
 </script>
 <style lang="scss">
@@ -89,6 +87,26 @@ nav.navbar {
         text-decoration-line: underline;
         font-weight: bold;
         color: #663265;
+      }
+    }
+  }
+
+  #nav-collapse {
+    &.collapsing,
+    &.show {
+    margin-top: 20px;
+    border-radius: 3px;
+
+    .navbar-nav.button {
+      padding: 20px 10px;
+    }
+      background: white;
+      .nav-item {
+        font-weight: 700;
+        letter-spacing: 0.05rem;
+        font-size: 0.8rem;
+        line-height: 0.8rem;
+        padding: 0.5rem 0.5rem;
       }
     }
   }

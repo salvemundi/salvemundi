@@ -150,7 +150,7 @@ export default class Me extends Vue {
 .member-details {
     &-avatar {
         padding-top: 30px;
-        width: 100vw;
+        width: 100%;
         text-align: center;
 
         .edit-btn {

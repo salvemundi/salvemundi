@@ -1,8 +1,8 @@
 <template>
   <footer class="footer">
     <b-container>
-      <b-row>
-        <b-col cols="5">
+      <b-row class="justify-content-between">
+        <div>
           <div class="footer__information">
             <span>Copyright 2019 s.v. Salve Mundi. Alle rechten voorbehouden</span>
             <hr />
@@ -15,9 +15,8 @@
               <span>KvK nr. 70280606</span>
             </div>
           </div>
-        </b-col>
-        <b-col cols="5"></b-col>
-        <b-col cols="2">
+        </div>
+        <div class="float-right">
           <div class="footer__social">
             <div>
               <a href="https://www.instagram.com/sv.salvemundi/" target="_blank">
@@ -33,13 +32,13 @@
               <a href="/privacy">Privacy</a>
             </div>
           </div>
-        </b-col>
+        </div>
       </b-row>
     </b-container>
   </footer>
 </template>
 <script>
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class Footer extends Vue {}
@@ -49,8 +48,8 @@ export default class Footer extends Vue {}
   background: #663265;
   padding: 22px 0;
   color: white;
-  height: 120px;
-  width: 100vw;
+  height: auto;
+  width: 100%;
 
   hr {
     margin: 3px 0;
