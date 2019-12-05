@@ -6,13 +6,19 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <b-button variant="samu" class="mt-5" size="lg" href="/home/prelogon" v-if="!isLoggedInMethod()">Meld je nu aan!</b-button>
+        <b-button
+          variant="samu"
+          class="mt-5"
+          size="lg"
+          href="/home/prelogon"
+          v-if="!isLoggedInMethod()"
+        >Meld je nu aan!</b-button>
       </div>
     </section>
     <section class="about">
       <b-container>
         <b-row>
-          <b-col cols="6" md="12" sm="12">
+          <b-col cols="12" sm="12" md="6" lg="6">
             <h2>Over ons</h2>
             <p>Salve Mundi is de nieuwe studievereniging van Fontys Hogescholen ICT, opgericht inj 2017. Het is Latijn voor "Hello World" een typische zin die menig programmeur maar al te goed kent.</p>
 
@@ -43,7 +49,7 @@
 
             <p>Naast deze activiteiten verzorgt Salve Mundi ook een introductie van FHICT van top tot teen.</p>
           </b-col>
-          <b-col cols="6" md="12" sm="12" class="my-auto">
+          <b-col cols="12" sm="12" md="6" lg="6" class="my-auto">
             <div class="image-container">
               <img width="400" height="266" src="@/assets/images/index/about-us/image3.jpg" />
               <img width="400" height="266" src="@/assets/images/index/about-us/image2.jpg" />
@@ -124,10 +130,10 @@
 </template>
 
 <script lang="ts" scoped>
-import { Component, Vue } from 'vue-property-decorator';
-import EventItem from '@/components/layout/events/EventItem.vue';
-import CircleIcon from '@/components/basic/CircleIcon.vue';
-import isLoggedIn from '../../lib/authentication';
+import { Component, Vue } from "vue-property-decorator";
+import EventItem from "@/components/layout/events/EventItem.vue";
+import CircleIcon from "@/components/basic/CircleIcon.vue";
+import isLoggedIn from "../../lib/authentication";
 
 export default Vue.extend({
   components: { EventItem, CircleIcon },
@@ -137,8 +143,8 @@ export default Vue.extend({
   methods: {
     isLoggedInMethod() {
       return isLoggedIn();
-    },
-  },
+    }
+  }
 });
 </script>
 <style lang="scss">
@@ -205,6 +211,7 @@ export default Vue.extend({
   }
 
   .image-container {
+    overflow: hidden;
     height: 440px;
     position: relative;
     margin-top: 7rem;
