@@ -116,8 +116,8 @@ export default class Me extends Vue {
     private mounted() {
         this.userService.userMeGet('response').subscribe((res: HttpResponse<User>) => {
             const me: User = res.response as User;
-            me.registeredSince = moment(me.registeredSince).format('YYYY-MM-D');
-            me.birthday = moment(me.birthday).format('YYYY-MM-D');
+            me.registeredSince = moment(me.registeredSince).format('YYYY-MM-DD');
+            me.birthday = moment(me.birthday).format('YYYY-MM-DD');
 
             this.user = me;
         });
@@ -129,12 +129,12 @@ export default class Me extends Vue {
         if (!this.editMode) {
             // Making a hardcopy of the object to prevent updating date values
             const userUpdate: UpdateUserDto = JSON.parse(JSON.stringify(this.user)) as UpdateUserDto;
-            userUpdate.birthday = moment(userUpdate.birthday, 'YYYY-MM-D').toDate().toString();
+            userUpdate.birthday = moment(userUpdate.birthday, 'YYYY-MM-DD').toDate().toString();
 
             this.userService.userMePut(userUpdate, 'response').subscribe(
             (res: HttpResponse<User>) => {
-                res.response.registeredSince = moment(res.response.registeredSince).format('YYYY-MM-D');
-                res.response.birthday = moment(res.response.birthday).format('YYYY-MM-D');
+                res.response.registeredSince = moment(res.response.registeredSince).format('YYYY-MM-DD');
+                res.response.birthday = moment(res.response.birthday).format('YYYY-MM-DD');
 
                 this.user = res.response;
                 Vue.toasted.show(this.$t('action.success').toString(), {duration: 5000, type: 'success'});
