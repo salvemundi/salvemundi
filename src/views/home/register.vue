@@ -127,13 +127,6 @@ export default class Register extends Vue {
 </script>
 <style lang="scss" scoped>
 .register {
-    form {
-        width: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-    }
 
     &-form.general-information {
         .register-form__body {

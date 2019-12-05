@@ -1,5 +1,5 @@
 <template>
-  <div class="circle-icon">
+  <div class="circle-icon mb-4">
     <div class="circle-icon__holder">
       <img width="35" height="35" :src="require(`@/assets/${icon}`)" />
     </div>

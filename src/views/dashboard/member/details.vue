@@ -144,7 +144,7 @@ export default class MemberDetails extends Vue {
 .member-details {
     &-avatar {
         padding-top: 30px;
-        width: 100vw;
+        width: 100%;
         text-align: center;
 
         .SaMuButton {

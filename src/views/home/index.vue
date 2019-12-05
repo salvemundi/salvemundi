@@ -6,13 +6,38 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <b-button variant="samu" class="mt-5" size="lg" href="/home/prelogon" v-if="!isLoggedInMethod()">Meld je nu aan!</b-button>
+        <b-button
+          variant="samu"
+          class="mt-5"
+          size="lg"
+          href="/home/prelogon"
+          v-if="!isLoggedInMethod()"
+        >Meld je nu aan!</b-button>
       </div>
     </section>
-    <section class="about">
+    <section id="new-website">
       <b-container>
         <b-row>
           <b-col cols="6">
+            <h2>Belangrijk: De nieuwe website</h2>
+            <p>
+              Welkom op de website van Salve Mundi! Sinds kort hebben we een nieuwe website waar nog veel aan gewerkt wordt.
+              <strong>De website is dus nog niet klaar.</strong>
+            </p>
+            <p>
+              We hebben een open-source project, wat betekend dat JIJ ook mee kan helpen. Als je een feature mist, kan je die zelf toevoegen! Voor meer informatie, zie onze
+              <a
+                href="https://github.com/salvemundi"
+              >GitHub</a> projecten.
+            </p>
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
+    <section id="about">
+      <b-container>
+        <b-row>
+          <b-col cols="12" sm="12" md="6" lg="6">
             <h2>Over ons</h2>
             <p>Salve Mundi is de nieuwe studievereniging van Fontys Hogescholen ICT, opgericht inj 2017. Het is Latijn voor "Hello World" een typische zin die menig programmeur maar al te goed kent.</p>
 
@@ -43,39 +68,17 @@
 
             <p>Naast deze activiteiten verzorgt Salve Mundi ook een introductie van FHICT van top tot teen.</p>
           </b-col>
-          <b-col cols="6" class="my-auto">
+          <b-col cols="12" sm="12" md="6" lg="6" class="my-auto">
             <div class="image-container">
-              <img width="400" src="@/assets/images/index/about-us/image.png" />
-              <img width="400" src="@/assets/images/index/about-us/image.png" />
-              <img width="400" src="@/assets/images/index/about-us/image.png" />
+              <img width="400" height="266" src="@/assets/images/index/about-us/image3.jpg" />
+              <img width="400" height="266" src="@/assets/images/index/about-us/image2.jpg" />
+              <img width="400" height="266" src="@/assets/images/index/about-us/image1.jpg" />
             </div>
           </b-col>
         </b-row>
       </b-container>
     </section>
-    <section class="events">
-      <b-container>
-        <b-row>
-          <b-col cols="8"></b-col>
-          <b-col cols="4">
-            <div>
-              <h2>Evenementen</h2>
-            </div>
-          </b-col>
-          <b-col cols="8">
-            <EventItem />
-            <EventItem />
-            <EventItem />
-          </b-col>
-          <b-col cols="4">
-            <p>Salve Mundi verzorgt voor zowel de uitgaande als niet uitgaande studenten evenementen. Voor de uitgaande studenten moet je hierbij denken aan feestjes in onze stamkroeg Villa Fiesta. En voor de wat minder uitgaande studenten kan je denken aan game-, poker-, en bordspelavonden. Voor iedereen wat wils!</p>
-            <p>Bekijk hier dan ook de opkomende evenementen:</p>
-            <p>Ben je benieuwd naar hoe zulke evenementen er uit zien? Bekijk dan onze facebookpagina.</p>
-          </b-col>
-        </b-row>
-      </b-container>
-    </section>
-    <section class="committees">
+    <section id="committees">
       <b-container>
         <b-row>
           <b-col cols="2"></b-col>
@@ -103,8 +106,6 @@
                 <a>
                   <CircleIcon name="Ledenzaken" icon="images/committees/icons/ledenzaken.png" />
                 </a>
-              </div>
-              <div class="committee-icons">
                 <a>
                   <CircleIcon name="Activiteiten" icon="images/committees/icons/activiteiten.png" />
                 </a>
@@ -124,22 +125,7 @@
         </b-row>
       </b-container>
     </section>
-    <section class="merchandise">
-      <div class="container">
-        <b-row>
-          <b-col cols="6" class="my-auto">
-            <h2>Merchandise</h2>
-            <p>Naast dat onze mediacomissie de media verzorgt voor onze social media. Hebben ze ook nog een toffe merchandise ontworpen! Dit is de kans om op evenementen van Salve Mundi, feestjes of festivals te shinen met je mooie t-shirt, hoodie of vest.</p>
-            <p>Wil jij nou ook zo gelikt over straat kunnen? Bestel je merchandise dan hier!</p>
-            <b-button variant="samu">Merchandise</b-button>
-          </b-col>
-          <b-col cols="6">
-            <img width="500" src="@/assets/images/index/about-us/image.png" />
-          </b-col>
-        </b-row>
-      </div>
-    </section>
-    <section class="korting">
+    <section id="korting" class="mb-5">
       <div class="container">
         <b-row>
           <b-col cols="12">
@@ -163,10 +149,10 @@
 </template>
 
 <script lang="ts" scoped>
-import { Component, Vue } from 'vue-property-decorator';
-import EventItem from '@/components/layout/events/EventItem.vue';
-import CircleIcon from '@/components/basic/CircleIcon.vue';
-import isLoggedIn from '../../lib/authentication';
+import { Component, Vue } from "vue-property-decorator";
+import EventItem from "@/components/layout/events/EventItem.vue";
+import CircleIcon from "@/components/basic/CircleIcon.vue";
+import isLoggedIn from "../../lib/authentication";
 
 export default Vue.extend({
   components: { EventItem, CircleIcon },
@@ -176,8 +162,8 @@ export default Vue.extend({
   methods: {
     isLoggedInMethod() {
       return isLoggedIn();
-    },
-  },
+    }
+  }
 });
 </script>
 <style lang="scss">
@@ -228,7 +214,7 @@ export default Vue.extend({
   }
 
   section {
-    padding-top: 100px;
+    padding-top: 69px;
 
     .container {
       flex-direction: column;
@@ -244,6 +230,7 @@ export default Vue.extend({
   }
 
   .image-container {
+    overflow: hidden;
     height: 440px;
     position: relative;
     margin-top: 7rem;

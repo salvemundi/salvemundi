@@ -11,6 +11,7 @@ import MemberDetails from './views/dashboard/member/details.vue';
 import CheckEmail from './views/home/checkEmail.vue';
 import ConfirmAccount from './views/home/confirmAccount.vue';
 import Me from './views/home/me.vue';
+import Privacy from './views/privacy.vue'
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
@@ -29,6 +30,10 @@ export default new Router({
       redirect: '/home',
     },
     {
+      path: '/privacy',
+      component: Privacy
+    },
+    {
       path: '/callback',
       redirect: '/home/register',
     },
@@ -38,6 +43,7 @@ export default new Router({
     },
     ...withPrefix('/home', [
       {
+        name:'index',
         path: '/',
         component: Index,
       },
