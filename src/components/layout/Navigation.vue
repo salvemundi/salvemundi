@@ -10,8 +10,8 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="button">
-          <b-button class="ml-4" variant="samu" v-if="!isLoggedInMethod()">Meld je aan!</b-button>
+        <b-navbar-nav>
+          <b-button class="ml-4" variant="samu" v-if="!isLoggedInMethod()" href="/home/prelogon">Meld je aan!</b-button>
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">
