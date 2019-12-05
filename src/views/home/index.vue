@@ -12,7 +12,7 @@
     <section class="about">
       <b-container>
         <b-row>
-          <b-col cols="6">
+          <b-col cols="6" md="12" sm="12">
             <h2>Over ons</h2>
             <p>Salve Mundi is de nieuwe studievereniging van Fontys Hogescholen ICT, opgericht inj 2017. Het is Latijn voor "Hello World" een typische zin die menig programmeur maar al te goed kent.</p>
 
@@ -43,34 +43,12 @@
 
             <p>Naast deze activiteiten verzorgt Salve Mundi ook een introductie van FHICT van top tot teen.</p>
           </b-col>
-          <b-col cols="6" class="my-auto">
+          <b-col cols="6" md="12" sm="12" class="my-auto">
             <div class="image-container">
-              <img width="400" src="@/assets/images/index/about-us/image.png" />
-              <img width="400" src="@/assets/images/index/about-us/image.png" />
-              <img width="400" src="@/assets/images/index/about-us/image.png" />
+              <img width="400" height="266" src="@/assets/images/index/about-us/image3.jpg" />
+              <img width="400" height="266" src="@/assets/images/index/about-us/image2.jpg" />
+              <img width="400" height="266" src="@/assets/images/index/about-us/image1.jpg" />
             </div>
-          </b-col>
-        </b-row>
-      </b-container>
-    </section>
-    <section class="events">
-      <b-container>
-        <b-row>
-          <b-col cols="8"></b-col>
-          <b-col cols="4">
-            <div>
-              <h2>Evenementen</h2>
-            </div>
-          </b-col>
-          <b-col cols="8">
-            <EventItem />
-            <EventItem />
-            <EventItem />
-          </b-col>
-          <b-col cols="4">
-            <p>Salve Mundi verzorgt voor zowel de uitgaande als niet uitgaande studenten evenementen. Voor de uitgaande studenten moet je hierbij denken aan feestjes in onze stamkroeg Villa Fiesta. En voor de wat minder uitgaande studenten kan je denken aan game-, poker-, en bordspelavonden. Voor iedereen wat wils!</p>
-            <p>Bekijk hier dan ook de opkomende evenementen:</p>
-            <p>Ben je benieuwd naar hoe zulke evenementen er uit zien? Bekijk dan onze facebookpagina.</p>
           </b-col>
         </b-row>
       </b-container>
@@ -103,8 +81,6 @@
                 <a>
                   <CircleIcon name="Ledenzaken" icon="images/committees/icons/ledenzaken.png" />
                 </a>
-              </div>
-              <div class="committee-icons">
                 <a>
                   <CircleIcon name="Activiteiten" icon="images/committees/icons/activiteiten.png" />
                 </a>
@@ -124,22 +100,7 @@
         </b-row>
       </b-container>
     </section>
-    <section class="merchandise">
-      <div class="container">
-        <b-row>
-          <b-col cols="6" class="my-auto">
-            <h2>Merchandise</h2>
-            <p>Naast dat onze mediacomissie de media verzorgt voor onze social media. Hebben ze ook nog een toffe merchandise ontworpen! Dit is de kans om op evenementen van Salve Mundi, feestjes of festivals te shinen met je mooie t-shirt, hoodie of vest.</p>
-            <p>Wil jij nou ook zo gelikt over straat kunnen? Bestel je merchandise dan hier!</p>
-            <b-button variant="samu">Merchandise</b-button>
-          </b-col>
-          <b-col cols="6">
-            <img width="500" src="@/assets/images/index/about-us/image.png" />
-          </b-col>
-        </b-row>
-      </div>
-    </section>
-    <section class="korting">
+    <section class="korting mb-5">
       <div class="container">
         <b-row>
           <b-col cols="12">
@@ -228,7 +189,7 @@ export default Vue.extend({
   }
 
   section {
-    padding-top: 100px;
+    padding-top: 69px;
 
     .container {
       flex-direction: column;

@@ -18,7 +18,7 @@ export default class Forbidden extends Vue {}
 </script>
 <style lang="scss">
 .main {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background: #663265;
 

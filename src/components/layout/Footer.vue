@@ -49,8 +49,8 @@ export default class Footer extends Vue {}
   background: #663265;
   padding: 22px 0;
   color: white;
-  height: 120px;
-  width: 100vw;
+  height: auto;
+  width: 100%;
 
   hr {
     margin: 3px 0;
