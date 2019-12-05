@@ -19,13 +19,13 @@
       <b-container>
         <b-row>
           <b-col cols="6">
-            <h2>Nieuwe website</h2>
+            <h2>Belangrijk: De nieuwe website</h2>
             <p>
-              Welkom op de nieuwe website van Salve Mundi! Sinds kort hebben we een nieuwe website waar nog veel aan gewerkt wordt.
-              <strong>de website is dus nog niet klaar.</strong>
+              Welkom op de website van Salve Mundi! Sinds kort hebben we een nieuwe website waar nog veel aan gewerkt wordt.
+              <strong>De website is dus nog niet klaar.</strong>
             </p>
             <p>
-              We hebben een open-source website, wat betekend dat JIJ ook mee kan helpen. Als je een feature mist, kan je die zelf toevoegen! Voor meer informatie, zie onze
+              We hebben een open-source project, wat betekend dat JIJ ook mee kan helpen. Als je een feature mist, kan je die zelf toevoegen! Voor meer informatie, zie onze
               <a
                 href="https://github.com/salvemundi"
               >GitHub</a> projecten.
