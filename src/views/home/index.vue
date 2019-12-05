@@ -15,7 +15,7 @@
         >Meld je nu aan!</b-button>
       </div>
     </section>
-    <section class="about">
+    <section id="about">
       <b-container>
         <b-row>
           <b-col cols="12" sm="12" md="6" lg="6">
@@ -59,7 +59,7 @@
         </b-row>
       </b-container>
     </section>
-    <section class="committees">
+    <section id="committees">
       <b-container>
         <b-row>
           <b-col cols="2"></b-col>
@@ -106,7 +106,7 @@
         </b-row>
       </b-container>
     </section>
-    <section class="korting mb-5">
+    <section id="korting" class="mb-5">
       <div class="container">
         <b-row>
           <b-col cols="12">

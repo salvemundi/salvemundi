@@ -43,6 +43,7 @@ export default new Router({
     },
     ...withPrefix('/home', [
       {
+        name:'index',
         path: '/',
         component: Index,
       },
