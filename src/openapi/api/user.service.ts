@@ -139,6 +139,32 @@ export class UserService {
 
 
     /**
+     * me
+     * This call is used to update the current user
+     * @param updateUserDto 
+     
+     */
+    public userMePut(updateUserDto: UpdateUserDto, observe?: 'body', headers?: Headers): Observable<User>;
+    public userMePut(updateUserDto: UpdateUserDto, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public userMePut(updateUserDto: UpdateUserDto, observe: any = 'body', headers: Headers = {}): Observable<any> {
+        if (updateUserDto === null || updateUserDto === undefined){
+            throw new Error('Required parameter updateUserDto was null or undefined when calling userMePut.');
+        }
+
+        headers['Accept'] = 'application/json';
+        headers['Content-Type'] = 'application/json';
+
+        const response: Observable<HttpResponse<User>> = this.httpClient.put(`${this.basePath}/user/me`, updateUserDto , headers);
+        if (observe == 'body') {
+               return response.pipe(
+                   map(httpResponse => <User>(httpResponse.response))
+               );
+        }
+        return response;
+    }
+
+
+    /**
      * update
      * This call is used to update a user
      * @param updateUserDto 

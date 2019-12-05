@@ -8,21 +8,17 @@ import Register from './views/home/register.vue';
 import Login from './views/home/login.vue';
 import MemberOverview from './views/dashboard/member/overview.vue';
 import MemberDetails from './views/dashboard/member/details.vue';
-import Merchandise from './views/merchandise/index.vue';
-import MerchandiseItem from './views/merchandise/item.vue';
-import Committees from './views/committees/index.vue';
-import Committee from './views/committees/committee.vue';
-import CommitteeMember from './views/committees/member.vue';
-import ShoppingCart from './views/shoppingcart/index.vue';
 import CheckEmail from './views/home/checkEmail.vue';
+import ConfirmAccount from './views/home/confirmAccount.vue';
+import Me from './views/home/me.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
-    routes.map( (route: any) => {
-        route.path = prefix + route.path;
-        route.name = prefix + route.path;
-        return route;
-    });
+  routes.map((route: any) => {
+    route.path = prefix + route.path;
+    route.name = prefix + route.path;
+    return route;
+  });
 
 export default new Router({
   mode: 'history',
@@ -61,34 +57,13 @@ export default new Router({
         path: '/checkemail',
         component: CheckEmail,
       },
-      ...withPrefix('/merchandise', [
-        {
-          path: '/',
-          component: Merchandise,
-        },
-        {
-          path: '/:merchandiseItem',
-          component: MerchandiseItem,
-        },
-      ]),
-      ...withPrefix('/committees', [
-        {
-          path: '/',
-          component: Committees,
-        },
-        {
-          path: '/:committee',
-          component: Committee,
-        },
-        {
-          path: '/:committee/:member',
-          component: CommitteeMember,
-        },
-      ]),
       {
-        path: '/cart',
-        name: 'ShoppingCart',
-        component: ShoppingCart,
+        path: '/confirmation',
+        component: ConfirmAccount,
+      },
+      {
+        path: '/me',
+        component: Me,
       },
     ]),
     ...withPrefix('/dashboard', [

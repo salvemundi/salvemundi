@@ -1,5 +1,12 @@
 <template>
-  <input class="SaMuInput" :placeholder="placeholder" :type="!type || type === '' ? 'text' : type" v-bind:value="value" v-on:input="$emit('input', $event.target.value)" :name="name" :autocomplete="autocomplete"/>
+  <input 
+    class="SaMuInput"
+    :placeholder="placeholder"
+    :type="!type || type === '' ? 'text' : type"
+    v-bind:value="value"
+    v-on:input="$emit('input', $event.target.value)"
+    :name="name"
+    :autocomplete="autocomplete"/>
 </template>
 
 <script lang="ts">

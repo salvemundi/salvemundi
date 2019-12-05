@@ -6,7 +6,7 @@
         <h1 class="title">SALVE MUNDI</h1>
         <h3 class="notice">Studenten voor studenten</h3>
 
-        <b-button variant="samu" class="mt-5" size="lg" href="/home/prelogon">Meld je nu aan!</b-button>
+        <b-button variant="samu" class="mt-5" size="lg" href="/home/prelogon" v-if="!isLoggedInMethod()">Meld je nu aan!</b-button>
       </div>
     </section>
     <section class="about">
@@ -127,14 +127,14 @@
     <section class="merchandise">
       <div class="container">
         <b-row>
-          <b-col cols="5" class="my-auto">
+          <b-col cols="6" class="my-auto">
             <h2>Merchandise</h2>
             <p>Naast dat onze mediacomissie de media verzorgt voor onze social media. Hebben ze ook nog een toffe merchandise ontworpen! Dit is de kans om op evenementen van Salve Mundi, feestjes of festivals te shinen met je mooie t-shirt, hoodie of vest.</p>
             <p>Wil jij nou ook zo gelikt over straat kunnen? Bestel je merchandise dan hier!</p>
             <b-button variant="samu">Merchandise</b-button>
           </b-col>
-          <b-col cols="7">
-            <img height="440" src="@/assets/images/index/about-us/image.png" />
+          <b-col cols="6">
+            <img width="500" src="@/assets/images/index/about-us/image.png" />
           </b-col>
         </b-row>
       </div>
@@ -166,13 +166,18 @@
 import { Component, Vue } from 'vue-property-decorator';
 import EventItem from '@/components/layout/events/EventItem.vue';
 import CircleIcon from '@/components/basic/CircleIcon.vue';
+import isLoggedIn from '../../lib/authentication';
 
 export default Vue.extend({
   components: { EventItem, CircleIcon },
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    isLoggedInMethod() {
+      return isLoggedIn();
+    },
+  },
 });
 </script>
 <style lang="scss">

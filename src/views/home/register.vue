@@ -45,7 +45,7 @@ import openApiContainer from '@/openApiContainer';
 import { RegisterDTO } from '@/openapi/model/registerDTO';
 import { User } from '@/openapi/model/user';
 import { PaymentDTO } from '../../openapi/model/paymentDTO';
-import HttpResponse from "@/openapi/HttpResponse";
+import HttpResponse from '@/openapi/HttpResponse';
 import { observable } from 'rxjs';
 
 
@@ -96,18 +96,22 @@ export default class Register extends Vue {
         submitEvent.preventDefault();
 
         // Registers user
-        this.authorizationService.authorizationRegisterPost(this.dto, 'response').subscribe((res: HttpResponse<User>) => {
+        this.authorizationService.authorizationRegisterPost(this.dto, 'response')
+        .subscribe((res: HttpResponse<User>) => {
 
             // Create payment for the new user
-            this.paymentsService.paymentsMembershipGet(res.response.id, 'response').subscribe((res2: HttpResponse<PaymentDTO>) => {
+            this.paymentsService.paymentsMembershipGet(res.response.id, 'response')
+            .subscribe((res2: HttpResponse<PaymentDTO>) => {
 
                 // Redirect to payment page if the payment has not been expired
-                if (res2.response.expiresAt.getTime() >= new Date().getTime()) {
+                if (new Date(res2.response.expiresAt).getTime() >= new Date().getTime()) {
                     window.location.href = res2.response.url.href;
 
                 } else {
                     Vue.toasted.show(this.$t('error.payment_expired').toString(), {duration: 5000, type: 'error'});
                 }
+            }, (err) => {
+                Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
             });
         }, (err) => {
             if (err.status === 409) {

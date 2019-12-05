@@ -1,8 +1,8 @@
 <template scoped>
     <div class="member-details">
         <div class="member-details-avatar">
-            <SaMuAvatar :image="require('@/assets/images/background.jpg')" alt="avatar"/>
-            <!-- <b-button variant="samu" size='small' :click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</b-button> -->
+            <SaMuAvatar :image="require('@/assets/images/logoPaars.png')" alt="avatar"/>
+            <b-button variant="samu" size='small' class="edit-btn" v-on:click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</b-button>
         </div>
         <b-container class="member-details-information">
             <b-row>
@@ -73,11 +73,12 @@ import { Component, Vue } from 'vue-property-decorator';
 import SaMuInput from '@/components/basic/SaMuInput.vue';
 import SaMuHeader from '@/components/basic/SaMuHeader.vue';
 import SaMuAvatar from '@/components/basic/SaMuAvatar.vue';
-import { UserService } from '../../../openapi/api/user.service';
+import { UserService } from '../../openapi/api/user.service';
 import openApiContainer from '@/openApiContainer';
 import moment from 'moment';
-import { User } from '../../../openapi/model/user';
-import { UpdateUserDto } from '../../../openapi/model/updateUserDto';
+import { User } from '../../openapi/model/user';
+import { UpdateUserDto } from '../../openapi/model/updateUserDto';
+import HttpResponse from '@/openapi/HttpResponse';
 
 @Component({
   components: {
@@ -86,9 +87,9 @@ import { UpdateUserDto } from '../../../openapi/model/updateUserDto';
     SaMuAvatar,
   },
 })
-export default class MemberDetails extends Vue {
+export default class Me extends Vue {
 
-    private user: User = {
+    public user: User = {
         id: 0,
         firstName: '',
         lastName: '',
@@ -108,16 +109,17 @@ export default class MemberDetails extends Vue {
             memberships: [],
         },
     };
-    private editMode = false;
 
+    private editMode = false;
     private userService: UserService = openApiContainer.get<UserService>('UserService');
 
     private mounted() {
-        this.userService.userIdGet(+this.$route.params.id).subscribe((res: User) => {
-            res.registeredSince = moment(res.registeredSince).format('YYYY-MM-D');
-            res.birthday = moment(res.birthday).format('YYYY-MM-D');
+        this.userService.userMeGet('response').subscribe((res: HttpResponse<User>) => {
+            const me: User = res.response as User;
+            me.registeredSince = moment(me.registeredSince).format('YYYY-MM-DD');
+            me.birthday = moment(me.birthday).format('YYYY-MM-DD');
 
-            this.user = res;
+            this.user = me;
         });
     }
 
@@ -127,10 +129,14 @@ export default class MemberDetails extends Vue {
         if (!this.editMode) {
             // Making a hardcopy of the object to prevent updating date values
             const userUpdate: UpdateUserDto = JSON.parse(JSON.stringify(this.user)) as UpdateUserDto;
-            userUpdate.birthday = moment(userUpdate.birthday, 'YYYY-MM-D').toDate().toString();
+            userUpdate.birthday = moment(userUpdate.birthday, 'YYYY-MM-DD').toDate().toString();
 
-            this.userService.userPut(userUpdate).subscribe(
-            (res: User) => {
+            this.userService.userMePut(userUpdate, 'response').subscribe(
+            (res: HttpResponse<User>) => {
+                res.response.registeredSince = moment(res.response.registeredSince).format('YYYY-MM-DD');
+                res.response.birthday = moment(res.response.birthday).format('YYYY-MM-DD');
+
+                this.user = res.response;
                 Vue.toasted.show(this.$t('action.success').toString(), {duration: 5000, type: 'success'});
             }, (err: any) => {
                 Vue.toasted.show(this.$t('action.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
@@ -147,7 +153,7 @@ export default class MemberDetails extends Vue {
         width: 100vw;
         text-align: center;
 
-        .SaMuButton {
+        .edit-btn {
             position: absolute;
             top: 135px;
             right: 30px;
