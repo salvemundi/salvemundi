@@ -42,11 +42,11 @@ export class PaymentsService {
      * @param id 
      
      */
-    public paymentsMembershipGet(id: number, observe?: 'body', headers?: Headers): Observable<PaymentDTO>;
-    public paymentsMembershipGet(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<PaymentDTO>>;
-    public paymentsMembershipGet(id: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public createPaymentForMembership(id: number, observe?: 'body', headers?: Headers): Observable<PaymentDTO>;
+    public createPaymentForMembership(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<PaymentDTO>>;
+    public createPaymentForMembership(id: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (id === null || id === undefined){
-            throw new Error('Required parameter id was null or undefined when calling paymentsMembershipGet.');
+            throw new Error('Required parameter id was null or undefined when calling createPaymentForMembership.');
         }
 
         let queryParameters: string[] = [];

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Member } from './member';
+import { ComponentsSchemasMembership } from './componentsSchemasMembership';
 import { Scope } from './scope';
 
 
@@ -27,6 +27,6 @@ export interface User {
     registeredSince: string;
     pcn: string;
     activated: boolean;
-    member?: Member;
+    memberships: ComponentsSchemasMembership;
     scopes: Array<Scope>;
 }

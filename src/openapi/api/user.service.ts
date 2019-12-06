@@ -39,46 +39,16 @@ export class UserService {
     }
 
     /**
-     * getAll
-     * This call is used to get a summary of all the users
-     * @param take 
-     * @param skip 
-     
-     */
-    public userGet(take: number, skip: number, observe?: 'body', headers?: Headers): Observable<Array<SummaryUserDto>>;
-    public userGet(take: number, skip: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<SummaryUserDto>>>;
-    public userGet(take: number, skip: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (take === null || take === undefined){
-            throw new Error('Required parameter take was null or undefined when calling userGet.');
-        }
-
-        if (skip === null || skip === undefined){
-            throw new Error('Required parameter skip was null or undefined when calling userGet.');
-        }
-
-        headers['Accept'] = 'application/json';
-
-        const response: Observable<HttpResponse<Array<SummaryUserDto>>> = this.httpClient.get(`${this.basePath}/user`, headers);
-        if (observe == 'body') {
-               return response.pipe(
-                   map(httpResponse => <Array<SummaryUserDto>>(httpResponse.response))
-               );
-        }
-        return response;
-    }
-
-
-    /**
      * delete
      * This call is used to delete a user
      * @param id 
      
      */
-    public userIdDelete(id: number, observe?: 'body', headers?: Headers): Observable<any>;
-    public userIdDelete(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
-    public userIdDelete(id: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public userDeleteOne(id: number, observe?: 'body', headers?: Headers): Observable<any>;
+    public userDeleteOne(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
+    public userDeleteOne(id: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (id === null || id === undefined){
-            throw new Error('Required parameter id was null or undefined when calling userIdDelete.');
+            throw new Error('Required parameter id was null or undefined when calling userDeleteOne.');
         }
 
         headers['Accept'] = 'application/json';
@@ -94,16 +64,66 @@ export class UserService {
 
 
     /**
+     * getAll
+     * This call is used to get a summary of all the users
+     * @param skip 
+     * @param take 
+     
+     */
+    public userReadAll(skip: number, take: number, observe?: 'body', headers?: Headers): Observable<Array<SummaryUserDto>>;
+    public userReadAll(skip: number, take: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<SummaryUserDto>>>;
+    public userReadAll(skip: number, take: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+        if (skip === null || skip === undefined){
+            throw new Error('Required parameter skip was null or undefined when calling userReadAll.');
+        }
+
+        if (take === null || take === undefined){
+            throw new Error('Required parameter take was null or undefined when calling userReadAll.');
+        }
+
+        headers['Accept'] = 'application/json';
+
+        const response: Observable<HttpResponse<Array<SummaryUserDto>>> = this.httpClient.get(`${this.basePath}/user`, headers);
+        if (observe == 'body') {
+               return response.pipe(
+                   map(httpResponse => <Array<SummaryUserDto>>(httpResponse.response))
+               );
+        }
+        return response;
+    }
+
+
+    /**
+     * me
+     * This call is used to get the current user
+     
+     */
+    public userReadMe(observe?: 'body', headers?: Headers): Observable<User>;
+    public userReadMe(observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public userReadMe(observe: any = 'body', headers: Headers = {}): Observable<any> {
+        headers['Accept'] = 'application/json';
+
+        const response: Observable<HttpResponse<User>> = this.httpClient.get(`${this.basePath}/user/me`, headers);
+        if (observe == 'body') {
+               return response.pipe(
+                   map(httpResponse => <User>(httpResponse.response))
+               );
+        }
+        return response;
+    }
+
+
+    /**
      * getOne
      * This call is used to get a specific user
      * @param id 
      
      */
-    public userIdGet(id: number, observe?: 'body', headers?: Headers): Observable<User>;
-    public userIdGet(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public userIdGet(id: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public userReadOne(id: number, observe?: 'body', headers?: Headers): Observable<User>;
+    public userReadOne(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public userReadOne(id: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (id === null || id === undefined){
-            throw new Error('Required parameter id was null or undefined when calling userIdGet.');
+            throw new Error('Required parameter id was null or undefined when calling userReadOne.');
         }
 
         headers['Accept'] = 'application/json';
@@ -120,35 +140,15 @@ export class UserService {
 
     /**
      * me
-     * This call is used to get the current user
-     
-     */
-    public userMeGet(observe?: 'body', headers?: Headers): Observable<User>;
-    public userMeGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public userMeGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'application/json';
-
-        const response: Observable<HttpResponse<User>> = this.httpClient.get(`${this.basePath}/user/me`, headers);
-        if (observe == 'body') {
-               return response.pipe(
-                   map(httpResponse => <User>(httpResponse.response))
-               );
-        }
-        return response;
-    }
-
-
-    /**
-     * me
      * This call is used to update the current user
      * @param updateUserDto 
      
      */
-    public userMePut(updateUserDto: UpdateUserDto, observe?: 'body', headers?: Headers): Observable<User>;
-    public userMePut(updateUserDto: UpdateUserDto, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public userMePut(updateUserDto: UpdateUserDto, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public userUpdateMe(updateUserDto: UpdateUserDto, observe?: 'body', headers?: Headers): Observable<User>;
+    public userUpdateMe(updateUserDto: UpdateUserDto, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public userUpdateMe(updateUserDto: UpdateUserDto, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (updateUserDto === null || updateUserDto === undefined){
-            throw new Error('Required parameter updateUserDto was null or undefined when calling userMePut.');
+            throw new Error('Required parameter updateUserDto was null or undefined when calling userUpdateMe.');
         }
 
         headers['Accept'] = 'application/json';
@@ -170,11 +170,11 @@ export class UserService {
      * @param updateUserDto 
      
      */
-    public userPut(updateUserDto: UpdateUserDto, observe?: 'body', headers?: Headers): Observable<User>;
-    public userPut(updateUserDto: UpdateUserDto, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public userPut(updateUserDto: UpdateUserDto, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public userUpdateOne(updateUserDto: UpdateUserDto, observe?: 'body', headers?: Headers): Observable<User>;
+    public userUpdateOne(updateUserDto: UpdateUserDto, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public userUpdateOne(updateUserDto: UpdateUserDto, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (updateUserDto === null || updateUserDto === undefined){
-            throw new Error('Required parameter updateUserDto was null or undefined when calling userPut.');
+            throw new Error('Required parameter updateUserDto was null or undefined when calling userUpdateOne.');
         }
 
         headers['Accept'] = 'application/json';

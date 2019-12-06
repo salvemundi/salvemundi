@@ -46,11 +46,11 @@ export class AuthorizationService {
      * @param confirmationDTO 
      
      */
-    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe?: 'body', headers?: Headers): Observable<User>;
-    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public confirmEmail(confirmationDTO: ConfirmationDTO, observe?: 'body', headers?: Headers): Observable<User>;
+    public confirmEmail(confirmationDTO: ConfirmationDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public confirmEmail(confirmationDTO: ConfirmationDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (confirmationDTO === null || confirmationDTO === undefined){
-            throw new Error('Required parameter confirmationDTO was null or undefined when calling authorizationConfirmationPost.');
+            throw new Error('Required parameter confirmationDTO was null or undefined when calling confirmEmail.');
         }
 
         headers['Accept'] = 'application/json';
@@ -72,11 +72,11 @@ export class AuthorizationService {
      * @param loginDTO 
      
      */
-    public authorizationLoginPost(loginDTO: LoginDTO, observe?: 'body', headers?: Headers): Observable<any>;
-    public authorizationLoginPost(loginDTO: LoginDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
-    public authorizationLoginPost(loginDTO: LoginDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public login(loginDTO: LoginDTO, observe?: 'body', headers?: Headers): Observable<any>;
+    public login(loginDTO: LoginDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
+    public login(loginDTO: LoginDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (loginDTO === null || loginDTO === undefined){
-            throw new Error('Required parameter loginDTO was null or undefined when calling authorizationLoginPost.');
+            throw new Error('Required parameter loginDTO was null or undefined when calling login.');
         }
 
         headers['Accept'] = 'application/json';
@@ -98,11 +98,11 @@ export class AuthorizationService {
      * @param token 
      
      */
-    public authorizationMeGet(token: string, observe?: 'body', headers?: Headers): Observable<MeDTO>;
-    public authorizationMeGet(token: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<MeDTO>>;
-    public authorizationMeGet(token: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public me(token: string, observe?: 'body', headers?: Headers): Observable<MeDTO>;
+    public me(token: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<MeDTO>>;
+    public me(token: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (token === null || token === undefined){
-            throw new Error('Required parameter token was null or undefined when calling authorizationMeGet.');
+            throw new Error('Required parameter token was null or undefined when calling me.');
         }
 
         let queryParameters: string[] = [];
@@ -128,11 +128,11 @@ export class AuthorizationService {
      * @param registerDTO 
      
      */
-    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'body', headers?: Headers): Observable<User>;
-    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public authorizationRegisterPost(registerDTO: RegisterDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public regiser(registerDTO: RegisterDTO, observe?: 'body', headers?: Headers): Observable<User>;
+    public regiser(registerDTO: RegisterDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public regiser(registerDTO: RegisterDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (registerDTO === null || registerDTO === undefined){
-            throw new Error('Required parameter registerDTO was null or undefined when calling authorizationRegisterPost.');
+            throw new Error('Required parameter registerDTO was null or undefined when calling regiser.');
         }
 
         headers['Accept'] = 'application/json';
