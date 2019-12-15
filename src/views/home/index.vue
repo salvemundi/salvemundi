@@ -149,10 +149,10 @@
 </template>
 
 <script lang="ts" scoped>
-import { Component, Vue } from "vue-property-decorator";
-import EventItem from "@/components/layout/events/EventItem.vue";
-import CircleIcon from "@/components/basic/CircleIcon.vue";
-import isLoggedIn from "../../lib/authentication";
+import { Component, Vue } from 'vue-property-decorator';
+import EventItem from '@/components/layout/events/EventItem.vue';
+import CircleIcon from '@/components/basic/CircleIcon.vue';
+import isLoggedIn from '../../lib/authentication';
 
 export default Vue.extend({
   components: { EventItem, CircleIcon },
@@ -162,8 +162,8 @@ export default Vue.extend({
   methods: {
     isLoggedInMethod() {
       return isLoggedIn();
-    }
-  }
+    },
+  },
 });
 </script>
 <style lang="scss">

@@ -1,7 +1,7 @@
 <template scoped>
   <div class="register">
       <form v-on:submit="handleSubmit">
-        <b-container fluid>
+        <b-container>
             <b-row>
                 <b-col sm="6">
                     <div class="register-form general-information">
@@ -24,6 +24,7 @@
                             <SaMuInput :placeholder="$t('form.ipcn')" type="text" v-model="dto.pcn" id="register-form__pcn"/>
                             <SaMuInput :placeholder="$t('form.phonenumber')" type="text" v-model="dto.phoneNumber" id="register-form__phonenumber"/>
                             <SaMuInput :placeholder="$t('form.email')" type="email" v-model="dto.email" id="register-form__email"/>
+                            <input :placeholder="$t('form.email')" type="file" ref="file" v-on:change="handleFileUpload()" id="register-form__profile-picture"/>
                             <b-button variant="samu" size="small" type="submit">{{$t('form.send')}}</b-button>
                         </div>
                     </div>
@@ -70,7 +71,7 @@ export default class Register extends Vue {
         email: '',
         phoneNumber: '',
         pcn: '',
-        profilePicture: new Blob()
+        profilePicture: new Blob(),
     };
 
     private authorizationService: AuthorizationService = openApiContainer.get<AuthorizationService>('AuthorizationService');
@@ -89,8 +90,10 @@ export default class Register extends Vue {
                 this.dto.pcn = res.pcn;
             });
         }
+    }
 
-
+    private handleFileUpload() {
+        this.dto.profilePicture = (this.$refs.file as any).files[0];
     }
 
     private handleSubmit(submitEvent: Event) {

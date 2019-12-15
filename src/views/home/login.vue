@@ -28,57 +28,52 @@
 </template>
 
 <script lang="ts" scoped>
-import { Component, Vue } from "vue-property-decorator";
-import SaMuInput from "@/components/basic/SaMuInput.vue";
-import SaMuBadge from "@/components/basic/SaMuBadge.vue";
-import openApiContainer from "@/openApiContainer";
-import { AuthorizationService } from "@/openapi/api/authorization.service";
-import { LoginDTO } from "@/openapi/model/loginDTO";
+import { Component, Vue } from 'vue-property-decorator';
+import SaMuInput from '@/components/basic/SaMuInput.vue';
+import SaMuBadge from '@/components/basic/SaMuBadge.vue';
+import openApiContainer from '@/openApiContainer';
+import { AuthorizationService } from '@/openapi/api/authorization.service';
+import { LoginDTO } from '@/openapi/model/loginDTO';
 import HttpResponse from '../../openapi/HttpResponse';
 
 @Component({
   components: {
     SaMuInput,
-    SaMuBadge
-  }
+    SaMuBadge,
+  },
 })
 export default class Login extends Vue {
-  private authorizationService: AuthorizationService = openApiContainer.get<
-    AuthorizationService
-  >("AuthorizationService");
+  private authorizationService: AuthorizationService = openApiContainer.get<AuthorizationService>('AuthorizationService');
   private dto: LoginDTO = {
-    email: "",
-    password: ""
+    email: '',
+    password: '',
   };
 
   public handleSubmit(e: Event) {
     this.authorizationService.login(this.dto).subscribe(
       () => {
         this.successfullLogin();
-      },
-      (err: HttpResponse) => {
+
+      }, (err: HttpResponse) => {
         if (err.status === 401) {
-          Vue.toasted.show(this.$t("error.login_failed").toString(), {
+          Vue.toasted.show(this.$t('error.login_failed').toString(), {
             duration: 5000,
-            type: "error"
+            type: 'error',
           });
         } else {
-          Vue.toasted.show(this.$t("error.unknown").toString(), {
+          Vue.toasted.show(this.$t('error.unknown').toString(), {
             duration: 5000,
-            type: "error"
+            type: 'error',
           });
         }
-      }
+      },
     );
 
     e.preventDefault();
   }
 
   private successfullLogin() {
-    const url: string =
-      new URLSearchParams(window.location.search.substring(1)).get(
-        "redirect"
-      ) || "/home";
+    const url: string = new URLSearchParams(window.location.search.substring(1)).get('redirect') || '/home';
     window.location.href = url;
   }
 }

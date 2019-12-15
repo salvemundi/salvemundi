@@ -5,15 +5,14 @@
     :type="!type || type === '' ? 'text' : type"
     v-bind:value="value"
     v-on:input="$emit('input', $event.target.value)"
-    :name="name"
-    :autocomplete="autocomplete"/>
+    :name="name"/>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-    props: [ 'placeholder', 'type', 'value', 'name', 'autocomplete' ],
+    props: [ 'placeholder', 'type', 'value', 'name' ],
 })
 export default class SaMuInput extends Vue {}
 </script>
