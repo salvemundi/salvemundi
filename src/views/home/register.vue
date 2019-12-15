@@ -70,6 +70,7 @@ export default class Register extends Vue {
         email: '',
         phoneNumber: '',
         pcn: '',
+        profilePicture: new Blob()
     };
 
     private authorizationService: AuthorizationService = openApiContainer.get<AuthorizationService>('AuthorizationService');
@@ -80,7 +81,7 @@ export default class Register extends Vue {
         const code = new URLSearchParams(window.location.search.substring(1)).get('code');
 
         if (code) {
-            this.authorizationService.authorizationMeGet(code)
+            this.authorizationService.me(code)
             .subscribe((res: MeDTO) => {
                 this.dto.firstName = res.firstName;
                 this.dto.lastName = res.lastName;
@@ -96,11 +97,23 @@ export default class Register extends Vue {
         submitEvent.preventDefault();
 
         // Registers user
-        this.authorizationService.authorizationRegisterPost(this.dto, 'response')
+        this.authorizationService.regiser(
+            this.dto.firstName,
+            this.dto.lastName,
+            this.dto.birthday,
+            this.dto.address,
+            this.dto.city,
+            this.dto.postalcode,
+            this.dto.country,
+            this.dto.email,
+            this.dto.phoneNumber,
+            this.dto.pcn,
+            this.dto.profilePicture,
+            'response')
         .subscribe((res: HttpResponse<User>) => {
 
             // Create payment for the new user
-            this.paymentsService.paymentsMembershipGet(res.response.id, 'response')
+            this.paymentsService.createPaymentForMembership(res.response.id, 'response')
             .subscribe((res2: HttpResponse<PaymentDTO>) => {
 
                 // Redirect to payment page if the payment has not been expired
@@ -110,10 +123,10 @@ export default class Register extends Vue {
                 } else {
                     Vue.toasted.show(this.$t('error.payment_expired').toString(), {duration: 5000, type: 'error'});
                 }
-            }, (err) => {
+            }, (err: HttpResponse) => {
                 Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
             });
-        }, (err) => {
+        }, (err: HttpResponse) => {
             if (err.status === 409) {
                 Vue.toasted.show(this.$t('error.email_already_exists').toString(), {duration: 5000, type: 'error'});
             } else if (err.status === 400) {

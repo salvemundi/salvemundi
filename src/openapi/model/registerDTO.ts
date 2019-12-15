@@ -22,4 +22,5 @@ export interface RegisterDTO {
     email: string;
     phoneNumber: string;
     pcn: string;
+    profilePicture: Blob;
 }

@@ -103,18 +103,16 @@ export default class Me extends Vue {
         registeredSince: '',
         pcn: '',
         activated: false,
-        scopes: [],
-        member: {
-            id: 0,
-            memberships: [],
-        },
+        profilePicture: '',
+        memberships: [],
+        transactions: [],
     };
 
     private editMode = false;
     private userService: UserService = openApiContainer.get<UserService>('UserService');
 
     private mounted() {
-        this.userService.userMeGet('response').subscribe((res: HttpResponse<User>) => {
+        this.userService.userReadMe('response').subscribe((res: HttpResponse<User>) => {
             const me: User = res.response as User;
             me.registeredSince = moment(me.registeredSince).format('YYYY-MM-DD');
             me.birthday = moment(me.birthday).format('YYYY-MM-DD');
@@ -131,7 +129,7 @@ export default class Me extends Vue {
             const userUpdate: UpdateUserDto = JSON.parse(JSON.stringify(this.user)) as UpdateUserDto;
             userUpdate.birthday = moment(userUpdate.birthday, 'YYYY-MM-DD').toDate().toString();
 
-            this.userService.userMePut(userUpdate, 'response').subscribe(
+            this.userService.userUpdateMe(userUpdate, 'response').subscribe(
             (res: HttpResponse<User>) => {
                 res.response.registeredSince = moment(res.response.registeredSince).format('YYYY-MM-DD');
                 res.response.birthday = moment(res.response.birthday).format('YYYY-MM-DD');

@@ -50,7 +50,7 @@ export default class MemberOverview extends Vue {
 
   private getData(ctx: any, callback: any) {
     if (this.items.length === 0) {
-      this.userService.userGet(1000, 0).subscribe((res: any[]) => {
+      this.userService.userReadAll(1000, 0).subscribe((res: any[]) => {
         res.forEach((user: any) => {
           if (new Date(user.memberTill) < new Date()) {
             user._rowVariant = 'danger';

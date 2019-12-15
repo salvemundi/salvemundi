@@ -34,6 +34,7 @@ import SaMuBadge from "@/components/basic/SaMuBadge.vue";
 import openApiContainer from "@/openApiContainer";
 import { AuthorizationService } from "@/openapi/api/authorization.service";
 import { LoginDTO } from "@/openapi/model/loginDTO";
+import HttpResponse from '../../openapi/HttpResponse';
 
 @Component({
   components: {
@@ -51,11 +52,11 @@ export default class Login extends Vue {
   };
 
   public handleSubmit(e: Event) {
-    this.authorizationService.authorizationLoginPost(this.dto).subscribe(
+    this.authorizationService.login(this.dto).subscribe(
       () => {
         this.successfullLogin();
       },
-      err => {
+      (err: HttpResponse) => {
         if (err.status === 401) {
           Vue.toasted.show(this.$t("error.login_failed").toString(), {
             duration: 5000,

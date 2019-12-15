@@ -79,8 +79,9 @@ export class AuthorizationServiceMock extends AuthorizationService {
                 pcn: registerDTO.pcn,
                 registeredSince: new Date().toDateString(),
                 activated: false,
-                scopes: [],
-                member: undefined
+                transactions: [],
+                memberships: [],
+                profilePicture: 'lol'
             };
             resolve(new HttpResponse(user, 200));
         });
