@@ -5,6 +5,7 @@
     :type="!type || type === '' ? 'text' : type"
     v-bind:value="value"
     v-on:input="$emit('input', $event.target.value)"
+    v-on:change="$emit('change')"
     :name="name"/>
 </template>
 

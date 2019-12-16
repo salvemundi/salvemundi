@@ -24,7 +24,7 @@
                             <SaMuInput :placeholder="$t('form.ipcn')" type="text" v-model="dto.pcn" id="register-form__pcn"/>
                             <SaMuInput :placeholder="$t('form.phonenumber')" type="text" v-model="dto.phoneNumber" id="register-form__phonenumber"/>
                             <SaMuInput :placeholder="$t('form.email')" type="email" v-model="dto.email" id="register-form__email"/>
-                            <input :placeholder="$t('form.email')" type="file" ref="file" v-on:change="handleFileUpload()" id="register-form__profile-picture"/>
+                            <SaMuInput type="file" ref="file" v-on:change="handleFileUpload()" id="register-form__profile-picture"/>
                             <b-button variant="samu" size="small" type="submit">{{$t('form.send')}}</b-button>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ export default class Register extends Vue {
     }
 
     private handleFileUpload() {
-        this.dto.profilePicture = (this.$refs.file as any).files[0];
+        this.dto.profilePicture = ((this.$refs.file as Vue).$el as any).files[0];
     }
 
     private handleSubmit(submitEvent: Event) {
