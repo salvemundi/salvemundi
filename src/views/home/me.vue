@@ -1,7 +1,7 @@
 <template scoped>
     <div class="member-details">
         <div class="member-details-avatar">
-            <SaMuAvatar :image="require('@/assets/images/logoPaars.png')" alt="avatar"/>
+            <SaMuAvatar v-if="user.id != 0" :image="url + '/user/' + user.id + '/photo'" alt="avatar"/>
             <b-button variant="samu" size='small' class="edit-btn" v-on:click="toggle">{{!editMode ? 'Bewerken' : 'Opslaan'}}</b-button>
         </div>
         <b-container class="member-details-information">
@@ -103,23 +103,29 @@ export default class Me extends Vue {
         registeredSince: '',
         pcn: '',
         activated: false,
-        scopes: [],
-        member: {
-            id: 0,
-            memberships: [],
-        },
+        profilePicture: '',
+        memberships: [],
+        transactions: [],
     };
 
+    private readonly url: string = process.env.VUE_APP_API_URL;
     private editMode = false;
     private userService: UserService = openApiContainer.get<UserService>('UserService');
 
     private mounted() {
-        this.userService.userMeGet('response').subscribe((res: HttpResponse<User>) => {
+        this.userService.userReadMe('response').subscribe((res: HttpResponse<User>) => {
             const me: User = res.response as User;
             me.registeredSince = moment(me.registeredSince).format('YYYY-MM-DD');
             me.birthday = moment(me.birthday).format('YYYY-MM-DD');
 
             this.user = me;
+        }, (err: HttpResponse) => {
+            if (err.status === 400) {
+                Vue.toasted.show(this.$t('action.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
+            
+            } else {
+                Vue.toasted.show(this.$t('action.unknown').toString(), {duration: 5000, type: 'error'});
+            }
         });
     }
 
@@ -131,15 +137,20 @@ export default class Me extends Vue {
             const userUpdate: UpdateUserDto = JSON.parse(JSON.stringify(this.user)) as UpdateUserDto;
             userUpdate.birthday = moment(userUpdate.birthday, 'YYYY-MM-DD').toDate().toString();
 
-            this.userService.userMePut(userUpdate, 'response').subscribe(
+            this.userService.userUpdateMe(userUpdate, 'response').subscribe(
             (res: HttpResponse<User>) => {
                 res.response.registeredSince = moment(res.response.registeredSince).format('YYYY-MM-DD');
                 res.response.birthday = moment(res.response.birthday).format('YYYY-MM-DD');
 
                 this.user = res.response;
                 Vue.toasted.show(this.$t('action.success').toString(), {duration: 5000, type: 'success'});
-            }, (err: any) => {
-                Vue.toasted.show(this.$t('action.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
+            }, (err: HttpResponse) => {
+                if (err.status === 400) {
+                    Vue.toasted.show(this.$t('action.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
+                
+                } else {
+                    Vue.toasted.show(this.$t('action.unknown').toString(), {duration: 5000, type: 'error'});
+                }
             });
         }
     }

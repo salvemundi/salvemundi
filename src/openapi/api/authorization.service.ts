@@ -23,7 +23,6 @@ import HttpResponse from "../HttpResponse";
 import { ConfirmationDTO } from "../model/confirmationDTO";
 import { LoginDTO } from "../model/loginDTO";
 import { MeDTO } from "../model/meDTO";
-import { RegisterDTO } from "../model/registerDTO";
 import { User } from "../model/user";
 
 import { COLLECTION_FORMATS }  from "../variables";
@@ -125,20 +124,105 @@ export class AuthorizationService {
     /**
      * register
      * This call is used to register an user
-     * @param registerDTO 
+     * @param firstName 
+     * @param lastName 
+     * @param birthday 
+     * @param address 
+     * @param city 
+     * @param postalcode 
+     * @param country 
+     * @param email 
+     * @param phoneNumber 
+     * @param pcn 
+     * @param profilePicture 
      
      */
-    public regiser(registerDTO: RegisterDTO, observe?: 'body', headers?: Headers): Observable<User>;
-    public regiser(registerDTO: RegisterDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public regiser(registerDTO: RegisterDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (registerDTO === null || registerDTO === undefined){
-            throw new Error('Required parameter registerDTO was null or undefined when calling regiser.');
+    public regiser(firstName: string, lastName: string, birthday: string, address: string, city: string, postalcode: string, country: string, email: string, phoneNumber: string, pcn: string, profilePicture: Blob, observe?: 'body', headers?: Headers): Observable<User>;
+    public regiser(firstName: string, lastName: string, birthday: string, address: string, city: string, postalcode: string, country: string, email: string, phoneNumber: string, pcn: string, profilePicture: Blob, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public regiser(firstName: string, lastName: string, birthday: string, address: string, city: string, postalcode: string, country: string, email: string, phoneNumber: string, pcn: string, profilePicture: Blob, observe: any = 'body', headers: Headers = {}): Observable<any> {
+        if (firstName === null || firstName === undefined){
+            throw new Error('Required parameter firstName was null or undefined when calling regiser.');
+        }
+
+        if (lastName === null || lastName === undefined){
+            throw new Error('Required parameter lastName was null or undefined when calling regiser.');
+        }
+
+        if (birthday === null || birthday === undefined){
+            throw new Error('Required parameter birthday was null or undefined when calling regiser.');
+        }
+
+        if (address === null || address === undefined){
+            throw new Error('Required parameter address was null or undefined when calling regiser.');
+        }
+
+        if (city === null || city === undefined){
+            throw new Error('Required parameter city was null or undefined when calling regiser.');
+        }
+
+        if (postalcode === null || postalcode === undefined){
+            throw new Error('Required parameter postalcode was null or undefined when calling regiser.');
+        }
+
+        if (country === null || country === undefined){
+            throw new Error('Required parameter country was null or undefined when calling regiser.');
+        }
+
+        if (email === null || email === undefined){
+            throw new Error('Required parameter email was null or undefined when calling regiser.');
+        }
+
+        if (phoneNumber === null || phoneNumber === undefined){
+            throw new Error('Required parameter phoneNumber was null or undefined when calling regiser.');
+        }
+
+        if (pcn === null || pcn === undefined){
+            throw new Error('Required parameter pcn was null or undefined when calling regiser.');
+        }
+
+        if (profilePicture === null || profilePicture === undefined){
+            throw new Error('Required parameter profilePicture was null or undefined when calling regiser.');
         }
 
         headers['Accept'] = 'application/json';
-        headers['Content-Type'] = 'application/json';
 
-        const response: Observable<HttpResponse<User>> = this.httpClient.post(`${this.basePath}/authorization/register`, registerDTO , headers);
+        let formData: FormData = new FormData();
+        headers['Content-Type'] = 'multipart/form-data';
+        if (firstName !== undefined) {
+            formData.append('firstName', <any>firstName);
+        }
+        if (lastName !== undefined) {
+            formData.append('lastName', <any>lastName);
+        }
+        if (birthday !== undefined) {
+            formData.append('birthday', <any>birthday);
+        }
+        if (address !== undefined) {
+            formData.append('address', <any>address);
+        }
+        if (city !== undefined) {
+            formData.append('city', <any>city);
+        }
+        if (postalcode !== undefined) {
+            formData.append('postalcode', <any>postalcode);
+        }
+        if (country !== undefined) {
+            formData.append('country', <any>country);
+        }
+        if (email !== undefined) {
+            formData.append('email', <any>email);
+        }
+        if (phoneNumber !== undefined) {
+            formData.append('phoneNumber', <any>phoneNumber);
+        }
+        if (pcn !== undefined) {
+            formData.append('pcn', <any>pcn);
+        }
+        if (profilePicture !== undefined) {
+            formData.append('profilePicture', <any>profilePicture);
+        }
+
+        const response: Observable<HttpResponse<User>> = this.httpClient.post(`${this.basePath}/authorization/register`, formData, headers);
         if (observe == 'body') {
                return response.pipe(
                    map(httpResponse => <User>(httpResponse.response))

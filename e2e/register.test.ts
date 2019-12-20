@@ -10,7 +10,7 @@ const languageFile = JSON.parse(fs.readFileSync('./src/lang/Register.json', 'utf
 test('Should fail with nothing filled in and show error', async (t) => {
     await t
         .click('button[type=submit]')
-        .expect(Selector('.toasted-container.top-right div.error').innerText).eql(languageFile.nl.error.form_not_filled_in_correctly);
+        .expect(Selector('.toasted.error').innerText).eql(languageFile.nl.error.form_not_filled_in_correctly);
 });
 
 test('Should fail with existing email and show error', async (t) => {
@@ -25,7 +25,7 @@ test('Should fail with existing email and show error', async (t) => {
         .typeText('#register-form__phonenumber', '+31 6 24827777')
         .typeText('#register-form__email', 'admin@salvemundi.nl')
         .click('button[type=submit]')
-        .expect(Selector('.toasted-container.top-right div.error').innerText).eql(languageFile.nl.error.email_already_exists);
+        .expect(Selector('.toasted.error').innerText).eql(languageFile.nl.error.email_already_exists);
 });
 
 test('Should succeed', async (t) => {

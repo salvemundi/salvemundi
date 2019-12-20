@@ -53,11 +53,11 @@ export default class ConfirmAccount extends Vue {
     submitEvent.preventDefault();
 
     if (this.dto.password === this.repeatPassword) {
-      this.authorizationService.authorizationConfirmationPost(this.dto, 'response')
+      this.authorizationService.confirmEmail(this.dto, 'response')
       .subscribe((res: HttpResponse<User>) => {
         window.location.href = '/home/me';
 
-      }, (err) => {
+      }, (err: HttpResponse) => {
         Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
       });
 

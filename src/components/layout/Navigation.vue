@@ -26,13 +26,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import isLoggedIn from "../../lib/authentication";
+import { Component, Vue } from 'vue-property-decorator';
+import isLoggedIn from '../../lib/authentication';
 
 export default Vue.extend({
   data() {
     return {
-      expanded: false
+      expanded: false,
     };
   },
   methods: {
@@ -45,12 +45,12 @@ export default Vue.extend({
     },
     isLoggedInMethod() {
       return isLoggedIn();
-    }
+    },
   },
   created() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
     this.handleScroll();
-  }
+  },
 });
 </script>
 <style lang="scss">
