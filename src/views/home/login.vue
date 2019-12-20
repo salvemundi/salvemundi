@@ -9,7 +9,7 @@
               <SaMuInput
                 :placeholder="$t('form.email')"
                 type="text"
-                autocomplete="username"
+                autocomplete="email"
                 v-model="dto.email"
               />
               <SaMuInput
