@@ -62,7 +62,7 @@ class HttpClient implements IHttpClient {
     }
 
     private processResponse(response: any) {
-        const httpResponse = new HttpResponse(response.data, response.status, response.headers);
+        const httpResponse = new HttpResponse(response.data.data, response.status, response.headers);
 
         const locationArray = window.location.href.split('?')[0].split('/');
         const location = locationArray[3] + '/' + locationArray[4];
