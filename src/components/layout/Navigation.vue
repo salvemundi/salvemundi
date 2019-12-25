@@ -18,11 +18,16 @@
           </b-dropdown>
         </b-navbar-nav>
 
-        <b-navbar-nav class="ml-auto">
+        <b-navbar-nav class="ml-auto" v-if="$route.path.split('/')[1] !== 'dashboard'">
           <b-nav-item href="/home#about">{{$t('about_us')}}</b-nav-item>
           <b-nav-item href="/home#committees">{{$t('committees')}}</b-nav-item>
           <b-nav-item href="/home#korting">{{$t('discount')}}</b-nav-item>
           <b-nav-item to="/home/me">{{$t('my_account')}}</b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav class="ml-auto" v-if="$route.path.split('/')[1] === 'dashboard'">
+          <b-nav-item href="/dashboard/member" v-if="$store.getters.hasScopeForMember">{{$t('member')}}</b-nav-item>
+          <b-nav-item href="/dashboard/accountancy" v-if="$store.getters.hasScopeForAccountancy">{{$t('accountancy')}}</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-container>
@@ -37,6 +42,9 @@ export default Vue.extend({
     return {
       expanded: false,
       loggedIn: false,
+      permissions: {
+        members: false
+      }
     };
   },
   methods: {
@@ -51,10 +59,16 @@ export default Vue.extend({
         this.$store.dispatch('setLanguage', lang);
     },
   },
+  computed: {
+    hasScopeForMember () {
+      return this.$store.state.permission.permissions.includes('user:read')
+    }
+  },
   async created() {
     this.loggedIn = await this.$store.dispatch('isLoggedIn');
     window.addEventListener('scroll', this.handleScroll);
     this.handleScroll();
+
   },
 });
 </script>

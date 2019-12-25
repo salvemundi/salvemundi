@@ -7,6 +7,7 @@ import { Observable, from } from 'rxjs';
 import HttpResponse from './openapi/HttpResponse';
 import axios, { AxiosResponse } from 'axios';
 import { MockServiceBinder } from '../e2e/mock-services/mock';
+import store from './store';
 
 @injectable()
 class APIConfiguration implements IAPIConfiguration {
@@ -79,7 +80,16 @@ class HttpClient implements IHttpClient {
             throw httpResponse;
         }
 
+        if (httpResponse.status === 200) {
+            this.savePermissions(response.data.scopes);
+        }
         return httpResponse;
+    }
+
+    private savePermissions(scopes: any[]) {
+        for (const scope of scopes) {
+            (store as any).state.permission.permissions.push(scope);
+        }
     }
 }
 
