@@ -11,7 +11,7 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-button class="ml-4" variant="samu" v-if="!loggedIn" href="/home/prelogon" style="margin-right: 10px">Meld je aan!</b-button>
+          <b-button class="ml-auto" variant="samu" v-if="!loggedIn" href="/home/prelogon" style="margin-right: 10px">{{$t('join_us_now')}}</b-button>
           <b-dropdown variant="samu" :text="$t('select_language')">
             <b-dropdown-item v-on:click="switchLanguage('nl')">Nederlands</b-dropdown-item>
             <b-dropdown-item v-on:click="switchLanguage('en')">English</b-dropdown-item>
@@ -19,10 +19,10 @@
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">
-          <b-nav-item href="/home#about">Over ons</b-nav-item>
-          <b-nav-item href="/home#committees">Commissies</b-nav-item>
-          <b-nav-item href="/home#korting">Korting</b-nav-item>
-          <b-nav-item to="/home/me">Mijn account</b-nav-item>
+          <b-nav-item href="/home#about">{{$t('about_us')}}</b-nav-item>
+          <b-nav-item href="/home#committees">{{$t('committees')}}</b-nav-item>
+          <b-nav-item href="/home#korting">{{$t('discount')}}</b-nav-item>
+          <b-nav-item to="/home/me">{{$t('my_account')}}</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-container>
