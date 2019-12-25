@@ -11,7 +11,11 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-button class="ml-4" variant="samu" v-if="!isLoggedInMethod()" href="/home/prelogon">Meld je aan!</b-button>
+          <b-button class="ml-4" variant="samu" v-if="!loggedIn" href="/home/prelogon" style="margin-right: 10px">Meld je aan!</b-button>
+          <b-dropdown variant="samu" :text="$t('select_language')">
+            <b-dropdown-item v-on:click="switchLanguage('nl')">Nederlands</b-dropdown-item>
+            <b-dropdown-item v-on:click="switchLanguage('en')">English</b-dropdown-item>
+          </b-dropdown>
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">
@@ -27,12 +31,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import isLoggedIn from '../../lib/authentication';
 
 export default Vue.extend({
   data() {
     return {
       expanded: false,
+      loggedIn: false,
     };
   },
   methods: {
@@ -43,11 +47,12 @@ export default Vue.extend({
         this.expanded = false;
       }
     },
-    isLoggedInMethod() {
-      return isLoggedIn();
+    switchLanguage(lang: string) {
+        this.$store.dispatch('setLanguage', lang);
     },
   },
-  created() {
+  async created() {
+    this.loggedIn = await this.$store.dispatch('isLoggedIn');
     window.addEventListener('scroll', this.handleScroll);
     this.handleScroll();
   },
@@ -112,3 +117,5 @@ nav.navbar {
   }
 }
 </style>
+
+<i18n src="@/lang/components/Navigation.json"></i18n>

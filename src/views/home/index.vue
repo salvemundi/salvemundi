@@ -11,14 +11,14 @@
           class="mt-5"
           size="lg"
           href="/home/prelogon"
-          v-if="!isLoggedInMethod()"
+          v-if="!loggedIn"
         >Meld je nu aan!</b-button>
       </div>
     </section>
     <section id="new-website">
       <b-container>
         <b-row>
-          <b-col cols="6">
+          <b-col cols="12">
             <h2>Belangrijk: De nieuwe website</h2>
             <p>
               Welkom op de website van Salve Mundi! Sinds kort hebben we een nieuwe website waar nog veel aan gewerkt wordt.
@@ -152,18 +152,17 @@
 import { Component, Vue } from 'vue-property-decorator';
 import EventItem from '@/components/layout/events/EventItem.vue';
 import CircleIcon from '@/components/basic/CircleIcon.vue';
-import isLoggedIn from '../../lib/authentication';
 
 export default Vue.extend({
   components: { EventItem, CircleIcon },
   data() {
-    return {};
+    return {
+      loggedIn: false,
+    };
   },
-  methods: {
-    isLoggedInMethod() {
-      return isLoggedIn();
-    },
-  },
+  async created() {
+    this.loggedIn = await this.$store.dispatch('isLoggedIn');
+  }
 });
 </script>
 <style lang="scss">
