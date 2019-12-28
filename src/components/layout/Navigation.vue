@@ -12,9 +12,9 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-button class="ml-auto" variant="samu" v-if="!loggedIn" href="/home/prelogon" style="margin-right: 10px">{{$t('join_us_now')}}</b-button>
-          <b-dropdown variant="samu" :text="$t('select_language')">
-            <b-dropdown-item v-on:click="switchLanguage('nl')">Nederlands</b-dropdown-item>
-            <b-dropdown-item v-on:click="switchLanguage('en')">English</b-dropdown-item>
+          <b-dropdown variant="samu" :text="$t('select_language')" id="language">
+            <b-dropdown-item v-on:click="switchLanguage('nl')" id="dutch">Nederlands</b-dropdown-item>
+            <b-dropdown-item v-on:click="switchLanguage('en')" id="english">English</b-dropdown-item>
           </b-dropdown>
         </b-navbar-nav>
 

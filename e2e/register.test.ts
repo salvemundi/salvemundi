@@ -2,6 +2,7 @@ import 'testcafe';
 import { Selector } from 'testcafe';
 import * as fs from 'fs';
 
+// tslint:disable-next-line: no-unused-expression
 fixture `Register page - Dutch`
     .page `localhost:8080/home/register`;
 
@@ -9,12 +10,16 @@ const languageFile = JSON.parse(fs.readFileSync('./src/lang/Register.json', 'utf
 
 test('Should fail with nothing filled in and show error', async (t) => {
     await t
+        .click('#language')
+        .click('#language #dutch')
         .click('button[type=submit]')
         .expect(Selector('.toasted.error').innerText).eql(languageFile.nl.error.form_not_filled_in_correctly);
 });
 
 test('Should fail with existing email and show error', async (t) => {
     await t
+        .click('#language')
+        .click('#language #dutch')
         .typeText('#register-form__first_name', 'Salve')
         .typeText('#register-form__last_name', 'Mundi')
         .typeText('#register-form__birthday', '2017-02-01')
@@ -30,6 +35,8 @@ test('Should fail with existing email and show error', async (t) => {
 
 test('Should succeed', async (t) => {
     await t
+        .click('#language')
+        .click('#language #dutch')
         .typeText('#register-form__first_name', 'Salve')
         .typeText('#register-form__last_name', 'Mundi')
         .typeText('#register-form__birthday', '2017-02-01')
