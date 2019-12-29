@@ -60,6 +60,11 @@ export default class Login extends Vue {
             duration: 5000,
             type: 'error',
           });
+        } else if (err.status === 400) {
+          Vue.toasted.show(this.$t('error.form_not_filled_in_correctly').toString(), {
+            duration: 5000,
+            type: 'error',
+          });
         } else {
           Vue.toasted.show(this.$t('error.unknown').toString(), {
             duration: 5000,
