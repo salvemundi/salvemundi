@@ -14,6 +14,8 @@ import Me from './views/home/me.vue';
 import Privacy from './views/privacy.vue';
 import IncomeStatement from './views/dashboard/accountancy/incomeStatement.vue';
 import AccountancyBalance from './views/dashboard/accountancy/balans.vue';
+import ImportAccountancy from './views/dashboard/accountancy/import.vue';
+import ActivateAccountancy from './views/dashboard/accountancy/activate.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
@@ -93,6 +95,18 @@ export default new Router({
         {
           path: '/incomeStatement',
           component: IncomeStatement,
+        },
+        {
+          path: '/import',
+          component: ImportAccountancy,
+        },
+        {
+          path: '/activate',
+          component: ActivateAccountancy,
+        },
+        {
+          path: '/callback',
+          component: ActivateAccountancy,
         },
       ]),
     ]),

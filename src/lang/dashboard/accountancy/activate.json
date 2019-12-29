@@ -1,0 +1,8 @@
+{
+    "nl": {
+        "error": "Er is iets fout gegaan tijdens het activeren van de API..."
+    },
+    "en": {
+        "error": "Something when wrong while activating the API..."
+    }
+}

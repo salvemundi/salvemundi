@@ -15,6 +15,24 @@
   }
 }
 
-th {
-  user-select: none;
+.btn.btn-danger {
+  box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover{
+    box-shadow: none;
+    transform:translate(0px, 2px);
+  }
+}
+
+.btn.btn-link {
+  color: black;
+  font-size: 14px;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+
+  &:hover{
+    color: #663265
+  }
 }

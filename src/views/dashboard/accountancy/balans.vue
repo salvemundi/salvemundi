@@ -5,7 +5,7 @@
         <b-row>
         <b-col>
             <SaMuHeader style="text-align: left;">{{$t('title')}}</SaMuHeader>
-            <b-table sticky-header="100%" striped :items="getData" :fields="fields" no-footer-sorting>
+            <b-table sticky-header="100%" striped :items="getData" :fields="fields">
                 <template v-slot:cell(assets)="row">
                   {{row.item.assets ? '€' + row.item.assets.toFixed(2) : undefined}}
                 </template>
@@ -75,6 +75,10 @@ export default class AccountancyBalance extends Vue {
                 res.response.push(total);
                 this.items = res.response;
                 callback(res.response);
+            }, (err: HttpResponse) => {
+                if (err.status === 418) {
+                    Vue.toasted.show(this.$t('error.api_not_activated').toString() + ' <a href="/dashboard/accountancy/activate">' + this.$t('error.api_not_activated_link_text').toString() + '</a>', {duration: 10000, type: 'error'});
+                }
             });
         } else {
             this.items.sort((a: any, b: any) => {
@@ -86,6 +90,10 @@ export default class AccountancyBalance extends Vue {
                 let reverse = 1;
                 if (ctx.sortDesc) {
                     reverse = -1;
+                }
+
+                if (typeof a[ctx.sortBy] === 'number') {
+                    return (a[ctx.sortBy] - b[ctx.sortBy]) * reverse;
                 }
 
                 return String(a[ctx.sortBy]).localeCompare(String(b[ctx.sortBy])) * reverse;

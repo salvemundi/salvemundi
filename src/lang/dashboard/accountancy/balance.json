@@ -7,6 +7,10 @@
             "assets": "Activa",
             "liabilities": "Passiva",
             "balance": "Saldo"
+        },
+        "error": {
+            "api_not_activated": "Het boekhouden is nog niet geactiveerd...",
+            "api_not_activated_link_text": "Klik hier om het te activeren"
         }
     },
     "en": {
@@ -17,6 +21,10 @@
             "assets": "Assets",
             "liabilities": "Liabilities",
             "balance": "Balance"
+        },
+        "error": {
+            "api_not_activated": "The Accountancy is not activated...",
+            "api_not_activated_link_text": "Click here to activate"
         }
     }
 }

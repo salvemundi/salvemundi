@@ -11,7 +11,8 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-button class="ml-auto" variant="samu" v-if="!loggedIn" href="/home/prelogon" style="margin-right: 10px">{{$t('join_us_now')}}</b-button>
+          <b-button variant="samu" v-if="!loggedIn" href="/home/prelogon">{{$t('join_us_now')}}</b-button>
+          <div style="width: 0px; height: 0px; margin-right: 10px;"></div>
           <b-dropdown variant="samu" :text="$t('select_language')" id="language">
             <b-dropdown-item v-on:click="switchLanguage('nl')" id="dutch">Nederlands</b-dropdown-item>
             <b-dropdown-item v-on:click="switchLanguage('en')" id="english">English</b-dropdown-item>
@@ -84,7 +85,7 @@ nav.navbar {
   background: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: white;
-  z-index: 9999;
+  z-index: 1000;
 
   .nav-item {
     font-family: Poppins;

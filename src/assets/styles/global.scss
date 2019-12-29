@@ -40,6 +40,10 @@ h5 {
   font-size: 14px;
 }
 
+th {
+  user-select: none;
+}
+
 #view .row > div {
   margin-top: 30px;
 }

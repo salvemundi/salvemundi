@@ -3,6 +3,7 @@
       <b-nav>
         <b-nav-item href="/dashboard/accountancy">{{$t('link_names.balance')}}</b-nav-item>
         <b-nav-item href="/dashboard/accountancy/incomeStatement">{{$t('link_names.income_statements')}}</b-nav-item>
+        <b-nav-item href="/dashboard/accountancy/import">{{$t('link_names.import')}}</b-nav-item>
     </b-nav>
   </div>
 </template>

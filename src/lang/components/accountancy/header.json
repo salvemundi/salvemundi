@@ -2,12 +2,14 @@
     "nl": {
         "link_names": {
             "balance": "Balans",
+            "import": "Importeer mutaties",
             "income_statements": "Winsten & verliezen"
         }
     },
     "en": {
         "link_names": {
             "balance": "Balance",
+            "import": "Import mutations",
             "income_statements": "Income statements"
         }
     }

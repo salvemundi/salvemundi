@@ -3,7 +3,6 @@ export default {
     actions: {
         isLoggedIn(): boolean {
             const list: any = {};
-            console.log(document.cookie)
             document.cookie.split(';').forEach((cookie) => {
                 const parts = cookie.split('=');
                 const key = parts.shift();
@@ -12,7 +11,6 @@ export default {
                 }
             });
 
-            console.log(list)
             return !!list.auth;
         },
     },

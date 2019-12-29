@@ -8,6 +8,7 @@ import HttpResponse from './openapi/HttpResponse';
 import axios, { AxiosResponse } from 'axios';
 import { MockServiceBinder } from '../e2e/mock-services/mock';
 import store from './store';
+import Vue from 'vue';
 
 @injectable()
 class APIConfiguration implements IAPIConfiguration {

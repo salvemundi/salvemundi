@@ -1,0 +1,44 @@
+{
+    "nl": {
+        "title": "Importeer mutaties",
+        "table": {
+            "debtorIban": "IBAN",
+            "description": "Omschrijving",
+            "date": "Datum",
+            "amount": "Bedrag",
+            "import": "Importeer"
+        },
+        "modal": {
+            "title": "Importeer",
+            "payment_method": "Betaal rekening",
+            "income_statement": "Winst & verlies rekening",
+            "success": "Succesvol geïmporteerd!",
+            "failed": "Kan mutatie niet importeren..."
+        },
+        "error": {
+            "api_not_activated": "Het boekhouden is nog niet geactiveerd...",
+            "api_not_activated_link_text": "Klik hier om het te activeren"
+        }
+    },
+    "en": {
+        "title": "Import mutations",
+        "table": {
+            "debtorIban": "IBAN",
+            "description": "Description",
+            "date": "Date",
+            "amount": "Amount",
+            "import": "Import"
+        },
+        "modal": {
+            "title": "Import",
+            "payment_method": "Payment method",
+            "income_statement": "Income statement",
+            "success": "Succesful importerd!",
+            "failed": "Failed to import mutation..."
+        },
+        "error": {
+            "api_not_activated": "The Accountancy is not activated...",
+            "api_not_activated_link_text": "Click here to activate"
+        }
+    }
+}

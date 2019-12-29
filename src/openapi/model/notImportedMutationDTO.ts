@@ -11,10 +11,10 @@
  */
 
 
-export interface BalanceDTO { 
+export interface NotImportedMutationDTO { 
     id: number;
-    code?: number;
-    name: string;
-    liabilities?: number;
-    assets?: number;
+    description: string;
+    date: string;
+    amount: number;
+    debtorIban: string;
 }

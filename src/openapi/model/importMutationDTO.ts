@@ -11,10 +11,7 @@
  */
 
 
-export interface BalanceDTO { 
-    id: number;
-    code?: number;
-    name: string;
-    liabilities?: number;
-    assets?: number;
+export interface ImportMutationDTO { 
+    paymentMethodId: number;
+    incomeStatementId: number;
 }
