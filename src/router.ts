@@ -12,6 +12,7 @@ import CheckEmail from './views/home/checkEmail.vue';
 import ConfirmAccount from './views/home/confirmAccount.vue';
 import Me from './views/home/me.vue';
 import Privacy from './views/privacy.vue';
+import IncomeStatement from './views/dashboard/accountancy/incomeStatement.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
@@ -81,6 +82,12 @@ export default new Router({
         {
           path: '/:id',
           component: MemberDetails,
+        },
+      ]),
+      ...withPrefix('/accountancy', [
+        {
+          path: '/',
+          component: IncomeStatement,
         },
       ]),
     ]),

@@ -162,7 +162,7 @@ export default Vue.extend({
   },
   async created() {
     this.loggedIn = await this.$store.dispatch('isLoggedIn');
-  }
+  },
 });
 </script>
 <style lang="scss">

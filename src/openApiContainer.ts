@@ -80,7 +80,7 @@ class HttpClient implements IHttpClient {
             throw httpResponse;
         }
 
-        if (httpResponse.status === 200) {
+        if (httpResponse.status === 200 && response.data.scopes) {
             this.savePermissions(response.data.scopes);
         }
         return httpResponse;

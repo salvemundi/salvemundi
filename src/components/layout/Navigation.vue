@@ -43,8 +43,8 @@ export default Vue.extend({
       expanded: false,
       loggedIn: false,
       permissions: {
-        members: false
-      }
+        members: false,
+      },
     };
   },
   methods: {
@@ -60,15 +60,14 @@ export default Vue.extend({
     },
   },
   computed: {
-    hasScopeForMember () {
-      return this.$store.state.permission.permissions.includes('user:read')
-    }
+    hasScopeForMember() {
+      return this.$store.state.permission.permissions.includes('user:read');
+    },
   },
   async created() {
     this.loggedIn = await this.$store.dispatch('isLoggedIn');
     window.addEventListener('scroll', this.handleScroll);
     this.handleScroll();
-
   },
 });
 </script>

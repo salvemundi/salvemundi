@@ -1,0 +1,12 @@
+{
+    "nl": {
+        "link_names": {
+            "income_statements": "Winsten & verliezen"
+        }
+    },
+    "en": {
+        "link_names": {
+            "income_statements": "Income statements"
+        }
+    }
+}
