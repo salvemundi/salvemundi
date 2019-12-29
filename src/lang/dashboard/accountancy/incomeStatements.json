@@ -1,8 +1,24 @@
 {
     "nl": {
-        "title": "Winsten & verliezen"
+        "title": "Winsten & verliezen",
+        "table": {
+            "code": "Code",
+            "name": "Naam",
+            "profit": "Winst",
+            "profit_text": "Saldo winst",
+            "lost": "Verlies",
+            "lost_text": "Saldo verlies"
+        }
     },
     "en": {
-        "title": "Income statements"
+        "title": "Income statements",
+        "table": {
+            "code": "Code",
+            "name": "Name",
+            "profit": "Profit",
+            "lost_text": "Balance profit",
+            "lost": "Lost",
+            "lost_text": "Balance lost"
+        }
     }
 }
