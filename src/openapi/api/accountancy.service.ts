@@ -69,15 +69,15 @@ export class AccountancyService {
      * 
      
      */
-    public getBalance(observe?: 'body', headers?: Headers): Observable<BalanceDTO>;
-    public getBalance(observe?: 'response', headers?: Headers): Observable<HttpResponse<BalanceDTO>>;
+    public getBalance(observe?: 'body', headers?: Headers): Observable<Array<BalanceDTO>>;
+    public getBalance(observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BalanceDTO>>>;
     public getBalance(observe: any = 'body', headers: Headers = {}): Observable<any> {
         headers['Accept'] = 'application/json';
 
-        const response: Observable<HttpResponse<BalanceDTO>> = this.httpClient.get(`${this.basePath}/accountancy/balance`, headers);
+        const response: Observable<HttpResponse<Array<BalanceDTO>>> = this.httpClient.get(`${this.basePath}/accountancy/balance`, headers);
         if (observe == 'body') {
                return response.pipe(
-                   map(httpResponse => <BalanceDTO>(httpResponse.response))
+                   map(httpResponse => <Array<BalanceDTO>>(httpResponse.response))
                );
         }
         return response;

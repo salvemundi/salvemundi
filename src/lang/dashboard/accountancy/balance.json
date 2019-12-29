@@ -1,0 +1,22 @@
+{
+    "nl": {
+        "title": "Balans",
+        "table": {
+            "code": "Code",
+            "name": "Naam",
+            "assets": "Activa",
+            "liabilities": "Passiva",
+            "balance": "Saldo"
+        }
+    },
+    "en": {
+        "title": "Balance",
+        "table": {
+            "code": "Code",
+            "name": "Name",
+            "assets": "Assets",
+            "liabilities": "Liabilities",
+            "balance": "Balance"
+        }
+    }
+}

@@ -13,6 +13,8 @@
 
 export interface BalanceDTO { 
     id: number;
+    code?: number;
     name: string;
-    balance: number;
+    liabilities?: number;
+    assets?: number;
 }

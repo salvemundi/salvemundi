@@ -78,7 +78,7 @@ export default class IncomeStatement extends Vue {
         } else {
             this.items.sort((a: any, b: any) => {
                 // Need to skip last two of the table. Those two have id: 0
-                if (a.id == 0) {
+                if (a.id === 0) {
                     return 100;
                 }
 
@@ -87,9 +87,8 @@ export default class IncomeStatement extends Vue {
                     reverse = -1;
                 }
 
-                return String(a[ctx.sortBy]).localeCompare(String(b[ctx.sortBy])) * reverse } );
-
-            
+                return String(a[ctx.sortBy]).localeCompare(String(b[ctx.sortBy])) * reverse;
+            } );
 
             callback(this.items);
         }
