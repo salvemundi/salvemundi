@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Url } from './url';
 
 
-export interface PaymentDTO { 
-    url: Url;
-    expiresAt: Date;
+export interface BalanceDTO { 
+    id: number;
+    name: string;
+    balance: number;
 }

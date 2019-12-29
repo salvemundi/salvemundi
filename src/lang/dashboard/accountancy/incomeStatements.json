@@ -16,7 +16,7 @@
             "code": "Code",
             "name": "Name",
             "profit": "Profit",
-            "lost_text": "Balance profit",
+            "profit_text": "Balance profit",
             "lost": "Lost",
             "lost_text": "Balance lost"
         }
