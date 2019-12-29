@@ -1,6 +1,6 @@
 {
   "name": "salvemundi.nl",
-  "version": "1.0.5-beta5",
+  "version": "1.0.5-beta6",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
