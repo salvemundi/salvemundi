@@ -7,7 +7,7 @@
             <SaMuHeader style="text-align: left;">{{$t('title')}}</SaMuHeader>
             <b-table sticky-header="100%" striped :items="getData" :fields="fields" ref="import-table">
                 <template v-slot:cell(date)="row">
-                  {{moment(row.item.date).format('DD-MM-YYYY hh:mm.ss')}}
+                  {{moment(row.item.date).format('DD-MM-YYYY')}}
                 </template>
 
                 <template v-slot:cell(amount)="row">
