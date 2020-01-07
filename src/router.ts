@@ -16,6 +16,7 @@ import IncomeStatement from './views/dashboard/accountancy/incomeStatement.vue';
 import AccountancyBalance from './views/dashboard/accountancy/balans.vue';
 import ImportAccountancy from './views/dashboard/accountancy/import.vue';
 import ActivateAccountancy from './views/dashboard/accountancy/activate.vue';
+import MutationAccountancy from './views/dashboard/accountancy/mutation.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
@@ -107,6 +108,10 @@ export default new Router({
         {
           path: '/callback',
           component: ActivateAccountancy,
+        },
+        {
+          path: '/mutation',
+          component: MutationAccountancy,
         },
       ]),
     ]),

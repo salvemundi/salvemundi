@@ -55,7 +55,7 @@ import { AccountancyService } from '../../../openapi/api/accountancy.service';
 import openApiContainer from '@/openApiContainer';
 import HttpResponse from '../../../openapi/HttpResponse';
 import { NotImportedMutationDTO } from '../../../openapi/model/notImportedMutationDTO';
-import * as moment from 'moment';
+import moment from 'moment';
 import { ImportMutationDTO } from '../../../openapi/model/importMutationDTO';
 import { BalanceDTO } from '../../../openapi/model/balanceDTO';
 
@@ -87,13 +87,13 @@ export default class ImportAccountancy extends Vue {
     constructor() {
         super();
 
-        this.accountancyService.getBalance('response').subscribe((res: HttpResponse<BalanceDTO[]>) => {
+        this.accountancyService.getBalance(moment().format('YYYY-MM-DD'), '', 'response').subscribe((res: HttpResponse<BalanceDTO[]>) => {
             for (const balance of res.response) {
                 this.paymentMethodOptions.push({ value: balance.id, text: balance.name + ' - ' + balance.code });
             }
         });
 
-        this.accountancyService.getIncomeStatements('response').subscribe((res: HttpResponse<IncomeStatementDTO[]>) => {
+        this.accountancyService.getIncomeStatements(moment().format('YYYY-MM-DD'), '', 'response').subscribe((res: HttpResponse<IncomeStatementDTO[]>) => {
             for (const incomeStatement of res.response) {
                 this.incomeStatementOptions.push({ value: incomeStatement.id, text: incomeStatement.name + ' - ' + incomeStatement.code });
             }
@@ -109,6 +109,8 @@ export default class ImportAccountancy extends Vue {
             }, (err: HttpResponse) => {
                 if (err.status === 418) {
                     Vue.toasted.show(this.$t('error.api_not_activated').toString() + ' <a href="/dashboard/accountancy/activate">' + this.$t('error.api_not_activated_link_text').toString() + '</a>', {duration: 10000, type: 'error'});
+                } else {
+                    Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
                 }
             });
         } else {

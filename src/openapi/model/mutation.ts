@@ -11,8 +11,14 @@
  */
 
 
-export interface Membership { 
+export interface Mutation { 
     id: number;
-    startDate: string;
-    endDate: string;
+    entryReference: number;
+    description: string;
+    date: object;
+    amount: number;
+    debtorIban: string;
+    imported: boolean;
+    paymentMethod?: object;
+    incomeStatement?: object;
 }

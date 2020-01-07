@@ -11,8 +11,12 @@
  */
 
 
-export interface Membership { 
-    id: number;
-    startDate: string;
-    endDate: string;
+export interface AddMutationDTO { 
+    description: string;
+    entryReference?: number;
+    date: string;
+    amount: number;
+    debtorIban: string;
+    paymentMethodId: number;
+    incomeStatementId: number;
 }

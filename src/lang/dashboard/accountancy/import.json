@@ -17,7 +17,8 @@
         },
         "error": {
             "api_not_activated": "Het boekhouden is nog niet geactiveerd...",
-            "api_not_activated_link_text": "Klik hier om het te activeren"
+            "api_not_activated_link_text": "Klik hier om het te activeren",
+            "unknown": "Een onbekende error is opgetreden..."
         }
     },
     "en": {
@@ -38,7 +39,8 @@
         },
         "error": {
             "api_not_activated": "The Accountancy is not activated...",
-            "api_not_activated_link_text": "Click here to activate"
+            "api_not_activated_link_text": "Click here to activate",
+            "unknown": "An unknown error has occured..."
         }
     }
 }

@@ -3,14 +3,16 @@
         "link_names": {
             "balance": "Balans",
             "import": "Importeer mutaties",
-            "income_statements": "Winsten & verliezen"
+            "income_statements": "Winsten & verliezen",
+            "mutation": "Boekstuk invoeren"
         }
     },
     "en": {
         "link_names": {
             "balance": "Balance",
             "import": "Import mutations",
-            "income_statements": "Income statements"
+            "income_statements": "Income statements",
+            "mutation": "Add mutation"
         }
     }
 }

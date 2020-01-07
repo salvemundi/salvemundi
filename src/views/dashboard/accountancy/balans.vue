@@ -3,21 +3,31 @@
     <AccountancyHeader/>
     <b-container>
         <b-row>
-        <b-col>
-            <SaMuHeader style="text-align: left;">{{$t('title')}}</SaMuHeader>
-            <b-table sticky-header="100%" striped :items="getData" :fields="fields">
-                <template v-slot:cell(assets)="row">
-                  {{row.item.assets ? '€' + row.item.assets.toFixed(2) : undefined}}
-                </template>
-                <template v-slot:cell(liabilities)="row">
-                  {{row.item.liabilities ? '€' + row.item.liabilities.toFixed(2) : undefined}}
-                </template>
+            <b-col lg="4">
+                <b-card :title="$t('filter.title')">
+                    <b-card-text>
+                        <SaMuInput type="text" v-model="nameFilter" :placeholder="$t('filter.name')"/>
+                        <div>{{$t('filter.date')}}</div>
+                        <SaMuInput type="date" v-model="dateFilter"/>
+                        <b-button variant="samu" v-on:click="refreshTable" class="set-filter">{{$t('filter.action')}}</b-button>
+                    </b-card-text>
+                </b-card>
+            </b-col>
+            <b-col lg="8">
+                <SaMuHeader style="text-align: left;">{{$t('title')}}</SaMuHeader>
+                <b-table sticky-header="100%" striped :items="getData" :fields="fields" ref="balance-table">
+                    <template v-slot:cell(assets)="row">
+                    {{row.item.assets ? '€' + row.item.assets.toFixed(2) : undefined}}
+                    </template>
+                    <template v-slot:cell(liabilities)="row">
+                    {{row.item.liabilities ? '€' + row.item.liabilities.toFixed(2) : undefined}}
+                    </template>
 
-                <template v-slot:head(name)="data">{{$t('table.name')}}</template>
-                <template v-slot:head(assets)="data">{{$t('table.assets')}}</template>
-                <template v-slot:head(liabilities)="data">{{$t('table.liabilities')}}</template>
-            </b-table>
-        </b-col>
+                    <template v-slot:head(name)="data">{{$t('table.name')}}</template>
+                    <template v-slot:head(assets)="data">{{$t('table.assets')}}</template>
+                    <template v-slot:head(liabilities)="data">{{$t('table.liabilities')}}</template>
+                </b-table>
+            </b-col>
         </b-row>
     </b-container>
   </div>
@@ -32,15 +42,22 @@ import { AccountancyService } from '../../../openapi/api/accountancy.service';
 import openApiContainer from '@/openApiContainer';
 import HttpResponse from '../../../openapi/HttpResponse';
 import { BalanceDTO } from '../../../openapi/model/balanceDTO';
+import SaMuInput from '@/components/basic/SaMuInput.vue';
+import moment from 'moment';
 
 @Component({
   components: {
     AccountancyHeader,
     SaMuHeader,
+    SaMuInput,
   },
 })
 export default class AccountancyBalance extends Vue {
     private accountancyService: AccountancyService = openApiContainer.get<AccountancyService>('AccountancyService');
+
+    private dateFilter = moment().format('YYYY-MM-DD');
+    private nameFilter = '';
+    private needData = true;
 
     private items: BalanceDTO[] = [];
     private fields = [
@@ -51,8 +68,8 @@ export default class AccountancyBalance extends Vue {
     ];
 
     private getData(ctx: any, callback: any) {
-        if (this.items.length === 0) {
-            this.accountancyService.getBalance('response').subscribe((res: HttpResponse<BalanceDTO[]>) => {
+        if (this.items.length === 0 || this.needData) {
+            this.accountancyService.getBalance(this.dateFilter, this.nameFilter, 'response').subscribe((res: HttpResponse<BalanceDTO[]>) => {
                 const totalAssets = res.response.reduce((a, b) => a + (b.assets || 0), 0);
                 const totalLiabilities = res.response.reduce((a, b) => a + (b.liabilities || 0), 0);
 
@@ -73,11 +90,15 @@ export default class AccountancyBalance extends Vue {
 
                 res.response.push(totalAssetsOrLiabilities);
                 res.response.push(total);
+
                 this.items = res.response;
+                this.needData = false;
                 callback(res.response);
             }, (err: HttpResponse) => {
                 if (err.status === 418) {
                     Vue.toasted.show(this.$t('error.api_not_activated').toString() + ' <a href="/dashboard/accountancy/activate">' + this.$t('error.api_not_activated_link_text').toString() + '</a>', {duration: 10000, type: 'error'});
+                } else {
+                    Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
                 }
             });
         } else {
@@ -101,6 +122,11 @@ export default class AccountancyBalance extends Vue {
 
             callback(this.items);
         }
+    }
+
+    private refreshTable() {
+        this.needData = true;
+        (this.$refs['balance-table'] as any).refresh();
     }
 }
 </script>
