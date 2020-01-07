@@ -4,7 +4,8 @@
             "balance": "Balans",
             "import": "Importeer mutaties",
             "income_statements": "Winsten & verliezen",
-            "mutation": "Boekstuk invoeren"
+            "mutation": "Boekstuk invoeren",
+            "settings": "Instellingen"
         }
     },
     "en": {
@@ -12,7 +13,8 @@
             "balance": "Balance",
             "import": "Import mutations",
             "income_statements": "Income statements",
-            "mutation": "Add mutation"
+            "mutation": "Add mutation",
+            "settings": "Settings"
         }
     }
 }

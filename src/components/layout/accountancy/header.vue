@@ -5,6 +5,7 @@
         <b-nav-item href="/dashboard/accountancy/incomeStatement">{{$t('link_names.income_statements')}}</b-nav-item>
         <b-nav-item href="/dashboard/accountancy/import">{{$t('link_names.import')}}</b-nav-item>
         <b-nav-item href="/dashboard/accountancy/mutation">{{$t('link_names.mutation')}}</b-nav-item>
+        <b-nav-item href="/dashboard/accountancy/settings">{{$t('link_names.settings')}}</b-nav-item>
     </b-nav>
   </div>
 </template>

@@ -11,10 +11,8 @@
  */
 
 
-export interface IncomeStatementDTO { 
+export interface IncomeStatement { 
     id: number;
     name: string;
-    code?: number;
-    profit?: number;
-    lost?: number;
+    code: number;
 }

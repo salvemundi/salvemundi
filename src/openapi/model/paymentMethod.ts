@@ -11,10 +11,10 @@
  */
 
 
-export interface IncomeStatementDTO { 
+export interface PaymentMethod { 
     id: number;
     name: string;
-    code?: number;
-    profit?: number;
-    lost?: number;
+    code: number;
+    startAssets: number;
+    startLiabilities: number;
 }
