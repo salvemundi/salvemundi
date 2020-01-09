@@ -122,7 +122,7 @@ export default class Me extends Vue {
         }, (err: HttpResponse) => {
             if (err.status === 400) {
                 Vue.toasted.show(this.$t('action.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
-            
+
             } else {
                 Vue.toasted.show(this.$t('action.unknown').toString(), {duration: 5000, type: 'error'});
             }
@@ -147,7 +147,7 @@ export default class Me extends Vue {
             }, (err: HttpResponse) => {
                 if (err.status === 400) {
                     Vue.toasted.show(this.$t('action.form_not_filled_in_correctly').toString(), {duration: 5000, type: 'error'});
-                
+
                 } else {
                     Vue.toasted.show(this.$t('action.unknown').toString(), {duration: 5000, type: 'error'});
                 }

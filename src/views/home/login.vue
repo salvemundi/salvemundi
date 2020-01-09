@@ -6,18 +6,8 @@
           <div class="login-form">
             <SaMuBadge text="1">{{$t('form.title')}}</SaMuBadge>
             <div class="login-form__body">
-              <SaMuInput
-                :placeholder="$t('form.email')"
-                type="text"
-                autocomplete="username"
-                v-model="dto.email"
-              />
-              <SaMuInput
-                :placeholder="$t('form.password')"
-                type="password"
-                autocomplete="current-password"
-                v-model="dto.password"
-              />
+              <SaMuInput :placeholder="$t('form.email')" type="text" autocomplete="username" v-model="dto.email" />
+              <SaMuInput :placeholder="$t('form.password')" type="password" autocomplete="current-password" v-model="dto.password" />
               <b-button variant="samu" type="submit" size="sm">{{$t('form.login')}}</b-button>
             </div>
           </div>
@@ -60,6 +50,11 @@ export default class Login extends Vue {
             duration: 5000,
             type: 'error',
           });
+        } else if (err.status === 400) {
+          Vue.toasted.show(this.$t('error.form_not_filled_in_correctly').toString(), {
+            duration: 5000,
+            type: 'error',
+          });
         } else {
           Vue.toasted.show(this.$t('error.unknown').toString(), {
             duration: 5000,
@@ -80,6 +75,9 @@ export default class Login extends Vue {
 </script>
 <style lang="scss" scoped>
 .login {
+  display: flex;
+  align-items: center;
+
   .login-form {
     padding: 0px 20px 0px 50px;
 

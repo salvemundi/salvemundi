@@ -11,14 +11,24 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-button class="ml-4" variant="samu" v-if="!isLoggedInMethod()" href="/home/prelogon">Meld je aan!</b-button>
+          <b-button variant="samu" v-if="!loggedIn" href="/home/prelogon">{{$t('join_us_now')}}</b-button>
+          <div style="width: 0px; height: 0px; margin-right: 10px;"></div>
+          <b-dropdown variant="samu" :text="$t('select_language')" id="language">
+            <b-dropdown-item v-on:click="switchLanguage('nl')" id="dutch">Nederlands</b-dropdown-item>
+            <b-dropdown-item v-on:click="switchLanguage('en')" id="english">English</b-dropdown-item>
+          </b-dropdown>
         </b-navbar-nav>
 
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item href="/home#about">Over ons</b-nav-item>
-          <b-nav-item href="/home#committees">Commissies</b-nav-item>
-          <b-nav-item href="/home#korting">Korting</b-nav-item>
-          <b-nav-item to="/home/me">Mijn account</b-nav-item>
+        <b-navbar-nav class="ml-auto" v-if="$route.path.split('/')[1] !== 'dashboard'">
+          <b-nav-item href="/home#about">{{$t('about_us')}}</b-nav-item>
+          <b-nav-item href="/home#committees">{{$t('committees')}}</b-nav-item>
+          <b-nav-item href="/home#korting">{{$t('discount')}}</b-nav-item>
+          <b-nav-item to="/home/me">{{$t('my_account')}}</b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav class="ml-auto" v-if="$route.path.split('/')[1] === 'dashboard'">
+          <b-nav-item href="/dashboard/member" v-if="$store.getters.hasScopeForMember">{{$t('member')}}</b-nav-item>
+          <b-nav-item href="/dashboard/accountancy" v-if="$store.getters.hasScopeForAccountancy">{{$t('accountancy')}}</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-container>
@@ -27,12 +37,15 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import isLoggedIn from '../../lib/authentication';
 
 export default Vue.extend({
   data() {
     return {
       expanded: false,
+      loggedIn: false,
+      permissions: {
+        members: false,
+      },
     };
   },
   methods: {
@@ -43,11 +56,17 @@ export default Vue.extend({
         this.expanded = false;
       }
     },
-    isLoggedInMethod() {
-      return isLoggedIn();
+    switchLanguage(lang: string) {
+        this.$store.dispatch('setLanguage', lang);
     },
   },
-  created() {
+  computed: {
+    hasScopeForMember() {
+      return this.$store.state.permission.permissions.includes('user:read');
+    },
+  },
+  async created() {
+    this.loggedIn = await this.$store.dispatch('isLoggedIn');
     window.addEventListener('scroll', this.handleScroll);
     this.handleScroll();
   },
@@ -66,7 +85,7 @@ nav.navbar {
   background: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: white;
-  z-index: 9999;
+  z-index: 1000;
 
   .nav-item {
     font-family: Poppins;
@@ -112,3 +131,5 @@ nav.navbar {
   }
 }
 </style>
+
+<i18n src="@/lang/components/Navigation.json"></i18n>

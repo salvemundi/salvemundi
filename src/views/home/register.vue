@@ -130,7 +130,6 @@ export default class Register extends Vue {
                 Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
             });
         }, (err: HttpResponse) => {
-            console.error(err);
             if (err.status === 409) {
                 Vue.toasted.show(this.$t('error.email_already_exists').toString(), {duration: 5000, type: 'error'});
             } else if (err.status === 400) {
@@ -144,6 +143,8 @@ export default class Register extends Vue {
 </script>
 <style lang="scss" scoped>
 .register {
+    display: flex;
+    align-items: center;
 
     &-form.general-information {
         .register-form__body {
