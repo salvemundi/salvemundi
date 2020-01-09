@@ -5,4 +5,3 @@ dist
 .vscode/
 src/openapi/.openapi-generator/
 .env
-.idea

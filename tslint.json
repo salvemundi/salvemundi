@@ -17,6 +17,6 @@
     "ordered-imports": false,
     "object-literal-sort-keys": false,
     "no-consecutive-blank-lines": false,
-    "max-line-length": [ false ]
+    "max-line-length": [ true,  { "limit": 120, "ignore-pattern": "^import [^,]+ from |^export | implements" } ]
   }
 }

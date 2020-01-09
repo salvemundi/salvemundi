@@ -29,7 +29,6 @@ import { UserService } from '../../../openapi/api/user.service';
 import openApiContainer from '@/openApiContainer';
 import { SummaryUserDto } from '../../../openapi/model/summaryUserDto';
 import moment from 'moment';
-import HttpResponse from '../../../openapi/HttpResponse';
 
 @Component({
   components: {
@@ -51,8 +50,8 @@ export default class MemberOverview extends Vue {
 
   private getData(ctx: any, callback: any) {
     if (this.items.length === 0) {
-      this.userService.userReadAll(1000, 0, 'response').subscribe((res: HttpResponse<SummaryUserDto[]>) => {
-        res.response.forEach((user: any) => {
+      this.userService.userGet(1000, 0).subscribe((res: any[]) => {
+        res.forEach((user: any) => {
           if (new Date(user.memberTill) < new Date()) {
             user._rowVariant = 'danger';
           }
@@ -65,8 +64,8 @@ export default class MemberOverview extends Vue {
           }
         });
 
-        this.items = res.response;
-        callback(res.response);
+        this.items = res;
+        callback(res);
       });
 
     } else {

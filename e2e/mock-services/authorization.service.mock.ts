@@ -8,6 +8,7 @@ import { Headers } from "../../src/openapi/Headers";
 import HttpResponse from "../../src/openapi/HttpResponse";
 import { LoginDTO } from "../../src/openapi/model/loginDTO";
 import { MeDTO } from "../../src/openapi/model/meDTO";
+import { RegisterDTO } from "../../src/openapi/model/registerDTO";
 import { AuthorizationService } from "../../src/openapi/api/authorization.service";
 
 @injectable()
@@ -17,70 +18,69 @@ export class AuthorizationServiceMock extends AuthorizationService {
         super(httpClient, APIConfiguration);
     }
 
-    public confirmEmail(confirmationDTO: ConfirmationDTO, observe?: 'body', headers?: Headers): Observable<User>;
-    public confirmEmail(confirmationDTO: ConfirmationDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public confirmEmail(confirmationDTO: ConfirmationDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe?: 'body', headers?: Headers): Observable<User>;
+    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public authorizationConfirmationPost(confirmationDTO: ConfirmationDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
         const promise = new Promise((resolve) => {
             resolve('jojo!');
         })    
         return from(promise);
     } 
 
-    public login(loginDTO: LoginDTO, observe?: 'body', headers?: Headers): Observable<any>;
-    public login(loginDTO: LoginDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
-    public login(loginDTO: LoginDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public authorizationLoginPost(loginDTO: LoginDTO, observe?: 'body', headers?: Headers): Observable<any>;
+    public authorizationLoginPost(loginDTO: LoginDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
+    public authorizationLoginPost(loginDTO: LoginDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
         const promise = new Promise((resolve) => {
             resolve('jojo!');
         })    
         return from(promise);
     }
 
-    public me(token: string, observe?: 'body', headers?: Headers): Observable<MeDTO>;
-    public me(token: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<MeDTO>>;
-    public me(token: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public authorizationMeGet(token: string, observe?: 'body', headers?: Headers): Observable<MeDTO>;
+    public authorizationMeGet(token: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<MeDTO>>;
+    public authorizationMeGet(token: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         const promise = new Promise((resolve) => {
             resolve('jojo!');
         })    
         return from(promise);
     }
 
-    public regiser(firstName: string, lastName: string, birthday: string, address: string, city: string, postalcode: string, country: string, email: string, phoneNumber: string, pcn: string, profilePicture: Blob, observe?: 'body', headers?: Headers): Observable<User>;
-    public regiser(firstName: string, lastName: string, birthday: string, address: string, city: string, postalcode: string, country: string, email: string, phoneNumber: string, pcn: string, profilePicture: Blob, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public regiser(firstName: string, lastName: string, birthday: string, address: string, city: string, postalcode: string, country: string, email: string, phoneNumber: string, pcn: string, profilePicture: Blob, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'body', headers?: Headers): Observable<User>;
+    public authorizationRegisterPost(registerDTO: RegisterDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
+    public authorizationRegisterPost(registerDTO: RegisterDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
         const promise = new Promise<HttpResponse<User>>((resolve, reject) => {
-            if (firstName === '' ||
-                lastName === '' ||
-                birthday === '' ||
-                email === '' ||
-                address === '' ||
-                postalcode === '' ||
-                city === '' ||
-                country === '' ||
-                phoneNumber === '') {
+            if (registerDTO.firstName === '' ||
+                registerDTO.lastName === '' ||
+                registerDTO.birthday === '' ||
+                registerDTO.email === '' ||
+                registerDTO.address === '' ||
+                registerDTO.postalcode === '' ||
+                registerDTO.city === '' ||
+                registerDTO.country === '' ||
+                registerDTO.phoneNumber === '') {
                     reject(new HttpResponse({}, 400));
             }
 
-            if (email === 'admin@salvemundi.nl') {
+            if (registerDTO.email === 'admin@salvemundi.nl') {
                 reject(new HttpResponse({}, 409));
             }
 
             const user: User = {
                 id: 1,
-                firstName: firstName,
-                lastName: lastName,
-                birthday: birthday,
-                address: address,
-                postalcode: postalcode,
-                city: city,
-                country: country,
-                email: email,
-                phoneNumber: phoneNumber,
-                pcn: pcn,
+                firstName: registerDTO.firstName,
+                lastName: registerDTO.lastName,
+                birthday: registerDTO.birthday,
+                address: registerDTO.address,
+                postalcode: registerDTO.postalcode,
+                city: registerDTO.city,
+                country: registerDTO.country,
+                email: registerDTO.email,
+                phoneNumber: registerDTO.phoneNumber,
+                pcn: registerDTO.pcn,
                 registeredSince: new Date().toDateString(),
                 activated: false,
-                transactions: [],
-                memberships: [],
-                profilePicture: 'lol'
+                scopes: [],
+                member: undefined
             };
             resolve(new HttpResponse(user, 200));
         });

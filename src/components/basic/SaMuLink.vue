@@ -1,5 +1,5 @@
 <template>
-    <router-link class="SaMuLink" :to="to ? to : ''"><slot></slot></router-link>
+    <router-link class="SaMuLink" :to="to"><slot></slot></router-link>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
