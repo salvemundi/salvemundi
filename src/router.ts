@@ -16,7 +16,7 @@ import IncomeStatement from './views/dashboard/accountancy/incomeStatement.vue';
 import AccountancyBalance from './views/dashboard/accountancy/balans.vue';
 import ImportAccountancy from './views/dashboard/accountancy/import.vue';
 import ActivateAccountancy from './views/dashboard/accountancy/activate.vue';
-import MutationAccountancy from './views/dashboard/accountancy/mutation.vue';
+import MutationAccountancy from './views/dashboard/accountancy/addMutation.vue';
 import SettingsAccountancy from './views/dashboard/accountancy/settings.vue';
 
 Vue.use(Router);

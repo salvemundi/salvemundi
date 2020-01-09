@@ -3,24 +3,24 @@
     <AccountancyHeader/>
     <b-container>
         <b-row align-h="center">
-            <b-col md="6">
+            <b-col md="6" class="add-mutation-form">
               <SaMuHeader style="text-align: left;">{{$t('title')}}</SaMuHeader>
-              <b-form-group :label="$t('form.date')" label-for="input-date" style="margin-bottom: 8px">
-                <SaMuInput v-model="dto.date" type="date" id="input-date"/>
+              <b-form-group :label="$t('form.date')" style="margin-bottom: 8px">
+                <SaMuInput v-model="dto.date" type="date" id="add-mutation-form__date"/>
               </b-form-group>
-              <SaMuInput v-model="dto.description" type="text" :placeholder="$t('form.description')"/>
-              <SaMuInput v-model="dto.debtorIban" type="text" :placeholder="$t('form.iban')"/>
-              <SaMuInput v-model="dto.entryReference" type="number" :placeholder="$t('form.entry')"/>
-              <b-form-group :label="$t('form.amount')" label-for="input-amount">
-                <SaMuInput v-model="dto.amount" type="number" id="input-amount"/>
+              <SaMuInput v-model="dto.description" type="text" :placeholder="$t('form.description')" id="add-mutation-form__description"/>
+              <SaMuInput v-model="dto.debtorIban" type="text" :placeholder="$t('form.iban')" id="add-mutation-form__iban"/>
+              <SaMuInput v-model="dto.entryReference" type="number" :placeholder="$t('form.entry')" id="add-mutation-form__entry"/>
+              <b-form-group :label="$t('form.amount')">
+                <SaMuInput v-model="dto.amount" type="number" id="add-mutation-form__amount"/>
               </b-form-group>
-              <b-form-group :label="$t('form.payment_method')" label-for="input-paymentMethod">
-                <b-form-select v-model="dto.paymentMethodId" :options="paymentMethodOptions" id="input-paymentMethod"></b-form-select>
+              <b-form-group :label="$t('form.payment_method')">
+                <b-form-select v-model="dto.paymentMethodId" :options="paymentMethodOptions" id="add-mutation-form__payment-method"></b-form-select>
               </b-form-group>
-              <b-form-group :label="$t('form.income_statement')" label-for="input-incomeStatement">
-                <b-form-select v-model="dto.incomeStatementId" :options="incomeStatementOptions" id="input-incomeStatement"></b-form-select>
+              <b-form-group :label="$t('form.income_statement')">
+                <b-form-select v-model="dto.incomeStatementId" :options="incomeStatementOptions" id="add-mutation-form__income-statement"></b-form-select>
               </b-form-group>
-              <b-button variant="samu" v-on:click="addMutation" style="float: right; margin-bottom: 1rem">{{$t('form.action')}}</b-button>
+              <b-button variant="samu" v-on:click="addMutation" style="float: right; margin-bottom: 1rem" id="add-mutation-form__submit">{{$t('form.action')}}</b-button>
             </b-col>
         </b-row>
     </b-container>
@@ -119,4 +119,4 @@ export default class MutationAccountancy extends Vue {
 <style lang="scss">
 </style>
 
-<i18n src="@/lang/dashboard/accountancy/mutation.json"></i18n>
+<i18n src="@/lang/dashboard/accountancy/addMutation.json"></i18n>

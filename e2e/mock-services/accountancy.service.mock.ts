@@ -56,8 +56,36 @@ export class AccountancyServiceMock extends AccountancyService {
     public addMutation(addMutationDTO: AddMutationDTO, observe?: 'body', headers?: Headers): Observable<Mutation>;
     public addMutation(addMutationDTO: AddMutationDTO, observe?: 'response', headers?: Headers): Observable<HttpResponse<Mutation>>;
     public addMutation(addMutationDTO: AddMutationDTO, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        const promise = new Promise((resolve) => {
-            resolve('jojo!');
+        const promise = new Promise<HttpResponse<Mutation>>((resolve, reject) => {
+            if (addMutationDTO.paymentMethodId === 0 ||
+                addMutationDTO.incomeStatementId === 0 ||
+                addMutationDTO.amount === 0) {
+                    reject(new HttpResponse({}, 400));  
+            }
+
+            let response: Mutation = {
+                id: 1,
+                date: moment(addMutationDTO.date),
+                amount: addMutationDTO.amount,
+                debtorIban: addMutationDTO.debtorIban,
+                description: addMutationDTO.debtorIban,
+                entryReference: addMutationDTO.entryReference!,
+                imported: true,
+                incomeStatement: {
+                    id: addMutationDTO.incomeStatementId,
+                    code: 4000,
+                    name: 'Bestuur'
+                },
+                paymentMethod: {
+                    id: addMutationDTO.paymentMethodId,
+                    code: 100,
+                    name: 'Kas',
+                    startAssets: 100,
+                    startLiabilities: 0,
+                },
+            };
+
+            resolve(new HttpResponse(response, 200));
         })    
         return from(promise);
     }
