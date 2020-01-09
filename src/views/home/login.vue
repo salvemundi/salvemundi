@@ -6,7 +6,7 @@
           <div class="login-form">
             <SaMuBadge text="1">{{$t('form.title')}}</SaMuBadge>
             <div class="login-form__body">
-              <SaMuInput :placeholder="$t('form.email')" type="text" autocomplete="username" v-model="dto.email" />
+              <SaMuInput :placeholder="$t('form.email')" type="text" autocomplete="email" v-model="dto.email" />
               <SaMuInput :placeholder="$t('form.password')" type="password" autocomplete="current-password" v-model="dto.password" />
               <b-button variant="samu" type="submit" size="sm">{{$t('form.login')}}</b-button>
             </div>

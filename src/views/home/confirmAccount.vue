@@ -3,8 +3,8 @@
     <div class="confirm-account_center">
       <SaMuHeader>{{$t('confirm_account.title')}}</SaMuHeader>
       <form v-on:submit="handleSubmit">
-        <SaMuInput :placeholder="$t('confirm_account.password')" type="password" v-model="dto.password" id="confirm-account__password"/>
-        <SaMuInput :placeholder="$t('confirm_account.password_repeat')" type="password" v-model="repeatPassword" id="confirm-account__password-repeat"/>
+        <SaMuInput :placeholder="$t('confirm_account.password')" autocomplete="new-password" type="password" v-model="dto.password" id="confirm-account__password"/>
+        <SaMuInput :placeholder="$t('confirm_account.password_repeat')" autocomplete="new-password" type="password" v-model="repeatPassword" id="confirm-account__password-repeat"/>
         <b-button variant="samu" size="small" type="submit">{{$t('confirm_account.confirm')}}</b-button>
       </form>
     </div>

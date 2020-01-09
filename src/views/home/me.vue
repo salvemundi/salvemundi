@@ -14,8 +14,8 @@
                             <td><b>{{$t('general_information.last_name')}}</b></td>
                         </tr>
                         <tr>
-                            <td><SaMuInput type="text" v-model="user.firstName" :disabled="!editMode"/></td>
-                            <td><SaMuInput type="text" v-model="user.lastName" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="text" autocomplete="given-name"  v-model="user.firstName" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="text" autocomplete="family-name"  v-model="user.lastName" :disabled="!editMode"/></td>
                         </tr>
                         <tr>
                             <td><b>{{$t('general_information.birthday')}}</b></td>
@@ -23,7 +23,7 @@
                             
                         </tr>
                         <tr>
-                            <td><SaMuInput type="date" v-model="user.birthday" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="date" autocomplete="bday" v-model="user.birthday" :disabled="!editMode"/></td>
                             <td><SaMuInput type="date" v-model="user.registeredSince" disabled/></td>
                         </tr>
                         <tr>
@@ -31,16 +31,16 @@
                             <td><b>{{$t('general_information.city')}}</b></td>
                         </tr>
                         <tr>
-                            <td><SaMuInput type="text" v-model="user.address" :disabled="!editMode"/></td>
-                            <td><SaMuInput type="text" v-model="user.city" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="text" autocomplete="street-address" v-model="user.address" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="text" autocomplete="address-level2" v-model="user.city" :disabled="!editMode"/></td>
                         </tr>
                         <tr>
                             <td><b>{{$t('general_information.postalcode')}}</b></td>
                             <td><b>{{$t('general_information.country')}}</b></td>
                         </tr>
                         <tr>
-                            <td><SaMuInput type="text" v-model="user.postalcode" :disabled="!editMode"/></td>
-                            <td><SaMuInput type="text" v-model="user.country" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="text" autocomplete="postal-code" v-model="user.postalcode" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="text" autocomplete="country-name" v-model="user.country" :disabled="!editMode"/></td>
                         </tr>
                     </table>
                 </b-col>
@@ -53,13 +53,13 @@
                         </tr>
                         <tr>
                             <td><SaMuInput type="text" v-model="user.pcn" :disabled="!editMode"/></td>
-                            <td><SaMuInput type="email" v-model="user.email" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="email" autocomplete="email" v-model="user.email" :disabled="!editMode"/></td>
                         </tr>
                         <tr>
                             <td><b>{{$t('digital_information.phonenumber')}}</b></td>
                         </tr>
                         <tr>
-                            <td><SaMuInput type="tel" v-model="user.phoneNumber" :disabled="!editMode"/></td>
+                            <td><SaMuInput type="tel" autocomplete="tel" v-model="user.phoneNumber" :disabled="!editMode"/></td>
                         </tr>
                     </table>
                 </b-col>
