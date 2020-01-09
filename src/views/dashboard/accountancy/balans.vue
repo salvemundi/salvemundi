@@ -6,16 +6,16 @@
             <b-col lg="4">
                 <b-card :title="$t('filter.title')">
                     <b-card-text>
-                        <SaMuInput type="text" v-model="nameFilter" :placeholder="$t('filter.name')"/>
+                        <SaMuInput type="text" v-model="nameFilter" :placeholder="$t('filter.name')" id="name-filter"/>
                         <div>{{$t('filter.date')}}</div>
-                        <SaMuInput type="date" v-model="dateFilter"/>
-                        <b-button variant="samu" v-on:click="refreshTable" class="set-filter">{{$t('filter.action')}}</b-button>
+                        <SaMuInput type="date" v-model="dateFilter" id="date-filter"/>
+                        <b-button variant="samu" v-on:click="refreshTable" class="set-filter" id="confirm-filter">{{$t('filter.action')}}</b-button>
                     </b-card-text>
                 </b-card>
             </b-col>
             <b-col lg="8">
                 <SaMuHeader style="text-align: left;">{{$t('title')}}</SaMuHeader>
-                <b-table sticky-header="100%" striped :items="getData" :fields="fields" ref="balance-table">
+                <b-table sticky-header="100%" striped :items="getData" :fields="fields" ref="balance-table" id="balance-table">
                     <template v-slot:cell(assets)="row">
                     {{row.item.assets ? '€' + row.item.assets.toFixed(2) : undefined}}
                     </template>

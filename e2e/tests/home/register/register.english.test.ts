@@ -3,23 +3,23 @@ import { Selector } from 'testcafe';
 import * as fs from 'fs';
 
 // tslint:disable-next-line: no-unused-expression
-fixture `Register page - Dutch`
+fixture `Register page - English`
     .page `localhost:8080/home/register`;
 
-const languageFile = JSON.parse(fs.readFileSync('./src/lang/Register.json', 'utf-8'));
+const languageFile = JSON.parse(fs.readFileSync('./src/lang/Register.json', 'utf-8')).en;
 
 test('Should fail with nothing filled in and show error', async (t) => {
     await t
         .click('#language')
-        .click('#language #dutch')
+        .click('#language #english')
         .click('button[type=submit]')
-        .expect(Selector('.toasted.error').innerText).eql(languageFile.nl.error.form_not_filled_in_correctly);
+        .expect(Selector('.toasted.error').innerText).eql(languageFile.error.form_not_filled_in_correctly);
 });
 
 test('Should fail with existing email and show error', async (t) => {
     await t
         .click('#language')
-        .click('#language #dutch')
+        .click('#language #english')
         .typeText('#register-form__first_name', 'Salve')
         .typeText('#register-form__last_name', 'Mundi')
         .typeText('#register-form__birthday', '2017-02-01')
@@ -30,13 +30,13 @@ test('Should fail with existing email and show error', async (t) => {
         .typeText('#register-form__phonenumber', '+31 6 24827777')
         .typeText('#register-form__email', 'admin@salvemundi.nl')
         .click('button[type=submit]')
-        .expect(Selector('.toasted.error').innerText).eql(languageFile.nl.error.email_already_exists);
+        .expect(Selector('.toasted.error').innerText).eql(languageFile.error.email_already_exists);
 });
 
 test('Should succeed', async (t) => {
     await t
         .click('#language')
-        .click('#language #dutch')
+        .click('#language #english')
         .typeText('#register-form__first_name', 'Salve')
         .typeText('#register-form__last_name', 'Mundi')
         .typeText('#register-form__birthday', '2017-02-01')
@@ -49,6 +49,6 @@ test('Should succeed', async (t) => {
         .click('button[type=submit]');
 
     await t
-        .expect((await Selector('.check-email_center #title').innerText).toLowerCase()).eql(languageFile.nl.check_email.title.toLowerCase())
-        .expect((await Selector('.check-email_center #description').innerText).toLowerCase()).eql(languageFile.nl.check_email.description.toLowerCase());
+        .expect((await Selector('.check-email_center #title').innerText).toLowerCase()).eql(languageFile.check_email.title.toLowerCase())
+        .expect((await Selector('.check-email_center #description').innerText).toLowerCase()).eql(languageFile.check_email.description.toLowerCase());
 });
