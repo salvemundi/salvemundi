@@ -1,0 +1,22 @@
+{
+    "nl": {
+        "select_language": "Taal",
+        "about_us": "Over ons",
+        "committees": "Commissies",
+        "discount": "Korting",
+        "my_account": "Mijn account",
+        "join_us_now": "Meld je aan!",
+        "member": "Ledenadministratie",
+        "accountancy": "Boekhouden"
+    },
+    "en": {
+        "select_language": "Language",
+        "about_us": "About us",
+        "committees": "Committees",
+        "discount": "Discount",
+        "my_account": "My account",
+        "join_us_now": "Join us now!",
+        "member": "Memberadministration",
+        "accountancy": "Accountancy"
+    }
+}

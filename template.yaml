@@ -20,10 +20,6 @@ spec:
       containers:
       - name: {{beta}}salvemundi-site
         image: svsalvemundi/salvemundi.nl:{{samu_site_version}}
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
         env:
         - name: GET_HOSTS_FROM
           value: dns
