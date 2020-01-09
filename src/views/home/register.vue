@@ -143,6 +143,8 @@ export default class Register extends Vue {
 </script>
 <style lang="scss" scoped>
 .register {
+    display: flex;
+    align-items: center;
 
     &-form.general-information {
         .register-form__body {

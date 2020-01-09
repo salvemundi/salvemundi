@@ -17,4 +17,6 @@ export interface BalanceDTO {
     name: string;
     liabilities?: number;
     assets?: number;
+    startAssets: number;
+    startLiabilities: number;
 }

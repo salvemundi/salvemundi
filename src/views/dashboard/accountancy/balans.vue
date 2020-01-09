@@ -79,6 +79,8 @@ export default class AccountancyBalance extends Vue {
                     name: this.$t('table.balance').toString(),
                     assets: (totalAssets - totalLiabilities) < 0 ? (totalAssets - totalLiabilities) : undefined,
                     liabilities: (totalAssets - totalLiabilities) >= 0 ? (totalAssets - totalLiabilities) : undefined,
+                    startAssets: 0,
+                    startLiabilities: 0,
                 };
                 const total: BalanceDTO = {
                     id: 0,
@@ -86,6 +88,8 @@ export default class AccountancyBalance extends Vue {
                     name: '',
                     assets: Math.max(totalAssets, totalLiabilities),
                     liabilities: Math.max(totalAssets, totalLiabilities),
+                    startAssets: 0,
+                    startLiabilities: 0,
                 };
 
                 res.response.push(totalAssetsOrLiabilities);
