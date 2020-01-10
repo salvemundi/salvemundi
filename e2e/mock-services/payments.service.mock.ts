@@ -15,9 +15,9 @@ export class PaymentsServiceMock extends PaymentsService {
         super(httpClient, APIConfiguration);
     }
 
-    public createPaymentForMembership(id: number, observe?: 'body', headers?: Headers): Observable<PaymentDTO>;
-    public createPaymentForMembership(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<PaymentDTO>>;
-    public createPaymentForMembership(id: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public paymentsMembershipGet(id: number, observe?: 'body', headers?: Headers): Observable<PaymentDTO>;
+    public paymentsMembershipGet(id: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<PaymentDTO>>;
+    public paymentsMembershipGet(id: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         const promise = new Promise<HttpResponse<PaymentDTO>>((resolve, reject) => {
             if (id === 1) {
                 const date = new Date();

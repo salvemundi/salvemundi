@@ -102,16 +102,18 @@ export default class MemberDetails extends Vue {
         registeredSince: '',
         pcn: '',
         activated: false,
-        profilePicture: '',
-        memberships: [],
-        transactions: [],
+        scopes: [],
+        member: {
+            id: 0,
+            memberships: [],
+        },
     };
     private editMode = false;
 
     private userService: UserService = openApiContainer.get<UserService>('UserService');
 
     private mounted() {
-        this.userService.userReadOne(+this.$route.params.id).subscribe((res: User) => {
+        this.userService.userIdGet(+this.$route.params.id).subscribe((res: User) => {
             res.registeredSince = moment(res.registeredSince).format('YYYY-MM-D');
             res.birthday = moment(res.birthday).format('YYYY-MM-D');
 
@@ -127,7 +129,7 @@ export default class MemberDetails extends Vue {
             const userUpdate: UpdateUserDto = JSON.parse(JSON.stringify(this.user)) as UpdateUserDto;
             userUpdate.birthday = moment(userUpdate.birthday, 'YYYY-MM-D').toDate().toString();
 
-            this.userService.userUpdateOne(userUpdate).subscribe(
+            this.userService.userPut(userUpdate).subscribe(
             (res: User) => {
                 Vue.toasted.show(this.$t('action.success').toString(), {duration: 5000, type: 'success'});
             }, (err: any) => {

@@ -19,8 +19,7 @@
         },
         "action": {
             "success": "Opgeslagen!",
-            "form_not_filled_in_correctly": "Niet alles is correct ingevuld...",
-            "unknown": "Onbekende error..."
+            "form_not_filled_in_correctly": "Niet alles is correct ingevuld..."
         }
     },
     "en": {
@@ -43,8 +42,7 @@
         },
         "action": {
             "success": "Saved!",
-            "form_not_filled_in_correctly": "Form is not filled in correctly...",
-            "unknown": "Unknown error..."
+            "form_not_filled_in_correctly": "Form is not filled in correctly..."
         }
     }
 }

@@ -1,7 +1,7 @@
 <template scoped>
   <div class="register">
       <form v-on:submit="handleSubmit">
-        <b-container>
+        <b-container fluid>
             <b-row>
                 <b-col sm="6">
                     <div class="register-form general-information">
@@ -24,7 +24,6 @@
                             <SaMuInput :placeholder="$t('form.ipcn')" type="text" v-model="dto.pcn" id="register-form__pcn"/>
                             <SaMuInput :placeholder="$t('form.phonenumber')" autocomplete="tel" type="text" v-model="dto.phoneNumber" id="register-form__phonenumber"/>
                             <SaMuInput :placeholder="$t('form.email')" autocomplete="email" type="email" v-model="dto.email" id="register-form__email"/>
-                            <SaMuInput type="file" ref="file" v-on:change="handleFileUpload()" id="register-form__profile-picture"/>
                             <b-button variant="samu" size="small" type="submit">{{$t('form.send')}}</b-button>
                         </div>
                     </div>
@@ -71,7 +70,6 @@ export default class Register extends Vue {
         email: '',
         phoneNumber: '',
         pcn: '',
-        profilePicture: new Blob(),
     };
 
     private authorizationService: AuthorizationService = openApiContainer.get<AuthorizationService>('AuthorizationService');
@@ -82,7 +80,7 @@ export default class Register extends Vue {
         const code = new URLSearchParams(window.location.search.substring(1)).get('code');
 
         if (code) {
-            this.authorizationService.me(code)
+            this.authorizationService.authorizationMeGet(code)
             .subscribe((res: MeDTO) => {
                 this.dto.firstName = res.firstName;
                 this.dto.lastName = res.lastName;
@@ -90,33 +88,19 @@ export default class Register extends Vue {
                 this.dto.pcn = res.pcn;
             });
         }
-    }
 
-    private handleFileUpload() {
-        this.dto.profilePicture = ((this.$refs.file as Vue).$el as any).files[0];
+
     }
 
     private handleSubmit(submitEvent: Event) {
         submitEvent.preventDefault();
 
         // Registers user
-        this.authorizationService.regiser(
-            this.dto.firstName,
-            this.dto.lastName,
-            this.dto.birthday,
-            this.dto.address,
-            this.dto.city,
-            this.dto.postalcode,
-            this.dto.country,
-            this.dto.email,
-            this.dto.phoneNumber,
-            this.dto.pcn,
-            this.dto.profilePicture,
-            'response')
+        this.authorizationService.authorizationRegisterPost(this.dto, 'response')
         .subscribe((res: HttpResponse<User>) => {
 
             // Create payment for the new user
-            this.paymentsService.createPaymentForMembership(res.response.id, 'response')
+            this.paymentsService.paymentsMembershipGet(res.response.id, 'response')
             .subscribe((res2: HttpResponse<PaymentDTO>) => {
 
                 // Redirect to payment page if the payment has not been expired
@@ -126,10 +110,10 @@ export default class Register extends Vue {
                 } else {
                     Vue.toasted.show(this.$t('error.payment_expired').toString(), {duration: 5000, type: 'error'});
                 }
-            }, (err: HttpResponse) => {
+            }, (err) => {
                 Vue.toasted.show(this.$t('error.unknown').toString(), {duration: 5000, type: 'error'});
             });
-        }, (err: HttpResponse) => {
+        }, (err) => {
             if (err.status === 409) {
                 Vue.toasted.show(this.$t('error.email_already_exists').toString(), {duration: 5000, type: 'error'});
             } else if (err.status === 400) {
@@ -143,8 +127,6 @@ export default class Register extends Vue {
 </script>
 <style lang="scss" scoped>
 .register {
-    display: flex;
-    align-items: center;
 
     &-form.general-information {
         .register-form__body {
