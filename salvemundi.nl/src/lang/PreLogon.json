@@ -1,0 +1,28 @@
+{
+    "nl": {
+        "login": {
+            "title": "Inloggen",
+            "description": "Ben je al lid van Salve Mundi? <br> Klik dan op de knop hier beneden om in te loggen!",
+            "action": "Inloggen"
+        },
+        "register": {
+            "title": "Registreren",
+            "description": "Ben je nog geen lid van Salve Mundi? <br> Klik dan op de knop hier beneden om je te registreren!",
+            "action_as_friend": "Als vriend van de vereniging",
+            "action_as_member": "Als lid"
+        }
+    },
+    "en": {
+        "login": {
+            "title": "Login",
+            "description": "Are you already a member of Salve Mundi?<br>Press the button down below to login!",
+            "action": "Login"
+        },
+        "register": {
+            "title": "Register",
+            "description": "Are you not yet a member of Salve Mundi?<br>Press the button down below to register!",
+            "action_as_friend": "As Friend",
+            "action_as_member": "As member"
+        }
+    }
+}

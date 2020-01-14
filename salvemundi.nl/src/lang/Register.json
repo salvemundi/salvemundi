@@ -1,0 +1,72 @@
+{
+    "nl": {
+        "form": {
+            "general_info": "Algemene info",
+            "digital_data": "Digitale gegevens",
+            "first_name": "Voornaam",
+            "last_name": "Achternaam",
+            "birthday": "Geboortedatum (jjjj-mm-dd)",
+            "address": "Straat en huisnummer",
+            "city": "Woonplaats",
+            "postalcode": "Postcode",
+            "country": "Land",
+            "ipcn": "iPCN",
+            "phonenumber": "Telefoonnummer",
+            "email": "Email adres",
+            "password": "Wachtwoord",
+            "repeat_password": "Bevestig je wachtwoord",
+            "send": "Verstuur!"
+        },
+        "check_email": {
+            "title": "Bevestig uw email",
+            "description": "Welkom bij Salve Mundi! Uw bestelling is ontvangen. Om uw bestelling af te ronden, dient u uw email adres te bevestigen. Hierna zal u ook een wachtwoord instellen voor uw Salve Mundi account!"
+        },
+        "confirm_account": {
+            "title": "Verifieer uw account",
+            "password": "Wachtwoord",
+            "password_repeat": "Herhaal wachtwoord",
+            "confirm": "Bevestigen"
+        },
+        "error": {
+            "form_not_filled_in_correctly": "Niet alles is correct ingevuld...",
+            "email_already_exists": "Er bestaat al een gebruiker met dit email adres...",
+            "password_not_match": "Wachtwoorden komen niet overeen...",
+            "unknown": "Er is een onbekende error opgetreden..."
+        }
+    },
+    "en": {
+        "form": {
+            "general_info": "General info",
+            "digital_data": "Digital data",
+            "first_name": "First name",
+            "last_name": "Last name",
+            "birthday": "Birthday (yyyy-mm-dd)",
+            "address": "Address",
+            "city": "City",
+            "postalcode": "Postalcode",
+            "country": "Country",
+            "ipcn": "iPCN",
+            "phonenumber": "Phonenumber",
+            "email": "Email address",
+            "password": "Password",
+            "repeat_password": "Repeat your password",
+            "send": "Send!"
+        },
+        "check_email": {
+            "title": "Confirm your email",
+            "description": "Welkom to Salve Mundi! Your order has been recieved. In order to complete your order, you need to confirm your email address. After this, you will set your password for your Salve Mundi account!"
+        },
+        "confirm_account": {
+            "title": "Verify your account",
+            "password": "Password",
+            "password_repeat": "Repeat password",
+            "confirm": "Confirm"
+        },
+        "error": {
+            "form_not_filled_in_correctly": "Form is not filled in correctly...",
+            "email_already_exists": "An user with this email address already exists...",
+            "password_not_match": "Passwords do not match...",
+            "unknown": "An unknown error has occured..."
+        }
+    }
+}

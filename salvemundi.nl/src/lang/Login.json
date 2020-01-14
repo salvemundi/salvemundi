@@ -1,0 +1,26 @@
+{
+    "nl": {
+        "form": {
+            "title": "Inloggen",
+            "email": "Email adres",
+            "password": "Wachtwoord",
+            "login": "Login"
+        },
+        "error": {
+            "login_failed": "De gebruikersnaam of het wachtwoord is incorrect...",
+            "unknown": "Een onbekende error is opgetreden..."
+        }
+    },
+    "en": {
+        "form": {
+            "title": "Login",
+            "email": "Email address",
+            "password": "Password",
+            "login": "Login"
+        },
+        "error": {
+            "login_failed": "Username or password is incorrect...",
+            "unknown": "An unknown error has occured..."
+        }
+    }
+}
