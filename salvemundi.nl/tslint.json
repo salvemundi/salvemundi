@@ -1,29 +1,4 @@
 {
-<<<<<<< HEAD
-  "defaultSeverity": "error",
-  "extends": ["tslint:recommended"],
-  "linterOptions": {
-    "exclude": [
-      "node_modules/**",
-      "src/migrations/**"
-    ]
-  },
-  "jsRules": {
-    "no-unused-expression": true
-  },
-  "rules": {
-    "quotemark": [true, "single"],
-    "member-access": [false],
-    "ordered-imports": [false],
-    "max-line-length": [false, 150],
-    "member-ordering": [false],
-    "interface-name": [false],
-    "indent": [true, "spaces", 4],
-    "arrow-parens": false,
-    "object-literal-sort-keys": false
-  },
-  "rulesDirectory": []
-=======
   "defaultSeverity": "warning",
   "extends": [
     "tslint:recommended"
@@ -42,7 +17,6 @@
     "ordered-imports": false,
     "object-literal-sort-keys": false,
     "no-consecutive-blank-lines": false,
-    "max-line-length": [ true,  { "limit": 120, "ignore-pattern": "^import [^,]+ from |^export | implements" } ]
+    "max-line-length": [ false ]
   }
->>>>>>> repo-b/master
 }
