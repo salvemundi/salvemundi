@@ -7,4 +7,4 @@ This is the website of Salve Mundi (https://salvemundi.nl), this project contain
 Salve mundi means "Hello world" in Latin, that term is probably familiair to you if you are viewing this page. We are a student assosiation for students studying at Fontys University IT (ICT).
 
 ## How can I contribute?
-If you are wondering why you should contribute for this project, you can look at the TODO page.
+If you are wondering why you should contribute for this project, you can look at [this](https://github.com/salvemundi/salvemundi/blob/master/CONTRIBUTING.md) page for more information.
