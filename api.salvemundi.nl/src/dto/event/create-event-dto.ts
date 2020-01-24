@@ -1,3 +1,5 @@
+import CustomFormFieldDto from "./form/custom-form-field-dto";
+
 export class CreateEventDto {
 
     public title: string;
@@ -11,4 +13,8 @@ export class CreateEventDto {
     public memberOnly: boolean;
     public memberPrice: number;
     public notMemberPrice: number;
+
+    public active: boolean;
+
+    public fields: CustomFormFieldDto[];
 }
