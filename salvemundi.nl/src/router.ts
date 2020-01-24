@@ -10,6 +10,8 @@ import MemberOverview from './views/dashboard/member/overview.vue';
 import MemberDetails from './views/dashboard/member/details.vue';
 import CheckEmail from './views/home/checkEmail.vue';
 import ConfirmAccount from './views/home/confirmAccount.vue';
+import EventsOverview from './views/events/index.vue';
+import EventDetail from './views/events/event.vue';
 import Me from './views/home/me.vue';
 import Privacy from './views/privacy.vue'
 
@@ -43,7 +45,7 @@ export default new Router({
     },
     ...withPrefix('/home', [
       {
-        name:'index',
+        name: 'index',
         path: '/',
         component: Index,
       },
@@ -94,5 +96,15 @@ export default new Router({
         component: Forbidden,
       },
     ]),
+    ...withPrefix('/events', [
+      {
+        path: '/',
+        component: EventsOverview
+      },
+      {
+        path: '/:id',
+        component: EventDetail
+      }
+    ])
   ],
 });
