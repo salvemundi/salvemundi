@@ -12,6 +12,7 @@ import CheckEmail from './views/home/checkEmail.vue';
 import ConfirmAccount from './views/home/confirmAccount.vue';
 import EventsOverview from './views/events/index.vue';
 import EventDetail from './views/events/event.vue';
+import EventSignup from './views/events/signup.vue';
 import Me from './views/home/me.vue';
 import Privacy from './views/privacy.vue'
 
@@ -104,6 +105,10 @@ export default new Router({
       {
         path: '/:id',
         component: EventDetail
+      },
+      {
+        path: '/:id/signup',
+        component: EventSignup
       }
     ])
   ],
