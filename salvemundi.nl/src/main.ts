@@ -7,7 +7,7 @@ import Toasted from 'vue-toasted';
 import BootstrapVue from 'bootstrap-vue';
 import VueCookies from 'vue-cookies';
 import Vuex from 'vuex';
-import { i18n } from './lib/modules/language';
+import { i18n } from './lib/language';
 
 Vue.config.productionTip = false;
 

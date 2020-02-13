@@ -11,7 +11,13 @@ import MemberDetails from './views/dashboard/member/details.vue';
 import CheckEmail from './views/home/checkEmail.vue';
 import ConfirmAccount from './views/home/confirmAccount.vue';
 import Me from './views/home/me.vue';
-import Privacy from './views/privacy.vue'
+import Privacy from './views/privacy.vue';
+import IncomeStatement from './views/dashboard/accountancy/incomeStatement.vue';
+import AccountancyBalance from './views/dashboard/accountancy/balans.vue';
+import ImportAccountancy from './views/dashboard/accountancy/import.vue';
+import ActivateAccountancy from './views/dashboard/accountancy/activate.vue';
+import MutationAccountancy from './views/dashboard/accountancy/addMutation.vue';
+import SettingsAccountancy from './views/dashboard/accountancy/settings.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
@@ -31,7 +37,7 @@ export default new Router({
     },
     {
       path: '/privacy',
-      component: Privacy
+      component: Privacy,
     },
     {
       path: '/callback',
@@ -43,7 +49,7 @@ export default new Router({
     },
     ...withPrefix('/home', [
       {
-        name:'index',
+        name: 'index',
         path: '/',
         component: Index,
       },
@@ -81,6 +87,36 @@ export default new Router({
         {
           path: '/:id',
           component: MemberDetails,
+        },
+      ]),
+      ...withPrefix('/accountancy', [
+        {
+          path: '/',
+          component: AccountancyBalance,
+        },
+        {
+          path: '/incomeStatement',
+          component: IncomeStatement,
+        },
+        {
+          path: '/import',
+          component: ImportAccountancy,
+        },
+        {
+          path: '/activate',
+          component: ActivateAccountancy,
+        },
+        {
+          path: '/callback',
+          component: ActivateAccountancy,
+        },
+        {
+          path: '/mutation',
+          component: MutationAccountancy,
+        },
+        {
+          path: '/settings',
+          component: SettingsAccountancy,
         },
       ]),
     ]),

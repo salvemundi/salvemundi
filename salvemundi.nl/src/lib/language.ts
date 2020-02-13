@@ -9,7 +9,7 @@ Vue.use(VueI18n);
 export const i18n = new VueI18n({
     locale: localStorage.getItem(storageConst) || 'en',
     fallbackLocale: 'en',
-});
+  });
 
 export default {
     namespaced: false,

@@ -7,6 +7,8 @@ import { Observable, from } from 'rxjs';
 import HttpResponse from './openapi/HttpResponse';
 import axios, { AxiosResponse } from 'axios';
 import { MockServiceBinder } from '../e2e/mock-services/mock';
+import store from './store';
+import Vue from 'vue';
 
 @injectable()
 class APIConfiguration implements IAPIConfiguration {
@@ -62,7 +64,7 @@ class HttpClient implements IHttpClient {
     }
 
     private processResponse(response: any) {
-        const httpResponse = new HttpResponse(response.data, response.status, response.headers);
+        const httpResponse = new HttpResponse(response.data.data, response.status, response.headers);
 
         const locationArray = window.location.href.split('?')[0].split('/');
         const location = locationArray[3] + '/' + locationArray[4];
@@ -79,7 +81,16 @@ class HttpClient implements IHttpClient {
             throw httpResponse;
         }
 
+        if (httpResponse.status === 200 && response.data.scopes) {
+            this.savePermissions(response.data.scopes);
+        }
         return httpResponse;
+    }
+
+    private savePermissions(scopes: any[]) {
+        for (const scope of scopes) {
+            (store as any).state.permission.permissions.push(scope);
+        }
     }
 }
 

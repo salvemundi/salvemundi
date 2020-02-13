@@ -6,18 +6,8 @@
           <div class="login-form">
             <SaMuBadge text="1">{{$t('form.title')}}</SaMuBadge>
             <div class="login-form__body">
-              <SaMuInput
-                :placeholder="$t('form.email')"
-                type="text"
-                autocomplete="email"
-                v-model="dto.email"
-              />
-              <SaMuInput
-                :placeholder="$t('form.password')"
-                type="password"
-                autocomplete="current-password"
-                v-model="dto.password"
-              />
+              <SaMuInput :placeholder="$t('form.email')" type="text" autocomplete="email" v-model="dto.email" />
+              <SaMuInput :placeholder="$t('form.password')" type="password" autocomplete="current-password" v-model="dto.password" />
               <b-button variant="samu" type="submit" size="sm">{{$t('form.login')}}</b-button>
             </div>
           </div>
@@ -28,62 +18,66 @@
 </template>
 
 <script lang="ts" scoped>
-import { Component, Vue } from "vue-property-decorator";
-import SaMuInput from "@/components/basic/SaMuInput.vue";
-import SaMuBadge from "@/components/basic/SaMuBadge.vue";
-import openApiContainer from "@/openApiContainer";
-import { AuthorizationService } from "@/openapi/api/authorization.service";
-import { LoginDTO } from "@/openapi/model/loginDTO";
+import { Component, Vue } from 'vue-property-decorator';
+import SaMuInput from '@/components/basic/SaMuInput.vue';
+import SaMuBadge from '@/components/basic/SaMuBadge.vue';
+import openApiContainer from '@/openApiContainer';
+import { AuthorizationService } from '@/openapi/api/authorization.service';
+import { LoginDTO } from '@/openapi/model/loginDTO';
+import HttpResponse from '../../openapi/HttpResponse';
 
 @Component({
   components: {
     SaMuInput,
-    SaMuBadge
-  }
+    SaMuBadge,
+  },
 })
 export default class Login extends Vue {
-  private authorizationService: AuthorizationService = openApiContainer.get<
-    AuthorizationService
-  >("AuthorizationService");
+  private authorizationService: AuthorizationService = openApiContainer.get<AuthorizationService>('AuthorizationService');
   private dto: LoginDTO = {
-    email: "",
-    password: ""
+    email: '',
+    password: '',
   };
 
   public handleSubmit(e: Event) {
-    this.authorizationService.authorizationLoginPost(this.dto).subscribe(
+    this.authorizationService.login(this.dto).subscribe(
       () => {
         this.successfullLogin();
-      },
-      err => {
+
+      }, (err: HttpResponse) => {
         if (err.status === 401) {
-          Vue.toasted.show(this.$t("error.login_failed").toString(), {
+          Vue.toasted.show(this.$t('error.login_failed').toString(), {
             duration: 5000,
-            type: "error"
+            type: 'error',
+          });
+        } else if (err.status === 400) {
+          Vue.toasted.show(this.$t('error.form_not_filled_in_correctly').toString(), {
+            duration: 5000,
+            type: 'error',
           });
         } else {
-          Vue.toasted.show(this.$t("error.unknown").toString(), {
+          Vue.toasted.show(this.$t('error.unknown').toString(), {
             duration: 5000,
-            type: "error"
+            type: 'error',
           });
         }
-      }
+      },
     );
 
     e.preventDefault();
   }
 
   private successfullLogin() {
-    const url: string =
-      new URLSearchParams(window.location.search.substring(1)).get(
-        "redirect"
-      ) || "/home";
+    const url: string = new URLSearchParams(window.location.search.substring(1)).get('redirect') || '/home';
     window.location.href = url;
   }
 }
 </script>
 <style lang="scss" scoped>
 .login {
+  display: flex;
+  align-items: center;
+
   .login-form {
     padding: 0px 20px 0px 50px;
 

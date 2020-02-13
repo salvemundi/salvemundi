@@ -1,0 +1,20 @@
+{
+    "nl": {
+        "link_names": {
+            "balance": "Balans",
+            "import": "Importeer mutaties",
+            "income_statements": "Winsten & verliezen",
+            "mutation": "Boekstuk invoeren",
+            "settings": "Instellingen"
+        }
+    },
+    "en": {
+        "link_names": {
+            "balance": "Balance",
+            "import": "Import mutations",
+            "income_statements": "Income statements",
+            "mutation": "Add mutation",
+            "settings": "Settings"
+        }
+    }
+}

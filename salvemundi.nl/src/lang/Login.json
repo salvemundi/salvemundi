@@ -8,6 +8,7 @@
         },
         "error": {
             "login_failed": "De gebruikersnaam of het wachtwoord is incorrect...",
+            "form_not_filled_in_correctly": "Niet alles is correct ingevuld...",
             "unknown": "Een onbekende error is opgetreden..."
         }
     },
@@ -19,6 +20,7 @@
             "login": "Login"
         },
         "error": {
+            "form_not_filled_in_correctly": "Form is not filled in correctly...",
             "login_failed": "Username or password is incorrect...",
             "unknown": "An unknown error has occured..."
         }
