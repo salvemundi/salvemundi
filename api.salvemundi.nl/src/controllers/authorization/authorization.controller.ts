@@ -4,7 +4,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { AuthorizationService } from '../../services/authorization/authorization.service';
 import { RegisterDTO } from '../../dto/authorization/RegisterDTO';
 import { LoginDTO } from '../../dto/authorization/LoginDTO';
-import { User } from '../../entities/user.entity';
+import { User } from '../../entities/core/user.entity';
 import { UserService } from '../../services/user/user.service';
 import * as bcrypt from 'bcrypt';
 import { ApiResponse, ApiTags, ApiOperation, ApiConsumes } from '@nestjs/swagger';

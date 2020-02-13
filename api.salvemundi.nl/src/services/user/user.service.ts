@@ -1,5 +1,5 @@
 import { IUserService } from './iuser.service';
-import { User } from '../../entities/user.entity';
+import { User } from '../../entities/core/user.entity';
 
 export const USER_RELATIONS = ['scopes', 'memberships'];
 

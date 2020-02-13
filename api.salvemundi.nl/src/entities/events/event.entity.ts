@@ -1,6 +1,6 @@
 import { BaseEntity, PrimaryColumn, PrimaryGeneratedColumn, Column, OneToMany, Entity, ManyToOne, ManyToMany } from "typeorm";
-import { User } from "./user.entity";
-import { Committee } from "./committee.entity";
+import { User } from "../core/user.entity";
+import { Committee } from "../core/committee.entity";
 import { EventSignup } from "./eventsignup.entity";
 
 @Entity()

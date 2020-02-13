@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IMemberService } from './imember.service';
-import { User } from '../../entities/user.entity';
-import { Membership } from '../../entities/membership.entity';
+import { User } from '../../entities/core/user.entity';
+import { Membership } from '../../entities/core/membership.entity';
 
 @Injectable()
 export class MemberService implements IMemberService {

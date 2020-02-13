@@ -2,7 +2,7 @@ import { Injectable, CanActivate, ExecutionContext, UnauthorizedException, Res }
 import { Reflector } from '@nestjs/core';
 import { AuthorizationService } from '../services/authorization/authorization.service';
 import { UserService } from '../services/user/user.service';
-import { User } from '../entities/user.entity';
+import { User } from '../entities/core/user.entity';
 
 @Injectable()
 export class AuthorizationGuard implements CanActivate {

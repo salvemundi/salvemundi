@@ -1,6 +1,6 @@
 import { BaseEntity, PrimaryGeneratedColumn, Column, Entity, ManyToMany, JoinTable, OneToMany } from 'typeorm';
 import { Scope } from './scope.entity';
-import { Transaction } from '../entities/transaction.entity';
+import { Transaction } from './transaction.entity';
 import { ApiProperty, getSchemaPath } from '@nestjs/swagger';
 import { Confirmation } from './confirmation.entity';
 import { Membership } from './membership.entity';

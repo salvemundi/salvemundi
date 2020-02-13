@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { User } from '../../entities/user.entity';
-import { Confirmation } from '../../entities/confirmation.entity';
+import { User } from '../../entities/core/user.entity';
+import { Confirmation } from '../../entities/core/confirmation.entity';
 import * as uuidv4 from 'uuid/v4';
 import { IConfirmationService } from './iconfirmation.service';
 

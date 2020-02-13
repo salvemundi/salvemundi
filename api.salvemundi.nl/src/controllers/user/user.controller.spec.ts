@@ -2,7 +2,7 @@ import { Test } from '@nestjs/testing';
 import * as request from 'supertest';
 import { TestModule } from 'src/test.module';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
-import { User } from 'src/entities/user.entity';
+import { User } from 'src/entities/core/user.entity';
 import { SummaryUserDto } from 'src/dto/user/summary-user-dto';
 import { UpdateUserDto } from 'src/dto/user/update-user-dto';
 import randomUser from 'src/services/user/mock.user.service';
