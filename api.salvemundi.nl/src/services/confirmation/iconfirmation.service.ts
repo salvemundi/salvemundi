@@ -1,4 +1,4 @@
-import { Confirmation } from '../../entities/confirmation.entity';
+import { Confirmation } from '../../entities/core/confirmation.entity';
 import { User } from '../../entities/core/user.entity';
 
 export interface IConfirmationService {

@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import language from './lib/modules/language';
-import authentication from './lib/modules/authentication';
-import permission from './lib/modules/permission';
+import language from './lib/language';
+import authentication from './lib/authentication';
+import permission from './lib/permission';
 
 Vue.use(Vuex);
 

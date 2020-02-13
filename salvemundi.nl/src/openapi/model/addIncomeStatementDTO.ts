@@ -11,8 +11,7 @@
  */
 
 
-export interface UpdateCommissionDto { 
-    id: number;
+export interface AddIncomeStatementDTO { 
     name: string;
-    description: string;
+    code: number;
 }
