@@ -1,5 +1,5 @@
 import { ICommitteeService } from './icommittee.service';
-import { Committee } from '../../entities/committee.entity';
+import { Committee } from '../../entities/core/committee.entity';
 
 const randomCommission = new Committee('Random commission', 'Random commission to test this controller', new Date(), 1);
 

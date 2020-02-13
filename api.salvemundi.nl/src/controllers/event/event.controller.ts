@@ -1,11 +1,11 @@
 import { Controller, Post, Body, Get, Put } from "@nestjs/common";
 import { EventService } from "../../services/event/event.service";
 import { Me } from "../../decorators/me.decorator";
-import { User } from "../../entities/user.entity";
+import { User } from "../../entities/core/user.entity";
 import { CreateEventDto } from "../../dto/event/create-event-dto";
-import { Event } from "../../entities/event.entity";
+import { Event } from "../../entities/events/event.entity";
 import EventSignupDto from "../../dto/event/signup-event-dto";
-import { EventSignup } from "../../entities/eventsignup.entity";
+import { EventSignup } from "../../entities/events/eventsignup.entity";
 import UpdateEventDto from "../../dto/event/update-event-dto";
 
 @Controller("/events")

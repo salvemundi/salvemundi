@@ -1,6 +1,6 @@
 import { createParamDecorator, UnauthorizedException, NotFoundException } from "@nestjs/common";
 import { Request } from "express";
-import { User } from "../entities/user.entity";
+import { User } from "../entities/core/user.entity";
 import * as jwt from 'jsonwebtoken';
 import { JWT } from "../services/authorization/authorization.service";
 import randomUser from "../services/user/mock.user.service";

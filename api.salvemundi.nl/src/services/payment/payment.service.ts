@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import createMollieClient, { MollieClient, Payment } from '@mollie/api-client';
-import { User } from '../../entities/user.entity';
-import { Transaction } from '../../entities/transaction.entity';
+import { User } from '../../entities/core/user.entity';
+import { Transaction } from '../../entities/core/transaction.entity';
 import IPurchasable from '../../entities/interface/purchasable.interface';
 import { PaymentStatus } from '../../controllers/payment/paymentstatus.enum';
 

@@ -1,7 +1,7 @@
 import { Controller, Post, Body, Get, Query, NotFoundException, ServiceUnavailableException } from '@nestjs/common';
 import { PaymentService } from '../../services/payment/payment.service';
 import { UserService } from '../../services/user/user.service';
-import { User } from '../../entities/user.entity';
+import { User } from '../../entities/core/user.entity';
 import IPurchasable from '../../entities/interface/purchasable.interface';
 import { membershipPrice, membershipDescription } from '../../../constants';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';

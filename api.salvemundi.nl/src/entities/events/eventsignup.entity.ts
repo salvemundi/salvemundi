@@ -1,7 +1,7 @@
 import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne } from "typeorm";
-import { User } from "./user.entity";
+import { User } from "../core/user.entity";
 import { Event } from "./event.entity";
-import { Transaction } from "./transaction.entity";
+import { Transaction } from "../core/transaction.entity";
 
 @Entity()
 export class EventSignup extends BaseEntity {

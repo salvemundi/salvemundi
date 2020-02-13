@@ -1,4 +1,4 @@
-import { User } from '../../entities/user.entity';
+import { User } from '../../entities/core/user.entity';
 
 export interface IUserService {
     readAll(skip: number, take: number): Promise<User[]>;

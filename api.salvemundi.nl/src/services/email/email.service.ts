@@ -2,8 +2,8 @@ import * as nodemailer from 'nodemailer';
 import * as sendgridTransporter from 'nodemailer-sendgrid-transport';
 import * as hbs from 'nodemailer-express-handlebars';
 import { Injectable } from '@nestjs/common';
-import { User } from '../../entities/user.entity';
-import { Confirmation } from '../../entities/confirmation.entity';
+import { User } from '../../entities/core/user.entity';
+import { Confirmation } from '../../entities/core/confirmation.entity';
 
 @Injectable()
 export class EmailService {
@@ -12,8 +12,8 @@ export class EmailService {
         service: 'SendGrid',
         auth: {
           user: process.env.SENDGRID_USER,
-          pass: process.env.SENDGRID_PASS
-        }
+          pass: process.env.SENDGRID_PASS,
+        },
     };
 
     private hbsOptions = {

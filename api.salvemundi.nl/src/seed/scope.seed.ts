@@ -1,4 +1,4 @@
-import { Scope } from '../entities/scope.entity';
+import { Scope } from '../entities/core/scope.entity';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

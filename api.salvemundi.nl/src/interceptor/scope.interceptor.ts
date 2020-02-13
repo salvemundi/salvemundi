@@ -2,7 +2,7 @@ import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nes
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthorizationService } from '../services/authorization/authorization.service';
-import { User } from '../entities/user.entity';
+import { User } from '../entities/core/user.entity';
 import { UserService } from '../services/user/user.service';
 import { ApiProperty } from '@nestjs/swagger';
 

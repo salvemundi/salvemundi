@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Committee } from '../../entities/committee.entity';
+import { Committee } from '../../entities/core/committee.entity';
 import { ICommitteeService } from './icommittee.service';
 
 @Injectable()

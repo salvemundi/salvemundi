@@ -1,6 +1,6 @@
 import { IConfirmationService } from './iconfirmation.service';
-import { Confirmation } from '../../entities/confirmation.entity';
-import { User } from '../../entities/user.entity';
+import { Confirmation } from '../../entities/core/confirmation.entity';
+import { User } from '../../entities/core/user.entity';
 
 export class MockConfirmationService implements IConfirmationService {
     create(user: User): Promise<Confirmation> {
