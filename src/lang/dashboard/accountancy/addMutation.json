@@ -1,0 +1,42 @@
+{
+    "nl": {
+        "title": "Boekstuk invoeren",
+        "form": {
+            "date": "Datum:",
+            "description": "Omschrijving",
+            "iban": "Iban debiteur",
+            "entry": "Boekstuk nummer",
+            "amount": "Bedrag:",
+            "payment_method": "Betaal methode:",
+            "income_statement": "Winst & verlies rekening:",
+            "action": "Toevoegen",
+            "succes": "Boekstuk succesvol toegevoegd!"
+        },
+        "error": {
+            "api_not_activated": "Het boekhouden is nog niet geactiveerd...",
+            "api_not_activated_link_text": "Klik hier om het te activeren",
+            "form_not_filled_correctly": "Form is not filled in correctly...",
+            "unknown": "Een onbekende error is opgetreden..."
+        }
+    },
+    "en": {
+        "title": "Add mutation",
+        "form": {
+            "date": "Date:",
+            "description": "Description",
+            "iban": "Iban debit",
+            "entry": "Entry reference",
+            "amount": "Amount:",
+            "payment_method": "Payment method:",
+            "income_statement": "income statement:",
+            "action": "Add",
+            "succes": "Mutation added succesfully!"
+        },
+        "error": {
+            "api_not_activated": "The Accountancy is not activated...",
+            "api_not_activated_link_text": "Click here to activate",
+            "form_not_filled_correctly": "Form is not filled in correctly...",
+            "unknown": "An unknown error has occured..."
+        }
+    }
+}

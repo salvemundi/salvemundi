@@ -6,7 +6,6 @@ describe('Salve Mundi Input', () => {
   it('Correctly renders', () => {
     const value = 'value';
     const name = 'name';
-    const autocomplete = 'off';
     const type = 'password';
     const placeholder = 'secret password';
 
@@ -16,7 +15,6 @@ describe('Salve Mundi Input', () => {
         type,
         value,
         name,
-        autocomplete,
       },
     });
 
@@ -26,10 +24,6 @@ describe('Salve Mundi Input', () => {
     // Test name prop
     expect(wrapper.props('name')).toMatch(name);
     expect(wrapper.html()).toContain('name="' + name + '"');
-
-    // Test autocomplete prop
-    expect(wrapper.props('autocomplete')).toMatch(autocomplete);
-    expect(wrapper.html()).toContain('autocomplete="' + autocomplete + '"');
 
     // Test type prop
     expect(wrapper.props('type')).toMatch(type);
