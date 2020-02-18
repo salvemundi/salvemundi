@@ -1,6 +1,3 @@
 export default class EventSignupDto {
-
-    public eventId: number;
-
-
+  public fields: any[][];
 }

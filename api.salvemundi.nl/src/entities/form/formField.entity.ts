@@ -1,20 +1,20 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
-import { EventForm } from "./eventForm.entity";
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Form } from "./form.entity";
 
 @Entity()
-export class EventFormField extends BaseEntity {
+export class FormField extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(type => EventForm, eventForm => eventForm.fields)
-    form: EventForm;
+    @ManyToOne(type => Form, form => form.fields)
+    form: Form;
 
     @Column()
     name: string;
 
     @Column()
-    label: string
+    label: string;
 
     @Column()
     placeholder: string;
