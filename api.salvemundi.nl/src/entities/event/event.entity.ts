@@ -1,17 +1,7 @@
-import {
-  BaseEntity,
-  PrimaryGeneratedColumn,
-  Entity,
-  Column,
-  ManyToOne,
-  ManyToMany,
-  OneToOne,
-  JoinColumn
-} from "typeorm";
-import { User } from "../user.entity";
-import { EventSignup } from "../form/eventFormSignup.entity";
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Committee } from "../committee.entity";
-import { EventForm } from "./eventForm.entity";
+import { User } from "../user.entity";
+import { Form } from "../form/form.entity";
 
 @Entity()
 export class Event extends BaseEntity {
@@ -48,9 +38,9 @@ export class Event extends BaseEntity {
   @Column()
   public active: boolean;
 
-  @OneToOne(type => EventForm)
+  @OneToOne(type => Form)
   @JoinColumn()
-  public form: EventForm;
+  public form: Form;
 
   @ManyToOne(type => User)
   public createdBy: User;

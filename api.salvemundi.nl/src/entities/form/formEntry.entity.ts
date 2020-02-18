@@ -9,7 +9,6 @@ import {
 import { User } from "../user.entity";
 import { Transaction } from "../transaction.entity";
 import { Form } from "./form.entity";
-import { FormField } from "./formField.entity";
 import { FormEntryField } from "./formEntryField.entity";
 
 @Entity()

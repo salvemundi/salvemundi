@@ -1,10 +1,15 @@
-import { BaseEntity, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {
+  BaseEntity,
+  Entity,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn
+} from "typeorm";
 import { FormField } from "./formField.entity";
-import { FormEntry } from "./formSignup.entity";
+import { FormEntry } from "./formEntry.entity";
 
 @Entity()
 export class Form extends BaseEntity {
-
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -16,7 +21,7 @@ export class Form extends BaseEntity {
 
   @ManyToMany(
     type => FormEntry,
-    entry => entry.user
+    entry => entry.form
   )
   public entries: FormEntry[];
 }
