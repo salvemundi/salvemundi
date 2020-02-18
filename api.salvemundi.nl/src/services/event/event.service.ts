@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { IEventService } from "./ievent.service";
 import { Event } from "src/entities/event/event.entity";
-import { EventForm } from "src/entities/event/eventSignupForm.entity";
+import { EventForm } from "src/entities/event/eventForm.entity";
 import CustomFormFieldDto from "src/dto/event/form/custom-form-field-dto";
 import { EventFormField } from "src/entities/event/eventFormField.entity";
 import { eventNames } from "cluster";

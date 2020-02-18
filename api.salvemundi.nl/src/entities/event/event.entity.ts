@@ -1,8 +1,8 @@
 import { BaseEntity, PrimaryGeneratedColumn, Entity, Column, ManyToOne, ManyToMany, OneToOne, JoinColumn } from "typeorm";
 import { User } from "../user.entity";
-import { EventSignup } from "../event/eventSignup.entity";
+import { EventSignup } from "./eventFormSignup.entity";
 import { Committee } from "../committee.entity";
-import { EventForm } from "./eventSignupForm.entity";
+import { EventForm } from "./eventForm.entity";
 
 @Entity()
 export class Event extends BaseEntity {
