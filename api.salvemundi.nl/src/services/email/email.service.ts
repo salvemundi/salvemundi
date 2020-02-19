@@ -59,14 +59,15 @@ export class EmailService {
         return this.sendEmail(mail);
     }
 
-    public sendLaunchEmail(user: User, confirmation: Confirmation): Promise<nodemailer.SentMessageInfo> {
+    public sendRenewalEmail(user: User, confirmation: Confirmation) {
         const mail = {
             from: this.fromEmailAddress,
             to: user.email,
-            subject: 'Het is zover!',
-            template: 'launch-website',
+            subject: 'Je lidmaatschap is verlopen...',
+            template: 'renewal-membership',
             context: {
                 firstName: user.firstName,
+                lastName: user.lastName,
                 baseUrl: process.env.REDIRECT_URL,
                 token: confirmation.token,
             },

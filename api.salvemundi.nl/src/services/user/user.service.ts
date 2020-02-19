@@ -4,7 +4,7 @@ import { User } from '../../entities/core/user.entity';
 export const USER_RELATIONS = ['scopes', 'memberships'];
 
 export class UserService implements IUserService {
-    readAll(skip: number, take: number): Promise<User[]> {
+    readAll(skip?: number, take?: number): Promise<User[]> {
         return User.find({ skip, take, relations: USER_RELATIONS });
     }
 
