@@ -6,6 +6,7 @@ import { FormField } from "src/entities/form/formField.entity";
 import { FormEntry } from "src/entities/form/formEntry.entity";
 import { IEventService } from "./ievent.service";
 import { User } from "src/entities/user.entity";
+import { FormEntryField } from "src/entities/form/formEntryField.entity";
 
 @Injectable()
 export class EventService implements IEventService {
@@ -47,9 +48,43 @@ export class EventService implements IEventService {
     if (user) {
       formEntry.user = user;
     }
-    formEntry.cancelled = false;
-    formEntry.fields
+
+    const errorFields = [];
+    formEntry.fields.map(async field => {
+      const formField: FormField = await this.getFormField(form, field[0]);
+      const value = field[1];
+      const entryField = new FormEntryField();
+      entryField.entry = formEntry;
+      entryField.field = formField;
+
+      if (this.validateField(formField, value)) {
+        entryField.value = value;
+      } else {
+        errorFields.push(field[0]);
+      }
+      return entryField.save();
+    });
+
+    if (errorFields.length !== 0) {
+      throw new Error(`INVALID FIELDS: ${errorFields.join(", ")}`);
+    }
 
     return formEntry.save();
+  }
+
+  public validateField(formField: FormField, value: string): boolean {
+    if (formField.pattern.match(value)) {
+      return true;
+    }
+    return false;
+  }
+
+  public async getFormField(form: Form, name: string): Promise<FormField> {
+    return await FormField.findOne({
+      where: {
+        form,
+        name
+      }
+    });
   }
 }

@@ -1,13 +1,13 @@
 import {
   BaseEntity,
-  Entity,
-  PrimaryGeneratedColumn,
-  ManyToOne,
   Column,
-  OneToMany
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn
 } from "typeorm";
-import { User } from "../user.entity";
 import { Transaction } from "../transaction.entity";
+import { User } from "../user.entity";
 import { Form } from "./form.entity";
 import { FormEntryField } from "./formEntryField.entity";
 

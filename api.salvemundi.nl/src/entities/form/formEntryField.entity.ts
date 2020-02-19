@@ -1,10 +1,10 @@
 import {
   BaseEntity,
-  Entity,
-  PrimaryGeneratedColumn,
-  ManyToOne,
   Column,
-  OneToMany
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn
 } from "typeorm";
 import { FormEntry } from "./formEntry.entity";
 import { FormField } from "./formField.entity";
@@ -24,5 +24,5 @@ export class FormEntryField extends BaseEntity {
   field: FormField;
 
   @Column()
-  public value: any;
+  public value: string;
 }
