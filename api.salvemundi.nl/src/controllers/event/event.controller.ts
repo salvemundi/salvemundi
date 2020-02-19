@@ -38,12 +38,13 @@ export class EventController {
     @Body() eventSignupDto: EventSignupDto,
     @Param("id") eventId: number
   ) {
-    let fields = eventSignupDto.fields;
+    const fields = eventSignupDto.fields;
     const event: Event = await this.eventService.readOne(eventId);
     if (!event.form) {
       // no form found
     }
 
+    //try catch for form validation errors
     let formEntry: FormEntry = await this.eventService.createEntry(
       user,
       event.form,
