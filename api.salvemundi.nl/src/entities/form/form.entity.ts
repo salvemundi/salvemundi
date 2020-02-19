@@ -1,13 +1,13 @@
 import {
   BaseEntity,
+  Column,
   Entity,
   ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn
 } from "typeorm";
-import { FormField } from "./formField.entity";
 import { FormEntry } from "./formEntry.entity";
-import { MailTemplate } from "../mail/mailTemplate.entity";
+import { FormField } from "./formField.entity";
 
 @Entity()
 export class Form extends BaseEntity {
@@ -25,6 +25,4 @@ export class Form extends BaseEntity {
     entry => entry.form
   )
   public entries: FormEntry[];
-
-  public confirmationMail: MailTemplate;
 }

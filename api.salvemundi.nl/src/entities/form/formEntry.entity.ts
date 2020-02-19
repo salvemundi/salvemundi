@@ -19,6 +19,9 @@ export class FormEntry extends BaseEntity {
   @ManyToOne(type => User, { nullable: true })
   public user?: User;
 
+  @Column({ nullable: true })
+  public email: string;
+
   @ManyToOne(type => Form)
   public form: Form;
 

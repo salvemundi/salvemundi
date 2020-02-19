@@ -1,13 +1,11 @@
 import { Injectable } from "@nestjs/common";
-import CustomFormFieldDto from "src/dto/form/custom-form-field-dto";
+import { CreateFormDto } from "src/dto/form/create-form.dto";
 import { Form } from "src/entities/form/form.entity";
-import { FormField } from "src/entities/form/formField.entity";
-import { User } from "src/entities/user.entity";
 import { FormEntry } from "src/entities/form/formEntry.entity";
 import { FormEntryField } from "src/entities/form/formEntryField.entity";
-import { CreateFormDto } from "src/dto/form/create-form.dto";
+import { FormField } from "src/entities/form/formField.entity";
+import { User } from "src/entities/user.entity";
 import { EmailService } from "../email/email.service";
-import { MailTemplate } from "src/entities/mail/mailTemplate.entity";
 
 @Injectable()
 export class FormService {
@@ -67,31 +65,8 @@ export class FormService {
     return formEntry;
   }
 
-  public async completeEntry(formEntry: FormEntry) {
-    await formEntry.save();
-    let mailTemplate = await this.getConfirmationMail(formEntry.form);
-    const mailVariables: string[] = mailTemplate.variables.map(
-      mailVariable => mailVariable.name
-    );
-    const formFields = formEntry.fields;
-    let variables: any[] = [];
-
-    formFields.forEach(formEntryField => {
-      if (mailVariables.includes(formEntryField.field.name)) {
-        variables.push({
-          name: formEntryField.field.name,
-          replacement: formEntryField.value
-        });
-      }
-    });
-
-    if (formEntry.user) {
-      // send mail
-    }
-  }
-
-  public async getConfirmationMail(form: Form): Promise<MailTemplate> {
-    return null;
+  public async completeEntry(formEntry: FormEntry): Promise<FormEntry> {
+    return await formEntry.save();
   }
 
   public validateField(formField: FormField, value: string): boolean {
@@ -117,8 +92,6 @@ export class FormService {
       }
     });
   }
-
-  public async mailEntries(mailTemplate: MailTemplate, formField: FormField) {}
 
   /*
   create payment links

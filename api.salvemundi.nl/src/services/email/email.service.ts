@@ -1,10 +1,8 @@
-import * as nodemailer from "nodemailer";
-import * as sendgridTransporter from "nodemailer-sendgrid-transport";
-import * as hbs from "nodemailer-express-handlebars";
 import { Injectable } from "@nestjs/common";
-import { User } from "../../entities/user.entity";
+import * as nodemailer from "nodemailer";
+import * as hbs from "nodemailer-express-handlebars";
 import { Confirmation } from "../../entities/confirmation.entity";
-import { MailTemplate } from "src/entities/mail/mailTemplate.entity";
+import { User } from "../../entities/user.entity";
 
 @Injectable()
 export class EmailService {
@@ -79,6 +77,24 @@ export class EmailService {
         baseUrl: process.env.REDIRECT_URL,
         token: confirmation.token
       }
+    };
+
+    return this.sendEmail(mail);
+  }
+
+  public sendEventMail(
+    subject: string,
+    email: string,
+    context: any,
+    information: string
+  ): Promise<nodemailer.SentMessageInfo> {
+    context.information = information;
+    const mail = {
+      from: this.fromEmailAddress,
+      to: email,
+      subject,
+      template: "event-signup",
+      context
     };
 
     return this.sendEmail(mail);

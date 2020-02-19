@@ -48,13 +48,14 @@ export class EventController {
       // no form found
     }
 
-    //try catch for form validation errors
+    // try catch for form validation errors
     let formEntry: FormEntry = await this.formService.createEntry(
       user,
       event.form,
       fields
     );
 
-    this.formService.saveEntry(formEntry);
+    formEntry = await this.formService.completeEntry(formEntry);
+    this.eventService.completeEventSignup(event, formEntry);
   }
 }

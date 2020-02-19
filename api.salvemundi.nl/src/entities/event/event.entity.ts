@@ -1,7 +1,15 @@
-import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToOne,
+  PrimaryGeneratedColumn
+} from "typeorm";
 import { Committee } from "../committee.entity";
-import { User } from "../user.entity";
 import { Form } from "../form/form.entity";
+import { User } from "../user.entity";
 
 @Entity()
 export class Event extends BaseEntity {
@@ -47,4 +55,7 @@ export class Event extends BaseEntity {
 
   @ManyToOne(type => Committee)
   public committee: Committee;
+
+  @Column()
+  public extraMailInformation: string;
 }
