@@ -1,10 +1,10 @@
 import { Injectable } from "@nestjs/common";
-import { CreateFormDto } from "src/dto/form/create-form.dto";
-import { Form } from "src/entities/form/form.entity";
-import { FormEntry } from "src/entities/form/formEntry.entity";
-import { FormEntryField } from "src/entities/form/formEntryField.entity";
-import { FormField } from "src/entities/form/formField.entity";
-import { User } from "src/entities/user.entity";
+import { CreateFormDto } from "../../dto/form/create-form.dto";
+import { Form } from "../../entities/form/form.entity";
+import { FormEntry } from "../../entities/form/formEntry.entity";
+import { FormEntryField } from "../../entities/form/formEntryField.entity";
+import { FormField } from "../../entities/form/formField.entity";
+import { User } from "../../entities/user.entity";
 import { EmailService } from "../email/email.service";
 
 @Injectable()

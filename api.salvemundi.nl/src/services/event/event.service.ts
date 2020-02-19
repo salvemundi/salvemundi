@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { Event } from "src/entities/event/event.entity";
-import { FormEntry } from "src/entities/form/formEntry.entity";
+import { Event } from "../../entities/event/event.entity";
+import { FormEntry } from "../../entities/form/formEntry.entity";
 import { EmailService } from "../email/email.service";
 
 @Injectable()
