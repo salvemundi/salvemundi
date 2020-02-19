@@ -19,6 +19,7 @@ export class RenewalJop extends NestSchedule {
 
     @Cron('*/1 * * * *')
     async handleJop() {
+        console.log('yoyo')
         const plusOneMonth = new Date();
         plusOneMonth.setMonth(plusOneMonth.getMonth() + 1);
 
@@ -31,9 +32,9 @@ export class RenewalJop extends NestSchedule {
                 // Check if email is valid
                 this.validateEmail(user.email)) {
 
-                    const membership = user.memberships.find(x => x.endDate === Math.max.apply(null, dates));
+                    const membership = user.memberships.find(x => x.endDate.getTime() === Math.max.apply(null, dates));
                     // Check if reminder has never been sent or if reminder has been sent 1 month or longer before
-                    if (membership.reminderRenewal >= plusOneMonth) {
+                    if (!membership.reminderRenewal || membership.reminderRenewal >= plusOneMonth) {
 
                         const confirmation = await this.confirmationService.create(user);
                         await this.emailService.sendRenewalEmail(user, confirmation);
