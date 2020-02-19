@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { Event } from "src/entities/event/event.entity";
 
 @Injectable()
-export class EventService  {
+export class EventService {
   create(event: Event): Promise<Event> {
     return event.save();
   }

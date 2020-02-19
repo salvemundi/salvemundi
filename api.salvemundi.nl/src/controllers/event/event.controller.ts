@@ -31,7 +31,7 @@ export class EventController {
     event.memberPrice = eventDto.memberPrice;
     event.notMemberPrice = eventDto.notMemberPrice;
     event.active = eventDto.active;
-    event.form = this.formService.createForm(eventDto.fields);
+    event.form = this.formService.createForm(eventDto.form);
 
     return this.eventService.create(event);
   }
@@ -54,5 +54,7 @@ export class EventController {
       event.form,
       fields
     );
+
+    this.formService.saveEntry(formEntry);
   }
 }
