@@ -6,10 +6,14 @@ import { User } from "../../entities/user.entity";
 import { EventService } from "../../services/event/event.service";
 import EventSignupDto from "src/dto/event/signup-event-dto";
 import { FormEntry } from "src/entities/form/formEntry.entity";
+import { FormService } from "src/services/form/form.service";
 
 @Controller("/events")
 export class EventController {
-  constructor(private readonly eventService: EventService) {}
+  constructor(
+    private readonly eventService: EventService,
+    private readonly formService: FormService
+  ) {}
 
   @Post("create")
   async createEvent(
@@ -27,7 +31,7 @@ export class EventController {
     event.memberPrice = eventDto.memberPrice;
     event.notMemberPrice = eventDto.notMemberPrice;
     event.active = eventDto.active;
-    event.form = this.eventService.createForm(eventDto.fields);
+    event.form = this.formService.createForm(eventDto.fields);
 
     return this.eventService.create(event);
   }
@@ -45,7 +49,7 @@ export class EventController {
     }
 
     //try catch for form validation errors
-    let formEntry: FormEntry = await this.eventService.createEntry(
+    let formEntry: FormEntry = await this.formService.createEntry(
       user,
       event.form,
       fields
