@@ -19,6 +19,7 @@ export class RenewalJop extends NestSchedule {
 
     @Cron('*/1 * * * *')
     async handleJop() {
+        console.log('Ey fakka')
         const plusOneMonth = new Date();
         plusOneMonth.setMonth(plusOneMonth.getMonth() + 1);
 
