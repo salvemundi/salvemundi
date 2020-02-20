@@ -1,6 +1,7 @@
 import { User } from '../../entities/core/user.entity';
 import { IUserService } from './iuser.service';
 import { Scope } from '../../entities/core/scope.entity';
+import { BaseEntity, Entity } from 'typeorm';
 
 const randomUser: User = new User();
 randomUser.id = 1;
@@ -43,22 +44,15 @@ export class MockUserService implements IUserService {
         });
     }
 
-    create(user: User): Promise<User> {
-        return new Promise<User>((resolve) => {
-            user.id = 2;
-            resolve(user);
+    delete<T extends BaseEntity>(entity: T): Promise<T> {
+        return new Promise<T>((resolve) => {
+            resolve(entity);
         });
     }
 
-    update(user: User): Promise<User> {
-        return new Promise<User>((resolve) => {
-            resolve(user);
-        });
-    }
-
-    delete(user: User): Promise<User> {
-        return new Promise<User>((resolve) => {
-            resolve(user);
+    save<T extends BaseEntity>(entity: T): Promise<T> {
+        return new Promise<T>((resolve) => {
+            resolve(entity);
         });
     }
 
