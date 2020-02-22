@@ -24,7 +24,7 @@ export class RenewalJop extends NestSchedule {
         minusOneMonth.setMonth(minusOneMonth.getMonth() - 1);
 
         const minusThreeMonth = new Date();
-        minusThreeMonth.setMonth(minusThreeMonth.getMonth() + 3);
+        minusThreeMonth.setMonth(minusThreeMonth.getMonth() - 3);
 
         for (const user of await this.userService.readAll()) {
             const dates = user.memberships.map(x => x.endDate);
