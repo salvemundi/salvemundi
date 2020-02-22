@@ -1,9 +1,9 @@
-import { Controller, Post, Body, Get, Query, NotFoundException, ServiceUnavailableException } from '@nestjs/common';
+import { Controller, Get, Query, NotFoundException, ServiceUnavailableException } from '@nestjs/common';
 import { PaymentService } from '../../services/payment/payment.service';
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../entities/core/user.entity';
 import IPurchasable from '../../entities/interface/purchasable.interface';
-import { membershipPrice, membershipDescription } from '../../../constants';
+import { membershipPrice, membershipDescription, membershipRenewalDescription } from '../../../constants';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { Payment } from '@mollie/api-client';
 import { PaymentDTO } from '../../dto/payment/paymentDTO';
@@ -57,7 +57,7 @@ export class PaymentController {
     private async getMembershipPayment(user: User, redirect: string, webhook: string) {
         const membership: IPurchasable = {
             price: membershipPrice,
-            description: membershipDescription,
+            description: redirect === 'renew' ? membershipRenewalDescription : membershipDescription,
         };
 
         const payment: Payment = await this.paymentService.createPayment(user, membership, redirect, webhook);

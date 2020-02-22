@@ -17,7 +17,7 @@ export class RenewalJop extends NestSchedule {
         super();
     }
 
-    @Cron('*/1 * * * *')
+    @Cron('59 59 23 * * *')
     async handleJop() {
         const minusOneMonth = new Date();
         minusOneMonth.setMonth(minusOneMonth.getMonth() - 1);
