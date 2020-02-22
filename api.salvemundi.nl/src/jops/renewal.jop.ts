@@ -36,9 +36,9 @@ export class RenewalJop extends NestSchedule {
 
                     const membership = user.memberships.find(x => x.endDate.getTime() === Math.max.apply(null, dates));
                     // Check if reminder has never been sent or if reminder has been sent 1 month or longer before
-                    if (!membership.reminderRenewal || membership.reminderRenewal >= plusOneMonth) {
+                    if (!membership.reminderRenewal || membership.reminderRenewal.getTime() >= plusOneMonth.getTime()) {
 
-                        if (membership.endDate >= plusThreeMonth) {
+                        if (membership.endDate.getTime() >= plusThreeMonth.getTime()) {
                             user.activated = false;
                             this.userService.save(user);
                             continue;
