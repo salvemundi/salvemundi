@@ -48,10 +48,6 @@ export default new Router({
       path: '*',
       redirect: '/error/404',
     },
-    {
-      path: '/renew',
-      component: Renewal,
-    },
     ...withPrefix('/home', [
       {
         name: 'index',
@@ -81,6 +77,10 @@ export default new Router({
       {
         path: '/me',
         component: Me,
+      },
+      {
+        path: '/renew',
+        component: Renewal,
       },
     ]),
     ...withPrefix('/dashboard', [
