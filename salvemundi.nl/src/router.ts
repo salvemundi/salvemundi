@@ -5,6 +5,7 @@ import NotFound from './views/error/notFound.vue';
 import Forbidden from './views/error/forbidden.vue';
 import PreLogon from './views/home/preLogon.vue';
 import Register from './views/home/register.vue';
+import Renewal from './views/home/renewal.vue';
 import Login from './views/home/login.vue';
 import MemberOverview from './views/dashboard/member/overview.vue';
 import MemberDetails from './views/dashboard/member/details.vue';
@@ -46,6 +47,10 @@ export default new Router({
     {
       path: '*',
       redirect: '/error/404',
+    },
+    {
+      path: '/renew',
+      component: Renewal,
     },
     ...withPrefix('/home', [
       {
