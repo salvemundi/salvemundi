@@ -50,6 +50,7 @@ export class PaymentController {
             throw new NotFoundException('Token is invalid...');
         }
 
+        this.confirmationService.delete(confirmation);
         return this.getMembershipPayment(confirmation.user, 'renew', 'membership-renewal');
     }
 
