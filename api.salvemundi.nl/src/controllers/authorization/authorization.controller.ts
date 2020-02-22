@@ -132,7 +132,7 @@ export class AuthorizationController {
         user.activated = true;
 
         await this.userService.save(user);
-        await confirmation.remove();
+        await this.confirmationService.delete(confirmation);
 
         res.cookie('auth', await this.authorizationService.genJWT(user.id, user.email), process.env.env !== 'Testing' ? { domain: '.salvemundi.nl' } : {});
         res.status(200).send(user);

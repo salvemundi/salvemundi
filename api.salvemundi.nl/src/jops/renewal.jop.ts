@@ -20,11 +20,11 @@ export class RenewalJop extends NestSchedule {
     @Cron('*/1 * * * *')
     async handleJop() {
         console.log('Ey fakka')
-        const plusOneMonth = new Date();
-        plusOneMonth.setMonth(plusOneMonth.getMonth() + 1);
+        const minusOneMonth = new Date();
+        minusOneMonth.setMonth(minusOneMonth.getMonth() - 1);
 
-        const plusThreeMonth = new Date();
-        plusThreeMonth.setMonth(plusThreeMonth.getMonth() + 3);
+        const minusThreeMonth = new Date();
+        minusThreeMonth.setMonth(minusThreeMonth.getMonth() + 3);
 
         for (const user of await this.userService.readAll()) {
             const dates = user.memberships.map(x => x.endDate);
@@ -36,9 +36,9 @@ export class RenewalJop extends NestSchedule {
 
                     const membership = user.memberships.find(x => x.endDate.getTime() === Math.max.apply(null, dates));
                     // Check if reminder has never been sent or if reminder has been sent 1 month or longer before
-                    if (!membership.reminderRenewal || membership.reminderRenewal.getTime() >= plusOneMonth.getTime()) {
+                    if (!membership.reminderRenewal || membership.reminderRenewal.getTime() < minusOneMonth.getTime()) {
 
-                        if (membership.endDate.getTime() >= plusThreeMonth.getTime()) {
+                        if (membership.endDate.getTime() < minusThreeMonth.getTime()) {
                             user.activated = false;
                             this.userService.save(user);
                             continue;
