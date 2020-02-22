@@ -7,7 +7,7 @@ import * as jwt from 'jsonwebtoken';
 @Injectable()
 export class AuthorizationService implements IAuthorizationService {
     public async validateUser(email: string, pass: string): Promise<User> {
-        const user: User = await User.findOne({where: {email}, select: ['password']});
+        const user: User = await User.findOne({where: { email, activated: true }, select: ['password']});
         if (user && await this.checkPassword(pass, user)) {
             return await User.findOne({where: { email }});
         }
