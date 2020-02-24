@@ -9,6 +9,7 @@ export class Membership extends BaseEntity {
         super();
         this.startDate = start;
         this.endDate = end;
+        this.reminderRenewal = null;
         this.id = id;
     }
 
@@ -23,6 +24,10 @@ export class Membership extends BaseEntity {
     @ApiProperty({type: String, format: 'date'})
     @Column()
     public endDate: Date;
+
+    @ApiProperty({type: String, format: 'date', required: false})
+    @Column({nullable: true})
+    public reminderRenewal: Date;
 
     @ManyToOne(() => User, user => user.memberships, { onDelete: 'CASCADE' })
     public user: User;

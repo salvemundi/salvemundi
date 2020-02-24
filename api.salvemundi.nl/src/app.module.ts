@@ -22,6 +22,7 @@ import { AccountancyJop } from './jops/accountancy.jop';
 import { ScheduleModule } from 'nest-schedule';
 import { AccountancyController } from './controllers/accountancy/accountancy.controller';
 import { AccountancyService } from './services/accountancy/accountancy.service';
+import { RenewalJop } from './jops/renewal.jop';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { AccountancyService } from './services/accountancy/accountancy.service';
       useClass: ScopeInterceptor,
     },
     AccountancyJop,
+    RenewalJop,
     CommitteeService,
     MemberService,
     UserService,

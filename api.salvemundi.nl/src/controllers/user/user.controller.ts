@@ -148,7 +148,7 @@ export class UserController {
         user.phoneNumber = body.phoneNumber;
         user.email = body.email;
 
-        return await this.userService.update(user);
+        return await this.userService.save(user);
     }
 
     @Delete('/:id')

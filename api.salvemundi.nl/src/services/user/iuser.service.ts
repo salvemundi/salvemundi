@@ -1,11 +1,11 @@
 import { User } from '../../entities/core/user.entity';
+import { BaseEntity } from 'typeorm';
 
 export interface IUserService {
-    readAll(skip: number, take: number): Promise<User[]>;
+    readAll(skip?: number, take?: number): Promise<User[]>;
     readOne(id: number | string): Promise<User>;
-    create(user: User): Promise<User>;
-    update(user: User): Promise<User>;
-    delete(user: User): Promise<User>;
+    delete<T extends BaseEntity>(user: T): Promise<T>;
+    save<T extends BaseEntity>(user: T): Promise<T>;
 
     exists(email: string): Promise<boolean>;
 }
