@@ -1,4 +1,3 @@
-import CustomFormFieldDto from "../form/custom-form-field-dto";
 import { CreateFormDto } from "../form/create-form.dto";
 
 export class CreateEventDto {
