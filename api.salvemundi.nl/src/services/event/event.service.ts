@@ -28,17 +28,18 @@ export class EventService {
     });
   }
 
-  async completeEventSignup(user: User, event: Event, formEntry: FormEntry) {
-    const email = formEntry.email || formEntry.email;
-    if (email && email.match('[^@]+@[^\.]+\..+')) {
-      const form = this.formService.getAnswers(formEntry);
+  async completeEventSignup(email: string, event: Event, formEntry: FormEntry) {
+    if ((email && email.match("[^@]+@[^.]+..+")) || true) {
+      const formValues = this.formService.getAnswers(formEntry);
       // HOW TO USE: In de text kan je verwijzen naar data in het user object of event object. Om de data uit een user object te verkrijgen, doe je: {{user.DATA}} en voor de event data doe je: {{event.DATA}}
-      await this.mailService.sendEventMail(
+      const result = await this.mailService.sendEventMail(
         `Inschrijving ${event.title} van Salve Mundi`,
         email,
-        { user, event, form },
+        { email, event, form: formValues },
         event.extraMailInformation
       );
+
+      console.log(result);
     }
     return;
   }

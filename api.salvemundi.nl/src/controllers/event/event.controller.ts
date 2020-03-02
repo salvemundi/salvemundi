@@ -91,6 +91,6 @@ export class EventController {
       fields
     );
 
-    this.eventService.completeEventSignup(null, event, formEntry);
+    this.eventService.completeEventSignup("ik@niekvangogh.nl", event, formEntry);
   }
 }

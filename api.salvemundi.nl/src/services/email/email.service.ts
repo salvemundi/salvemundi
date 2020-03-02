@@ -97,6 +97,8 @@ export class EmailService {
       context
     };
 
+    console.log(mail);
+
     return this.sendEmail(mail);
   }
 
