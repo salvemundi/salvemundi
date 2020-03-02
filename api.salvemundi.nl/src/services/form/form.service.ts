@@ -6,6 +6,7 @@ import { FormEntryField } from "../../entities/form/formEntryField.entity";
 import { FormField } from "../../entities/form/formField.entity";
 import { User } from "../../entities/user.entity";
 import { EmailService } from "../email/email.service";
+import { BaseEntity } from 'typeorm';
 
 @Injectable()
 export class FormService {
@@ -30,11 +31,7 @@ export class FormService {
     return form;
   }
 
-  async createEntry(
-    user: User,
-    form: Form,
-    fields: any[][]
-  ): Promise<FormEntry> {
+  async createEntry(user: User, form: Form, fields: any[][]): Promise<FormEntry> {
     const formEntry: FormEntry = new FormEntry();
     formEntry.form = form;
     if (user) {
@@ -65,10 +62,6 @@ export class FormService {
     return formEntry;
   }
 
-  public async completeEntry(formEntry: FormEntry): Promise<FormEntry> {
-    return await formEntry.save();
-  }
-
   public validateField(formField: FormField, value: string): boolean {
     if (formField.pattern.match(value)) {
       return true;
@@ -91,6 +84,10 @@ export class FormService {
         form
       }
     });
+  }
+
+  public save<T extends BaseEntity>(entity: T): Promise<T> {
+    return entity.save();
   }
 
   /*

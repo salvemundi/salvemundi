@@ -9,7 +9,7 @@
   },
   "rules": {
     "trailing-comma": false,
-    "quotemark": [true, "double"],
+    "quotemark": [true, "single"],
     "member-access": [false],
     "ordered-imports": [false],
     "max-line-length": [false, 150],
