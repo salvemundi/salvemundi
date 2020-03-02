@@ -14,7 +14,7 @@ export class FormEntryField extends BaseEntity {
   @PrimaryGeneratedColumn()
   public id: number;
 
-  @OneToMany(
+  @ManyToOne(
     type => FormEntry,
     formEntry => formEntry.fields
   )

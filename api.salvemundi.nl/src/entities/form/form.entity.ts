@@ -18,6 +18,9 @@ export class Form extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({ default: true })
+  requireEmail: boolean;
+
   @OneToOne(type => Event)
   public event: Event;
 

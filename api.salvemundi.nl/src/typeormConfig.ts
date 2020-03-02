@@ -14,7 +14,7 @@ export = {
   database: process.env.DB_NAME,
   synchronize: true,
   migrationsRun: false,
-  logging: true,
+  logging: false,
   cli: {
     migrationsDir: "src/migrations",
     entitiesDir: "scr/entities"

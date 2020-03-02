@@ -19,6 +19,7 @@ import Vue from "vue"; import { Component } from "vue-property-decorator";
                   :type="field.type"
                   :required="field.required"
                   :pattern="field.pattern"
+                  v-model="field.value"
                 ></b-form-input>
               </b-form-group>
               <b-button type="submit" variant="samu">Inschrijven</b-button>
@@ -37,20 +38,31 @@ import openApiContainer from "../../openApiContainer";
 @Component({})
 export default class FormSignup extends Vue {
   private form: any = {};
-  private formId: number = +this.$route.params.id;
+  private formId: number;
 
   private eventService: EventService = openApiContainer.get<EventService>(
     "EventService"
   );
 
   private mounted() {
+    this.formId = +this.$route.params.id;
+
     this.eventService.getForm(this.formId).subscribe((res: any) => {
       this.form = res.data;
     });
   }
 
   private submit(e) {
-    this.eventService.signup(this.formId, {});
+    const fields = [];
+    this.form.fields.forEach(field => {
+      console.log(field);
+      fields.push({
+        name: field.name,
+        value: field.value
+      });
+    });
+
+    this.eventService.signup(this.formId, { fields });
   }
 }
 

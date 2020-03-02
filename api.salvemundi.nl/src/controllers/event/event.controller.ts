@@ -1,23 +1,23 @@
 import {
   Body,
   Controller,
-  Post,
-  Param,
+  Get,
   NotFoundException,
-  Get
+  Param,
+  Post
 } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 import { Me } from "../../decorators/me.decorator";
 import { CreateEventDto } from "../../dto/event/create-event-dto";
+import { EventDto } from "../../dto/event/event-dto";
+import EventSignupDto from "../../dto/event/signup-event-dto";
+import { FormDto } from "../../dto/form/form-dto";
+import { Event } from "../../entities/event/event.entity";
+import { Form } from "../../entities/form/form.entity";
+import { FormEntry } from "../../entities/form/formEntry.entity";
 import { User } from "../../entities/user.entity";
 import { EventService } from "../../services/event/event.service";
-import EventSignupDto from "../../dto/event/signup-event-dto";
-import { FormEntry } from "../../entities/form/formEntry.entity";
 import { FormService } from "../../services/form/form.service";
-import { Event } from "../../entities/event/event.entity";
-import { ApiTags } from "@nestjs/swagger";
-import { EventDto } from "../../dto/event/event-dto";
-import { FormDto } from "../../dto/form/form-dto";
-import { Form } from "../../entities/form/form.entity";
 
 @Controller("/events")
 @ApiTags("Event")
@@ -86,12 +86,11 @@ export class EventController {
     }
 
     // try catch for form validation errors
-    const formEntry: FormEntry = await this.formService.createEntry(
-      null, // TODO
+    let formEntry: FormEntry = await this.formService.createEntry(
       event.form,
       fields
     );
-    await this.formService.save(formEntry);
+
     this.eventService.completeEventSignup(null, event, formEntry);
   }
 }

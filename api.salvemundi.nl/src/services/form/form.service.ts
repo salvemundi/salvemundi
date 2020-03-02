@@ -1,11 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { BaseEntity } from "typeorm";
 import { CreateFormDto } from "../../dto/form/create-form.dto";
 import { Form } from "../../entities/form/form.entity";
 import { FormEntry } from "../../entities/form/formEntry.entity";
 import { FormEntryField } from "../../entities/form/formEntryField.entity";
 import { FormField } from "../../entities/form/formField.entity";
-import { User } from "../../entities/user.entity";
 import { EmailService } from "../email/email.service";
 
 @Injectable()
@@ -31,42 +29,37 @@ export class FormService {
     return form;
   }
 
-  async createEntry(
-    user: User,
-    form: Form,
-    fields: any[][]
-  ): Promise<FormEntry> {
-    const formEntry: FormEntry = new FormEntry();
+  async createEntry(form: Form, fields: any): Promise<FormEntry> {
+    let formEntry: FormEntry = new FormEntry();
     formEntry.form = form;
-    if (user) {
-      formEntry.user = user;
-    }
+    formEntry.fields = [];
+    formEntry = await formEntry.save();
 
-    const errorFields = [];
-    formEntry.fields = await Promise.all(
-      fields.map(async field => {
-        const formField: FormField = await this.getFormField(form, field[0]);
-        const value = field[1];
-        const entryField = new FormEntryField();
-        entryField.entry = formEntry;
-        entryField.field = formField;
-        if (this.validateField(formField, value)) {
-          entryField.value = value;
-        } else {
-          errorFields.push(field[0]);
-        }
-        return entryField.save();
-      })
-    );
+    await fields.forEach(async field => {
+      const formField: FormField = await this.getFormField(form, field.name);
 
-    if (errorFields.length !== 0) {
-      throw new Error(`INVALID FIELDS: ${errorFields.join(", ")}`);
-    }
+      const value = field.value;
+      const entryField = new FormEntryField();
 
-    return formEntry;
+      entryField.entry = formEntry;
+      entryField.field = formField;
+      entryField.value = value;
+
+      if (this.validateField(formField, value)) {
+        formEntry.fields.push(entryField);
+        entryField.save();
+      } else {
+        throw new Error("RIP");
+      }
+    });
+
+    return formEntry.save();
   }
 
   public validateField(formField: FormField, value: string): boolean {
+    if(!formField.pattern) {
+      return true;
+    }
     if (formField.pattern.match(value)) {
       return true;
     }
@@ -90,8 +83,8 @@ export class FormService {
     });
   }
 
-  public save<T extends BaseEntity>(entity: T): Promise<T> {
-    return entity.save();
+  public save(form: Form): Promise<Form> {
+    return form.save();
   }
 
   public async readOne(id: number): Promise<Form> {
@@ -106,7 +99,7 @@ export class FormService {
   create custom mail
   */
 
-  public serializeFields(fields: FormField[]): any[][] {
+  public serializeFields(fields: FormField[]): any {
     const result = [];
     fields.forEach(formField => {
       result.push({
@@ -119,6 +112,14 @@ export class FormService {
         requried: formField.required,
         type: formField.type
       });
+    });
+    return result;
+  }
+
+  public getAnswers(formEntry: FormEntry): any {
+    const result = {};
+    formEntry.fields.forEach(field => {
+      result[field.field.name] = field.value;
     });
     return result;
   }
