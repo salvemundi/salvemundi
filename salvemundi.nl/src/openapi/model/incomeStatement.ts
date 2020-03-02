@@ -11,9 +11,8 @@
  */
 
 
-export interface Committee { 
+export interface IncomeStatement { 
     id: number;
     name: string;
-    description: string;
-    created: string;
+    code: number;
 }

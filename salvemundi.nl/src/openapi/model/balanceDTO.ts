@@ -11,9 +11,12 @@
  */
 
 
-export interface Committee { 
+export interface BalanceDTO { 
     id: number;
+    code?: number;
     name: string;
-    description: string;
-    created: string;
+    liabilities?: number;
+    assets?: number;
+    startAssets: number;
+    startLiabilities: number;
 }

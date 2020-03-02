@@ -11,9 +11,10 @@
  */
 
 
-export interface Committee { 
+export interface NotImportedMutationDTO { 
     id: number;
-    name: string;
     description: string;
-    created: string;
+    date: string;
+    amount: number;
+    debtorIban: string;
 }

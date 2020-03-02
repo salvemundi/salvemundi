@@ -11,9 +11,10 @@
  */
 
 
-export interface Committee { 
+export interface PaymentMethod { 
     id: number;
     name: string;
-    description: string;
-    created: string;
+    code: number;
+    startAssets: number;
+    startLiabilities: number;
 }

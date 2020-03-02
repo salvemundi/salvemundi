@@ -1,4 +1,5 @@
 import { Injectable } from "@nestjs/common";
+import { BaseEntity } from "typeorm";
 import { CreateFormDto } from "../../dto/form/create-form.dto";
 import { Form } from "../../entities/form/form.entity";
 import { FormEntry } from "../../entities/form/formEntry.entity";
@@ -6,7 +7,6 @@ import { FormEntryField } from "../../entities/form/formEntryField.entity";
 import { FormField } from "../../entities/form/formField.entity";
 import { User } from "../../entities/user.entity";
 import { EmailService } from "../email/email.service";
-import { BaseEntity } from 'typeorm';
 
 @Injectable()
 export class FormService {
@@ -31,7 +31,11 @@ export class FormService {
     return form;
   }
 
-  async createEntry(user: User, form: Form, fields: any[][]): Promise<FormEntry> {
+  async createEntry(
+    user: User,
+    form: Form,
+    fields: any[][]
+  ): Promise<FormEntry> {
     const formEntry: FormEntry = new FormEntry();
     formEntry.form = form;
     if (user) {
@@ -90,8 +94,32 @@ export class FormService {
     return entity.save();
   }
 
+  public async readOne(id: number): Promise<Form> {
+    return Form.findOne({
+      where: {
+        id
+      }
+    });
+  }
   /*
   create payment links
   create custom mail
   */
+
+  public serializeFields(fields: FormField[]): any[][] {
+    const result = [];
+    fields.forEach(formField => {
+      result.push({
+        name: formField.name,
+        description: formField.description,
+        autocomplete: formField.autocomplete,
+        label: formField.label,
+        pattern: formField.pattern,
+        placeholder: formField.placeholder,
+        requried: formField.required,
+        type: formField.type
+      });
+    });
+    return result;
+  }
 }

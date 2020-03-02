@@ -11,9 +11,12 @@
  */
 
 
-export interface Committee { 
-    id: number;
-    name: string;
+export interface AddMutationDTO { 
     description: string;
-    created: string;
+    entryReference?: number;
+    date: string;
+    amount: number;
+    debtorIban: string;
+    paymentMethodId: number;
+    incomeStatementId: number;
 }

@@ -11,9 +11,9 @@
  */
 
 
-export interface Committee { 
-    id: number;
+export interface AddBalanceDTO { 
     name: string;
-    description: string;
-    created: string;
+    code: number;
+    startAssets: number;
+    startLiabilities: number;
 }

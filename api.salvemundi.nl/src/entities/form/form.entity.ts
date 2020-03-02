@@ -4,19 +4,29 @@ import {
   Entity,
   ManyToMany,
   OneToMany,
-  PrimaryGeneratedColumn
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToOne
 } from "typeorm";
 import { FormEntry } from "./formEntry.entity";
 import { FormField } from "./formField.entity";
+import { ApiProperty } from "@nestjs/swagger";
+import { Event } from "../event/event.entity";
 
 @Entity()
 export class Form extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @OneToOne(type => Event)
+  public event: Event;
+
   @OneToMany(
     type => FormField,
-    field => field.form
+    field => field.form,
+    {
+      eager: true
+    }
   )
   fields: FormField[];
 

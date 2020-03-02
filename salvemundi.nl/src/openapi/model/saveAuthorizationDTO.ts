@@ -11,9 +11,6 @@
  */
 
 
-export interface Committee { 
-    id: number;
-    name: string;
-    description: string;
-    created: string;
+export interface SaveAuthorizationDTO { 
+    code: string;
 }

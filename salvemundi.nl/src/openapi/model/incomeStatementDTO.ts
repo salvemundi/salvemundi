@@ -11,9 +11,10 @@
  */
 
 
-export interface Committee { 
+export interface IncomeStatementDTO { 
     id: number;
     name: string;
-    description: string;
-    created: string;
+    code?: number;
+    profit?: number;
+    lost?: number;
 }

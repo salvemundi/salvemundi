@@ -10,6 +10,7 @@ import {
 import { Committee } from "../committee.entity";
 import { Form } from "../form/form.entity";
 import { User } from "../user.entity";
+import { ApiProperty } from "@nestjs/swagger";
 
 @Entity()
 export class Event extends BaseEntity {
@@ -22,40 +23,40 @@ export class Event extends BaseEntity {
   @Column()
   public description: string;
 
-  @Column()
-  public startDate: Date;
+  @Column({ nullable: true })
+  public startDate?: Date;
 
-  @Column()
-  public endDate: Date;
+  @Column({ nullable: true })
+  public endDate?: Date;
 
-  @Column()
-  public signupBefore: Date;
+  @Column({ nullable: true, default: true })
+  public memberOnly?: boolean;
 
-  @Column()
-  public memberOnly: boolean;
+  @Column({ nullable: true })
+  public paymentAfter?: Date;
 
-  @Column()
-  public paymentAfter: Date;
-
-  @Column()
-  public memberPrice: number;
-
-  @Column()
-  public notMemberPrice: number;
-
-  @Column()
+  @Column({ default: false })
   public active: boolean;
 
-  @OneToOne(type => Form)
+  @Column({ nullable: true })
+  public signupBefore: Date;
+
+  @Column({ nullable: true })
+  public memberPrice?: number;
+
+  @Column({ nullable: true })
+  public notMemberPrice?: number;
+
+  @Column({ nullable: true })
+  public extraMailInformation?: string;
+
+  @OneToOne(type => Form, { eager: true })
   @JoinColumn()
   public form: Form;
 
   @ManyToOne(type => User)
-  public createdBy: User;
+  public createdBy?: User;
 
   @ManyToOne(type => Committee)
-  public committee: Committee;
-
-  @Column()
-  public extraMailInformation: string;
+  public committee?: Committee;
 }

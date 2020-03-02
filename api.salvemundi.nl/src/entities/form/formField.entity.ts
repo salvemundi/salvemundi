@@ -1,37 +1,44 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn
+} from "typeorm";
 import { Form } from "./form.entity";
 
 @Entity()
 export class FormField extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @ManyToOne(
+    type => Form,
+    form => form.fields
+  )
+  form: Form;
 
-    @ManyToOne(type => Form, form => form.fields)
-    form: Form;
+  @Column()
+  name: string;
 
-    @Column()
-    name: string;
+  @Column({ nullable: true })
+  description: string;
 
-    @Column()
-    label: string;
+  @Column({ nullable: true })
+  label: string;
 
-    @Column()
-    placeholder: string;
+  @Column({ nullable: true })
+  placeholder: string;
 
-    @Column()
-    description: string;
+  @Column({ nullable: true })
+  type: string;
 
-    @Column()
-    type: string;
+  @Column({ nullable: true })
+  pattern: string;
 
-    @Column()
-    pattern: string;
+  @Column({ nullable: true })
+  autocomplete: string;
 
-    @Column()
-    autocomplete: string;
-
-    @Column()
-    required: boolean;
-
+  @Column({ default: false })
+  required: boolean;
 }

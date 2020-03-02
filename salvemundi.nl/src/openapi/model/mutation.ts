@@ -9,11 +9,18 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { IncomeStatement } from './incomeStatement';
+import { PaymentMethod } from './paymentMethod';
 
 
-export interface Committee { 
+export interface Mutation { 
     id: number;
-    name: string;
+    entryReference: number;
     description: string;
-    created: string;
+    date: object;
+    amount: number;
+    debtorIban: string;
+    imported: boolean;
+    paymentMethod?: PaymentMethod;
+    incomeStatement?: IncomeStatement;
 }
