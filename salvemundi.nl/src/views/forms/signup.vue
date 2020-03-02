@@ -1,13 +1,23 @@
 import Vue from "vue"; import { Component } from "vue-property-decorator";
 
 <template>
-  <b-container>
+  <b-container class="my-3">
     <b-row>
       <b-col cols="12">
-        <h2>Inschrijven voor {{ form.name }}</h2>
-        <p>{{ form.description }}</p>
+        <b-container class="my-3">
+          <b-alert show variant="danger"
+            >Heb je problemen met het formulier?! Stuur dan een mailtje naar
+            <a href="mailto:ict@salvemundi.nl" class="alert-link"
+              >ict@salvemundi.nl</a
+            >.</b-alert
+          >
+        </b-container>
+      </b-col>
+      <b-col cols="12">
         <b-row>
           <b-col cols="6">
+            <h2>Inschrijven voor {{ form.name }}</h2>
+            <p>{{ form.description }}</p>
             <b-form @submit.prevent="submit">
               <b-form-group
                 v-for="field in form.fields"

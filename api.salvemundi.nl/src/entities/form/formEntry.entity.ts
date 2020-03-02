@@ -4,12 +4,15 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
-  PrimaryGeneratedColumn
+  PrimaryGeneratedColumn,
+  OneToOne,
+  JoinColumn
 } from "typeorm";
 import { Transaction } from "../transaction.entity";
 import { User } from "../user.entity";
 import { Form } from "./form.entity";
 import { FormEntryField } from "./formEntryField.entity";
+import { FormField } from "./formField.entity";
 
 @Entity()
 export class FormEntry extends BaseEntity {
@@ -17,10 +20,13 @@ export class FormEntry extends BaseEntity {
   public id: number;
 
   @ManyToOne(type => User, { nullable: true })
-  public user?: User;
+  public user: User;
 
   @Column({ nullable: true })
   public email: string;
+
+  @Column({ default: false })
+  public cancelled: boolean;
 
   @ManyToOne(type => Form)
   public form: Form;
@@ -33,7 +39,4 @@ export class FormEntry extends BaseEntity {
 
   @ManyToOne(type => Transaction, { nullable: true })
   public transaction?: Transaction;
-
-  @Column({ default: false })
-  public cancelled: boolean;
 }

@@ -6,7 +6,8 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
   ManyToOne,
-  OneToOne
+  OneToOne,
+  JoinColumn
 } from "typeorm";
 import { FormEntry } from "./formEntry.entity";
 import { FormField } from "./formField.entity";

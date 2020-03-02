@@ -57,7 +57,7 @@ export class FormService {
   }
 
   public validateField(formField: FormField, value: string): boolean {
-    if(!formField.pattern) {
+    if (!formField.pattern) {
       return true;
     }
     if (formField.pattern.match(value)) {
