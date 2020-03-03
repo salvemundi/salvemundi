@@ -12,12 +12,17 @@
       >
         <h5>{{ section.heading }}</h5>
         <b-col
-          v-for="(paragraph, index) in section.content"
+          v-for="(contentItem, index) in section.content"
           :key="index"
-          :cols="paragraph.columns"
+          :cols="contentItem.columns"
           class="p-0"
         >
-          <p v-if="paragraph.type === 'text'">{{ paragraph.content }}</p>
+          <p v-if="contentItem.type === 'text'">{{ contentItem.content }}</p>
+          <p v-if="contentItem.type === 'button'">
+            <b-button variant="samu" :to="contentItem.to">{{
+              contentItem.content
+            }}</b-button>
+          </p>
         </b-col>
       </b-col>
 
@@ -67,6 +72,12 @@ export default class EventDetails extends Vue {
               type: "text",
               content:
                 "De introductie is 5 dagen. De slaaplocatie is gemakkelijk te bereiken met het openbaar vervoer. Vanuit onze slaaplocatie worden tijdens de introductie touringcars ingezet om alle studenten bij de evenementen te krijgen. Slapen zal gebeuren in slaapzalen met stapelbedden. Naast het slapen is er een grote evenementenzaal met een bar waar zowel alcohol (18+) als frisdrank verkocht zal worden door middel van consumptiebonnen. De locatie zit bij een bosrand en een mooi open veld. Genoeg ruimte voor activiteiten dus."
+            },
+            {
+              columns: 12,
+              type: "button",
+              content: "Planning",
+              to: { name: "intro.planning" }
             },
             {
               columns: 12,

@@ -20,7 +20,9 @@ export class Event extends BaseEntity {
   @Column()
   public title: string;
 
-  @Column()
+  @Column({
+    type: "longtext"
+  })
   public description: string;
 
   @Column({ nullable: true })
