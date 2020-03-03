@@ -12,8 +12,8 @@ export = {
   entities: [path.resolve(__dirname, "entities/**/*.entity.ts")],
   migrations: [path.resolve(__dirname, "migrations/*.ts")],
   database: process.env.DB_NAME,
-  synchronize: true,
-  migrationsRun: false,
+  synchronize: false,
+  migrationsRun: true,
   logging: false,
   cli: {
     migrationsDir: "src/migrations",

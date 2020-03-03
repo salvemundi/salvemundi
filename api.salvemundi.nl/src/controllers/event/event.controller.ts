@@ -27,7 +27,7 @@ export class EventController {
     private readonly formService: FormService
   ) {}
 
-  @Post("create")
+  // @Post("create")
   async createEvent(
     @Me() user: User,
     @Body() eventDto: CreateEventDto
@@ -91,6 +91,9 @@ export class EventController {
       fields
     );
 
-    this.eventService.completeEventSignup("ik@niekvangogh.nl", event, formEntry);
+    let answers = this.formService.getAnswers(formEntry);
+    let email = answers["email"];
+
+    this.eventService.completeEventSignup(email, event, formEntry);
   }
 }

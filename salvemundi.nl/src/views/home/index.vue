@@ -12,24 +12,36 @@
           size="lg"
           href="/home/prelogon"
           v-if="!isLoggedInMethod()"
-        >Meld je nu aan!</b-button>
+          >Meld je nu aan!</b-button
+        >
       </div>
     </section>
     <section id="new-website">
       <b-container>
         <b-row>
-          <b-col cols="6">
-            <h2>Belangrijk: De nieuwe website</h2>
+          <b-col cols="12">
+            <h2>Belangrijk: Aanmelden introductie FHICT 2020!</h2>
             <p>
-              Welkom op de website van Salve Mundi! Sinds kort hebben we een nieuwe website waar nog veel aan gewerkt wordt.
-              <strong>De website is dus nog niet klaar.</strong>
+              De FHICT-introductie is de leukste manier om je medestudenten te
+              leren kennen. Het is een week vol avontuur en teambuilding in
+              Eindhoven. Zo leer je ook de stad beter kennen. Wij vanuit Salve
+              Mundi zijn druk bezig geweest om dit allemaal mogelijk te maken
+              voor de nieuwe studenten. De introductie vindt plaats van maandag
+              24 augustus tot en met vrijdag 28 augustus. Houdt onze website en
+              Facebook in de gaten voor updates!
             </p>
-            <p>
-              We hebben een open-source project, wat betekend dat JIJ ook mee kan helpen. Als je een feature mist, kan je die zelf toevoegen! Voor meer informatie, zie onze
-              <a
-                href="https://github.com/salvemundi"
-              >GitHub</a> projecten.
-            </p>
+            <b-button
+              size="lg"
+              :to="{
+                name: 'form.signup',
+                params: {
+                  id: 1
+                }
+              }"
+              variant="samu"
+            >
+              Inschrijven
+            </b-button>
           </b-col>
         </b-row>
       </b-container>
@@ -39,9 +51,17 @@
         <b-row>
           <b-col cols="12" sm="12" md="6" lg="6">
             <h2>Over ons</h2>
-            <p>Salve Mundi is de nieuwe studievereniging van Fontys Hogescholen ICT, opgericht inj 2017. Het is Latijn voor "Hello World" een typische zin die menig programmeur maar al te goed kent.</p>
+            <p>
+              Salve Mundi is de nieuwe studievereniging van Fontys Hogescholen
+              ICT, opgericht inj 2017. Het is Latijn voor "Hello World" een
+              typische zin die menig programmeur maar al te goed kent.
+            </p>
 
-            <p>De vereniging organiseert veel activiteiten, zowel studie bemiddelend als voor de lol, of een combinatie van de twee. Denk hierbij aan:</p>
+            <p>
+              De vereniging organiseert veel activiteiten, zowel studie
+              bemiddelend als voor de lol, of een combinatie van de twee. Denk
+              hierbij aan:
+            </p>
             <ul>
               <li>Lezingen</li>
               <li>Excursies</li>
@@ -66,13 +86,28 @@
               <li>Uitjes naar bijvoorbeld pretparken</li>
             </ul>
 
-            <p>Naast deze activiteiten verzorgt Salve Mundi ook een introductie van FHICT van top tot teen.</p>
+            <p>
+              Naast deze activiteiten verzorgt Salve Mundi ook een introductie
+              van FHICT van top tot teen.
+            </p>
           </b-col>
           <b-col cols="12" sm="12" md="6" lg="6" class="my-auto">
             <div class="image-container">
-              <img width="400" height="266" src="@/assets/images/index/about-us/image3.jpg" />
-              <img width="400" height="266" src="@/assets/images/index/about-us/image2.jpg" />
-              <img width="400" height="266" src="@/assets/images/index/about-us/image1.jpg" />
+              <img
+                width="400"
+                height="266"
+                src="@/assets/images/index/about-us/image3.jpg"
+              />
+              <img
+                width="400"
+                height="266"
+                src="@/assets/images/index/about-us/image2.jpg"
+              />
+              <img
+                width="400"
+                height="266"
+                src="@/assets/images/index/about-us/image1.jpg"
+              />
             </div>
           </b-col>
         </b-row>
@@ -85,38 +120,74 @@
           <b-col>
             <div class="text-center">
               <h2>Commissies</h2>
-              <p>Salve Mundi heeft verschillende commissies die ieder verantwoordelijk zijn voor het functioneren van de vereniging. Elke commissie heeft zijn eigen taken en verantwoordelijkheden, en samen zorgen zij ervoor dat Salve Mundi kan zijn zoals het is!</p>
+              <p>
+                Salve Mundi heeft verschillende commissies die ieder
+                verantwoordelijk zijn voor het functioneren van de vereniging.
+                Elke commissie heeft zijn eigen taken en verantwoordelijkheden,
+                en samen zorgen zij ervoor dat Salve Mundi kan zijn zoals het
+                is!
+              </p>
 
               <div class="committee-icons mb-3">
                 <a>
-                  <CircleIcon name="Bestuur" icon="images/committees/icons/bestuur.png" />
+                  <CircleIcon
+                    name="Bestuur"
+                    icon="images/committees/icons/bestuur.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="Feest" icon="images/committees/icons/feest.png" />
+                  <CircleIcon
+                    name="Feest"
+                    icon="images/committees/icons/feest.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="Media" icon="images/committees/icons/media.png" />
+                  <CircleIcon
+                    name="Media"
+                    icon="images/committees/icons/media.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="Kamp" icon="images/committees/icons/kamp.png" />
+                  <CircleIcon
+                    name="Kamp"
+                    icon="images/committees/icons/kamp.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="Studie" icon="images/committees/icons/studie.png" />
+                  <CircleIcon
+                    name="Studie"
+                    icon="images/committees/icons/studie.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="Ledenzaken" icon="images/committees/icons/ledenzaken.png" />
+                  <CircleIcon
+                    name="Ledenzaken"
+                    icon="images/committees/icons/ledenzaken.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="Activiteiten" icon="images/committees/icons/activiteiten.png" />
+                  <CircleIcon
+                    name="Activiteiten"
+                    icon="images/committees/icons/activiteiten.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="Extern" icon="images/committees/icons/extern.png" />
+                  <CircleIcon
+                    name="Extern"
+                    icon="images/committees/icons/extern.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="Kas" icon="images/committees/icons/kas.png" />
+                  <CircleIcon
+                    name="Kas"
+                    icon="images/committees/icons/kas.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="ICT" icon="images/committees/icons/ict.png" />
+                  <CircleIcon
+                    name="ICT"
+                    icon="images/committees/icons/ict.png"
+                  />
                 </a>
               </div>
             </div>
@@ -131,13 +202,30 @@
           <b-col cols="12">
             <div class="text-center">
               <h2>Korting</h2>
-              <p>Wat is er voor een student nou mooier dan korting? Bij Salve Mundi hebben wij ook een paar mooie deals voor je klaar staan waar jij als lid van kan profiteren! Zo hebben wij bij onze stamkroeg Villa Fiesta korting op de zogenoemde ‘bierkaart’. Bij het aanschaffen van deze kaart heb je recht op 10 consumpties voor een klein bedrag van € 17,50. Daarnaast heb je ook nog recht op korting bij Cafetaria De Hoek. Denk hierbij aan kortingen op verschillende menu’s en snacks. Beide begeven deze gelegendheden op stratumseind, ideaal om deze deals te combineren tijdens een avondje uitgaan!</p>
+              <p>
+                Wat is er voor een student nou mooier dan korting? Bij Salve
+                Mundi hebben wij ook een paar mooie deals voor je klaar staan
+                waar jij als lid van kan profiteren! Zo hebben wij bij onze
+                stamkroeg Villa Fiesta korting op de zogenoemde ‘bierkaart’. Bij
+                het aanschaffen van deze kaart heb je recht op 10 consumpties
+                voor een klein bedrag van € 17,50. Daarnaast heb je ook nog
+                recht op korting bij Cafetaria De Hoek. Denk hierbij aan
+                kortingen op verschillende menu’s en snacks. Beide begeven deze
+                gelegendheden op stratumseind, ideaal om deze deals te
+                combineren tijdens een avondje uitgaan!
+              </p>
               <div class="mt-5">
                 <a>
-                  <CircleIcon name="Villa Fiesta" icon="images/index/korting/villa.png" />
+                  <CircleIcon
+                    name="Villa Fiesta"
+                    icon="images/index/korting/villa.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="Restaria De Hoek" icon="images/index/korting/de-hoek.png" />
+                  <CircleIcon
+                    name="Restaria De Hoek"
+                    icon="images/index/korting/de-hoek.png"
+                  />
                 </a>
               </div>
             </div>

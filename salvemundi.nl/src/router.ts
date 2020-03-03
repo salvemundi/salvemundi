@@ -15,6 +15,7 @@ import EventDetail from "./views/events/event.vue";
 import FormSignup from "./views/forms/signup.vue";
 import Me from "./views/home/me.vue";
 import Privacy from "./views/privacy.vue";
+import IntroSchedule from "./views/events/extra/schedule.vue";
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
@@ -114,6 +115,13 @@ export default new Router({
         component: FormSignup,
         name: "form.signup"
       }
-    ])
+    ]),
+    {
+      // temp fix
+      path: "/intro/planning",
+      component: IntroSchedule,
+      name: "intro.planning"
+    },
+    { path: "/intro", redirect: "/events/1" } // temp fix aswell
   ]
 });
