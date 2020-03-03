@@ -13,6 +13,19 @@
           voor updates!
         </p>
       </b-col>
+      <b-col cols="12" class="my-2">
+        <b-button
+          :to="{
+            name: 'form.signup',
+            params: {
+              id: 1
+            }
+          }"
+          variant="samu"
+        >
+          Inschrijven
+        </b-button>
+      </b-col>
       <b-col cols="12" md="6" class="my-3">
         <h2>Maandag</h2>
         <p>
