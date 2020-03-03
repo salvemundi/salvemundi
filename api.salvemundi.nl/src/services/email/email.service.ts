@@ -3,6 +3,7 @@ import * as nodemailer from "nodemailer";
 import * as hbs from "nodemailer-express-handlebars";
 import { Confirmation } from "../../entities/confirmation.entity";
 import { User } from "../../entities/user.entity";
+import * as Handlebars from "handlebars";
 
 @Injectable()
 export class EmailService {
@@ -88,7 +89,8 @@ export class EmailService {
     context: any,
     information: string
   ): Promise<nodemailer.SentMessageInfo> {
-    context.information = information;
+    let template = Handlebars.compile(information);
+    context.information = template(context);
     const mail = {
       from: this.fromEmailAddress,
       to: email,
@@ -96,8 +98,6 @@ export class EmailService {
       template: "event-signup",
       context
     };
-
-    console.log(mail);
 
     return this.sendEmail(mail);
   }

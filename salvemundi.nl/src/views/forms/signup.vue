@@ -65,7 +65,6 @@ export default class FormSignup extends Vue {
   private submit(e) {
     const fields = [];
     this.form.fields.forEach(field => {
-      console.log(field);
       fields.push({
         name: field.name,
         value: field.value
