@@ -49,7 +49,7 @@ export class Event extends BaseEntity {
   @Column({ nullable: true })
   public notMemberPrice?: number;
 
-  @Column({ nullable: true, type: "longtext" })
+  @Column({ nullable: true, type: "longtext"   })
   public extraMailInformation?: string;
 
   @OneToOne(type => Form, { eager: true, nullable: true })
