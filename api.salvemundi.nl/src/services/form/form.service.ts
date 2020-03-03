@@ -75,6 +75,14 @@ export class FormService {
     });
   }
 
+  public async getFormEntry(id: number): Promise<FormEntry> {
+    return FormEntry.findOne({
+      where: {
+        id
+      }
+    });
+  }
+
   public async getFormEntries(form: Form): Promise<FormEntry[]> {
     return FormEntry.find({
       where: {

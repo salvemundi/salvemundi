@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
+import * as Handlebars from "handlebars";
 import * as nodemailer from "nodemailer";
 import * as hbs from "nodemailer-express-handlebars";
 import { Confirmation } from "../../entities/confirmation.entity";
 import { User } from "../../entities/user.entity";
-import * as Handlebars from "handlebars";
 
 @Injectable()
 export class EmailService {
