@@ -8,20 +8,16 @@ import {
 } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Me } from "../../decorators/me.decorator";
-import { User } from "../../entities/core/user.entity";
 import { CreateEventDto } from "../../dto/event/create-event-dto";
-import { Event } from "../../entities/events/event.entity";
 import { EventDto } from "../../dto/event/event-dto";
 import EventSignupDto from "../../dto/event/signup-event-dto";
-import { EventSignup } from "../../entities/events/eventsignup.entity";
-import UpdateEventDto from "../../dto/event/update-event-dto";
 import { FormDto } from "../../dto/form/form-dto";
 import { Event } from "../../entities/event/event.entity";
 import { Form } from "../../entities/form/form.entity";
 import { FormEntry } from "../../entities/form/formEntry.entity";
-import { User } from "../../entities/user.entity";
 import { EventService } from "../../services/event/event.service";
 import { FormService } from "../../services/form/form.service";
+import { User } from "../../entities/core/user.entity";
 
 @Controller("/events")
 @ApiTags("Event")

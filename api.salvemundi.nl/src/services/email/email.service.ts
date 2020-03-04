@@ -2,8 +2,8 @@ import { Injectable } from "@nestjs/common";
 import * as Handlebars from "handlebars";
 import * as nodemailer from "nodemailer";
 import * as hbs from "nodemailer-express-handlebars";
-import { Confirmation } from "../../entities/confirmation.entity";
-import { User } from "../../entities/user.entity";
+import { User } from "../../entities/core/user.entity";
+import { Confirmation } from "../../entities/core/confirmation.entity";
 
 @Injectable()
 export class EmailService {
@@ -64,25 +64,6 @@ export class EmailService {
     return this.sendEmail(mail);
   }
 
-  public sendLaunchEmail(
-    user: User,
-    confirmation: Confirmation
-  ): Promise<nodemailer.SentMessageInfo> {
-    const mail = {
-      from: this.fromEmailAddress,
-      to: user.email,
-      subject: "Het is zover!",
-      template: "launch-website",
-      context: {
-        firstName: user.firstName,
-        baseUrl: process.env.REDIRECT_URL,
-        token: confirmation.token
-      }
-    };
-
-    return this.sendEmail(mail);
-  }
-
   public sendEventMail(
     subject: string,
     email: string,
@@ -99,19 +80,25 @@ export class EmailService {
       context
     };
 
-    public sendRenewalEmail(user: User, confirmation: Confirmation) {
-        const mail = {
-            from: this.fromEmailAddress,
-            to: user.email,
-            subject: 'Je lidmaatschap is verlopen...',
-            template: 'renewal-membership',
-            context: {
-                firstName: user.firstName,
-                lastName: user.lastName,
-                baseUrl: process.env.REDIRECT_URL,
-                token: confirmation.token,
-            },
-        };
+    return this.sendEmail(mail);
+  }
+
+  public sendRenewalEmail(user: User, confirmation: Confirmation) {
+    const mail = {
+      from: this.fromEmailAddress,
+      to: user.email,
+      subject: "Je lidmaatschap is verlopen...",
+      template: "renewal-membership",
+      context: {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        baseUrl: process.env.REDIRECT_URL,
+        token: confirmation.token
+      }
+    };
+
+    return this.sendEmail(mail);
+  }
 
   private sendEmail(
     email: nodemailer.SendMailOptions

@@ -7,10 +7,10 @@ import {
   OneToOne,
   PrimaryGeneratedColumn
 } from "typeorm";
-import { Committee } from "../committee.entity";
 import { Form } from "../form/form.entity";
-import { User } from "../user.entity";
 import { ApiProperty } from "@nestjs/swagger";
+import { User } from "../core/user.entity";
+import { Committee } from "../core/committee.entity";
 
 @Entity()
 export class Event extends BaseEntity {

@@ -4,9 +4,6 @@ import { Transaction } from '../../entities/core/transaction.entity';
 import IPurchasable from '../../entities/interface/purchasable.interface';
 import { Injectable } from '@nestjs/common';
 import { PaymentStatus } from '../../controllers/payment/paymentstatus.enum';
-import IPurchasable from '../../entities/interface/purchasable.interface';
-import { Transaction } from '../../entities/transaction.entity';
-import { User } from '../../entities/user.entity';
 
 @Injectable()
 export class PaymentService {

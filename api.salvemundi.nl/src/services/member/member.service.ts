@@ -6,14 +6,6 @@ import { BaseEntity } from 'typeorm';
 
 @Injectable()
 export class MemberService implements IMemberService {
-  async giveMembership(
-    user: User,
-    startDate: Date = new Date(),
-    endDate: Date = null
-  ) {
-    if (!endDate) {
-      endDate = new Date(new Date().setFullYear(startDate.getFullYear() + 1));
-    }
 
     giveMembership(user: User, startDate: Date = new Date(), endDate: Date = null) {
         if (!endDate) {
@@ -24,7 +16,6 @@ export class MemberService implements IMemberService {
         membership.user = user;
         return membership.save();
     }
-  }
 
     removeMembership(user: User) {
         const memberships: Membership[] = user.memberships;

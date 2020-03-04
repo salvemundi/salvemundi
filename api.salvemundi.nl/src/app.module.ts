@@ -23,6 +23,7 @@ import { ScheduleModule } from 'nest-schedule';
 import { AccountancyController } from './controllers/accountancy/accountancy.controller';
 import { AccountancyService } from './services/accountancy/accountancy.service';
 import { RenewalJop } from './jops/renewal.jop';
+import { FormService } from './services/form/form.service';
 
 @Module({
   imports: [ScheduleModule.register()],

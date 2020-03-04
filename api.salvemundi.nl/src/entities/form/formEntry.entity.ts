@@ -8,11 +8,11 @@ import {
   OneToOne,
   JoinColumn
 } from "typeorm";
-import { Transaction } from "../transaction.entity";
-import { User } from "../user.entity";
 import { Form } from "./form.entity";
 import { FormEntryField } from "./formEntryField.entity";
 import { FormField } from "./formField.entity";
+import { User } from "../core/user.entity";
+import { Transaction } from "../core/transaction.entity";
 
 @Entity()
 export class FormEntry extends BaseEntity {
