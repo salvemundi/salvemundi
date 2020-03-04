@@ -2,15 +2,13 @@
   "defaultSeverity": "error",
   "extends": ["tslint:recommended"],
   "linterOptions": {
-    "exclude": [
-      "node_modules/**",
-      "src/migrations/**"
-    ]
+    "exclude": ["node_modules/**", "src/migrations/**"]
   },
   "jsRules": {
     "no-unused-expression": true
   },
   "rules": {
+    "trailing-comma": false,
     "quotemark": [true, "single"],
     "member-access": [false],
     "ordered-imports": [false],

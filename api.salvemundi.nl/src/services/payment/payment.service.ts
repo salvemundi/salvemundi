@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
 import createMollieClient, { MollieClient, Payment } from '@mollie/api-client';
 import { User } from '../../entities/core/user.entity';
 import { Transaction } from '../../entities/core/transaction.entity';
 import IPurchasable from '../../entities/interface/purchasable.interface';
+import { Injectable } from '@nestjs/common';
 import { PaymentStatus } from '../../controllers/payment/paymentstatus.enum';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class PaymentService {
         this.mollieClient = createMollieClient({ apiKey: process.env.MOLLIE_API_KEY });
     }
 
-    async createPayment(user: User, product: IPurchasable, redirectUrl: string, webhookUrl: string): Promise<Payment> {
+    async createPayment(user: User, product: IPurchasable, redirectUrl: string, webhookUrl: string, metaData: object = {}): Promise<Payment> {
         const transaction: Transaction = new Transaction();
         transaction.price = product.price;
         transaction.description = product.description + user.firstName + ' ' + user.lastName;
@@ -28,7 +28,7 @@ export class PaymentService {
             },
             description: product.description,
             metadata: [
-                { transaction_id: transaction.id },
+                { transaction_id: transaction.id, ...metaData },
             ],
             redirectUrl: process.env.REDIRECT_URL + redirectUrl,
             webhookUrl: process.env.MOLLIE_WEBHOOK_URL + webhookUrl,

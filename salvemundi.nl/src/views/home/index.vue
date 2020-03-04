@@ -15,16 +15,28 @@
       <b-container>
         <b-row>
           <b-col cols="12">
-            <h2>{{$t('new_website.important')}}</h2>
+            <h2>Belangrijk: Aanmelden introductie FHICT 2020!</h2>
             <p>
-              {{$t('new_website.welcome_to_samu')}}
-              <strong>{{$t('new_website.not_done')}}</strong>
+              De FHICT-introductie is de leukste manier om je medestudenten te
+              leren kennen. Het is een week vol avontuur en teambuilding in
+              Eindhoven. Zo leer je ook de stad beter kennen. Wij vanuit Salve
+              Mundi zijn druk bezig geweest om dit allemaal mogelijk te maken
+              voor de nieuwe studenten. De introductie vindt plaats van maandag
+              24 augustus tot en met vrijdag 28 augustus. Houdt onze website en
+              Facebook in de gaten voor updates!
             </p>
-            <p>
-              {{$t('new_website.open_source')}}
-              <a href="https://github.com/salvemundi">GitHub</a>
-              {{$t('new_website.projects')}}
-            </p>
+            <b-button
+              size="lg"
+              :to="{
+                name: 'form.signup',
+                params: {
+                  id: 1
+                }
+              }"
+              variant="samu"
+            >
+              Inschrijven
+            </b-button>
           </b-col>
         </b-row>
       </b-container>
@@ -64,9 +76,21 @@
           </b-col>
           <b-col cols="12" sm="12" md="6" lg="6" class="my-auto">
             <div class="image-container">
-              <img width="400" height="266" src="@/assets/images/index/about-us/image3.jpg" />
-              <img width="400" height="266" src="@/assets/images/index/about-us/image2.jpg" />
-              <img width="400" height="266" src="@/assets/images/index/about-us/image1.jpg" />
+              <img
+                width="400"
+                height="266"
+                src="@/assets/images/index/about-us/image3.jpg"
+              />
+              <img
+                width="400"
+                height="266"
+                src="@/assets/images/index/about-us/image2.jpg"
+              />
+              <img
+                width="400"
+                height="266"
+                src="@/assets/images/index/about-us/image1.jpg"
+              />
             </div>
           </b-col>
         </b-row>
@@ -128,10 +152,16 @@
               <p>{{$t('discount.description')}}</p>
               <div class="mt-5">
                 <a>
-                  <CircleIcon name="Villa Fiesta" icon="images/index/korting/villa.png" />
+                  <CircleIcon
+                    name="Villa Fiesta"
+                    icon="images/index/korting/villa.png"
+                  />
                 </a>
                 <a>
-                  <CircleIcon name="Restaria De Hoek" icon="images/index/korting/de-hoek.png" />
+                  <CircleIcon
+                    name="Restaria De Hoek"
+                    icon="images/index/korting/de-hoek.png"
+                  />
                 </a>
               </div>
             </div>

@@ -23,11 +23,10 @@ import { ScheduleModule } from 'nest-schedule';
 import { AccountancyController } from './controllers/accountancy/accountancy.controller';
 import { AccountancyService } from './services/accountancy/accountancy.service';
 import { RenewalJop } from './jops/renewal.jop';
+import { FormService } from './services/form/form.service';
 
 @Module({
-  imports: [
-    ScheduleModule.register(),
-  ],
+  imports: [ScheduleModule.register()],
   controllers: [
     CommitteeController,
     UserController,
@@ -35,16 +34,16 @@ import { RenewalJop } from './jops/renewal.jop';
     PaymentController,
     WebhookController,
     EventController,
-    AccountancyController,
+    AccountancyController
   ],
   providers: [
     {
       provide: APP_GUARD,
-      useClass: AuthorizationGuard,
+      useClass: AuthorizationGuard
     },
     {
       provide: APP_INTERCEPTOR,
-      useClass: ScopeInterceptor,
+      useClass: ScopeInterceptor
     },
     AccountancyJop,
     RenewalJop,
@@ -57,8 +56,9 @@ import { RenewalJop } from './jops/renewal.jop';
     EmailService,
     ConfirmationService,
     EventService,
+    FormService,
     FileService,
-    AccountancyService,
-  ],
+    AccountancyService
+  ]
 })
 export class AppModule {}

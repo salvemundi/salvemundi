@@ -1,4 +1,4 @@
-import { Controller, Get, Query, NotFoundException, ServiceUnavailableException } from '@nestjs/common';
+import { Controller, Get, Query, NotFoundException, ServiceUnavailableException, UnauthorizedException } from '@nestjs/common';
 import { PaymentService } from '../../services/payment/payment.service';
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../entities/core/user.entity';
@@ -9,6 +9,10 @@ import { Payment } from '@mollie/api-client';
 import { PaymentDTO } from '../../dto/payment/paymentDTO';
 import { ConfirmationService } from '../../services/confirmation/confirmation.service';
 import { Confirmation } from '../../entities/core/confirmation.entity';
+import { FormEntry } from '../../entities/form/formEntry.entity';
+import { MemberService } from '../../services/member/member.service';
+import { Event } from '../../entities/event/event.entity';
+import { FormService } from '../../services/form/form.service';
 
 @Controller('/payments')
 @ApiTags('Payments')
@@ -17,6 +21,8 @@ export class PaymentController {
         private readonly paymentService: PaymentService,
         private readonly userService: UserService,
         private readonly confirmationService: ConfirmationService,
+        private readonly memberService: MemberService,
+        private readonly formService: FormService
     ) { }
 
     @Get('/membership')
@@ -61,6 +67,43 @@ export class PaymentController {
         };
 
         const payment: Payment = await this.paymentService.createPayment(user, membership, redirect, webhook);
+        if (!payment) {
+            throw new ServiceUnavailableException();
+        }
+
+        const result: PaymentDTO = {
+            expiresAt: payment.expiresAt,
+            url: payment._links.checkout,
+        };
+        return result;
+    }
+
+    @Get('/events')
+    public async createPaymentForEvents(@Query('id') formEntryId: number): Promise<PaymentDTO> {
+        const entry: FormEntry = await this.formService.getFormEntry(formEntryId);
+        console.log(entry);
+        const email: string = '';
+
+        const event: Event = null;
+
+        let price: number = event.memberPrice;
+
+
+        // NEED TO FIX
+
+        // if (!this.memberService.isMember(email)) { 
+        //     if (event.memberOnly) {
+        //         throw new UnauthorizedException();
+        //     }
+        //     price = event.notMemberPrice;
+        // }
+
+        const eventPurchase: IPurchasable = {
+            price,
+            description: event.title,
+        };
+
+        const payment: Payment = await this.paymentService.createPayment(null, eventPurchase, 'completedEvent', 'events', {});
         if (!payment) {
             throw new ServiceUnavailableException();
         }
