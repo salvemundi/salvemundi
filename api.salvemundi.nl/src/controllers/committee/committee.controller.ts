@@ -1,6 +1,6 @@
 import { Controller, Post, Body, HttpCode, Get, Query, Param, Put, NotFoundException, Delete } from '@nestjs/common';
 import { CommitteeService } from '../../services/committee/committee.service';
-import { Committee } from '../../entities/committee.entity';
+import { Committee } from '../../entities/core/committee.entity';
 import { CreateCommissionDto } from '../../dto/commission/create-commission-dto';
 import { ApiTags, ApiResponse, ApiOperation } from '@nestjs/swagger';
 import { UpdateCommissionDto } from '../../dto/commission/update-commission-dto';

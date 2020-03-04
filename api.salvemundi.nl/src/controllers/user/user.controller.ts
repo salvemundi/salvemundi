@@ -1,12 +1,12 @@
 import { Controller, Get, Param, HttpCode, NotFoundException, Body, Put, Delete, Res } from '@nestjs/common';
 import { UserService } from '../../services/user/user.service';
-import { User } from '../../entities/user.entity';
+import { User } from '../../entities/core/user.entity';
 import { ApiResponse, ApiTags, ApiOperation, ApiParam, ApiExtraModels } from '@nestjs/swagger';
 import { UpdateUserDto } from '../../dto/user/update-user-dto';
 import { Auth } from '../../decorators/auth.decorator';
 import { SummaryUserDto } from '../../dto/user/summary-user-dto';
 import { Me } from '../../decorators/me.decorator';
-import { Membership } from '../../entities/membership.entity';
+import { Membership } from '../../entities/core/membership.entity';
 import { FileService } from '../../services/file/file.service';
 import { Response } from 'express';
 
@@ -148,7 +148,7 @@ export class UserController {
         user.phoneNumber = body.phoneNumber;
         user.email = body.email;
 
-        return await this.userService.update(user);
+        return await this.userService.save(user);
     }
 
     @Delete('/:id')

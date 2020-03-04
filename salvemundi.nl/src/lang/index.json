@@ -1,0 +1,124 @@
+{
+    "nl": {
+        "first_view": {
+            "we_are": "Wij zijn",
+            "students_for_studens": "Studenten voor studenten",
+            "join_us_now": "Meld je nu aan!"
+        },
+        "new_website": {
+            "important": "Belangrijk: De nieuwe website",
+            "welcome_to_samu": "Welkom op de website van Salve Mundi! Sinds kort hebben we een nieuwe website waar nog veel aan gewerkt wordt.",
+            "not_done": "De website is dus nog niet klaar.",
+            "open_source": "We hebben een open-source project, wat betekend dat JIJ ook mee kan helpen. Als je een feature mist, kan je die zelf toevoegen! Voor meer informatie, zie onze",
+            "projects": " projecten."
+        },
+        "about_us": {
+            "title": "Over ons",
+            "hello_world": "Salve Mundi is de nieuwe studievereniging van Fontys Hogescholen ICT, opgericht inj 2017. Het is Latijn voor \"Hello World\" een typische zin die menig programmeur maar al te goed kent.",
+            "activity": "De vereniging organiseert veel activiteiten, zowel studie bemiddelend als voor de lol, of een combinatie van de twee. Denk hierbij aan:",
+            "activities": {
+                "readings": "Lezingen",
+                "field_trips": "Excursies",
+                "workshops": "Workshops",
+                "company_visits": "Bedrijfsbezoeken",
+                "tutoring": "Elke woensdag bijles"
+            },
+            "party": "En voor de uitgaande studenten:",
+            "parties": {
+                "villa_fiesta": "Op stap bij onze stamkroeg Villa Fiësta op Stratumseind",
+                "casino_evenings": "Casinoavonden",
+                "pubquizes": "Pubquiz-avonden",
+                "random": "Willekeurige spontane activiteiten"
+            },
+            "lame": "En wat voor de minder uitgaande studenten:",
+            "boring_stuff": {
+                "camping": "Jaarlijks op kamp",
+                "game_night": "Game nights (bordspellen & eSports)",
+                "hackaton": "Partnership met grote hackathons",
+                "funpark": "Uitjes naar bijvoorbeld pretparken"
+            },
+            "intro": "Naast deze activiteiten verzorgt Salve Mundi ook een introductie van FHICT van top tot teen."
+        },
+        "committee": {
+            "title": "Commissies",
+            "description": "Salve Mundi heeft verschillende commissies die ieder verantwoordelijk zijn voor het functioneren van de vereniging. Elke commissie heeft zijn eigen taken en verantwoordelijkheden, en samen zorgen zij ervoor dat Salve Mundi kan zijn zoals het is!",
+            "committees": {
+                "bord": "Bestuur",
+                "party": "Feest",
+                "media": "Media",
+                "camping": "Kamp",
+                "study": "Studie",
+                "member_affairs": "Ledenzaken",
+                "activities": "Activiteiten",
+                "external": "Extern",
+                "money": "Kas",
+                "ict": "ICT"
+            }
+        },
+        "discount": {
+            "title": "Korting",
+            "description": "Wat is er voor een student nou mooier dan korting? Bij Salve Mundi hebben wij ook een paar mooie deals voor je klaar staan waar jij als lid van kan profiteren! Zo hebben wij bij onze stamkroeg Villa Fiesta korting op de zogenoemde ‘bierkaart’. Bij het aanschaffen van deze kaart heb je recht op 10 consumpties voor een klein bedrag van € 17,50. Daarnaast heb je ook nog recht op korting bij Cafetaria De Hoek. Denk hierbij aan kortingen op verschillende menu’s en snacks. Beide begeven deze gelegendheden op stratumseind, ideaal om deze deals te combineren tijdens een avondje uitgaan!"
+        }
+    },
+    "en": {
+        "first_view": {
+            "we_are": "We are",
+            "students_for_studens": "Students for students",
+            "join_us_now": "Join us now!"
+        },
+        "new_website": {
+            "important": "Important: The new website",
+            "welcome_to_samu": "Welcome to the Salve Mundi website! Recently we have a new website that is still under construction.",
+            "not_done": "So the website is not yet ready.",
+            "open_source": "We have an open source project, which means that YOU can also help. If you miss a feature, you can add it yourself! For more information, see our",
+            "projects": " projects."
+        },
+        "about_us": {
+            "title": "About us",
+            "hello_world": "Salve Mundi is the new study association of Fontys Hogescholen ICT, founded in 2017. It is Latin for \"Hello World \" a typical sentence that many programmers know all too well.",
+            "activity": "The association organizes many activities, both mediation and fun, or a combination of the two. Think about:",
+            "activities": {
+                "readings": "Readings",
+                "field_trips": "Field trips",
+                "workshops": "Workshops",
+                "company_visits": "Company visits",
+                "tutoring": "Tutoring every Wednesday"
+            },
+            "party": "And for the outgoing students:",
+            "parties": {
+                "villa_fiesta": "Out and about at our regular bar Villa Fiësta on Stratumseind",
+                "casino_evenings": "Casino evenings",
+                "pubquizes": "Pubquiz evenings",
+                "random": "Random activities"
+            },
+            "lame": "And for the less outgoing students:",
+            "boring_stuff": {
+                "camping": "Annually camping",
+                "game_night": "Game nights (board games & eSports)",
+                "hackaton": "Partnership with major hackathons",
+                "funpark": "Trips to amusement parks, for example"
+            },
+            "intro": "In addition to these activities, Salve Mundi also provides an introduction to FHICT from head to toe."
+        },
+        "committee": {
+            "title": "Committees",
+            "description": "Salve Mundi has several committees, each of which is responsible for the functioning of the association. Each committee has its own tasks and responsibilities, and together they ensure that Salve Mundi can be as it is!",
+            "committees": {
+                "bord": "Bord",
+                "party": "Party",
+                "media": "Media",
+                "camping": "Camping",
+                "study": "Study",
+                "member_affairs": "Member affairs",
+                "activities": "Activities",
+                "external": "External",
+                "money": "Money",
+                "ict": "ICT"
+            }
+        },
+        "discount": {
+            "title": "Discount",
+            "description": "What could be better for a student than a discount? At Salve Mundi we also have a couple of great deals that you can take advantage of as a member! For example, at our regular bar Villa Fiesta we have a discount on the so-called 'beer menu'. When purchasing this card you are entitled to 10 drinks for a small amount of € 17.50. In addition, you are also entitled to a discount at Cafeteria De Hoek. Think of discounts on different menus and snacks. Both break these legends at the end of the day, ideal to combine these deals during a night out!"
+        }
+    }
+}

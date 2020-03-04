@@ -1,18 +1,18 @@
-import { Injectable } from "@nestjs/common";
-import { User } from "../../entities/user.entity";
-import * as bcrypt from "bcrypt";
-import { IAuthorizationService } from "./iAuthorization.service";
-import * as jwt from "jsonwebtoken";
+import { Injectable } from '@nestjs/common';
+import { User } from '../../entities/core/user.entity';
+import * as bcrypt from 'bcrypt';
+import { IAuthorizationService } from './iAuthorization.service';
+import * as jwt from 'jsonwebtoken';
 
 @Injectable()
 export class AuthorizationService implements IAuthorizationService {
-  public async validateUser(email: string, pass: string): Promise<User> {
-    const user: User = await User.findOne({
-      where: { email },
-      select: ["password"]
-    });
-    if (user && (await this.checkPassword(pass, user))) {
-      return await User.findOne({ where: { email } });
+    public async validateUser(email: string, pass: string): Promise<User> {
+        const user: User = await User.findOne({where: { email, activated: true }, select: ['password']});
+        if (user && await this.checkPassword(pass, user)) {
+            return await User.findOne({where: { email }});
+        }
+
+        return null;
     }
 
     return null;

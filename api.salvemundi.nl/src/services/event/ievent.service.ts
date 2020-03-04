@@ -1,4 +1,4 @@
-import { Event } from "src/entities/event/event.entity";
+import { Event } from "../../entities/events/event.entity";
 
 export interface IEventService {
     create(event: Event): Promise<Event>;

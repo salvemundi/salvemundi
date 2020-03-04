@@ -4,7 +4,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { AuthorizationService } from '../../services/authorization/authorization.service';
 import { RegisterDTO } from '../../dto/authorization/RegisterDTO';
 import { LoginDTO } from '../../dto/authorization/LoginDTO';
-import { User } from '../../entities/user.entity';
+import { User } from '../../entities/core/user.entity';
 import { UserService } from '../../services/user/user.service';
 import * as bcrypt from 'bcrypt';
 import { ApiResponse, ApiTags, ApiOperation, ApiConsumes } from '@nestjs/swagger';
@@ -80,7 +80,7 @@ export class AuthorizationController {
         user.scopes = [];
         user.memberships = [];
 
-        await this.userService.create(user);
+        await this.userService.save(user);
         return user;
     }
 
@@ -131,8 +131,8 @@ export class AuthorizationController {
         user.password = await this.encryptPassword(body.password);
         user.activated = true;
 
-        await this.userService.update(user);
-        await confirmation.remove();
+        await this.userService.save(user);
+        await this.confirmationService.delete(confirmation);
 
         res.cookie('auth', await this.authorizationService.genJWT(user.id, user.email), process.env.env !== 'Testing' ? { domain: '.salvemundi.nl' } : {});
         res.status(200).send(user);

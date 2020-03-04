@@ -1,4 +1,4 @@
-import { Committee } from 'src/entities/committee.entity';
+import { Committee } from 'src/entities/core/committee.entity';
 
 export interface ICommitteeService {
     create(model: Committee): Promise<Committee>;

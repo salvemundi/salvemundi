@@ -99,8 +99,19 @@ export class EmailService {
       context
     };
 
-    return this.sendEmail(mail);
-  }
+    public sendRenewalEmail(user: User, confirmation: Confirmation) {
+        const mail = {
+            from: this.fromEmailAddress,
+            to: user.email,
+            subject: 'Je lidmaatschap is verlopen...',
+            template: 'renewal-membership',
+            context: {
+                firstName: user.firstName,
+                lastName: user.lastName,
+                baseUrl: process.env.REDIRECT_URL,
+                token: confirmation.token,
+            },
+        };
 
   private sendEmail(
     email: nodemailer.SendMailOptions

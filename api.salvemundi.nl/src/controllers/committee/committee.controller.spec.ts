@@ -2,7 +2,7 @@ import { Test } from '@nestjs/testing';
 import * as request from 'supertest';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { TestModule } from 'src/test.module';
-import { Committee } from 'src/entities/committee.entity';
+import { Committee } from 'src/entities/core/committee.entity';
 import randomCommission from 'src/services/committee/mock.committee.service';
 
 // TODO: Add test for authorization

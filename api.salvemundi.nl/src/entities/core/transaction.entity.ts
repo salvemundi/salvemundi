@@ -1,6 +1,6 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { User } from './user.entity';
-import { PaymentStatus } from '../controllers/payment/paymentstatus.enum';
+import { PaymentStatus } from '../../controllers/payment/paymentstatus.enum';
 
 @Entity('transaction')
 export class Transaction extends BaseEntity {

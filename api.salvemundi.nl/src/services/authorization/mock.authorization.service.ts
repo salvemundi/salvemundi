@@ -1,5 +1,5 @@
 import { IAuthorizationService } from './iAuthorization.service';
-import { User } from '../../entities/user.entity';
+import { User } from '../../entities/core/user.entity';
 import randomUser from '../user/mock.user.service';
 import { JWT } from './authorization.service';
 
