@@ -16,8 +16,7 @@ import Vue from "vue"; import { Component } from "vue-property-decorator";
       <b-col cols="12">
         <b-row v-if="form">
           <b-col cols="6">
-            <h2>Inschrijven voor {{ form.name }}</h2>
-            <p>{{ form.description }}</p>
+            <h2>Inschrijven voor FHICT Introductie 2020</h2>
             <b-form @submit.prevent="submit">
               <b-form-group
                 v-for="field in form.fields"
