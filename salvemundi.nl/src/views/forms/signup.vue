@@ -14,10 +14,9 @@ import Vue from "vue"; import { Component } from "vue-property-decorator";
         </b-container>
       </b-col>
       <b-col cols="12">
-        <b-row>
+        <b-row v-if="form">
           <b-col cols="6">
-            <h2>Inschrijven voor {{ form.name }}</h2>
-            <p>{{ form.description }}</p>
+            <h2>Inschrijven voor FHICT Introductie 2020</h2>
             <b-form @submit.prevent="submit">
               <b-form-group
                 v-for="field in form.fields"
@@ -48,7 +47,7 @@ import openApiContainer from "../../openApiContainer";
 @Component({})
 export default class FormSignup extends Vue {
   private form: any = {};
-  private formId: number;
+  private formId: number = 0;
 
   private eventService: EventService = openApiContainer.get<EventService>(
     "EventService"
@@ -58,13 +57,13 @@ export default class FormSignup extends Vue {
     this.formId = +this.$route.params.id;
 
     this.eventService.getForm(this.formId).subscribe((res: any) => {
-      this.form = res.data;
+      this.form = res;
     });
   }
 
-  private submit(e) {
-    const fields = [];
-    this.form.fields.forEach(field => {
+  private submit(e: any) {
+    const fields: any[] = [];
+    this.form.fields.forEach((field: any) => {
       fields.push({
         name: field.name,
         value: field.value
@@ -72,6 +71,7 @@ export default class FormSignup extends Vue {
     });
 
     this.eventService.signup(this.formId, { fields });
+    this.$router.push({ name: "form.completed" });
   }
 }
 

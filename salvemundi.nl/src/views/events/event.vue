@@ -1,6 +1,6 @@
 <template>
   <b-container v-if="event" class="my-3">
-    <b-row>
+    <b-row v-if="event.sections">
       <b-col cols="12">
         <h2>{{ event.title }}</h2>
         <p>{{ event.description }}</p>
@@ -61,7 +61,8 @@ export default class EventDetails extends Vue {
 
   private mounted() {
     this.eventService.getEvent(+this.$route.params.id).subscribe((res: any) => {
-      this.event = res.data;
+      console.log(res);
+      this.event = res;
       this.event.sections = [
         {
           columns: 12,
