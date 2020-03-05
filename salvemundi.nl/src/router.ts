@@ -13,6 +13,7 @@ import ConfirmAccount from "./views/home/confirmAccount.vue";
 import EventsOverview from "./views/events/index.vue";
 import EventDetail from "./views/events/event.vue";
 import FormSignup from "./views/forms/signup.vue";
+import FormCompleted from "./views/forms/completed.vue";
 import Renewal from "./views/home/renewal.vue";
 import Me from "./views/home/me.vue";
 import Privacy from "./views/privacy.vue";
@@ -155,6 +156,11 @@ export default new Router({
         path: "/:id/signup",
         component: FormSignup,
         name: "form.signup"
+      },
+      {
+        path: "/voltooid",
+        component: FormCompleted,
+        name: "form.completed"
       }
     ]),
     {

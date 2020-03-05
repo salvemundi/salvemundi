@@ -71,6 +71,7 @@ export default class FormSignup extends Vue {
     });
 
     this.eventService.signup(this.formId, { fields });
+    this.$router.push({ name: "form.completed" });
   }
 }
 
