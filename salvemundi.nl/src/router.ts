@@ -158,7 +158,7 @@ export default new Router({
         name: "form.signup"
       },
       {
-        path: "/voltooid",
+        path: "/completed",
         component: FormCompleted,
         name: "form.completed"
       }
