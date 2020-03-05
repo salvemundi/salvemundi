@@ -117,7 +117,7 @@ export class FormService {
         label: formField.label,
         pattern: formField.pattern,
         placeholder: formField.placeholder,
-        requried: formField.required,
+        required: formField.required,
         type: formField.type
       });
     });
