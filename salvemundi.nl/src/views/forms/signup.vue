@@ -58,7 +58,7 @@ export default class FormSignup extends Vue {
     this.formId = +this.$route.params.id;
 
     this.eventService.getForm(this.formId).subscribe((res: any) => {
-      this.form = res.data;
+      this.form = res;
     });
   }
 

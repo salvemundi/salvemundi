@@ -61,7 +61,8 @@ export default class EventDetails extends Vue {
 
   private mounted() {
     this.eventService.getEvent(+this.$route.params.id).subscribe((res: any) => {
-      this.event = res.data;
+      console.log(res);
+      this.event = res;
       this.event.sections = [
         {
           columns: 12,
