@@ -13,7 +13,7 @@ import ConfirmAccount from "./views/home/confirmAccount.vue";
 import EventsOverview from "./views/events/index.vue";
 import EventDetail from "./views/events/event.vue";
 import FormSignup from "./views/forms/signup.vue";
-import Renewal from "./views/dashboard/member/renewal.vue";
+import Renewal from "./views/home/renewal.vue";
 import Me from "./views/home/me.vue";
 import Privacy from "./views/privacy.vue";
 import IntroSchedule from "./views/events/extra/schedule.vue";
