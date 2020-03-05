@@ -1,6 +1,6 @@
 <template>
   <b-container v-if="event" class="my-3">
-    <b-row>
+    <b-row v-if="event.sections">
       <b-col cols="12">
         <h2>{{ event.title }}</h2>
         <p>{{ event.description }}</p>
