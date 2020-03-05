@@ -5,25 +5,52 @@
         <h2>{{ event.title }}</h2>
         <p>{{ event.description }}</p>
       </b-col>
+      <b-col cols="6">
+        <img
+          src="/intro/69623406_1139359282931735_3484550277695012864_o.jpg"
+          style="width: 100%;"
+          alt="alt"
+        />
+      </b-col>
+      <b-col cols="6">
+        <img
+          src="/intro/70476475_1139360476264949_5210568686154285056_o.jpg"
+          style="width: 100%;"
+          alt="alt"
+        />
+      </b-col>
+      <b-col> </b-col>
+
       <b-col
         v-for="(section, index) in event.sections"
         :key="index"
         :cols="section.columns"
       >
-        <h5>{{ section.heading }}</h5>
-        <b-col
-          v-for="(contentItem, index) in section.content"
-          :key="index"
-          :cols="contentItem.columns"
-          class="p-0"
-        >
-          <p v-if="contentItem.type === 'text'">{{ contentItem.content }}</p>
-          <p v-if="contentItem.type === 'button'">
-            <b-button variant="samu" :to="contentItem.to">{{
-              contentItem.content
-            }}</b-button>
-          </p>
-        </b-col>
+        <b-row>
+          <b-col>
+            <h5>{{ section.heading }}</h5>
+          </b-col>
+
+          <b-col
+            v-for="(contentItem, index) in section.content"
+            :key="index"
+            :cols="contentItem.columns"
+            class="p-0"
+          >
+            <p v-if="contentItem.type === 'text'">{{ contentItem.content }}</p>
+            <p v-if="contentItem.type === 'button'">
+              <b-button variant="samu" :to="contentItem.to">{{
+                contentItem.content
+              }}</b-button>
+            </p>
+            <img
+              v-if="contentItem.type === 'image'"
+              :src="contentItem.path"
+              style="width: 100%"
+              alt="foto"
+            />
+          </b-col>
+        </b-row>
       </b-col>
 
       <b-col cols="12" class="mt-2">

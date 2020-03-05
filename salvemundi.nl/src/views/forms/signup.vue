@@ -15,8 +15,8 @@ import Vue from "vue"; import { Component } from "vue-property-decorator";
       </b-col>
       <b-col cols="12">
         <b-row v-if="form">
-          <b-col cols="6">
-            <h2>Inschrijven voor FHICT Introductie 2020</h2>
+          <b-col cols="12" md="6">
+            <h2>Inschrijv en voor FHICT Introductie 2020</h2>
             <b-form @submit.prevent="submit">
               <b-form-group
                 v-for="field in form.fields"
@@ -33,6 +33,18 @@ import Vue from "vue"; import { Component } from "vue-property-decorator";
               </b-form-group>
               <b-button type="submit" variant="samu">Inschrijven</b-button>
             </b-form>
+          </b-col>
+          <b-col cols="12" md="6">
+            <img
+              src="/intro/69667110_1139358879598442_4109661709403160576_o.jpg"
+              style="width: 100%;"
+              alt="alt"
+            />
+            <img
+              src="/intro/IMG_20190929_201157.jpg"
+              style="width: 100%;"
+              alt="alt"
+            />
           </b-col>
         </b-row>
       </b-col>
