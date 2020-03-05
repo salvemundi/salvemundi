@@ -48,7 +48,7 @@ import openApiContainer from "../../openApiContainer";
 @Component({})
 export default class FormSignup extends Vue {
   private form: any = {};
-  private formId: number;
+  private formId: number = 0;
 
   private eventService: EventService = openApiContainer.get<EventService>(
     "EventService"
@@ -62,9 +62,9 @@ export default class FormSignup extends Vue {
     });
   }
 
-  private submit(e) {
-    const fields = [];
-    this.form.fields.forEach(field => {
+  private submit(e: any) {
+    const fields: any[] = [];
+    this.form.fields.forEach((field: any) => {
       fields.push({
         name: field.name,
         value: field.value
