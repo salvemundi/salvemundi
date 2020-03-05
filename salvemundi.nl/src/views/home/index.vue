@@ -28,7 +28,7 @@
             <b-button
               size="lg"
               :to="{
-                name: 'form.signup',
+                name: 'event.detail',
                 params: {
                   id: 1
                 }
