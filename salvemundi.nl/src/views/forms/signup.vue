@@ -36,12 +36,12 @@ import Vue from "vue"; import { Component } from "vue-property-decorator";
           </b-col>
           <b-col cols="12" md="6">
             <img
-              src="/intro/69667110_1139358879598442_4109661709403160576_o.jpg"
+              src="/introduction/69667110_1139358879598442_4109661709403160576_o.jpg"
               style="width: 100%;"
               alt="alt"
             />
             <img
-              src="/intro/IMG_20190929_201157.jpg"
+              src="/introduction/IMG_20190929_201157.jpg"
               style="width: 100%;"
               alt="alt"
             />

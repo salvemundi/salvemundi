@@ -7,14 +7,14 @@
       </b-col>
       <b-col cols="6">
         <img
-          src="/intro/69623406_1139359282931735_3484550277695012864_o.jpg"
+          src="/introduction/69623406_1139359282931735_3484550277695012864_o.jpg"
           style="width: 100%;"
           alt="alt"
         />
       </b-col>
       <b-col cols="6">
         <img
-          src="/intro/70476475_1139360476264949_5210568686154285056_o.jpg"
+          src="/introduction/70476475_1139360476264949_5210568686154285056_o.jpg"
           style="width: 100%;"
           alt="alt"
         />
