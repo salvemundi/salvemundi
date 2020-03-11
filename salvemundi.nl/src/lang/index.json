@@ -12,6 +12,10 @@
             "open_source": "We hebben een open-source project, wat betekend dat JIJ ook mee kan helpen. Als je een feature mist, kan je die zelf toevoegen! Voor meer informatie, zie onze",
             "projects": " projecten."
         },
+        "introduction": {
+            "header": "Belangrijk: Aanmelden introductie FHICT 2020!",
+            "info": "De FHICT-introductie is de leukste manier om je medestudenten te leren kennen. Het is een week vol avontuur en teambuilding in Eindhoven. Zo leer je ook de stad beter kennen. Wij vanuit Salve Mundi zijn druk bezig geweest om dit allemaal mogelijk te maken voor de nieuwe studenten. De introductie vindt plaats van maandag 24 augustus tot en met vrijdag 28 augustus. Houdt onze website en Facebook in de gaten voor updates!"
+        },
         "about_us": {
             "title": "Over ons",
             "hello_world": "Salve Mundi is de nieuwe studievereniging van Fontys Hogescholen ICT, opgericht inj 2017. Het is Latijn voor \"Hello World\" een typische zin die menig programmeur maar al te goed kent.",
@@ -72,6 +76,10 @@
             "not_done": "So the website is not yet ready.",
             "open_source": "We have an open source project, which means that YOU can also help. If you miss a feature, you can add it yourself! For more information, see our",
             "projects": " projects."
+        },
+        "introduction": {
+            "header": "Important: Register for the introduction of FHICT 2020!",
+            "info": "The FHICT introduction is the best way to get to know your fellow students. It is a week full of adventure and team building in Eindhoven. That way you also get to know the city better. We from Salve Mundi have been busy making this all possible for the new students. The introduction will take place from Monday 24 August up to and including Friday 28 August. Keep an eye on our website and Facebook for updates!"
         },
         "about_us": {
             "title": "About us",
