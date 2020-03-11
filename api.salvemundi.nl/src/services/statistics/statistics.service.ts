@@ -1,4 +1,4 @@
-import { PageView } from '../entities/statistic/page.views.entity';
+import { PageView } from '../../entities/statistic/page.views.entity';
 import { BaseEntity } from 'typeorm';
 
 export class StatisticService {
