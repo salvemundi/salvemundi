@@ -13,7 +13,7 @@ export class StatisticsController {
 
     @Get('pageview')
     @HttpCode(200)
-    @Auth('Statistics:Read')
+    @Auth('statistics:read')
     @ApiOperation({
         operationId: 'pageViewGetAll',
         summary: 'GetAll',

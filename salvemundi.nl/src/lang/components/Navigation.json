@@ -7,7 +7,8 @@
         "my_account": "Mijn account",
         "join_us_now": "Meld je aan!",
         "member": "Ledenadministratie",
-        "accountancy": "Boekhouden"
+        "accountancy": "Boekhouden",
+        "admin_home": "Home"
     },
     "en": {
         "select_language": "Language",
@@ -17,6 +18,7 @@
         "my_account": "My account",
         "join_us_now": "Join us now!",
         "member": "Memberadministration",
-        "accountancy": "Accountancy"
+        "accountancy": "Accountancy",
+        "admin_home": "Home"
     }
 }

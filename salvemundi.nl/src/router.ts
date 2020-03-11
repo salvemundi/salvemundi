@@ -24,6 +24,7 @@ import ImportAccountancy from './views/dashboard/accountancy/import.vue';
 import ActivateAccountancy from './views/dashboard/accountancy/activate.vue';
 import MutationAccountancy from './views/dashboard/accountancy/addMutation.vue';
 import SettingsAccountancy from './views/dashboard/accountancy/settings.vue';
+import DashboardHome from './views/dashboard/home.vue';
 
 Vue.use(Router);
 const withPrefix = (prefix: any, routes: any) =>
@@ -88,6 +89,10 @@ export default new Router({
       },
     ]),
     ...withPrefix('/dashboard', [
+      {
+        path: '/',
+        component: DashboardHome,
+      },
       ...withPrefix('/member', [
         {
           path: '/',

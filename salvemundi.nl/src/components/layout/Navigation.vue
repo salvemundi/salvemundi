@@ -27,8 +27,9 @@
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto" v-if="$route.path.split('/')[1] === 'dashboard'">
-          <b-nav-item href="/dashboard/member" v-if="$store.getters.hasScopeForMember">{{$t('member')}}</b-nav-item>
-          <b-nav-item href="/dashboard/accountancy" v-if="$store.getters.hasScopeForAccountancy">{{$t('accountancy')}}</b-nav-item>
+          <b-nav-item to="/dashboard/">{{$t('admin_home')}}</b-nav-item>
+          <b-nav-item to="/dashboard/member" v-if="$store.getters.hasScopeForMember">{{$t('member')}}</b-nav-item>
+          <b-nav-item to="/dashboard/accountancy" v-if="$store.getters.hasScopeForAccountancy">{{$t('accountancy')}}</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-container>
