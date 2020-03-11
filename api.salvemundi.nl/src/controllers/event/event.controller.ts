@@ -27,7 +27,7 @@ export class EventController {
     private readonly formService: FormService
   ) {}
 
-  // @Post("create")
+  @Post("create")
   async createEvent(
     @Me() user: User,
     @Body() eventDto: CreateEventDto
