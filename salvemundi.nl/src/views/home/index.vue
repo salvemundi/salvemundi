@@ -17,17 +17,8 @@
           <b-col cols="12">
             <h2>{{$t('introduction.header')}}</h2>
             <p>{{$t('introduction.info')}}</p>
-            <b-button
-              size="lg"
-              :to="{
-                name: 'event.detail',
-                params: {
-                  id: 1
-                }
-              }"
-              variant="samu"
-            >
-              Inschrijven
+            <b-button size="lg" :to="{ name: 'event.detail', params: { id: 1 } }" variant="samu">
+              {{$t('introduction.action')}}
             </b-button>
           </b-col>
         </b-row>
@@ -168,18 +159,29 @@
 import { Component, Vue } from 'vue-property-decorator';
 import EventItem from '@/components/layout/events/EventItem.vue';
 import CircleIcon from '@/components/basic/CircleIcon.vue';
+import { StatisticService } from '../../openapi/api/statistic.service';
+import openApiContainer from '@/openApiContainer';
 
-export default Vue.extend({
-  components: { EventItem, CircleIcon },
-  data() {
-    return {
-      loggedIn: false,
-    };
+@Component({
+  components: {
+    EventItem,
+    CircleIcon,
   },
-  async created() {
+})
+export default class Me extends Vue {
+  private statisticService: StatisticService = openApiContainer.get<StatisticService>('StatisticService');
+  private loggedIn = false;
+
+  constructor() {
+    super();
+
+    this.statisticService.pageViewNew().subscribe();
+  }
+
+  private async created() {
     this.loggedIn = await this.$store.dispatch('isLoggedIn');
-  },
-});
+  }
+}
 </script>
 <style lang="scss">
 .index {
