@@ -15,16 +15,8 @@
       <b-container>
         <b-row>
           <b-col cols="12">
-            <h2>Belangrijk: Aanmelden introductie FHICT 2020!</h2>
-            <p>
-              De FHICT-introductie is de leukste manier om je medestudenten te
-              leren kennen. Het is een week vol avontuur en teambuilding in
-              Eindhoven. Zo leer je ook de stad beter kennen. Wij vanuit Salve
-              Mundi zijn druk bezig geweest om dit allemaal mogelijk te maken
-              voor de nieuwe studenten. De introductie vindt plaats van maandag
-              24 augustus tot en met vrijdag 28 augustus. Houdt onze website en
-              Facebook in de gaten voor updates!
-            </p>
+            <h2>{{$t('introduction.header')}}</h2>
+            <p>{{$t('introduction.info')}}</p>
             <b-button
               size="lg"
               :to="{

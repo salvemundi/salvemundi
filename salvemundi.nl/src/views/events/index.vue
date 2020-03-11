@@ -2,8 +2,8 @@
   <b-container class="mt-3">
     <b-row>
       <b-col cols="12">
-        <h2>Evenementen</h2>
-        <p>Salve Mundi organiseert regelmatig evenementen voor leden en niet-leden. Hieronder kan je evenementen vinden die binnenkort zullen plaatsvinden.</p>
+        <h2>{{$t('header')}}</h2>
+        <p>{{$t('info')}}</p>
       </b-col>
     </b-row>
   </b-container>
@@ -13,11 +13,12 @@
 export default {
   data() {
     return {
-      events: []
+      events: [],
     };
-  }
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
+
+<i18n src="@/lang/events/index.json"></i18n>

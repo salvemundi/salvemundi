@@ -1,0 +1,12 @@
+{
+    "nl": {
+        "header": "Aanmelding voltooid!",
+        "email": "Je krijgt nu een mailtje met meer informatie van de introductie en je aanmelding.",
+        "not_completed_yet": "Houd er rekening mee dat je aanmelding nog niet helemaal is voltooid, check je email voor meer informatie hierover."
+    },
+    "en": {
+        "header": "Registration completed!",
+        "email": "You will now receive an email with more information about the introduction and your registration.",
+        "not_completed_yet": "Keep in mind that your registration is not yet complete, check your email for more information."
+    }
+}
