@@ -24,6 +24,9 @@ import { AccountancyController } from './controllers/accountancy/accountancy.con
 import { AccountancyService } from './services/accountancy/accountancy.service';
 import { RenewalJop } from './jops/renewal.jop';
 import { FormService } from './services/form/form.service';
+import { StatisticsController } from './controllers/statistics/statistics.controller';
+import { StatisticsJob } from './jops/statistics.jop';
+import { StatisticService } from './services/statistics/statistics.service';
 
 @Module({
   imports: [ScheduleModule.register()],
@@ -34,7 +37,8 @@ import { FormService } from './services/form/form.service';
     PaymentController,
     WebhookController,
     EventController,
-    AccountancyController
+    AccountancyController,
+    StatisticsController
   ],
   providers: [
     {
@@ -46,6 +50,7 @@ import { FormService } from './services/form/form.service';
       useClass: ScopeInterceptor
     },
     AccountancyJop,
+    StatisticsJob,
     RenewalJop,
     CommitteeService,
     MemberService,
@@ -58,7 +63,8 @@ import { FormService } from './services/form/form.service';
     EventService,
     FormService,
     FileService,
-    AccountancyService
+    AccountancyService,
+    StatisticService
   ]
 })
 export class AppModule {}
