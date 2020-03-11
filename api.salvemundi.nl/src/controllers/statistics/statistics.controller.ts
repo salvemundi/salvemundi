@@ -51,3 +51,4 @@ export class StatisticsController {
         await this.statisticRepository.save(pageView);
     }
 }
+
