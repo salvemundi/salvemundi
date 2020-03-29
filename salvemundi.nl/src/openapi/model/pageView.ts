@@ -11,8 +11,8 @@
  */
 
 
-export interface UpdateCommissionDto { 
+export interface PageView { 
     id: number;
-    name: string;
-    description: string;
+    date: string;
+    count: number;
 }

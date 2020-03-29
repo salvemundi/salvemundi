@@ -12,6 +12,8 @@ export class ScopeSeeder {
         new Scope('accountancy:read', 'Boekhouden bekijken', 6),
         new Scope('accountancy:write', 'Boekhouden bewerken', 7),
         new Scope('accountancy:delete', 'boekhouden verwijderen', 8),
+        new Scope('statistics:read', 'boekhouden verwijderen', 9),
+        new Scope('statistics:write', 'boekhouden verwijderen', 10),
     ];
 
     public async seed() {

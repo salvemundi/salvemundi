@@ -9,11 +9,11 @@
                   <SaMuLink :to="'member/' + row.item.id.toString()">{{$t('table.details')}}</SaMuLink>
                 </template>
 
-                <template v-slot:head(pcn)="data">{{$t('table.pcn')}}</template>
-                <template v-slot:head(firstName)="data">{{$t('table.first_name')}}</template>
-                <template v-slot:head(lastName)="data">{{$t('table.first_name')}}</template>
-                <template v-slot:head(memberTill)="data">{{$t('table.memberTill')}}</template>
-                <template v-slot:head(link)="data"></template>
+                <template v-slot:head(pcn)>{{$t('table.pcn')}}</template>
+                <template v-slot:head(firstName)>{{$t('table.first_name')}}</template>
+                <template v-slot:head(lastName)>{{$t('table.first_name')}}</template>
+                <template v-slot:head(memberTill)>{{$t('table.memberTill')}}</template>
+                <template v-slot:head(link)></template>
               </b-table>
             </b-col>
           </b-row>

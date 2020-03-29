@@ -1,0 +1,10 @@
+{
+    "nl": {
+        "welcome_message": "Welkom ",
+        "page_views_title": "Paginaweergaven"
+    },
+    "en": {
+        "welcome_message": "Welcome ",
+        "page_views_title": "Page views"
+    }
+}
