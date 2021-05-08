@@ -46,7 +46,7 @@
     "rxjs": "^6.5.3",
     "sha.js": "^2.4.11",
     "swagger-ui-express": "^4.1.2",
-    "typeorm": "^0.2.20",
+    "typeorm": "^0.2.25",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
